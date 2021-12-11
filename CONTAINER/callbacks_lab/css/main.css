@@ -1,0 +1,128 @@
+body {
+	margin: 0 auto;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+.nav-section {
+	margin: 0;
+	background: black;
+	color: white;
+	padding: 1em 0;
+}
+
+ul.nav-bar, li {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.nav-link {
+	color: #ddd;
+	text-decoration: none;
+	font-weight: 800;
+	padding: 1em;
+}
+
+.nav-link:hover {
+	color: white;
+}
+
+#drop-down:hover {
+	background: #3D3939;
+}
+
+.sub-nav {
+	display: none;
+	background: #3D3939;
+	width: 160px;
+	text-align: left;
+	padding: 2px;
+	transition: all 0.5s;
+}
+
+.sub-nav > li {
+	display: inline-block;
+	padding: 5px 0;
+}
+
+.sub-nav > li > a:hover {
+	
+}
+
+#drop-down:hover {
+	display: inline-block;
+}
+
+#drop-down:hover > .sub-nav {
+	display: block;
+	position: absolute;
+}
+
+.main-section {
+	margin: 0;
+	background: #01B8CB;
+	color: white;
+	padding: 4em 0 0 0;
+}
+
+h2.welcome-text {
+	color: black;
+}
+
+h1.welcome-text {
+	margin: 0.6em 0;
+	font-size: 3.5em;
+	font-weight: bolder;
+}
+
+p.welcome-text {
+	margin: 0 auto;
+	width: 40%;
+	font-size: 1.6em;
+	font-family: serif;
+	font-weight: lighter;
+}
+
+.button {
+	width: 200px;
+	margin: 2em auto 0 auto;
+	padding: 0.5em;
+	border-radius: 3px;
+	background: #FFCD18;
+	color: black;
+	font-weight: bold;
+}
+
+img.welcome-text {
+	margin-top: 1em;
+}
+
+.about-section {
+	padding: 2em 0;
+}
+
+.what-we-do-title {
+	font-size: 2em;
+	padding: 1em;
+}
+
+.what-we-do-item {
+	display: inline-block;
+	width: 30%;
+}
+
+.footer {
+	background: #ddd;
+	padding: 1em;
+}
+
+.footer-link {
+	color: #aaaaaa;
+	text-decoration: none;
+	margin: 0 30px;
+}
