@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8" />
+	<title>INTOXIC | slim tool</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="favicon.png" />
+	<link rel="stylesheet" href="assets/css/grid.css" />	
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<link rel="stylesheet" href="feedback/slider.css" />
+	<link rel="stylesheet" href="feedback/timer.css" />
+</head>
+<body>
+<!--[if lt IE 9]>
+<script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"></script>
+<![endif]-->
+<div class="intro-back">
+	<div class="main-container">
+	<div class="b-intro"> <!-- БЛОК ПРОМО -->
+		  	<div class="row">
+				<div class="intro__picture-list-box">
+					<div class="cols lg-cols_size-3 md-cols_size-3 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+						<div class="picture-list-item item-1">
+							Эффективность <br/>доказана клинически
+						</div>
+					</div>
+					<div class="cols lg-cols_size-3 md-cols_size-3 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+						<div class="picture-list-item item-2">
+							 Более 3500 <br/>отзывов
+						</div>
+					</div>
+				</div>
+			</div> 
+
+					<div class="logo-text">Intoxic</div>
+			<div class="row">
+				<div class="intro__picture-list-box_one-colum">
+					<div class="cols lg-cols_size-4 md-cols_size-4 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+						<div class="picture-list-item item-1">
+							Очищает от паразитов за 1 курс<span>Благодаря дубильным веществам</span>
+						</div>
+					</div>
+
+					<div class="cols lg-cols_size-5 md-cols_size-5 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+						<div class="picture-list-item item-2">
+							Оздоравливает и защищает<span>печень, сердце, легкие, желудок, кожу</span>
+						</div>
+					</div>
+
+					<div class="cols lg-cols_size-6 md-cols_size-6 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+						<div class="picture-list-item item-3">
+							Избавляет от гниения в кишечнике<span>обезвреживает яйца паразитов благодаря медвежьей желчи</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row order-block">
+				<div class="cols lg-cols_size-2 md-cols_size-2 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+					<div class="pack-box">	
+						<img src="assets/images/pack.png">
+					</div>
+				</div>
+					<div class="cols lg-cols_size-3 md-cols_size-3 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+						<div class="discount-border-block">
+							<div class="discount-block">
+								<div class="discount-value">50</div>
+								<div class="discount-percent">%</div>
+								<div class="discount-label">скидка</div>
+							</div>
+						</div>
+					</div>
+					<div class="cols lg-cols_size-3 md-cols_size-3 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+						<form id="ajax-contact" method="post" action="assets/php/mailer.php" class="intro-form" >
+							<div class="text-PriceOnly">Всего за 1 980 р</div>
+							<div class="text-PriceValue">980 рублей</div>
+							<input type="text" id="name" class="input" required value=""  placeholder="Представьтесь, пожалуйста">
+							<input type="phone" id="phone" class="input" required value=""  placeholder="Ваш номер телефон">
+							<input type="submit" value="Заказать сейчас" class="btn btn-order">
+						</form>
+					</div>
+			</div>
+
+        <div class="head logo-smtext"><span>надежное</span> средство от паразитов!</div>
+	</div> <!-- БЛОК ПРОМО ENDS -->
+	</div> <!-- MAIN CONTAINER ENDS -->	
+</div>
+
+	<div class="main-container">		
+	<div class="row">
+		<div class="b-warning"> <!-- БЛОК ПРИЗНАКИ -->
+			<div class="images-position cols lg-cols_size-7 md-cols_size-12">
+            <div class="row">
+                <img class="stamp" src="TMP/img/stamp.png" alt="stamp">
+            </div>
+            
+            <div class="row" id="million">
+                <div><span>15 000 000</span> <br>человек ежегодно умирают, <br>становясь жертвами паразитов!</div>
+            </div>
+            
+            <div class="row parasite">
+            <div class="cols lg-cols_size-1 md-cols_size-1">
+                <img src="TMP/img/Layer%208.png" alt="layer08">
+                <div>Это источники инфекционных и онко-заболеваний</div>   
+            </div>
+
+            <div class="cols lg-cols_size-1 md-cols_size-1" id="move-down">
+                <img src="TMP/img/Layer%209.png" alt="layer09">
+                <div>Поражают ваши печень, легкие, мозг и сердце</div>    
+            </div>
+
+            <div class="cols lg-cols_size-1 md-cols_size-1" id="move-down">
+                <img src="TMP/img/Layer%2010.png" alt="layer10">
+                <div>Способны вырасти до 40 сми отложить 250 яиц за 1 раз</div>    
+            </div>
+            </div>
+            </div>
+            <div class="text-position cols lg-cols_size-4 md-cols_size-4">
+             
+            <legend class="caution"><span>Будьте бдительны!</span><br>Проверьте себя на <br>признаки заражения!</legend>
+			 <ul class="list-of-reasons">    
+                <li>Нервозность, нарушение сна и аппетита</li>
+                <li>Аллергия (слезящиеся глаза, 
+                высыпания, насморк)</li>
+                <li>Частые головные боли, запоры или понос</li>
+                <li>Частые простуды, ангина,
+                заложенность носа</li>
+                <li>Боли в суставах и мышцах</li>
+                <li>Хроническая усталость (Вы быстро устаете, чем бы ни занимались)</li>
+                <li>Темные круги, мешки под глазами</li>
+            </ul>
+			</div>
+		</div> <!-- БЛОК ПРИЗНАКИ ENDS -->
+	</div> 
+	<div class="row full">
+		<div class="b-order"> <!-- БЛОК ВОЗДЕЙСТВИЕ + ФОРМА ЗАКАЗА ПРЕПАРАТА -->
+		<div class="suborder cols lg-cols_size-7 md-cols_size-7 sm-cols_size-3 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+            <div class="organism caution">Как <span>действует</span> Intoxic® <br>на зараженный организм?</div> 
+            <div class="row">
+                <div class="line-1 cols lg-cols_size-3 md-cols_size-3 sm-cols_size-3 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+                <img src="TMP/img/Layer%2012.png" alt="layer12">   
+                <div><span>Сок плодов</span> Сумаха выводит глистов, избавляет от гниения в кишечнике</div>
+                </div> 
+                <div class="line-2 cols lg-cols_size-3 md-cols_size-3 sm-cols_size-3 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+                <img src="TMP/img/Layer%2014.png" alt="layer14">   
+                <div><span>Синтез 20-ти вспомогательных компонентов</span> восстанавливает защиту внутренних органов</div>
+                </div> 
+            </div>
+            
+            <div class="row">
+               <div class="line-3 cols lg-cols_size-3 md-cols_size-3 sm-cols_size-3 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+                    <img src="TMP/img/Layer%2013.png" alt="layer13">        
+                   <div><span>Ферула Джунгарская</span> убивает болезнетворные вирусы, грибки и бактерии</div>
+                </div>
+                <div class="line-4 cols lg-cols_size-3 md-cols_size-3 sm-cols_size-3 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">   
+                    <img src="TMP/img/Layer%2011.png" alt="layer11">      
+                    <div><span>Медвежья желчь</span> расщепляет и мягко выводит яйца паразитов</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="box-maket cols lg-cols_size-1 md-cols_size-1 sm-cols_size-3 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+            <img class="fifty-percent" src="TMP/img/box%20.png" alt="box">
+        </div>
+        
+        <div class="form-position cols lg-cols_size-1 md-cols_size-1 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+            <img class="fifty-form" src="TMP/img/stamp%20copy.png" alt="stamp-copy">
+            <form id="ajax-contact" method="post" action="assets/php/mailer.php" class="mail-form" >
+				<div class="text-PriceOnly">Всего за 1 980 р</div>
+				    <div class="text-PriceValue">980 рублей</div>
+				    <input type="text" id="name" class="input" required value=""  placeholder="Представьтесь, пожалуйста">
+				    <input type="phone" id="phone" class="input" required value=""  placeholder="Ваш номер телефон">
+				    <input type="submit" value="Заказать сейчас" class="btn btn-order">
+            </form>
+        </div>
+		</div>
+	</div> 
+	<div class="row">
+		<div class="b-source"> <!-- БЛОК КАК ПАРАЗИТЫ ПОПАДАЮТ -->
+			<div class="how logo-xsmtext">Как паразиты попадают в организм?</div>
+            
+            <div class="linear item-1 cols lg-cols_size-3 md-cols_size-3">
+                <div>Переносчики инфекции</div>
+            </div>
+            			        
+			<div class="linear item-2 cols lg-cols_size-3 md-cols_size-3">
+                <div>Домашние животные,насекомые</div>    
+            </div>
+                
+			<div class="linear item-3 cols lg-cols_size-3 md-cols_size-3">
+			    <div>Вода, почва и еда</div>          
+            </div>
+            
+            <div class="linear item-4 cols lg-cols_size-3 md-cols_size-3">
+                <div>Предметы и места общего пользования</div>
+            </div>
+		</div>
+	</div> 
+	<div class="row">
+		<div class="b-researches"> <!-- БЛОК КЛИНИЧЕСКИЕ ИССЛЕДОВАНИЯ -->
+		    <div class="cols lg-cols_size-4 md-cols_size-4" id="doctor">
+			<div class="logo-doctor">Мнение эксперта <br>об Intoxic®</div>
+			<div class="text-doctor">Заболевания, вызванные паразитами, по частоте проявлений уступают лишь простудным. Средств против паразитов сейчас немало, но одним из первых появился именно Intoxic, за десять лет он успел зарекомендовать себя, как надежное средство с наиболее быстрым результатом. Я прописываю Intoxic своим пациентам для лечения и профилактики паразитных заражений.</div>
+			<div class="name-doctor">Тимур Лебедев,врач-токсиколог, К. М. Н.Стаж работы: 18 лет</div>
+            </div>
+			 
+            <div class="statistic cols lg-cols_size-7 md-cols_size-7">			               
+                <div class="no-statistic logo-xsmtext"><span>Результаты</span> клинических исследований</div>
+			<div class="no-statistic desease">Исследование проводилось в условиях стационара на добровольцах с паразитарными заболеваниями</div>
+			
+			<div class="results caution">Результаты 1 группы — плацебо</div>
+            <div class="page-diagram">
+                <div id="firstid"><span>0%</span>  Устранение гельминтоза и яиц</div>
+                <div><span>2%</span>  Устранение сопутствующих диагнозов</div>
+			
+			<div class="results-2 caution">Результаты 2 группы — Intoxic</div>
+            <img class="secondbox" src="TMP/img/5/Layer%201%20copy.png" alt="layer-copy">
+                <div id="firstid"><span>100%</span>Устранение гельминтоза и яиц</div>
+                <div><span>80%</span> Нормализация функций и состояния поджелудочной</div>
+                <div><span>90%</span> Устранение аллергического дерматита</div>
+                <div><span>90%</span> Устранение гастрита, язвы, диареи</div>
+                <div><span>100%</span>Устранение анемии</div>
+			         
+            </div>			     
+            </div>
+		</div>
+	</div> 
+	<div class="row">
+		<div class="b-benefits"> <!-- БЛОК ЧЕМ INTOXIC ЛУЧШЕ -->
+            <div class="center-align logo-xsmtext">Чем Intoxic® <span>лучше</span> специальных химических препаратов?</div>
+        <div class="cols lg-cols_size-4 md-cols_size-4" id="imggrid">
+            <img src="TMP/img/6/Layer%2033.png" alt="layer33">    
+		    <div class="short-center logo-xsmtext">Сертифицировано</div>
+		    <div>Сертифицированное, рекомендуемое врачами-гельминтологами средство для избавления от паразитов в домашних условиях</div>
+        </div>
+        <div class="cols lg-cols_size-4 md-cols_size-4" id="imggrid">
+            <img src="TMP/img/6/Layer%2031.png" alt="layer31">
+            <div class="short-center logo-xsmtext">Вкусно</div>
+            <div>Имеет приятный вкус, который понравится детям</div>
+        </div>
+        <div class="cols lg-cols_size-4 md-cols_size-4" id="imggrid">
+            <img src="TMP/img/6/Layer%2032.png" alt="layer32">
+            <div class="short-center logo-xsmtext">Экологично</div>
+            <div>Состоит исключительно из лекарственных растений, собранных в экологически чистых местах</div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="cols lg-cols_size-4 md-cols_size-4" id="imggrid">
+            <img src="TMP/img/6/Layer%2034.png" alt="layer34">
+            <div class="short-center logo-xsmtext">Сюда какое-то слово</div>
+            <div>Не имеет побочных действий (в отличие от химических таблеток, которые вызывают головокружения, тошноту, рвоту, ухудшаютбиохимические показатели печени)</div>
+        </div>
+        <div class="cols lg-cols_size-4 md-cols_size-4" id="imggrid">
+            <img src="TMP/img/6/Layer%2035.png" alt="layer35">
+            <div class="short-center logo-xsmtext">Полезно</div>
+            <div>Полностью натуральное ибезопасное детокс-средство,а значит, можно пить безназначения врача</div>
+        </div>
+        <div class="cols lg-cols_size-4 md-cols_size-4" id="imggrid">
+            <div class="logo-xsmtext" style="margin: 0;">Способ применения</div>
+            
+            <div class="listimg item-1">
+                <div id="strong">Для взрослых</div>
+                <div>Применять 2 раза в день
+                за 30 минут до еды Курс приема 30 дней</div>
+            </div>
+            
+            <div class="listimg item-2">
+                <div id="strong">Для детей 6-12 лет</div>
+                <div>Применять 2 раза в день
+                за 30 минут до еды Курс приема 20 дней</div>
+            </div>
+
+            <div class="listimg item-3">
+                <div id="strong">Для детей 3-6 лет</div>
+                <div>Применять 2 раза в день
+                за 30 минут до еды Курс приема 10 дней</div>
+            </div>
+            </div>
+        </div>
+	</div> 
+	<div class="row full">
+		<div class="b-order"> <!-- БЛОК ВОЗДЕЙСТВИЕ + ФОРМА ЗАКАЗА ПРЕПАРАТА -->
+		<div class="rectangle cols lg-cols_size-7 md-cols_size-7 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+			<div class="organism caution">Вы <span>здоровы</span>, благодаря Intoxic®и усиленному иммунитету!</div>                   
+			<div class="row cell item-1">
+                <div>Паразиты исчезли из вашей жизни навсегда, а вместе с ними и болезни! Вы и ваши близкие — здоровы!</div>
+            </div>           
+			
+			<div class="row cell item-2">
+			 <div>Пищеварение и стул в норме. Крепкий сон и высокая работоспособность. Вы больше успеваете и не устаете!</div>
+            </div>
+			
+			<div class="row cell item-3">
+                <div>Отличное состояние кожи, волос и ногтей. Вы молодеете внешне. Аллергия прошла!</div>  
+            </div>
+        </div>
+            
+		<div class="box-maket cols lg-cols_size-1 md-cols_size-1 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">	
+            <img class="fifty-percent" src="TMP/img/box%20.png" alt="box">
+        </div>
+        
+        <div class="form-position cols lg-cols_size-1 md-cols_size-1 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+           <img class="fifty-form" src="TMP/img/stamp%20copy.png" alt="stamp-copy">
+            <form id="ajax-contact" method="post" action="assets/php/mailer.php" class="mail-form" >
+				<div class="text-PriceOnly">Всего за 1 980 р</div>
+				    <div class="text-PriceValue">980 рублей</div>
+				    <input type="text" id="name" class="input" required value=""  placeholder="Представьтесь, пожалуйста">
+				    <input type="phone" id="phone" class="input" required value=""  placeholder="Ваш номер телефон">
+				    <input type="submit" value="Заказать сейчас" class="btn btn-order">
+            </form>
+        </div>
+		</div>
+	</div> 
+	<div class="row">
+		<div class="b-reviews short-center"> <!-- БЛОК ОТЗЫВЫ -->
+            <div class="logo-xsmtext">Что говорят те, кто уже <span>попробовал</span> Intoxic® ?</div>
+            <!-- <img src="TMP/img/mail-2.png" alt="mail"> -->
+            <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <div class="review">
+                                    <img src="TMP/img/mail-1.png" alt="mail1">
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="review">
+                                    <img src="TMP/img/mail-1.png" alt="mail2">
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="review">
+                                    <img src="TMP/img/mail-1.png" alt="mail3">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+		</div>
+	</div> 
+	<div class="row">
+		<div class="b-certificates"> <!-- БЛОК СЕРТИФИКАТЫ -->
+			<div class="short-center logo-xsmtext">Продукция сертифицирована</div>
+			<img src="TMP/img/10/1.png" alt="img1">
+			<img src="TMP/img/10/2.png" alt="img2">
+			<img class="firstimg" src="TMP/img/10/3.png" alt="img3">
+			<img class="secondimg" src="TMP/img/10/Layer%2054%20copy.png" alt="layer54">
+			<img src="TMP/img/10/4.png" alt="img4">  
+		</div>
+	</div> 
+	<div class="row full">
+		<div class="b-order"> <!-- БЛОК ПРОВЕРКА ПОДЛИННОСТИ + ФОРМА ЗАКАЗА ПРЕПАРАТА -->
+		<div class="rectangle cols lg-cols_size-5 md-cols_size-5 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+			<div class="organism logo-xsmtext">Остерегайтесь подделок!</div>
+			<div class="tab">С ростом популярности intoxic на российском рынке, участились случаи подделок по бросовой цене. В настоящей упаковке обязательно должна быть инструкция на детокс-средство intoxic на бумаге хорошего качества и сертификат соответствия</div>
+			
+			<input type="text" id="name" class="input" style="float: left; margin: 10px 5px 20px 20px; width: 230px;" required value=""  placeholder="Введите код">       
+			<input type="submit" style="float: right; margin: 10px 20px 20px 5px; width: 200px;" value="Проверить код" class="btn btn-order">    
+            
+			<div class="tab1">Продукт продается в оригинальной упаковке с уникальным регистрационным кодом! Найдите код на упаковке и проверьте его подлинность.</div>
+			<img class="intoxic" src="TMP/img/11/Layer%2029.png" alt="layer29">  
+		</div>
+		<div class="box-maket cols lg-cols_size-2 md-cols_size-2 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+            <img class="fifty-percent" src="TMP/img/box%20.png" alt="box">
+        </div>
+        
+        <div class="form-position cols lg-cols_size-3 md-cols_size-3 sm-cols_size-6 x-sm-cols_size-6 xsm-cols_size-12 x-xsm-cols_size-12">
+           <img class="fifty-form" src="TMP/img/stamp%20copy.png" alt="stamp-copy">
+            <form id="ajax-contact" method="post" action="assets/php/mailer.php" class="mail-form" >
+				<div class="text-PriceOnly">Всего за 1 980 р</div>
+				    <div class="text-PriceValue">980 рублей</div>
+				    <input type="text" id="name" class="input" required value=""  placeholder="Представьтесь, пожалуйста">
+				    <input type="phone" id="phone" class="input" required value=""  placeholder="Ваш номер телефон">
+				    <input type="submit" value="Заказать сейчас" class="btn btn-order">
+            </form>
+        </div>
+        </div>
+	</div> 
+	<div class="row">
+		<div class="b-deal"> <!-- БЛОК КАК МЫ РАБОТАЕМ -->
+			<div class="short-center logo-xsmtext">Как мы работаем</div>
+			<div class="deal-with">      
+                <div class="item-1 cols lg-cols_size-3 md-cols_size-3">
+                    <div>Вы оставляете заявку на сайте</div>
+                </div>
+                
+                <div class="item-2 cols lg-cols_size-3 md-cols_size-3">
+                    <div>Мы связываемся с вами</div>                
+                </div>
+                
+                <div class="item-3 cols lg-cols_size-3 md-cols_size-3">
+                    <div>Отправляем вашу посылку</div>
+                </div>
+                
+                <div class="item-4 cols lg-cols_size-3 md-cols_size-3">
+                    <div>Вы оплачиваете при получении</div>
+                </div>
+			</div>
+		</div>
+	</div> 
+
+</div><!--main-container-->
+<!-- JS LIBRARIES -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="feedback/slider.js"></script>
+<script src="feedback/timer.js"></script>
+<script src="feedback/script.js"></script>
+</body>
+</html>

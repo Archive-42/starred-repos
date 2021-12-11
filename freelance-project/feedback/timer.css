@@ -1,0 +1,73 @@
+.timer {
+    width: 235px;
+    margin: auto;
+    text-align: center;
+}
+
+.timer .title {
+    margin-bottom: 20px;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 500;
+}
+
+.timer .block {
+    float: left;
+}
+.timer .block .rect {
+    width: 60px;
+    height: 60px;
+	margin: auto auto 10px;
+    /*padding: 5px 5px;*/
+    background-color: #FFFFFF;
+    font-family: 'Open Sans', sans-serif;
+    color: #000;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 60px;
+    border-radius: 3px;
+}
+
+.timer .block .label {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.timer .points {
+    float: left;
+    width: 20px;
+    height: 60px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 60px;
+}
+
+
+@media screen and (max-width: 480px) {
+
+
+
+}
+
+@media screen and (max-width: 640px) {
+
+
+
+}
+
+@media screen and (max-width: 768px) {
+
+
+
+}
+
+@media screen and (max-width: 970px) {
+
+
+
+}
