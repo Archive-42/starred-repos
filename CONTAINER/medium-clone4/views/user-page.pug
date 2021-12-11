@@ -1,0 +1,34 @@
+extends layout
+block content
+    div(class="header")
+        div(class="flex-base")
+            h1(class="user-name") #{user.firstName} #{user.lastName}
+            h4(class="user-follows") 
+                span(class="numFollows") #{numFollows} 
+                span Followers
+        //- h4(class="user-about") About
+        if session.auth 
+          if user.id !== session.auth.userId
+            if isFollowing
+                button(class="user-unfollow-button" id=user.id) Following
+                button(class="user-follow-button hidden" id=user.id) Follow
+            if !isFollowing
+                button(class="user-unfollow-button hidden" id=user.id) Following
+                button(class="user-follow-button" id=user.id) Follow
+            div(class='hidden userId' id=session.auth.userId)
+    div(class="articles")
+        each article in articles
+            div(class="article" )
+                h1
+                    a(href=`/articles/${article.id}` class="article-title-multi")=article.title
+                p(class="article-body-single align-left")=article.body.substr(0, 300) + '...'
+                div(class="mb-40")
+                  a(class= 'read-more' href=`/articles/${article.id}`) Read More
+                if session.auth
+                    if (session.auth.userId == article.userId)
+                        div(class="edit-article-button")
+                        a(href=`/articles/${article.id}/edit` class="heroButton editArticle edit-article-button") Edit Poem
+    
+              
+    script(src="/javascripts/follows.js")
+    
