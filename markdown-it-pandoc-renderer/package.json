@@ -1,0 +1,33 @@
+{
+  "name": "markdown-it-pandoc-renderer",
+  "version": "1.1.3",
+  "description": "A Markdown-it renderer that generates Pandoc compatible AST.",
+  "main": "markdown-it-pandoc-renderer.js",
+  "scripts": {
+    "test": "gulp test lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/classeur/markdown-it-pandoc-renderer.git"
+  },
+  "author": "Benoit Schweblin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/classeur/markdown-it-pandoc-renderer/issues"
+  },
+  "homepage": "https://github.com/classeur/markdown-it-pandoc-renderer#readme",
+  "devDependencies": {
+    "clgulp": "^1.1.0",
+    "gulp": "^3.9.0",
+    "gulp-spawn-mocha": "^2.2.1",
+    "markdown-it": "^5.0.2",
+    "markdown-it-abbr": "^1.0.0",
+    "markdown-it-anchor": "^2.3.2",
+    "markdown-it-deflist": "^2.0.0",
+    "markdown-it-footnote": "^2.0.0",
+    "markdown-it-mathjax": "^1.0.0",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
+    "should": "^8.0.0"
+  }
+}
