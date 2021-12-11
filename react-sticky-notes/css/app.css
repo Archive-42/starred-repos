@@ -1,0 +1,14 @@
+#comments-block {
+    max-width: 560px;
+    min-width: 200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.btn-margin-top {
+    margin-top: 4px;
+}
+
+.btn-margin-bottom {
+    margin-bottom: 20px;
+}

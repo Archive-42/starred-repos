@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Basic React</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+
+<div class="page-header">
+  <h1 class="text-center">Sticky Notes
+    <small>made with React</small>
+  </h1>
+</div>
+<div id="comments-block"></div>
+
+<body>
+  <script type="text/babel">
+    var Comment = React.createClass({
+      getInitialState: function() {
+        return { isEditing: false }
+      },
+      save: function() {
+        var newComment = this.refs.newText.value;
+        this.props.updateCommentFunc(newComment, this.props.index);
+        this.setState({ isEditing: false });
+      },
+      edit: function() {
+        this.setState({ isEditing: true });
+      },
+      remove: function() {
+        this.props.removeCommentFunc(this.props.index);
+      },
+      renderNormal: function() {
+        return (
+          <div className="panel panel-default">
+            <div className="panel-body">
+              <h4>{this.props.children}</h4>
+              <div className="btn-group" role="group" aria-label="...">
+                <button className="btn btn-primary" onClick={this.edit}>Edit</button>
+                <button className="btn btn-danger" onClick={this.remove}>Remove</button>
+              </div>
+            </div>
+          </div>
+        );
+      },
+      renderEditMode: function() {
+        return (
+          <div className="panel panel-default">
+            <div className="panel-body">
+              <textarea ref="newText" defaultValue={this.props.children} className="form-control" rows="3"></textarea>
+              <button className="btn btn-success pull-right btn-margin-top" onClick={this.save}>Save</button>
+            </div>
+          </div>
+        );
+      },
+      render: function() {
+        if (this.state.isEditing) {
+          return this.renderEditMode();
+        } else {
+          return this.renderNormal();
+        }
+      }
+    });
+
+    var Board = React.createClass({
+      getInitialState: function() {
+        return {
+          comments: [
+            "Watch Interstellar, The Dark Knight, Prestige",
+            "Go to Goa for a vacation in December",
+            "Take parents for a nice dinner to a Chinese restaurant"
+          ]
+        }
+      },
+      addNewComment: function(text) {
+        var arr = this.state.comments;
+        arr.push(text);
+        this.setState({comments: arr});
+      },
+      updateComment: function(text, i) {
+        var arr = this.state.comments;
+        arr[i] = text;
+        this.setState({comments: arr});
+      },
+      removeComment: function(i) {
+        var arr = this.state.comments;
+        arr.splice(i, 1);
+        this.setState({comments: arr});
+      },
+      eachComment: function(item, i) {
+        return (
+          <Comment key={i} index={i}
+            updateCommentFunc={this.updateComment}
+            removeCommentFunc={this.removeComment}>
+            {item}
+          </Comment>
+        );
+      },
+      render: function() {
+        return (
+          <div>
+            <button className="btn btn-success btn-margin-bottom btn-block"
+              onClick={this.addNewComment.bind(null, "...")}>
+              Add New
+            </button>
+            { this.state.comments.map(this.eachComment) }
+          </div>
+        );
+      }
+    });
+
+    ReactDOM.render(<Board/>, document.getElementById("comments-block"));
+  </script>
+  <script src="./src/react.js"></script>
+  <script src="./src/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
+</body>
+<html>
