@@ -1,0 +1,1939 @@
+git add ./CONTAINER/30-seconds-blog/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/3.1-firebase-basics/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/3Blue1Brown.com/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/algoliasearch-helper-js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/algorithms/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/algo-visualizer/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/All-About-Programming/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/allOrigins/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/andyruwruw/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/ant-design/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/applied-ml/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/art-of-js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/art-of-node/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/art-of-python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Aspose.Words-for-.NET/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/A-to-Z-Resources-for-Students/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/audioconverter/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/audiolib.js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome-algorithms/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome-bootstrappers/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome-cheatsheet/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Awesome-Ethical-Hacking-Resources/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome-gatsby/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome-github-profiles/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome-guitar/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome-jamstack/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Awesome-Linux-Software/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome-nodejs-projects/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome-resources/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome-selfhosted/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome-serverless/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome-technical-writing/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/awesome-uses/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Back-End/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/BadReads/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/basic-authentication/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/bass-station/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/beakerbrowser.com/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/beaker-core/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/beaker-editor-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/beaker-search-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/beaker-user-website-template/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/beaker-virtual-fs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/beginning-javascript/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/beginning-python-3ed/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/bgoonz/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/BGOONZ_BLOG_2.0/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/bin/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/BinaryTree/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/birds-search/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/blitz/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/blog-code-samples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/blog-post-workflow/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/boilerplate-npm/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/book-example/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/BOOKS/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Book-TDD-Web-Dev-Python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/bootstrap/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/budibase/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/calc-II/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/callbacks_lab/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/cheat.sh/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/CheatSheets/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/cheesits456/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/claviska.github.io/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/clean-code-javascript/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/cloud/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/code.ashish.me/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/codebases/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Codecademy/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/code-catalog-python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/code-guide/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/CodeNote/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/code-prettify/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/codesandbox-client/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/codesandbox-templates/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/CodeSignal-Solution/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/codesignal-solutions/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/CodeSignal-WorkingSolutions/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/code-vault/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/codeviz/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/codingchallenge2015/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/coding-challenges/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/coding-interview-university/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/cody/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/complete-javascript-course/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/computer-science-flash-cards/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/config-files/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/continuous-reforestation/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/contributing-template/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/conwaysgameoflife/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/copilot-docs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/core/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/core-js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/create-instantsearch-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/create-react-app-template/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/css-exercises/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Data-Science-For-Beginners/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/data_structure/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/datastructures/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Data-Structures-and-Algorithms-DSA/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/db-cookie-store/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Design-Resources/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/design-resources-for-developers/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/developer.chrome.com/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/devsnippets/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/docs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/docsearch/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/docsify/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/docusaurus-lunr-search/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Dopefolio/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/dotfiles/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/dragonstack-scripts/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/DS-ALGO-OFFICIAL/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/dsviz/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/ecma262/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/elasticlunr.js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/electron/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Elements-of-Functional-Programming-in-Python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/ember-islands/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/ember-math-helpers/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/en-keyword-extractor/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/ES6-Guide/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/evoingram/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/examples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/express-photo-finder-using-unsplash-api/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/express-starter/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/family-promise-service-tracker-fe-a/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/faunadb-js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/fetch/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/files.txt
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/FileSystemBrowser/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Font-Awesome/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/framework-info/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/freelance-project/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/free-programming-books/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Front-End/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/fucking-algorithm/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/full-stack-blog/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/fullstack-graphql-airbnb-clone/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/garimasingh128/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/gcp-datastore-cloud-functions-realworld-example-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/geeksforgeeks/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/GeeksForGeeksScrapper/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/generative_ai_with_tensorflow/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/gistflow/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/gist-puller/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/git-extras/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/github-actions-for-packages-demo/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Github-Explorer/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Github-Ranking/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/gitlab-repo-create/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/good-celery/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/google-kgsearch/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/gravity-tooltips/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/grunt-template/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/guilyx/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/hackerrank-full-stack/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/hacker-scripts/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Hands-On-Generative-AI-with-Python-and-TensorFlow-2/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/hashTableExample/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/help/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/hiring-without-whiteboards/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/HTMHell/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/html5-boilerplate/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/human_aware_rl/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/igniteui-react-wrappers/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/infinite-list/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/interactive-examples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/INTERVIEW-PREP-COMPLETE/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/intro-to-python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/jackfrued.github.io/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/jamstackthemes/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/jamtemplates.com/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/java8-tutorial/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/javascript/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Javascript/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/javascript_curriculum/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/javascript-exercises/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/jekyll-seo-tag/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/jquery-ajaxSubmit/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/jquery_exercise_2/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/JS_callbacks_lecture_8-12/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/js-code-snippets/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/js-data-structures-and-algorithms/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/jsfrompython/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/json-server/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/js-range/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/js-to-json-logic/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/just-the-docs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/kap/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/khalby786/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/lab-dom-ironhack-cart/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/lab-javascript-basic-algorithms/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/lab-javascript-clue/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/lab-javascript-vikings/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Lambda/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/LambdaSchoolTA/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/learnGitBranching/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/learning-area/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Learning-Redux/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/learn-javascript/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/learn-node-tutorial/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/learn-redux/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/leetcode/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/LeetCode/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Leetcode-JS-PY-MD/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/LeetHub/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/lepto/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/libris-gatsby/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/machine-learning/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/machine_learning_complete/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/markdown-it-pandoc-renderer/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/markdown-to-medium-tool/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/marketing-dashboard-sample/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/markmap/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/medium-clone4/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/medusa/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/mentorship/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/merge-all-the-things/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/metronome/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/minimal-mistakes/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/minimal-starter/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/mith-static/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/ML-For-Beginners/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/monaco-editor/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/ms/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/MultiUser-Blog/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/music_source_separation/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/muzic/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/myDrive/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/nbconvert/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/nested-data-structure-traversal/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/neural-networks-and-deep-learning/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/newPortfolio/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/next-cms-ghost/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/next-js-e-commerce2/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/next-learn/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/next-server-components/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/nhucleus.github.io/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/node-auth/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/node-bulletin-board/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/node-express-course/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/NodeFloyd/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/node-full-text-search/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/nodejs-api-boilerplate/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/nodejs-clone-extend/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/node-server/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/node-spotify-web/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/notion/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/now-examples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/npm/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/nsfw_data_scraper/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/nvm-windows/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/OpenDAW/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/opensource.guide/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Particle/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/partytown/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/pedalboard/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/perseus/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/pnpm.github.io/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/pocket/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/practice-python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/prettier-formatting-example/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/PrettyDocs-Theme/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/pro-express.js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/project-based-tutorials-in-c/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/project-pages/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Projects/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/pro-react-16/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/ps1-wizard/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/public-apis/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/py/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/python-cheatsheet/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/PythonDataScienceHandbook/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/python-deepdive/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/PythonGists/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/PythonLectures/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/python-mini-projects/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Python-programming-exercises/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/python-scripts/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/python-snippets/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/quickstart-js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/raspa/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/react-blog-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/react-boilerplate/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/react-chess/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/react-complete-guide-code/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/react-design-patterns-and-best-practices/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/react-file-tree-project/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/react-for-beginners/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/reactide/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/reactjs-fundamentals/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/React-Node-FullStack---Multi-User-Blogging-Platform-with-SEO-1/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/react-notion/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/react-redux-cheatsheet/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/react-redux-registration-login-example/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/react-redux-ssr/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/react-sticky-notes/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/reflexjs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/reframe.js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/regexlearn.com/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/rekit-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/remote-jobs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Repo.js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Responsive-Design/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/restaurant-web-crawler/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/resume/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/rnr/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Roll-your-own-CDN-using-Amazon-AWS/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/rrweb/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/sanity-asset-browser-studio/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/scottgit.github.io/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/scripter/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/scripts/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/scVAT/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/searchAwesome/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/sed-examples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/serve/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/serve-handler/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/serverless-function-examples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/ShareX/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Shell/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/sherlock/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/simple-web-crawler/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/simulated-devices/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/sloth-docs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/smooth-doc/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/smsg/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/snippets/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/soundbox/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Stack/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/stackbit-theme-planty/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/static-template/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/statusboard/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/storybook/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/styleguide/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/tailwindcss/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Task-Manager-API/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Tech-blog-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/tech-interview-handbook/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/technical-writing-template/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/template-gatsby/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/tensorflow/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/test/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/textual/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/the-art-of-command-line/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/the-book-of-secret-knowledge/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/tinysearch/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Top10/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/TranscriptionAI/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/transform/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/tutorial-sanity-blog-react-next/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/typescript-exhaustive-checks/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/useful-custom-react-hooks/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/usefulJquery/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/vanillawebprojects/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/vercel/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/vscode/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/vscode-comment-tagged-templates/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/vscode-surround/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/web-api-auth-examples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Web-Audio-Basics/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/web-components-realworld-example-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/web-crawler-practice/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/webdav-client/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/web-guided-project-advanced-forms/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/web-guided-project-reducer/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/web-guided-project-testing-web-apps/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/WebMIDIAPIShim/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/web-module-project-class-components/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/web-module-project-reducer/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/web-module-project-redux/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/web-module-project-testing-web-apps/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/WebPd/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/web-scraper/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/Web-Scraping-Projects/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/website-scraper-puppeteer/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/WhateverNote/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/WhatEverNote/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/WhirlwindTourOfPython/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/wowchemy-hugo-themes/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/wsl2-hacks/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/wtfjs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/yourls-link-creator/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CONTAINER/
+git commit -m "update"
+git push -u origin master
+
