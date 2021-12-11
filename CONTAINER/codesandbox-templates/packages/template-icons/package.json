@@ -1,0 +1,108 @@
+{
+  "name": "@codesandbox/template-icons",
+  "version": "1.1.0",
+  "description": "Collection of SVG icons as React Components for usage with CodeSandbox Templates.",
+  "keywords": [
+    "codesandbox",
+    "react"
+  ],
+  "license": "MIT",
+  "author": "Drake Costa <drake@codesandbox.io> (https://github.com/Saeris)",
+  "contributors": [
+    "Ives van Hoorne <ives@codesandbox.io> (https://github.com/CompuIves)",
+    "Sara Vieira <sara@codesandbox.io> (https://github.com/SaraVieira)"
+  ],
+  "homepage": "https://codesandbox.io/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codesandbox/codesandbox-templates",
+    "directory": "packages/template-icons"
+  },
+  "bugs": "https://github.com/codesandbox/codesandbox-templates/issues",
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/codesandbox",
+    "logo": "https://opencollective.com/codesandbox/logo.txt"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "nodemon --watch src --watch example --exec run-s build",
+    "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
+    "deploy": "run-s build build:example",
+    "build": "pack build",
+    "build:example": "react-scripts build",
+    "lint": "eslint ./src",
+    "test": "yarn lint && yarn typecheck && jest -c ./jest.config.js",
+    "test:watch": "jest -c ./jest.config.js --watch",
+    "test:coverage": "jest -c ./jest.config.js && codecov",
+    "typecheck": "tsc --noEmit",
+    "release": "pack publish",
+    "version": "yarn build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.7",
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-types": "^0.8.1",
+    "@pika/plugin-build-web": "^0.8.1",
+    "@pika/plugin-standard-pkg": "^0.8.1",
+    "@testing-library/react": "^9.4.0",
+    "@types/react": "16.9.17",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.7.1",
+    "codecov": "^3.3.0",
+    "core-js": "3.6.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "~7.17.0",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "nodemon": "2.0.2",
+    "npm-run-all": "^4.1.5",
+    "opencollective": "^1.0.3",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "^3.3.0",
+    "typescript": "^3.7.4"
+  },
+  "peerDependencies": {
+    "react": "^16.x.x"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "__TEST__/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-types"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
+    ]
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  }
+}
