@@ -1,0 +1,32 @@
+﻿Feature Name,Description
+Tablet-First,"The application should support tablet-sized screens for data input and general application use.
+
+All users should also be able to use the application comfortably on a computer.
+
+Work closely with the Product Manager."
+Metrics,"Pick up the work started by previous teams on Metrics that measure data of interest.
+
+We're building a ""monitoring and evaluation"" tool, so Metrics will be our users' main window into their data to do this!
+
+Default metrics should be automatically generated based on each service added to the platform.
+
+Additional metrics can also be added manually—e.g. ""composite"" metrics, such as:
+
+   - ratio of money spent / [set of services]
+   - density of [set of services] / [given area]
+   - frequency of [set of services]
+
+Make metrics as generalized and composable as possible to empower users to build them based on their own use cases.
+
+Work closely with the stakeholder and all the Labs managers."
+Goals,"Let Administrators and Program Managers define Goals based on one or more metrics.
+
+A goal might be a specific numerical target for a metric, an increase or decrease in a value for a metric, or something else.
+
+Work closely with the stakeholder and the product manager."
+Analytics,"All users should have a dashboard view containing data relevant to them along with basic analytics on metrics.
+
+Work closely with your design lead, the Design Manager, and the Product Manager."
+Visualizations,"Create visualizations to summarize relevant data for each user group's dashboard.
+
+Work closely with the stakeholder and the Associate Data Science Lead."

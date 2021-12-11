@@ -1,0 +1,3 @@
+﻿Global,Description
+it.skip(),skips the test
+it.only(),isolates a test
