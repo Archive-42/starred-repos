@@ -1,0 +1,32 @@
+{
+  "name": "learn-redux",
+  "version": "1.0.2",
+  "description": "redux is logical. learn it.",
+  "main": "index.html",
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon static-server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nelsonic/learn-redux.git"
+  },
+  "keywords": [
+    "redux"
+  ],
+  "author": "usual suspects @dwyl",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/nelsonic/learn-redux/issues"
+  },
+  "homepage": "https://github.com/nelsonic/learn-redux#readme",
+  "devDependencies": {
+    "hapi": "^12.1.0",
+    "inert": "^3.2.0",
+    "istanbul": "^0.4.1",
+    "nodemon": "^1.8.1"
+  },
+  "dependencies": {
+    "redux": "^3.0.5"
+  }
+}
