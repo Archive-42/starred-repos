@@ -1,0 +1,12 @@
+.breadcrumbs {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  > a,
+  > svg {
+    fill: var(--color-secondary-text);
+    margin: 0 var(--flow-space);
+  }
+}

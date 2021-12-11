@@ -1,0 +1,118 @@
+{#
+  This is run for every top-level API namespace, e.g., for "chrome.accessibilityFeatures".
+#}
+
+{% extends "layouts/base.njk" %}
+
+{% block title_bar %}
+  {% include 'partials/breadcrumbs.njk' %}
+{% endblock %}
+
+{% import 'macros/render-type.njk' as macros with context %}
+
+{# Update "content" with additional headings and so forth, so we can pass it
+   through the toc filter. #}
+{% set content %}
+  <div class="type stack">
+    {{ content | safe }}
+  </div>
+
+  <h2 class="type--h3">Summary</h2>
+  <ul class="code-sections code-sections--summary flow-space-300 stack">
+    {% for group in namespace.groups %}
+      {{ macros.renderGroupSummary(group) }}
+    {% endfor %}
+  </ul>
+
+  {% for group in namespace.groups %}
+   {{ macros.renderGroupAll(group) }}
+  {% endfor %}
+
+{% endset %}
+
+{% set tocContents %}
+  {{- content | toc | safe -}}
+{% endset %}
+
+{% block content %}
+  <div class="display-flex gap-top-300 lg:gap-top-400">
+    {% include 'partials/navigation-tree.njk' %}
+    {% set f = namespace.root._feature %}
+
+    {# The article is wrapped again so that the ToC aligns on its right on desktop #}
+    <div class="display-flex justify-content-center width-full">
+      <article class="stack measure-long width-full pad-left-400 pad-right-400">
+        <h1 class="type--h2">{{ title }}</h1>
+
+        {% if f.platformAppsOnly %}
+          <div class="aside aside--warning">
+            This API is part of the deprecated Chrome Apps platform.
+            Learn more about <a href="/docs/apps/migration">migrating your app</a>.
+          </div>
+        {% endif %}
+
+        {# TODO: unsupported #}
+        {% if f.chromeOsOnly %}
+          {# There are some historic cases of multi-platform support in Platform Apps, but
+              the only restriction these days is CrOS vs everywhere. #}
+          <div class="aside aside--note">
+            <strong>Important:</strong> This API works <strong>only on Chrome OS</strong>
+          </div>
+        {% endif %}
+
+        <div>{# This div prevents flow-space-300 from applying to the parent stack. #}
+          <ul class="code-sections code-sections--summary flow-space-300 stack">
+            {% set commentHtml %}{{ macros.renderCommentText(namespace.root) | trim }}{% endset %}
+            {% if commentHtml %}
+              <li>
+                <div class="code-sections__label">Description</div>
+                <div class="type">
+                  {{ commentHtml | safe }}
+                </div>
+              </li>
+            {% endif %}
+
+            {% if f.permissions.length %}
+              <li>
+                <div class="code-sections__label">Permissions</div>
+                <div>
+                  {% for permission in f.permissions %}
+                    <code>{{ permission }}</code><br />
+                  {% endfor %}
+                  {{ extra_permissions_html | safe }}
+                </div>
+              </li>
+            {% endif %}
+
+            {% if f.manifestKeys.length %}
+              <li>
+                <div class="code-sections__label">Manifest Keys</div>
+                <div>
+                  <p>The following keys must be declared <a href="/docs/extensions/mv3/manifest/">in the manifest</a> to use this API.</p>
+                  {% for manifestKey in f.manifestKeys %}
+                    <code>{{ manifestKey }}</code><br />
+                  {% endfor %}
+                </div>
+              </li>
+            {% endif %}
+
+            {% set availabilityHtml %}{{ macros.renderAvailability(namespace.root) | trim }}{% endset %}
+            {% if availabilityHtml %}
+              <li class="lg:align-center">
+                <div class="code-sections__label">Availability</div>
+                {{ availabilityHtml | safe }}
+              </li>
+            {% endif %}
+
+          </ul>
+        </div>
+
+        {% include 'partials/toc-inner.njk' %}
+
+        {{ content | safe }}
+      </article>
+
+      {% include 'partials/toc-side.njk' %}
+    </div>
+  </div>
+{% endblock %}

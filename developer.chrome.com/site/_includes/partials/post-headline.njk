@@ -1,0 +1,25 @@
+<h1 class="type--h2">{{ title }}</h1>
+
+{% if subhead %}
+<p class="type--h5">{{ subhead }}</p>
+{% endif %}
+
+{% if date %}
+  <p class="type--caption color-secondary-text">
+    {{ 'i18n.common.published_on' | i18n(locale) }}
+    <time>{{ helpers.formatDateLong(date, locale) }}</time>
+    {% if updated %}
+    <span>•</span>
+    {{ 'i18n.common.updated_on' | i18n(locale) }}
+    <time>{{ helpers.formatDateLong(updated, locale) }}</time>
+  {% endif %}
+  </p>
+{% endif %}
+
+{% set languageListHtml %}{% LanguageList page.url, site, collections, locale %}{% endset %}
+{% if languageListHtml %}
+<p class="type--caption color-secondary-text">
+  {{ 'i18n.common.translated_to' | i18n(locale) }}
+  {{ languageListHtml | safe }}
+</p>
+{% endif %}
