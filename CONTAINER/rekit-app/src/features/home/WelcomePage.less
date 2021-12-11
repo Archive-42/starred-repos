@@ -1,0 +1,78 @@
+@import '../../styles/mixins';
+
+.home-welcome-page {
+  .abs-fullsize;
+  top: @header-height;
+  background-color: #1e1e1e;
+  color: #ccc;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 300;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #ccc;
+    font-weight: 100;
+  }
+
+  .main-area {
+    width: 800px;
+    height: 400px;
+    background-color: #191919;
+    border-radius: 6px;
+    margin: 0 auto;
+    .vertical-center;
+    .rekit-logo {
+      width: 60px;
+    }
+    .footer {
+      // background-color: red;
+      // margin-bottom:
+      line-height: 50px;
+      text-align: left;
+      color: #555;
+      font-size: 12px;
+      padding-left: 10px;
+      label,
+      a {
+        color: #555;
+        cursor: pointer;
+        margin-right: 15px;
+        &:last-child {
+          margin-right: 0;
+        }
+        &:hover {
+          color: #888;
+        }
+      }
+    }
+  }
+
+  .welcome-area {
+    text-align: center;
+    padding-top: 50px;
+  }
+  p {
+    margin-bottom: 50px;
+  }
+
+  .row-button {
+    position: relative;
+    padding-left: 20px;
+    margin: 15px 0 0 110px;
+    text-align: left;
+    line-height: 20px;
+    color: @primary-color;
+    cursor: pointer;
+    // background-color: rgba(255, 255, 255, 0.05);
+    height: 20px;
+    .anticon {
+      position: absolute;
+      font-size: 16px;
+      color: @primary-color;
+      left: 0px;
+      top: 2px;
+    }
+  }
+}
