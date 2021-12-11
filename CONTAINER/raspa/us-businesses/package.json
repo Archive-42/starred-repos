@@ -1,0 +1,20 @@
+{
+  "name": "raspa",
+  "description": "⛏️",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Gabriel Nunes <gabriel@multiverso.me>",
+  "license": "MIT",
+  "dependencies": {
+    "agentkeepalive": "^4.1.4",
+    "csv-writer": "^1.6.0",
+    "flexsearch": "^0.7.21",
+    "got": "^11.8.2",
+    "hpagent": "^0.1.2",
+    "http-status": "^1.5.0",
+    "lodash": "^4.17.21",
+    "lodash.combinations": "^18.10.0",
+    "node-localstorage": "^2.2.1",
+    "socks-proxy-agent": "^6.1.0"
+  }
+}
