@@ -1,0 +1,41 @@
+$phone: 500px;
+
+.section {
+  &:last-child {
+    flex-grow: 1;
+  }
+
+  &:nth-child(odd) {
+    background: $gray-50;
+  }
+
+  &:nth-child(even) {
+    background: $white;
+  }
+
+  &[data-dark="true"] {
+    background: $gray-900;
+    color: $white;
+  }
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: $page;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+
+  @media (max-width: $phone) {
+    padding: 20px;
+  }
+}
+
+.section[data-width="narrow"] > .wrapper {
+  max-width: $page-narrow;
+}
+
+.section[data-width="wide"] > .wrapper {
+  max-width: $page-wide;
+}
