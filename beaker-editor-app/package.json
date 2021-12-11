@@ -1,0 +1,34 @@
+{
+  "name": "beaker-editor-app",
+  "version": "1.0.0",
+  "description": "In-browser editor app.",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify -o app.build.js app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beakerbrowser/beaker-editor-app.git"
+  },
+  "keywords": [
+    "beaker",
+    "browser",
+    "editor"
+  ],
+  "author": "Paul Frazee <pfrazee@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beakerbrowser/beaker-editor-app/issues"
+  },
+  "homepage": "https://github.com/beakerbrowser/beaker-editor-app#readme",
+  "dependencies": {
+    "builtin-pages-lib": "git://github.com/beakerbrowser/builtin-pages-lib#29a77b984fa3bf423e72e01344c2e1212a5bb620",
+    "co": "^4.6.0",
+    "monaco-editor": "^0.8.1",
+    "yo-yo": "^1.4.0"
+  },
+  "devDependencies": {
+    "browserify": "^14.0.0"
+  }
+}
