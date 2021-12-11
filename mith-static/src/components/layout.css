@@ -1,0 +1,128 @@
+@import 'site-reset.css';
+@import 'typography.css';
+@import 'variables.css';
+@import 'grid.css';
+
+html {
+  overflow-y: scroll;
+}
+a {
+  color: var(--color-main);
+  background-color: transparent;
+  text-decoration: none;
+  text-decoration-skip: spaces;
+  -webkit-text-decoration-skip: objects;
+}
+a:active,
+a:hover {
+  color: var(--color-main-dk);
+  outline-width: 0;
+}
+main a {
+  border-bottom: 1px solid var(--color-gray-lt);
+}
+main a:active,
+main a:hover {
+  border-bottom: 1px solid var(--color-gray);
+}
+img {
+  border-style: none;
+}
+li {
+  margin-bottom: calc(1rem / 2);
+}
+li *:last-child {
+  margin-bottom: 0;
+}
+main {
+  padding: 0 var(--base-content-spacing);
+}
+p *:last-child {
+  margin-bottom: 0;
+}
+ol,
+ul {
+    list-style-position: outside;
+    list-style-image: none;
+}
+ul {
+  list-style: none;
+}
+.skip-link {
+  color: #ffffff;
+  background: #000000;
+  display: inline-block;
+  font-weight: 700;
+  padding: 8px;
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-100%);
+  z-index: 30;
+  transition: transform 0.3s;
+}
+.skip-link:focus {
+  top: 2rem;
+  outline: 5px solid rgba(0,0,0,0.1);
+  transform: translateY(0%);
+}
+.text-hidden {
+  font-size: 0;
+  width: 1px;
+  height: 1px;
+  display: inline-block;
+  overflow: hidden;
+  position: absolute!important;
+  border: 0!important;
+  padding: 0!important;
+  margin: 0!important;
+  clip: rect(1px,1px,1px,1px);
+}
+.hidden {
+  display:none;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+[hidden] {
+  display: none;
+}
+.pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: var(--color-main);
+  padding: 0.2rem 0.75em;
+  margin: 0 var(--content-spacing-sm) 0 0;
+  border-radius: var(--base-content-spacing);
+}
+ul.inline-list {
+  padding-left: 0;
+}
+ul.inline-list > li {
+  display: inline;
+}
+ul.inline-list > li:before {
+  content: ', ';
+}
+ul.inline-list > li:first-child:before {
+  content: normal;
+}
+.button {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: var(--color-main);
+  border-bottom: 0;
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  margin: var(--content-spacing-sm) 0;
+}
+.button:hover,
+.button:active {
+  border-bottom: 0;
+  color: #fff;
+  background-color: rgba(183,191,16,0.8);
+}

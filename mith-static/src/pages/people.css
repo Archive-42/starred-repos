@@ -1,0 +1,60 @@
+.people-group .person .name a {
+  color: inherit;
+}
+.people-group .person .title {
+  line-height: 1.5;
+  font-family: var(--font-stack);
+  font-style: italic;
+  letter-spacing: 1px;
+}
+@media screen and (min-width: 67em) {
+  #main-content > div section.people-group {
+    margin-bottom: var(--content-spacing-xl);
+  }
+}
+
+/* Current People */
+.page-people .person {
+  margin-bottom: 1.5rem;
+}
+.page-people .person .name {
+  margin-bottom: var(--content-spacing-sm);
+  margin-top: var(--base-content-spacing);
+}
+.page-people .person a {
+  border-bottom-color: transparent;
+}
+.page-people .person a:not(.headshot):hover,
+.page-people .person a:not(.headshot):active {
+  border-bottom-color: inherit;
+}
+.page-people .person .identity {
+  margin-bottom: var(--content-spacing-sm);
+}
+.page-people .person .department::before {
+  content: ', '
+}
+
+/* Past People */
+.page-past-people .person .identity {
+  display: block;
+  margin-top: var(--content-spacing-xs);
+  line-height: 1.2;
+}
+.page-past-people .person span {
+  font-size: 0.8rem;
+  display: inline;
+}
+.page-past-people .person .title {
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+.page-past-people .person .date-span::before {
+  content: ", ";
+}
+.page-past-people .person .date-span .end::before {
+  content: " \2013 ";
+}
+.page-past-people .people-group {
+  margin-bottom: var(--content-spacing-xl);
+}

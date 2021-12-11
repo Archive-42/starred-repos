@@ -1,0 +1,47 @@
+@import 'variables.css';
+
+html {
+  color: hsla(0, 0%, 0%, 0.8);
+  font-family: var(--font-stack);
+  font-size: 19px;
+}
+body {
+  font-weight: 400;
+  line-height: 1.368;
+  word-wrap: break-word;
+}
+
+/* modified tritonic scale */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.368rem;
+  margin-bottom: var(--content-spacing-lg);
+  text-rendering: optimizeLegibility;
+}
+h2 {
+  font-size: 1.578rem;
+  font-weight: 600;
+  line-height: 1.894rem;
+  text-rendering: optimizeLegibility;
+}
+h3 {
+  font-size: 1.263rem;
+  font-weight: 600;
+  line-height: 1.526rem;
+  text-rendering: optimizeLegibility;
+}
+p {
+  margin-bottom: var(--base-content-spacing);
+}
+strong {
+  font-weight: bolder;
+}
+@media screen and (min-width: 61em) {
+  body {
+    line-height: 1.5;
+  }
+}
+h1 a {
+  border-bottom: none;
+}

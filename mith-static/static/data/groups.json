@@ -1,0 +1,110 @@
+[
+  {
+    "group_name": "Past Finance + Administration",
+    "type": "Past",
+    "sort": 10,
+    "slug": "past-finance-administration"
+  },
+  {
+    "group_name": "Research Associates",
+    "type": "Staff",
+    "sort": 5,
+    "slug": "research-associates"
+  },
+  {
+    "group_name": "Past Resident Fellows",
+    "type": "Past",
+    "sort": 11,
+    "slug": "past-resident-fellows"
+  },
+  {
+    "group_name": "Interns + Assistants",
+    "type": "Staff",
+    "sort": 7,
+    "slug": "interns-assistants"
+  },
+  {
+    "group_name": "Resident Fellows",
+    "type": "Staff",
+    "sort": 4,
+    "slug": "resident-fellows"
+  },
+  {
+    "group_name": "Affiliates",
+    "type": "Affiliates",
+    "sort": 6,
+    "slug": "affiliates"
+  },
+  {
+    "group_name": "Research Faculty + Staff",
+    "type": "Staff",
+    "sort": 2,
+    "slug": "research-faculty-staff"
+  },
+  {
+    "group_name": "Finance + Administration",
+    "type": "Staff",
+    "sort": 3,
+    "slug": "finance-administration"
+  },
+  {
+    "group_name": "Author",
+    "type": "External",
+    "sort": 16,
+    "slug": "author"
+  },
+  {
+    "group_name": "Directors",
+    "type": "Staff",
+    "sort": 1,
+    "slug": "directors"
+  },
+  {
+    "group_name": "Speaker",
+    "type": "External",
+    "sort": 15,
+    "slug": "speaker"
+  },
+  {
+    "group_name": "Collaborator",
+    "type": "External",
+    "sort": 18,
+    "slug": "collaborator"
+  },
+  {
+    "group_name": "Past Research Associates",
+    "type": "Past",
+    "sort": 12,
+    "slug": "past-research-associates"
+  },
+  {
+    "group_name": "Past Affiliates",
+    "type": "Past",
+    "sort": 13,
+    "slug": "past-affiliates"
+  },
+  {
+    "group_name": "Past Directors",
+    "type": "Past",
+    "sort": 8,
+    "slug": "past-directors"
+  },
+  {
+    "group_name": "Other",
+    "type": "External",
+    "sort": 17,
+    "slug": "other"
+  },
+  {
+    "group_name": "Past Research Faculty + Staff",
+    "type": "Past",
+    "sort": 9,
+    "slug": "past-research-faculty-staff"
+  },
+  {
+    "group_name": "Past Interns + Assistants",
+    "type": "Past",
+    "sort": 14,
+    "slug": "past-interns-assistants"
+  }
+]

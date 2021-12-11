@@ -1,0 +1,1 @@
+Tara McPherson's Digital Dialogue this Tuesday, October 30th has been canceled due to Hurricane Sandy.

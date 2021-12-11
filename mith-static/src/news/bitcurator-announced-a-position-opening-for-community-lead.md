@@ -1,0 +1,21 @@
+The BitCurator project (www.bitcurator.net), a joint research initiative of the Maryland Institute for Technology in the Humanities (MITH) at the University of Maryland, College Park, and the School of Information and Library Science at the University of North Carolina at Chapel Hill, is seeking a Community Lead to build an active user community for our project, promote and evangelize our work (through both site visits and social media), and provide expert support to our users. The position will be based at MITH, an established digital humanities center whose location just outside of Washington DC will afford the Community Lead easy access to the area’s diverse cultural heritage community.
+
+The Community Lead will be responsible for representing the BitCurator project in public contexts; conducting site visits to work with the partner institutions represented on our Professional Experts Panel and Development Advisory Group; promoting BitCurator through social media, online community-building, and at conferences; gathering and analyzing user feedback in conjunction with our developers; creating and maintaining documentation; and working with the project team to develop a long-term sustainability plan for BitCurator’s deliverables.
+
+We are seeking a candidate who has been involved with successful information science, archives, and/or digital humanities projects, and can work collaboratively with archivists, librarians, researchers, and programmers. Candidates should be prepared to demonstrate their strengths as organizers and communicators, and should possess significant personal initiative and responsibility. In addition, a strong candidate for this position should have:
+
+- Demonstrated experience in working in Linux environments (particularly Ubuntu 12.04): familiarity with GUI and command-line tools, disk formats, disk mounting and imaging tools.
+- Familiarity with library and archives metadata standards.
+- General knowledge of XML and XML parsing software.
+- Familiarity with virtualization tools (VirtualBox, VMWare, etc).
+- Demonstrated experience in compiling and using open source software, and use of online repositories (including GitHub).
+- User needs analysis skills.
+- Ability to use and maintain WordPress and MediaWiki sites.
+
+A bachelor’s degree is required; MA, MLS, or Ph.D. are preferred. Prior knowledge of digital forensics software and a background in archives are both desirable.
+
+Jointly supported by the University of Maryland’s College of Arts and Humanities and the University of Maryland Libraries, MITH engages in collaborative, interdisciplinary work at the intersection of technology and humanistic inquiry. Housed in a newly renovated 4200 square foot space, MITH specializes in text and image analytics for cultural heritage collections, data curation, digital preservation, linked data applications, and scholarly communication. MITH was recently selected as a host institution for the National Digital Stewardship Residency program, and the Community Lead will also enjoy interaction with a Born-Digital Working Group jointly sponsored by MITH and the University Libraries.
+
+The Community Lead is a full-time Faculty Research Assistant position at the University of Maryland, funded for a period of twelve (12) months beginning October 1, 2013. Salary is \$60,000. The University also offers a competitive benefits package. To apply, submit your letter of interest, CV, and complete contact information for three references online at [ejobs.umd.edu/postings/17167](https://ejobs.umd.edu/postings/17167). Inquiries should be directed to Matthew Kirschenbaum ([mgk@umd.edu](mailto:mgk@umd.edu)). Review of applications will continue on a rolling basis until the position is filled. For best consideration, **apply by May 1**.
+
+The University of Maryland, College Park, actively subscribes to a policy of equal employment opportunity, and will not discriminate against any employee or applicant because of race, age, sex, color, sexual orientation, physical or mental disability, religion, ancestry or national origin, marital status, genetic information, political affiliation, and gender identity or expression. Minorities and women are encouraged to apply.

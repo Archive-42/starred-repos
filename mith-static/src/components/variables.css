@@ -1,0 +1,15 @@
+:root {
+    --base-content-width: 37rem;
+    --base-content-spacing: 1.0rem;
+    --content-spacing-xl: 3.0rem;
+    --content-spacing-lg: 2.0rem;
+    --content-spacing-md: 1.5rem;
+    --content-spacing-sm: 0.5rem;
+    --content-spacing-xs: 0.25rem;
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    --color-main: rgb(183,191,16);
+    --color-main-dk: rgb(164,171,15);
+    --color-gray: rgb(126, 126, 126);
+    --color-gray-lt: rgb(191,191,191);
+    --color-gray-dk: rgb(63,63,63);
+}

@@ -1,0 +1,14 @@
+@import 'variables.css';
+
+header {
+  width: 100%;
+  text-align: left;
+  padding: 0 var(--base-content-spacing);
+}
+header svg {
+  max-height: 125px;
+  max-width: 374px;
+}
+.logo {
+  padding-top: 2.5rem;
+}

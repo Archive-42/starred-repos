@@ -1,0 +1,99 @@
+/* Dialogue Index */
+.page-dialogues .dialogue {
+  display: grid;
+}
+.page-dialogues .post.dialogue .speakers ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.page-dialogues .dialogue .event-date .time {
+  display: block;
+}
+.page-dialogues .dialogue .speakers {
+  border-bottom: 1px dashed var(--color-gray-lt);
+  margin-bottom: var(--content-spacing-sm);
+}
+.page-dialogues .dialogue .speakers .person .info {
+  font-size: 1rem;
+}
+
+/* Dialogue Post */
+.dialogue h2 {
+  margin-bottom: 0;
+}
+.dialogue :not(.header) h2 {
+  margin-bottom: var(--base-content-spacing);
+}
+.dialogue .speakers {
+  border-top: none;
+  padding-top: 0;
+}
+.dialogue .speakers .person {
+  grid-template-columns: minmax(150px, 200px) 1fr;
+  grid-column-gap: var(--base-content-spacing);
+}
+.dialogue .speakers .info > * {
+  display: block;
+}
+.dialogue .speakers .person .info {
+  font-size: 0.8rem;
+}
+.dialogue .speakers .info .bio-link {
+  margin-top: var(--content-spacing-sm);
+}
+.dialogue .speaker-bio {
+  grid-column: 1 / 3;
+  font-size: 0.9rem;
+  margin-top: var(--base-content-spacing);
+  padding-top: var(--base-content-spacing);
+  border-top: 1px dashed var(--color-gray-lt);
+}
+.dialogue .bios div:first-of-type {
+  margin-top: 0;
+}
+.dialogue .content .video-wrapper {
+  padding: 56.25% 0 0 0;
+  position: relative;
+}
+.dialogue .content .video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.dialogue .sidebar .series {
+  background-color: #00b0d9;
+  justify-self: self-start;
+}
+.dialogue .sidebar .video-link a {
+  border-bottom: 0;
+}
+.dialogue .sidebar .terms {
+  font-size: 0.8rem;
+  overflow: auto;
+}
+.dialogue .sidebar .terms .term {
+  float: left;
+  margin-right: var(--content-spacing-xs);
+  margin-bottom: var(--content-spacing-sm);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#main-content .dd-info {
+  font-size: 0.8rem;
+  color: #000;
+  margin-top: var(--content-spacing-lg);
+  padding: var(--base-content-spacing);
+  background-color: #ccc;
+}
+.dd-info a {
+  color: rgba(0,0,0,0.8);
+}
+.dd-info p:last-child {
+  margin-bottom: 0;
+}

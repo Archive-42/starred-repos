@@ -1,0 +1,23 @@
+name: Gatsby Publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: SpicyPizza/create-envfile@v1
+        with:
+          envkey_AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY  }}
+          envkey_AIRTABLE_PEOPLE_BASE_ID: appk2btw36qEO3vFo
+          envkey_AIRTABLE_RESEARCH_BASE_ID: appTv9J1zxqaNgBHi
+          envkey_AIRTABLE_POSTS_BASE_ID: appsY0VXF7pbv3mKR
+      - uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          deploy-branch: gh-pages
+          gatsby-args: --prefix-paths

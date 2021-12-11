@@ -1,0 +1,65 @@
+.page-person .person .name {
+  grid-column: 1 / 4;
+}
+.page-person .person .headshot {
+  grid-column: span 1;
+  grid-row: span 2;
+  margin-bottom: var(--base-content-spacing);
+}
+.page-person .person .metadata {
+  display: grid;
+  grid-row-gap: var(--content-spacing-xs);
+  margin: var(--base-content-spacing) 0;
+}
+.page-person .person .metadata a {
+  color: inherit;
+  border-bottom-color: transparent;
+}
+.page-person .person .metadata a:hover {
+  border-bottom-color: inherit;
+}
+.page-person .person .meta {
+  padding-right: var(--base-content-spacing);
+}
+.page-person .person .meta svg {
+  margin-right: 0.5rem;
+}
+
+@media screen and (min-width: 45em) { 
+  .page-person section.person {
+    display: grid;
+    grid-template-columns: repeat( 3, 1fr);
+    grid-column-gap: var(--content-spacing-lg);
+    grid-row-gap: var(--content-spacing-md)
+  }
+  .page-person .person .details {
+    grid-column: span 2;
+  }
+  .page-person .person .bio {
+    grid-column: span 2;
+  }
+  .page-person .person .name,
+  .page-person .person .metadata {
+    margin-bottom: 0;
+  }
+  .page-person .person .metadata {
+    grid-template-columns: repeat( 4, 1fr );
+  }
+  .page-person .person .metadata {
+    display: inline-grid;
+    grid-column-gap: var(--base-content-spacing);
+    grid-template-columns: repeat( 2, auto );
+  }
+  .page-person .person .meta {
+    border-right: 1px solid #dfdfdf;
+  }
+  .page-person .person .meta:last-child {
+    border-right: none;
+  }
+}
+
+@media screen and (min-width: 61em) {
+  .page-person .person .metadata {
+    grid-template-columns: repeat( 3, auto );
+  }
+}

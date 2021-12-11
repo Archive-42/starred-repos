@@ -1,0 +1,32 @@
+@import '../components/variables.css';
+
+.posts {
+  margin: 0 var(--base-content-spacing)
+}
+.post {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-row-gap: var(--content-spacing-sm);
+  margin-bottom: var(--content-spacing-xl);
+}
+.post h2.title {
+  margin-bottom: var(--content-spacing-sm);
+  font-size: 1.1rem;
+}
+.post .meta {
+  color: var(--color-gray);
+  margin-bottom: var(--content-spacing-xs);
+}
+.post .inline-list div {
+  display: inline-block;
+}
+.post ul:not(.inline-list) {
+  list-style: unset;
+  padding: revert;
+}
+.post .post-excerpt .read-more {
+  display: block;
+  text-transform: uppercase;
+  font-size: smaller;
+  margin-top: var(--content-spacing-sm);
+}
