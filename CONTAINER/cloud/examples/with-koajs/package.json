@@ -1,0 +1,20 @@
+{
+  "name": "with-koajs",
+  "version": "1.0.0",
+  "description": "Serverless Cloud TypeScript API (with koa)",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "cloud",
+    "test": "cloud test"
+  },
+  "devDependencies": {
+    "@serverless/cloud": "^2.0.0",
+    "@types/jest": "^26.0.24",
+    "supertest": "^6.1.6"
+  },
+  "dependencies": {
+    "@koa/router": "^10.1.1",
+    "koa": "^2.13.3"
+  }
+}

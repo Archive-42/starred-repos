@@ -1,0 +1,23 @@
+{
+  "name": "image-resizer",
+  "version": "1.0.0",
+  "description": "Serverless Cloud TypeScript API template",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "cloud",
+    "test": "cloud test",
+    "build": "pushd frontend; npm run build; popd",
+    "prettier": "prettier --write '**/**/*.[j,t]s'"
+  },
+  "devDependencies": {
+    "@serverless/cloud": "^2.5.7",
+    "@types/jest": "^26.0.24",
+    "prettier": "^2.5.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "jimp": "^0.16.1",
+    "node-fetch": "^3.1.0"
+  }
+}

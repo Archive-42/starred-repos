@@ -1,0 +1,14 @@
+{
+  "name": "test-react",
+  "version": "1.0.0",
+  "description": "Serverless Cloud JavaScript API template",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "cloud",
+    "test": "cloud test"
+  },
+  "devDependencies": {
+    "@serverless/cloud": "^2.0.0"
+  }
+}

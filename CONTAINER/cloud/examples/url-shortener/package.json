@@ -1,0 +1,14 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "Simple serverless URL shortner, powered by Serverless Data.",
+  "main": "index.js",
+  "dependencies": {
+    "is-absolute-url": "^3.0.3",
+    "nanoid": "^3.1.20"
+  },
+  "serverless": {
+    "org": "serverless",
+    "app": "url-shortener"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "status-page",
+  "version": "1.0.0",
+  "description": "Serverless Status Page",
+  "main": "./backend/api.js",
+  "type": "module",
+  "scripts": {
+    "start": "cloud",
+    "test": "cloud test",
+    "postinstall": "pushd frontend; npm run build; popd"
+  },
+  "devDependencies": {
+    "@jest/globals": "^27.1.0",
+    "@serverless/cloud": "^2.0.0"
+  }
+}
