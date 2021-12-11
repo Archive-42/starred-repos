@@ -1,0 +1,116 @@
+.testimony-container{
+  width: 420px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-top: .5px solid whitesmoke;
+  border-left: .5px solid whitesmoke;
+  border-right: .5px solid whitesmoke;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: whitesmoke;
+  font-family: 'Handlee', cursive;
+  margin-bottom: 30px;
+}
+
+.testimony-header__name{
+  color: teal;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.testimony-comments-holder{
+  display: flex;
+  flex-direction: column;
+}
+
+.testimony-individual-container, .testimony-form{
+  width: 400px;
+  min-height: 100px;
+  margin-bottom: 25px;
+  margin-left: 10px;
+  border-top: .5px solid #c8e4e4;
+  border-left: .5px solid #c8e4e4;
+  border-right: .5px solid #c8e4e4;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.testimony-form > form{
+  display: flex;
+  flex-direction: column;
+}
+
+.testimony-form > form > div{
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 20px;
+  padding: 0 10px;
+  border-bottom: .5px solid #c8e4e4;
+  padding-top: 8px;
+}
+
+.testimony-form > form > div > i{
+  color: teal;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+textarea{
+  height: 75px;
+  width: 396px;
+  resize: none; 
+  background-color: whitesmoke;
+  border: none;
+}
+
+textarea::placeholder{
+  padding-left: 2px;
+  padding-top: 2px;
+  font-family: 'Handlee', cursive;
+}
+
+.testimony-individual-header{
+  height: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: .5px solid #c8e4e4;
+}
+
+.testimony-individual-header > h1{
+  grid-column: 1 / 2;
+  display: flex;
+  align-self: center;
+  margin-left: 10px;
+}
+
+.testimony-individual-header > div{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  grid-column: 2 / 3;
+  margin-right: 10px;
+  text-align: right;
+  color: teal;
+}
+
+.testimony-individual-header > a{
+  text-decoration: none;
+  color: teal;
+}
+
+.testimony-individual-header > div > i{
+  padding: 0 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.testimony-individual-body{
+  padding: 8px;
+}
