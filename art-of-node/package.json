@@ -1,0 +1,21 @@
+{
+  "name": "art-of-node",
+  "version": "1.0.0",
+  "description": "Node fundamentals with simple code snippets",
+  "scripts": {
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src"
+  },
+  "keywords": [
+    "node",
+    "fundamentals",
+    "examples"
+  ],
+  "author": "Sumeet Sarkar",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
