@@ -1,0 +1,63 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+            {% for post in posts %}
+            <div class="blogpost">
+                <div class="row">
+                    <div class="post-content">
+                        {{ post._render_text | safe }}
+                    </div>
+                    <div class="content-title col-md-10">
+                        <h3><strong>
+                      <a href='/blog/{{ post.key().id() }}'>{{ post.subject }}</a> by {{ post.name }}
+                            </strong>
+                        </h3>
+                    </div>
+                    <div class="col-md-2">
+                         <h3 style="text-align:right;"> {{ post.created.strftime("%d %b %Y") }} </h3> 
+                    </div>
+                    <hr>
+                </div>
+                <div class="content-body">
+                    {{ post.content }}
+                    <br><br>
+                    {% if user and user.name == post.name %}
+                        <button class="btn btn-primary"><a href="/blog/edit/{{ post.key().id() }}">Edit Post</a></button>&nbsp;
+                    
+                        <button class="btn btn-danger"><a href="/blog/delete/{{ post.key().id() }}">Delete Post</a></button>
+                        <br>
+                        <h4>Likes : {{ post.like_count }}</h4>
+                    {% else %}
+                
+                        {% if  post.key().id() not in user.like_post_id %}
+                            <form method="post">
+                                <input type="text" value="{{ post.key().id() }}" name="post_id" hidden>
+                                <input type="submit" value="Like" class="btn btn-default">
+                            </form>
+                        {% else %}
+                    <h4>You liked this post!</h4>
+                        {% endif %}
+                    <h4>Likes : {{ post.like_count }} </h4>
+                    {% endif %}
+                    
+                    {% if post.comments %}
+                    Comments : <br>
+                    {% for comment in post.comments %} 
+                        &nbsp;&nbsp;&#8226; {{ comment }}
+                    {% if comment in user.user_comments %}
+                    &nbsp;&nbsp;
+                    <div class="btn-group">
+                        <button class="btn btn-primary btn-xs"><a href="/comment/edit/{{ post.key().id() }}?comment={{ comment }}">Edit</a></button>&nbsp;
+                        <button class="btn btn-danger btn-xs"><a href="/comment/delete/{{ post.key().id() }}?comment={{ comment }}">Delete</a></button>
+                    </div>
+                        {% endif %}
+                        <br>
+                    {% endfor %}
+                    {% endif %}
+                    <br><br>
+                </div>
+                <hr>
+            </div>
+            {% endfor %}
+{% endblock %}

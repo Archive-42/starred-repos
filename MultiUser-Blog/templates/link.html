@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+            <div class="post-display">
+                <h2>{{ post.subject }}</h2>
+                <hr>
+                <div class="post-content">
+                    {{ post.content }}
+                </div>
+                <br><h4>
+                {%if post.comments %}
+                <i>Comments</i> : <br><br>
+                    {% for comment in post.comments %} 
+                        &nbsp;&nbsp;&#8226; {{ comment }}
+                        {% if comment in user.user_comments %}
+                        &nbsp;&nbsp;
+                    <div class="btn-group">
+                        <button class="btn btn-primary btn-xs"><a href="/comment/edit/{{ post.key().id() }}?comment={{ comment }}">Edit</a></button>&nbsp;
+                        <button class="btn btn-danger btn-xs"><a href="/comment/delete/{{ post.key().id() }}?comment={{ comment }}">Delete</a></button>
+                    </div>
+                        {% endif %}
+                        <br>
+                    {% endfor %}
+                {% endif %}
+                </h4>
+                <br>
+                <button class="btn btn-danger"><a href="/blog/delete/{{ post.key().id() }}" id="cancel-btn">Delete Post</a></button>
+            </div>
+                <form method="post">
+                    <div class="form-group">
+                        <label>
+                        <div><h4>Enter your comment</h4></div>
+                            <textarea name="content" class="form-control comment-textarea" placeholder="Enter your comment"></textarea>
+                        </label>
+                        <br>
+                        <!-- Error Area -->
+                        {% if error %}
+                        <br>
+                        <div class="error alert alert-danger">
+                            {{ error }}
+                        </div>
+                        {% endif %}
+                        <input type="submit" value="Submit" class="btn btn-default">
+                        <button class="btn btn-primary"><a href="/" id="cancel-btn">Cancel</a></button>
+                        
+                    </div>
+                </form>
+                
+            <hr>
+{% endblock %}

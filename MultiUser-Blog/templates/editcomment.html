@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+    <form method="post">
+                    <div class="form-group">
+                        <label>
+                        <div><h4>Enter your comment</h4></div>
+                            <textarea name="new_comment" class="form-control comment-textarea">{% if comment %}{{ comment }}{% endif %}</textarea>
+                        </label>
+                        <br>
+                        <!-- Error Area -->
+                        {% if error %}
+                        <br>
+                        <div class="error alert alert-danger">
+                            {{ error }}
+                        </div>
+                        {% endif %}
+                        <input type="text" value="{{ comment }}" name="old_comment" hidden>
+                        <input type="submit" value="Submit" class="btn btn-default">
+                        <button class="btn btn-primary"><a href="/" id="cancel-btn">Cancel</a></button>
+                        
+                    </div>
+     </form>
+{% endblock %}
