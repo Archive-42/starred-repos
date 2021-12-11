@@ -1,0 +1,28 @@
+{
+  "name": "example-video",
+  "version": "0.4.3",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "dev": "gatsby clean && gatsby develop",
+    "preview": "gatsby build && gatsby serve"
+  },
+  "dependencies": {
+    "@reflexjs/codemod": "^0.1.0",
+    "@reflexjs/gatsby-plugin-metatags": "^0.5.3",
+    "@reflexjs/gatsby-theme-base": "^0.6.3",
+    "@reflexjs/gatsby-theme-video": "^0.7.3",
+    "gatsby": "^2.26.1",
+    "gatsby-plugin-manifest": "^2.4.21",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "reflexjs": "^1.0.3"
+  },
+  "devDependencies": {
+    "babel-preset-gatsby": "^0.7.0"
+  }
+}

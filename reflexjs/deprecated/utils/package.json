@@ -1,0 +1,29 @@
+{
+  "name": "@reflexjs/utils",
+  "version": "0.2.2",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "bugs": {
+    "url": "https://github.com/reflexjs/reflexjs/issues"
+  },
+  "homepage": "https://github.com/reflexjs/reflexjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reflexjs/reflexjs.git",
+    "directory": "packages/utils"
+  },
+  "devDependencies": {
+    "@sindresorhus/slugify": "^1.0.0",
+    "is-relative-url": "^3.0.0"
+  },
+  "dependencies": {
+    "lodash.filter": "^4.6.0"
+  },
+  "gitHead": "55a253fcd34ac7acac5fcdd4893d1c1f77f9fc52"
+}

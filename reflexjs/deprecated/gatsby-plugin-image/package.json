@@ -1,0 +1,39 @@
+{
+  "name": "@reflexjs/gatsby-plugin-image",
+  "description": "Handles image for Reflex.",
+  "version": "0.5.4",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "image",
+    "reflex"
+  ],
+  "bugs": {
+    "url": "https://github.com/reflexjs/reflexjs/issues"
+  },
+  "homepage": "https://github.com/reflexjs/reflexjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reflexjs/reflexjs.git",
+    "directory": "packages/gatsby-plugin-image"
+  },
+  "devDependencies": {
+    "gatsby": "^2.26.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "dependencies": {
+    "@reflexjs/gatsby-helpers": "^0.6.1",
+    "@reflexjs/utils": "^0.2.2",
+    "gatsby-image": "^2.4.5",
+    "gatsby-plugin-sharp": "^2.6.16",
+    "gatsby-source-filesystem": "^2.3.8",
+    "gatsby-transformer-sharp": "^2.5.9",
+    "reflexjs": "^1.0.3"
+  }
+}

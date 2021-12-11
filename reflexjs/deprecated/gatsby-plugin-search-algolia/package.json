@@ -1,0 +1,44 @@
+{
+  "name": "@reflexjs/gatsby-plugin-search-algolia",
+  "description": "Algolia search integration for Reflex sites",
+  "version": "0.5.4",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "search",
+    "algolia",
+    "reflex"
+  ],
+  "bugs": {
+    "url": "https://github.com/reflexjs/reflexjs/issues"
+  },
+  "homepage": "https://github.com/reflexjs/reflexjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reflexjs/reflexjs.git",
+    "directory": "packages/gatsby-plugin-search"
+  },
+  "devDependencies": {
+    "gatsby": "^2.26.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "dependencies": {
+    "@reflexjs/gatsby-helpers": "^0.6.1",
+    "@reflexjs/utils": "^0.2.2",
+    "algoliasearch": "^4.4.0",
+    "gatsby-plugin-algolia": "^0.11.2",
+    "github-slugger": "^1.3.0",
+    "react-instantsearch-dom": "^6.7.0",
+    "reflexjs": "^1.0.3",
+    "remark": "^12.0.1",
+    "remark-frontmatter": "^2.0.0",
+    "remark-mdx": "^1.6.16",
+    "remark-mdx-searchable": "^0.1.1"
+  }
+}
