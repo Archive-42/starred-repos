@@ -1,0 +1,6 @@
+{
+  "eslintConfig": {
+    "extends": "blitz",
+    "root": true
+  }
+}
