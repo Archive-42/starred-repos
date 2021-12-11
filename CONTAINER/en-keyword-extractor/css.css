@@ -1,0 +1,101 @@
+.content {
+  max-width: 720px;
+  margin: auto;
+}
+
+@font-face{
+    font-family:'Roboto';
+    src:url("fonts/Roboto-Thin.otf");src:local("☺"),url("fonts/Roboto-Thin.otf") format("otf"), url("fonts/Roboto-Thin.otf") format("truetype"),url("fonts/Roboto-Thin.otf") format("otf");
+    font-style:normal}
+
+@font-face{
+    font-family:'Roboto-Bold';
+    src:url("fonts/Roboto-Bold.otf");src:local("☺"),url("fonts/Roboto-Bold.otf") format("otf"), url("fonts/Roboto-Bold.otf") format("truetype"),url("fonts/Roboto-Bold.otf") format("otf");
+    font-style:bold}
+
+a:link {
+    /*color: #217346;*/
+    color: #990a2c;
+	border-bottom: none;
+    text-decoration: underline dotted #990a2c55;
+}
+
+a:visited {
+	color: #990a2c;
+	border-bottom: none;
+    text-decoration: underline dotted #990a2c55;
+}
+
+a:hover {
+	color: #7f0824;
+	background-color: #fff5cc;
+	border-bottom: none;
+}
+
+a:active {
+	color: #f00;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    font-variant-numeric: oldstyle-nums;
+}
+
+h1 {
+    color: #990a2c;
+	font-weight: 400;
+    font-family: 'Roboto-Bold', sans-serif;
+    font-size: 44px;
+    line-height: 110%;
+}
+
+h2 {
+	font-weight: 700;
+    font-family: 'Pagella-Bold', sans-serif;
+    font-variant-numeric: oldstyle-nums;
+    font-size: 36px;
+}
+h3 {
+	font-weight: 400;
+    font-family: 'Pagella-Bold', sans-serif;
+    font-size: 28px;
+    font-variant-numeric: oldstyle-nums;
+}
+h4 {
+	font-weight: 400;
+    font-family: 'Roboto-Bold', sans-serif;
+    font-size: 22px;
+    font-variant-numeric: oldstyle-nums;
+    margin-top: 1em;
+	text-align: center;
+}
+
+
+b {
+	font-weight: 400;
+    font-family: 'Roboto-Bold', sans-serif;
+    font-variant-numeric: oldstyle-nums;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  margin: auto;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.keywords{
+    max-width: 720px;
+    margin: auto;
+    font-size: 20px;
+    line-height: 130%;
+}
