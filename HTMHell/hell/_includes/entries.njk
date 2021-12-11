@@ -1,0 +1,67 @@
+<ol class="previews u-list-reset">
+  {% for post in entries %}
+    <li class="preview">
+      <div class="preview__header">
+        <h2 class="preview__heading">
+          {{ post.data.title }}
+        </h2>
+
+        submitted on <time class="" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> by {% author post.data.author %}
+      </div>
+
+      {% if post.data.teaser  %}
+        {{ post.data.teaser | md | safe }}
+      {% endif %}
+
+      <div class="code_wrapper">
+        <a href="#post_{{ loop.index }}" class="skip-link skip-link--inline">skip code sample</a>
+        {% highlight "html" %}
+          {{ post.data.badcode | pretty | safe }}
+        {% endhighlight %}
+      </div>
+
+      <p class="readmore">
+        <span aria-hidden="true">&#8594;</span>
+  
+        <a href="{{ post.url | url }}" id="post_{{ loop.index }}">
+           Details and tips on how to fix the diabolic code of {{ post.data.title | entryNumber}}.
+        </a>
+      </p>
+        
+    </li>
+  {% endfor %}
+</ol>
+
+<nav aria-label="Change page">
+  <ol class="pagination u-list-reset">
+    {% if pagination.previousPageHref %}
+      <li class="pagination__item pagination__item--next">
+        <a class="pagination__link" href="{{ pagination.previousPageHref }}">
+          Previous
+          <span class="u-hidden">
+            page
+          </span>
+        </a>
+      </li>
+    {% endif %}
+
+    {% for page in pagination.hrefs %}
+      <li class="pagination__item">
+        <a class="pagination__link" href="{{ page }}" {% if pagination.pageNumber == loop.index0 %}aria-current="page"{% endif %}>
+          <span class="u-hidden">page </span> {{ loop.index }}
+        </a>
+      </li>
+    {% endfor %}
+
+    {% if pagination.nextPageHref %}
+      <li class="pagination__item pagination__item--next-group">
+        <a class="pagination__link" href="{{ pagination.nextPageHref }}">
+          Next
+          <span class="u-hidden">
+            page
+          </span>
+        </a>
+      </li>
+    {% endif %}
+  </ol>
+</nav>
