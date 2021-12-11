@@ -1,0 +1,31 @@
+{
+  "name": "gatsby-plugin-reflexjs",
+  "description": "A Gatsby plugin for adding Reflexjs context.",
+  "version": "0.2.0",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "reflexjs"
+  ],
+  "bugs": {
+    "url": "https://github.com/reflexjs/reflexjs/issues"
+  },
+  "homepage": "https://github.com/reflexjs/reflexjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reflexjs/reflexjs.git",
+    "directory": "packages/gatsby-plugin-reflexjs"
+  },
+  "peerDependencies": {
+    "gatsby": "^3.2.1",
+    "reflexjs": "^2.0.0-alpha.6"
+  }
+}

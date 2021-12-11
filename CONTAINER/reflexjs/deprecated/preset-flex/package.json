@@ -1,0 +1,29 @@
+{
+  "name": "@reflexjs/preset-flex",
+  "version": "0.2.1",
+  "sideEffects": false,
+  "source": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepare": "microbundle --no-compress"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/reflexjs/reflexjs/issues"
+  },
+  "homepage": "https://github.com/reflexjs/reflexjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reflexjs/reflexjs.git",
+    "directory": "packages/preset-flex"
+  },
+  "dependencies": {
+    "@reflexjs/preset-base": "^0.3.1"
+  },
+  "gitHead": "55a253fcd34ac7acac5fcdd4893d1c1f77f9fc52"
+}

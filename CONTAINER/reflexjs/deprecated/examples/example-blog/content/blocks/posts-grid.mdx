@@ -1,0 +1,47 @@
+import { usePost, PostMeta } from "@reflexjs/gatsby-theme-post"
+
+export const FeaturedPosts = ({ filters }) => {
+  // Retrieve and filter posts.
+  const posts = usePost(filters)
+  return posts.length ? (
+    <Grid col="1|1|2|3" gap="6|8">
+      {posts &&
+        posts.slice(0, 3).map((post, index) => (
+          <div key={index} mb="8">
+            <article>
+              {post.image && (
+                <Link href={post.slug} display="block">
+                  <Image
+                    src={post.image}
+                    title={post.title}
+                    alt={post.title}
+                    rounded="md"
+                    overflow="hidden"
+                  />
+                </Link>
+              )}
+              {post.title && (
+                <Link href={post.slug}>
+                  <h2
+                    variant="heading.h2"
+                    my="4"
+                    fontFamily="body"
+                    lineHeight="normal"
+                    fontWeight="semibold"
+                    fontSize="xl"
+                  >
+                    {post.title}
+                  </h2>
+                </Link>
+              )}
+              {post.excerpt && (
+                <p mt="1" fontSize="lg">
+                  {post.excerpt}
+                </p>
+              )}
+            </article>
+          </div>
+        ))}
+    </Grid>
+  ) : null
+}

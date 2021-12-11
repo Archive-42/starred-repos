@@ -1,0 +1,45 @@
+{
+  "name": "@reflexjs/gatsby-plugin-metatags",
+  "description": "Adds a Post type to Gatsby sites.",
+  "version": "0.5.4",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "seo",
+    "metatags",
+    "opengraph",
+    "reflex"
+  ],
+  "bugs": {
+    "url": "https://github.com/reflexjs/reflexjs/issues"
+  },
+  "homepage": "https://github.com/reflexjs/reflexjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reflexjs/reflexjs.git",
+    "directory": "packages/gatsby-plugin-metatags"
+  },
+  "devDependencies": {
+    "deepmerge": "^4.2.2",
+    "gatsby": "^2.26.1",
+    "minimatch": "^3.0.4",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "dependencies": {
+    "@reflexjs/gatsby-plugin-image": "^0.5.4",
+    "@reflexjs/utils": "^0.2.2",
+    "gatsby-plugin-react-helmet": "^3.3.6",
+    "lodash.clonedeep": "^4.5.0",
+    "react-helmet": "^6.1.0",
+    "reflexjs": "^1.0.3"
+  }
+}

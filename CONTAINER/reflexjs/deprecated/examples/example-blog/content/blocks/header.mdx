@@ -1,0 +1,149 @@
+import { useSiteMetadata, useColorMode } from "@reflexjs/gatsby-theme-core"
+
+export const HeaderBlock = ({ ...props }) => {
+  const [showMenu, setShowMenu] = React.useState(false)
+  const navName = "header"
+  return (
+    <header
+      position={["sticky", "relative"]}
+      top="0"
+      bg="primary"
+      zIndex="1000"
+      py="0|0|0|4"
+      {...props}
+    >
+      <Container>
+        <Flexbox
+          display={["none", "flex"]}
+          justifyContent="space-between"
+          py="1"
+        >
+          <Branding />
+          <NavMenu
+            name={navName}
+            gap={[0, 8]}
+            ml={["auto", "auto"]}
+            mr="null|10"
+            sx={{
+              color: "black",
+              "a, a:hover, a[aria-current=page]": {
+                color: "black",
+                fontWeight: "semibold",
+              },
+            }}
+          />
+          <ModeToggle ml="0" />
+        </Flexbox>
+      </Container>
+      <Flexbox
+        display={["flex", "none"]}
+        flexDirection="column"
+        justifyContent="center"
+      >
+        <Flexbox
+          justifyContent="space-between"
+          w="full"
+          pl="4"
+          pr="1"
+          visibility={showMenu ? "hidden" : "visible"}
+          transition="all .15s ease-in"
+        >
+          <Branding />
+          <button
+            variant="button.link"
+            outline="none"
+            onClick={() => setShowMenu(true)}
+          >
+            <Icon name="menu" size="7" color="black" />
+          </button>
+        </Flexbox>
+        <div
+          position="absolute"
+          zIndex="1000"
+          bg="background"
+          top="4"
+          left="4"
+          right="4"
+          px="4"
+          rounded="xl"
+          overflow="scroll"
+          boxShadow="3xl"
+          border="1px solid"
+          borderColor="border"
+          transform={`scale(${showMenu ? 1 : 0.95})`}
+          visibility={showMenu ? "visible" : "hidden"}
+          opacity={showMenu ? 1 : 0}
+          transition="all .25s ease-in"
+          transformOrigin="100% 0"
+          maxHeight="95vh"
+        >
+          <Flexbox justifyContent="space-between" w="full" py="2" px="0">
+            <Branding color="text" />
+            <button
+              variant="button.link"
+              onClick={() => setShowMenu(false)}
+              mr={-3}
+            >
+              <Icon name="x" size="6" />
+            </button>
+          </Flexbox>
+          <NavMenu
+            name={navName}
+            gap={[0, 8]}
+            borderTopWidth="1px"
+            sx={{
+              color: "text",
+              "a, a:hover, a[aria-current=page]": {
+                color: "text",
+                fontWeight: "semibold",
+              },
+            }}
+          />
+          <Flexbox py="4" justifyContent="space-between">
+            <ModeToggle ml="auto" color="text" />
+          </Flexbox>
+        </div>
+      </Flexbox>
+    </header>
+  )
+}
+
+export const Branding = ({ ...props }) => {
+  const { title } = useSiteMetadata()
+  return (
+    <a
+      href="/"
+      fontSize="xl"
+      fontFamily="heading"
+      color="black"
+      {...props}
+      _hover={{
+        color: "black",
+      }}
+    >
+      {title}
+    </a>
+  )
+}
+
+export const ModeToggle = ({ ...props }) => {
+  const [colorMode, setColorMode] = useColorMode()
+  return (
+    <button
+      variant="button.icon"
+      onClick={() => setColorMode(colorMode === "default" ? "dark" : "default")}
+      ml={[2, 4]}
+      color="black"
+      {...props}
+      _hover={{
+        color: "black",
+      }}
+      _focus={{
+        color: "black",
+      }}
+    >
+      <Icon name={colorMode === "default" ? "sun" : "moon"} size="5" />
+      <VisuallyHidden>Toggle mode</VisuallyHidden>
+    </button>
+  )
+}
