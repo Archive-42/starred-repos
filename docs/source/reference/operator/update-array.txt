@@ -1,0 +1,27 @@
+======================
+Array Update Operators
+======================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. include:: /includes/extracts/operators-toc-explanation.rst
+
+Update Operators
+----------------
+
+.. include:: /includes/toc/table-operator-update-array.rst
+
+.. include:: /includes/toc/operator-update-array.rst
+
+Update Operator Modifiers
+-------------------------
+
+.. include:: /includes/toc/table-operator-update-array-modifiers.rst
+
+.. include:: /includes/toc/operator-update-array-modifiers.rst

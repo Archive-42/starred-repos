@@ -1,0 +1,81 @@
+===========================================
+Install MongoDB Community Edition on Debian
+===========================================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: twocols
+
+Overview
+--------
+
+Use this tutorial to install MongoDB Community Edition from ``.deb`` packages on
+Debian.
+
+MongoDB only provides packages for 64-bit builds of Debian 8 and 9. See
+:ref:`mongodb-supported-platforms` for more information.
+
+.. |package-name| replace:: ``{+package-name-org+}``
+.. |distro-name| replace:: Debian
+.. include:: /includes/important-dont-use-distro-packages.rst
+
+Packages
+--------
+
+.. include:: /includes/list-mongodb-org-packages.rst
+
+These packages conflict with the  ``mongodb``, ``mongodb-server``, and
+``mongodb-clients`` packages provided by Debian.
+
+.. include:: /includes/fact-installation-bind-ip-default-in-config.rst
+
+Install MongoDB Community Edition
+---------------------------------
+
+.. include:: /includes/extracts/install-past-mongodb-org-debian.rst
+
+.. include:: /includes/fact-installation-64bit.rst
+
+Using ``.deb`` Packages (Recommended)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Debian package management tools (i.e. ``dpkg`` and ``apt``) ensure
+package consistency and authenticity by requiring that distributors
+sign packages with GPG keys.
+
+.. include:: /includes/steps/install-mongodb-on-debian.rst
+
+Using ``.tgz`` Tarballs
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/fact-tarball-dependencies.rst
+
+.. include:: /includes/extracts/install-mongodb-community-manually-debian.rst
+
+Procedure
+`````````
+
+.. include:: /includes/steps/install-mongodb-on-linux.rst
+
+Run MongoDB Community Edition
+-----------------------------
+
+.. include:: /includes/fact-installation-ulimit.rst
+
+.. |mongod-user| replace:: ``mongodb``
+.. |mongod-datadir| replace:: ``/var/lib/mongodb``
+
+.. include:: /includes/fact-installation-directories.rst
+
+.. include:: /includes/steps/run-mongodb-on-debian.rst
+
+Uninstall MongoDB Community Edition
+-----------------------------------
+
+.. include:: /includes/fact-uninstall.rst
+
+.. include:: /includes/steps/uninstall-mongodb-on-debian.rst

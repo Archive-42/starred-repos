@@ -1,0 +1,22 @@
+======================
+sh.waitForPingChange()
+======================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. method:: sh.waitForPingChange(activePings, timeout, interval)
+
+   :method:`sh.waitForPingChange()` waits for a change in ping state
+   of one of the ``activepings``, and only returns when the specified
+   ping changes state.
+
+   .. include:: /includes/apiargs/method-sh.waitForPingChange-param.rst

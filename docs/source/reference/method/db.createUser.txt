@@ -1,0 +1,242 @@
+===============
+db.createUser()
+===============
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. method:: db.createUser ( user, writeConcern )
+
+   Creates a new user for the database on which the method is run.
+   :method:`db.createUser()` returns a *duplicate user* error if the
+   user already exists on the database.
+
+   The :method:`db.createUser()` method has the following syntax:
+
+   .. include:: /includes/apiargs/method-db.createUser-param.rst
+
+   The ``user`` document defines the user and has the following form:
+
+   .. code-block:: javascript
+
+      { 
+        user: "<name>",
+        pwd: "<cleartext password>",
+        customData: { <any information> },
+        roles: [
+          { role: "<role>", db: "<database>" } | "<role>",
+          ...
+        ],
+        authenticationRestrictions: [ 
+           { 
+             clientSource: ["<IP>" | "<CIDR range>", ...]
+             serverAddress: ["<IP>" | "<CIDR range>", ...]
+           },
+           ...
+        ],
+        mechanisms: [ "<SCRAM-SHA-1|SCRAM-SHA-256>", ... ],
+        passwordDigestor: "<server|client>"
+      }
+
+   The ``user`` document has the following fields:
+
+   .. |local-cmd-name| replace:: :method:`db.createUser()`
+   .. include:: /includes/apiargs/method-db.createUser-user-doc-param.rst
+
+Roles
+~~~~~
+
+.. include:: /includes/fact-roles-array-contents.rst
+
+Authentication Restrictions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/fact-auth-restrictions-array-contents.rst
+
+The :method:`db.createUser()` method wraps the :dbcommand:`createUser`
+command.
+
+Behavior
+--------
+
+Replica set
+~~~~~~~~~~~
+
+.. |command| replace:: :method:`db.createUser()`
+
+.. include:: /includes/fact-management-methods-write-concern.rst
+
+Encryption
+~~~~~~~~~~
+
+
+.. include:: /includes/fact-cleartext-passwords-tls.rst
+
+External Credentials
+~~~~~~~~~~~~~~~~~~~~
+
+Users created on the ``$external`` database should have credentials
+stored externally to MongoDB, as, for example, with :doc:`MongoDB
+Enterprise installations that use Kerberos
+</tutorial/control-access-to-mongodb-with-kerberos-authentication>`.
+
+.. include:: /includes/extracts/sessions-external-username-limit.rst
+
+``local`` Database
+~~~~~~~~~~~~~~~~~~
+
+You cannot create users on the local database.
+
+Required Access
+---------------
+
+.. include:: /includes/access-create-user.rst
+
+Examples
+--------
+
+The following :method:`db.createUser()` operation creates the
+``accountAdmin01`` user on the ``products`` database.
+
+.. cssclass:: copyable-code
+.. code-block:: javascript
+
+   use products
+   db.createUser( { user: "accountAdmin01",
+                    pwd: "changeMe",
+                    customData: { employeeId: 12345 },
+                    roles: [ { role: "clusterAdmin", db: "admin" },
+                             { role: "readAnyDatabase", db: "admin" },
+                             "readWrite"] },
+                  { w: "majority" , wtimeout: 5000 } )
+
+The operation gives ``accountAdmin01`` the following roles:
+
+- the ``clusterAdmin`` and ``readAnyDatabase`` roles on the ``admin``
+  database
+
+- the ``readWrite`` role on the ``products`` database
+
+Create User with Roles
+~~~~~~~~~~~~~~~~~~~~~~
+
+The following operation creates ``accountUser`` in the ``products`` database
+and gives the user the ``readWrite`` and ``dbAdmin`` roles.
+
+.. cssclass:: copyable-code
+.. code-block:: javascript
+
+   use products
+   db.createUser(
+      {
+        user: "accountUser",
+        pwd: "password",
+        roles: [ "readWrite", "dbAdmin" ]
+      }
+   )
+
+Create User without Roles
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following operation creates a user named ``reportsUser`` in the ``admin``
+database but does not yet assign roles:
+
+.. cssclass:: copyable-code
+.. code-block:: javascript
+
+   use admin
+   db.createUser(
+      {
+        user: "reportsUser",
+        pwd: "password",
+        roles: [ ]
+      }
+   )
+
+Create Administrative User with Roles
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following operation creates a user named ``appAdmin`` in the
+``admin`` database and gives the user ``readWrite`` access to the
+``config`` database, which lets the user change certain settings for
+sharded clusters, such as to the balancer setting.
+
+.. cssclass:: copyable-code
+.. code-block:: javascript
+
+   use admin
+   db.createUser(
+      {
+        user: "appAdmin",
+        pwd: "password",
+        roles:
+          [
+            { role: "readWrite", db: "config" },
+            "clusterAdmin"
+          ]
+      }
+   )
+
+Create User with Authentication Restrictions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following operation creates a user named ``restricted`` in the
+``admin`` database. This user may only authenticate if connecting from
+IP address ``192.0.2.0`` to IP address ``198.51.100.0``.
+
+.. cssclass:: copyable-code
+.. code-block:: javascript
+
+   use admin
+   db.createUser(
+      {
+        user: "restricted",
+        pwd: "password",
+        roles: [ { role: "readWrite", db: "reporting } ],
+        authenticationRestrictions: [ {
+           clientSource: ["192.0.2.0"],
+           serverAddress: ["198.51.100.0"]
+        } ]
+      }
+   )
+
+Create User with ``SCRAM-SHA-256`` Credentials Only
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+
+   To use :ref:`SCRAM-SHA-256 <authentication-scram-sha-256>`, the
+   ``featureCompatibilityVersion`` must be set to ``4.0``. For more
+   information on featureCompatibilityVersion, see :ref:`view-fcv` and
+   :dbcommand:`setFeatureCompatibilityVersion`.
+
+
+The following operation creates a user with only ``SCRAM-SHA-256``
+credentials.
+
+.. code-block:: javascript
+
+   use reporting
+   db.createUser(
+      {
+        user: "reportUser256",
+        pwd: "Passw0rd",
+        roles: [ { role: "readWrite", db: "reporting } ],
+        mechanisms: [ "SCRAM-SHA-256" ]
+      }
+   )
+
+
+If the :parameter:`authenticationMechanisms` parameter is set, the
+``mechanisms`` field can only include values specified in the
+:parameter:`authenticationMechanisms` parameter.
+
+

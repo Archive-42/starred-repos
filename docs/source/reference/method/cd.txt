@@ -1,0 +1,21 @@
+====
+cd()
+====
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. method:: cd(path)
+
+   .. include:: /includes/apiargs/method-cd-param.rst
+
+   :method:`cd()` changes the directory context of the
+   :binary:`~bin.mongo` shell and has no effect on the MongoDB server.

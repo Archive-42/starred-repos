@@ -1,0 +1,28 @@
+===================
+sh.enableSharding()
+===================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. method:: sh.enableSharding(database)
+
+   Enables sharding on the specified database. This does not
+   automatically shard any collections but makes it possible to begin
+   sharding collections using :method:`sh.shardCollection()`.
+
+   The :method:`sh.enableSharding()` method has the following parameter:
+
+   .. include:: /includes/apiargs/method-sh.enableSharding-param.rst
+
+   .. include:: /includes/extracts/mongos-operations-wc-enable-sharding.rst
+
+.. seealso:: :method:`sh.shardCollection()`

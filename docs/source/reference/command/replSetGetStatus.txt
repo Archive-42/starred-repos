@@ -1,0 +1,501 @@
+================
+replSetGetStatus
+================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. dbcommand:: replSetGetStatus
+
+   The ``replSetGetStatus`` command returns the status of the replica
+   set from the point of view of the server that processed the command.
+   ``replSetGetStatus`` must be run against the :term:`admin database`.
+   The command has the following prototype form:
+
+   .. code-block:: javascript
+
+      { replSetGetStatus: 1 }
+
+   The value specified does not affect the output of the command. Data
+   provided by this command derives from data included in heartbeats
+   sent to the server by other members of the replica set.
+   Because of the frequency of heartbeats, these data can be several
+   seconds out of date.
+
+   You can also access this functionality through the
+   :method:`rs.status()` helper in the :binary:`~bin.mongo` shell.
+
+   The :binary:`~bin.mongod` instance must have replication enabled and be a
+   member of a replica set for :dbcommand:`replSetGetStatus` to return
+   successfully.
+
+.. _rs-status-output:
+
+Example
+-------
+
+The following example runs the :command:`replSetGetStatus` command on the
+:term:`admin database` of the replica set primary:
+
+.. code-block:: javascript
+
+   db.adminCommand( { replSetGetStatus : 1 } )
+
+Consider the following example output:
+
+.. code-block:: javascript
+
+   {
+      "set" : "replset",
+      "date" : ISODate("2018-05-13T16:36:54.319Z"),
+      "myState" : 1,
+      "term" : NumberLong(1),
+      "syncingTo" : "",
+      "syncSourceHost" : "",
+      "syncSourceId" : -1,
+      "heartbeatIntervalMillis" : NumberLong(2000),
+      "optimes" : {
+         "lastCommittedOpTime" : {
+            "ts" : Timestamp(1526229410, 1),
+            "t" : NumberLong(6)
+         },
+         "readConcernMajorityOpTime" : {
+            "ts" : Timestamp(1526229410, 1),
+            "t" : NumberLong(6)
+         },
+         "appliedOpTime" : {
+            "ts" : Timestamp(1526229410, 1),
+            "t" : NumberLong(6)
+         },
+         "durableOpTime" : {
+            "ts" : Timestamp(1526229410, 1),
+            "t" : NumberLong(6)
+         }
+      },
+      "lastStableCheckpointTimestamp" : Timestamp(1526229400, 1),
+      "members" : [
+            {
+               "_id" : 0,
+               "name" : "m1.example.net:27017",
+               "health" : 1,
+               "state" : 2,
+               "stateStr" : "SECONDARY",
+               "uptime" : 82238,
+               "optime" : {
+                  "ts" : Timestamp(1526229410, 1),
+                  "t" : NumberLong(6)
+               },
+               "optimeDurable" : {
+                  "ts" : Timestamp(1526229410, 1),
+                  "t" : NumberLong(6)
+               },
+               "optimeDate" : ISODate("2018-05-13T16:36:50Z"),
+               "optimeDurableDate" : ISODate("2018-05-13T16:36:50Z"),
+               "lastHeartbeat" : ISODate("2018-05-13T16:36:53.730Z"),
+               "lastHeartbeatRecv" : ISODate("2018-05-13T16:36:53.844Z"),
+               "pingMs" : NumberLong(1),
+               "lastHeartbeatMessage" : "",
+               "syncingTo" : "m3.example.net:27017",
+               "syncSourceHost" : "m3.example.net:27017",
+               "syncSourceId" : 2,
+               "infoMessage" : "",
+               "configVersion" : 1
+            },
+            {
+               "_id" : 1,
+               "name" : "m2.example.net:27017",
+               "health" : 1,
+               "state" : 2,
+               "stateStr" : "SECONDARY",
+               "uptime" : 82238,
+               "optime" : {
+                  "ts" : Timestamp(1526229410, 1),
+                  "t" : NumberLong(6)
+               },
+               "optimeDurable" : {
+                  "ts" : Timestamp(1526229410, 1),
+                  "t" : NumberLong(6)
+               },
+               "optimeDate" : ISODate("2018-05-13T16:36:50Z"),
+               "optimeDurableDate" : ISODate("2018-05-13T16:36:50Z"),
+               "lastHeartbeat" : ISODate("2018-05-13T16:36:53.453Z"),
+               "lastHeartbeatRecv" : ISODate("2018-05-13T16:36:53.445Z"),
+               "pingMs" : NumberLong(8),
+               "lastHeartbeatMessage" : "",
+               "syncingTo" : "m3.example.net:27017",
+               "syncSourceHost" : "m3.example.net:27017",
+               "syncSourceId" : 2,
+               "infoMessage" : "",
+               "configVersion" : 1
+            },
+            {
+               "_id" : 2,
+               "name" : "m3.example.net:27017",
+               "health" : 1,
+               "state" : 1,
+               "stateStr" : "PRIMARY",
+               "uptime" : 141912,
+               "optime" : {
+                  "ts" : Timestamp(1526229410, 1),
+                  "t" : NumberLong(6)
+               },
+               "optimeDate" : ISODate("2018-05-13T16:36:50Z"),
+               "syncingTo" : "",
+               "syncSourceHost" : "",
+               "syncSourceId" : -1,
+               "infoMessage" : "",
+               "electionTime" : Timestamp(1526227096, 1),
+               "electionDate" : ISODate("2018-05-13T15:58:16Z"),
+               "configVersion" : 1,
+               "self" : true,
+               "lastHeartbeatMessage" : ""
+            }
+         ],
+      "ok" : 1,
+      "operationTime" : Timestamp(1526229410, 1),
+      "$clusterTime" : {
+         "clusterTime" : Timestamp(1526229410, 1),
+         "signature" : {
+            "hash" : BinData(0,"WE7yaBuLazOtqwdJxaroLp1Kluo="),
+            "keyId" : NumberLong("6554495980643811329")
+         }
+      }
+   }
+
+Output
+------
+
+The :command:`replSetGetStatus` command returns a document with the
+following fields:
+
+.. data:: replSetGetStatus.set
+
+   The ``set`` value is the name of the replica set, configured in the
+   :setting:`~replication.replSetName` setting. This is the same value as
+   :rsconf:`_id` in :method:`rs.conf()`.
+
+.. data:: replSetGetStatus.date
+
+   An :term:`ISODate` formatted date and time that reflects the current
+   time according to the server that processed the
+   :command:`replSetGetStatus` command. Compare this to the values of
+   :data:`replSetGetStatus.members[n].lastHeartbeat` to find the
+   operational latency between this server and the other members of the
+   replica set.
+
+.. data:: replSetGetStatus.myState
+
+   An integer between ``0`` and ``10`` that represents the :doc:`replica
+   state </reference/replica-states>` of the current member.
+
+.. data:: replSetGetStatus.term
+
+   .. versionadded:: 3.2
+
+   The election count for the replica set, as known to this replica set
+   member. The :data:`~replSetGetStatus.term` is used by the
+   distributed consensus algorithm to ensure correctness.
+
+   .. data:: replSetGetStatus.syncingTo
+
+      .. deprecated:: 4.0
+
+         Starting in MongoDB 4.0, MongoDB deprecates
+         :data:`~replSetGetStatus.syncingTo`. See
+         :data:`replSetGetStatus.syncSourceHost` instead.
+
+      The ``syncingTo`` field holds the hostname of the member from
+      which this instance syncs. If this instance is a primary, returns
+      an empty string ``""``.
+
+   .. data:: replSetGetStatus.syncSourceHost
+
+      .. versionadded:: 4.0
+
+      The :data:`~replSetGetStatus.syncSourceHost` field holds the
+      hostname of the member from which this instance syncs.
+
+      If this instance is a primary,
+      :data:`~replSetGetStatus.syncSourceHost` is an empty string and
+      the :data:`~replSetGetStatus.syncSourceId` ``-1``.
+
+   .. data:: replSetGetStatus.syncSourceId
+
+      .. versionadded:: 4.0
+
+      The :data:`~replSetGetStatus.syncSourceId` field holds the
+      :data:`replSetGetStatus.members[n]._id` of the member from which
+      this instance syncs.
+
+      If this instance is a primary,
+      :data:`~replSetGetStatus.syncSourceHost` is an empty string and
+      the :data:`~replSetGetStatus.syncSourceId` ``-1``.
+
+.. data:: replSetGetStatus.heartbeatIntervalMillis
+
+   .. versionadded:: 3.2
+
+   The frequency in milliseconds of the heartbeats.
+
+.. data:: replSetGetStatus.optimes
+
+   .. versionadded:: 3.4
+
+   The ``optimes`` field holds a document that contains
+   :term:`optimes <optime>` used to inspect replication progress.
+
+   Each optime value is a document that contains:
+
+   .. include:: /includes/fact-optime.rst
+
+   .. data:: replSetGetStatus.optimes.lastCommittedOpTime
+
+      Information, from the viewpoint of this member, regarding the
+      most recent operation that has been written to a majority of
+      replica set members.
+
+   .. data:: replSetGetStatus.optimes.readConcernMajorityOpTime
+
+      Information, from the viewpoint of this member, regarding the
+      most recent operation that can fulfill read concern
+      :readconcern:`"majority"` queries; i.e. the most recent
+      :data:`~replSetGetStatus.optimes.lastCommittedOpTime` that can
+      fulfill :readconcern:`"majority"` queries.
+      :data:`~replSetGetStatus.optimes.readConcernMajorityOpTime` is
+      either less than or equal to
+      :data:`~replSetGetStatus.optimes.lastCommittedOpTime`.
+
+   .. data:: replSetGetStatus.optimes.appliedOpTime
+
+      Information, from the viewpoint of this member, regarding the
+      most recent operation that has been applied to this member of the
+      replica set.
+
+   .. data:: replSetGetStatus.optimes.durableOpTime
+
+      Information,, from the viewpoint of this member, regarding the
+      most recent operation that has been written to the journal of
+      this member of the replica set.
+
+.. data:: replSetGetStatus.lastStableCheckpointTimestamp
+
+   .. versionadded:: 4.0
+
+   Available for the :ref:`storage-wiredtiger`.
+
+   Timestamp at which the current, or a previous, persisted checkpoint
+   was taken. Although
+   :data:`~replSetGetStatus.lastStableCheckpointTimestamp` may lag the
+   most recent persisted checkpoint, the returned timestamp is
+   guaranteed to be persisted in a stable checkpoint to disk.
+
+   A ``null`` value indicates that no stable checkpoint exists.
+
+.. data:: replSetGetStatus.members
+
+   The ``members`` field holds an array that contains a document for
+   every member in the replica set.
+
+   .. data:: replSetGetStatus.members[n]._id
+
+      The ``_id`` field holds the identifier for the member.
+
+   .. data:: replSetGetStatus.members[n].name
+
+      The ``name`` field holds the name of the server.
+
+   .. data:: replSetGetStatus.members[n].self
+
+      The ``self`` field is only included in the document for the
+      current ``mongod`` instance in the members array. Its value is
+      ``true``.
+
+   .. data:: replSetGetStatus.members[n].health
+
+      The ``health`` value is only present for the other members of the
+      replica set (i.e. not the member that returns
+      :method:`rs.status`). This field conveys if the member is up (i.e.
+      ``1``) or down (i.e. ``0``).
+
+   .. data:: replSetGetStatus.members[n].state
+
+      The value of :data:`~replSetGetStatus.members[n].state` is an
+      integer between ``0`` and ``10`` that represents the
+      :doc:`replica state </reference/replica-states>` of the member.
+
+   .. data:: replSetGetStatus.members[n].stateStr
+
+      A string that describes :data:`~replSetGetStatus.members[n].state`.
+
+   .. data:: replSetGetStatus.members[n].uptime
+
+      The :data:`~replSetGetStatus.members[n].uptime` field holds a value
+      that reflects the number of seconds that this member has been
+      online.
+
+      This value does not appear for the member that returns the
+      :method:`rs.status()` data.
+
+   .. data:: replSetGetStatus.members[n].optime
+
+      Information regarding the last operation from the operation log that
+      this member has applied.
+
+      .. versionchanged:: 3.2
+
+      ``optime`` returns a document that contains:
+
+      - ``ts``, the :ref:`Timestamp <document-bson-type-timestamp>` of
+        the last operation applied to this member of the replica set
+        from the :term:`oplog`.
+
+      - ``t``, the :data:`~replSetGetStatus.term` in which the last
+        applied operation was originally generated on the primary.
+
+   .. data:: replSetGetStatus.members[n].optimeDurable
+
+      .. versionadded:: 3.4
+
+      Information regarding the last operation from the operation log
+      that this member has applied to its journal.
+
+      ``optimeDurable`` returns a document that contains:
+
+      - ``ts``, the :ref:`Timestamp <document-bson-type-timestamp>` of
+        the operation.
+
+      - ``t``, the :data:`~replSetGetStatus.term` in which this
+        operation was originally generated on the primary.
+
+   .. data:: replSetGetStatus.members[n].optimeDate
+
+      An :term:`ISODate` formatted date string that reflects the last
+      entry from the :term:`oplog` that this member applied. If this
+      differs significantly from
+      :data:`~replSetGetStatus.members[n].lastHeartbeat` this member is
+      either experiencing "replication lag" *or* there have not been any
+      new operations since the last update. Compare
+      ``members.optimeDate`` between all of the members of the set.
+
+   .. data:: replSetGetStatus.members[n].optimeDurableDate
+
+      .. versionadded:: 3.4
+
+      An :term:`ISODate` formatted date string that reflects the last
+      entry from the :term:`oplog` that this member applied to its
+      journal.
+
+   .. data:: replSetGetStatus.members[n].electionTime
+
+      For the current primary, information regarding the election
+      :ref:`Timestamp <document-bson-type-timestamp>` from the
+      operation log. See :doc:`/core/replica-set-high-availability` for more
+      information about elections.
+
+   .. data:: replSetGetStatus.members[n].electionDate
+
+      For the current primary, an :term:`ISODate` formatted date string
+      that reflects the election date. See
+      :doc:`/core/replica-set-high-availability` for more information about
+      elections.
+
+   .. data:: replSetGetStatus.members[n].self
+
+      Indicates which replica set member processed the
+      :command:`replSetGetStatus` command.
+
+   .. data:: replSetGetStatus.members[n].lastHeartbeat
+
+      An :term:`ISODate` formatted date and time that reflects the last
+      time the server that processed the :command:`replSetGetStatus`
+      command received a response from a heartbeat that it sent to this
+      member (``members[n]``).
+      Compare this value to the values of the :data:`~replSetGetStatus.date` and
+      :data:`~replSetGetStatus.members[n].lastHeartBeatRecv` fields to
+      track latency between these replica set members.
+
+      This value is only available for replica set members other than the server specified by :data:`replSetGetStatus.members[n].self`.
+
+   .. data:: replSetGetStatus.members[n].lastHeartbeatRecv
+
+      An :term:`ISODate` formatted date and time that reflects the last
+      time the server that processed the :command:`replSetGetStatus`
+      command received a heartbeat request from this member
+      (``members[n]``).
+      Compare this value to the values of the
+      :data:`~replSetGetStatus.date` and
+      :data:`~replSetGetStatus.members[n].lastHeartBeat` fields to track
+      latency between these replica set members.
+
+      This value is only available for replica set members other than the server specified by :data:`replSetGetStatus.members[n].self`.
+
+   .. data:: replSetGetStatus.members[n].lastHeartbeatMessage
+
+      When the last heartbeat included an extra message, the
+      :data:`~replSetGetStatus.members[n].lastHeartbeatMessage` contains
+      a string representation of that message.
+
+   .. data:: replSetGetStatus.members[n].pingMs
+
+      The ``pingMs`` represents the number of milliseconds (ms) that a
+      round-trip packet takes to travel between the remote member and
+      the local instance.
+
+      This value does not appear for the member that returns the
+      :method:`rs.status()` data.
+
+
+   .. data:: replSetGetStatus.members[n].syncingTo
+
+      .. deprecated:: 4.0
+
+         Starting in MongoDB 4.0, MongoDB deprecates
+         :data:`~replSetGetStatus.members[n].syncingTo`. See
+         :data:`replSetGetStatus.members[n].syncSourceHost` instead.
+
+      The ``syncingTo`` field holds the hostname of the member from
+      which this instance is syncing. If the member is a primary,
+      returns an empty string ``""``.
+
+   .. data:: replSetGetStatus.members[n].syncSourceHost
+
+      .. versionadded:: 4.0
+
+      The :data:`~replSetGetStatus.members[n].syncSourceHost` field
+      holds the hostname of the member from which this instance syncs.
+
+      If the ``replSetGetStatus.members[n]`` is a primary,
+      :data:`~replSetGetStatus.members[n].syncSourceHost` is an empty
+      string and the :data:`~replSetGetStatus.members[n].syncSourceId`
+      ``-1``.
+
+   .. data:: replSetGetStatus.members[n].syncSourceId
+
+      .. versionadded:: 4.0
+
+      The :data:`~replSetGetStatus.members[n].syncSourceId` field holds
+      the :data:`replSetGetStatus.members[n]._id` value of the
+      :data:`~replSetGetStatus.members[n].syncSourceHost`.
+
+      If the ``replSetGetStatus.members[n]`` is a primary,
+      :data:`~replSetGetStatus.members[n].syncSourceHost` is an empty
+      string and the :data:`~replSetGetStatus.members[n].syncSourceId`
+      ``-1``.
+
+   .. data:: replSetGetStatus.members[n].configVersion
+
+      .. versionadded:: 3.0
+
+      The ``configVersion`` value is the :rsconf:`replica
+      set configuration version <version>`.
+
+See also :ref:`command-response` for details on the ``ok`` status
+field, the ``operationTime`` field and the ``$clusterTime`` field.

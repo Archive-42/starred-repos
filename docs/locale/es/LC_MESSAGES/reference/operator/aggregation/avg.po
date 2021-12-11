@@ -1,0 +1,69 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2014, MongoDB, Inc.
+# This file is distributed under the same license as the mongodb-manual package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: MongoDB Manual\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-08 13:03-0400\n"
+"PO-Revision-Date: 2013-12-16 23:01+0000\n"
+"Last-Translator: tychoish <tychoish@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/mongodb-manual/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# da3c61eed3534a3e81a98dd8d34484e2
+#: ../source/reference/operator/aggregation/avg.txt:3
+msgid "$avg (aggregation)"
+msgstr ""
+
+#: ../source/reference/operator/aggregation/avg.txt:9
+msgid ""
+"Returns the average value of the numeric values that result from applying a "
+"specified expression to each document in a group of documents that share the"
+" same group by key. :group:`$avg` ignores non-numeric values."
+msgstr ""
+
+#: ../source/includes/fact-aggregation-accumulator.rst:1
+msgid ""
+"|accumulator| is an :ref:`accumulator operator <aggregation-accumulator-"
+"operators>` available only in the :pipeline:`$group` stage."
+msgstr ""
+
+#: ../source/reference/operator/aggregation/avg.txt:17
+msgid ":expression:`$avg` has the following syntax:"
+msgstr ""
+
+#: ../source/reference/operator/aggregation/avg.txt:23
+msgid ""
+"For more information on expressions, see :ref:`aggregation-expressions`."
+msgstr ""
+
+#: ../source/reference/operator/aggregation/avg.txt:27
+msgid "Example"
+msgstr ""
+
+#: ../source/reference/operator/aggregation/avg.txt:29
+msgid "Consider a ``sales`` collection with the following documents:"
+msgstr ""
+
+#: ../source/reference/operator/aggregation/avg.txt:39
+msgid ""
+"Grouping the documents by the ``item`` field, the following operation uses "
+"the :group:`$avg` accumulator to compute the average amount and average "
+"quantity for each grouping."
+msgstr ""
+
+#: ../source/reference/operator/aggregation/avg.txt:58
+msgid "The operation returns the following results:"
+msgstr ""
+
+#~ msgid ""
+#~ "Returns the average of all the values of the field in all documents selected"
+#~ " by this group."
+#~ msgstr ""

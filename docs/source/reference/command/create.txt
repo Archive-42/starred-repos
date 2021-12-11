@@ -1,0 +1,229 @@
+======
+create
+======
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. dbcommand:: create
+
+   .. versionchanged:: 3.4
+
+      Added support for the creation of views and the specification of
+      :ref:`collation`.
+
+   Explicitly creates a collection or view. :dbcommand:`create` has
+   the following form:
+
+   .. code-block:: javascript
+
+      {
+        create: <collection or view name>,
+        capped: <true|false>,
+        autoIndexId: <true|false>,
+        size: <max_size>,
+        max: <max_documents>,
+        flags: <0|1|2|3>,
+        storageEngine: <document>,
+        validator: <document>,
+        validationLevel: <string>,
+        validationAction: <string>,
+        indexOptionDefaults: <document>,
+        viewOn: <source>, 
+        pipeline: <pipeline>,
+        collation: <document>,
+        writeConcern: <document>
+      }
+
+   :dbcommand:`create` has the following fields:
+
+   .. include:: /includes/apiargs/dbcommand-create-field.rst
+
+   The :method:`db.createCollection()` method and the
+   :method:`db.createView()` method wrap the :dbcommand:`create`
+   command.
+
+Considerations
+--------------
+
+The :dbcommand:`create` command obtains a write lock on the
+affected database and will block other operations until it has
+completed. The write lock for this operation is typically short
+lived. However, allocations for large capped collections may take
+longer.
+
+Access Control
+--------------
+
+If the deployment enforces authentication/authorization, you must have
+the following privilege to run the :dbcommand:`create` command:
+
+.. list-table::
+   :header-rows: 1
+
+   * - 
+
+     - Required Privileges
+   
+   * - Create a non-capped collection
+
+     - :authaction:`createCollection` in the database, **or**
+
+       :authaction:`insert` in the collection to create
+
+   * - Create a capped collection
+
+     - :authaction:`convertToCapped` for the collection
+
+
+       :authaction:`createCollection` in the database
+
+   * - Create a view
+
+     - :authaction:`createCollection` in the database and either:
+
+       - no :authaction:`find` on the view to create, **or**
+
+       - both :authaction:`find` on the view to create and
+         :authaction:`find` on the source collection/view.
+
+The built-in role :authrole:`readWrite` provides the required privileges.
+
+Examples
+--------
+
+Create a Capped Collection
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a :term:`capped collection` limited to 64 kilobytes, issue
+the command in the following form:
+
+.. code-block:: javascript
+
+   db.runCommand( { create: "collection", capped: true, size: 64 * 1024 } )
+
+Create a View
+~~~~~~~~~~~~~
+
+.. versionadded:: 3.4
+
+To create a :doc:`view </core/views>` using the :dbcommand:`create`
+command, use the following syntax:
+
+.. code-block:: javascript
+
+   db.runCommand( { create: <view>, viewOn: <source>, pipeline: <pipeline> } )
+   
+or if specifying a collation:
+
+.. code-block:: javascript
+
+   db.runCommand( { create: <view>, viewOn: <source>, pipeline: <pipeline>, collation: <collation> } )
+
+For example, given a collection ``survey`` with the following documents:
+
+.. code-block:: javascript
+
+   { _id: 1, empNumber: "abc123", feedback: { management: 3, environment: 3 }, department: "A" }
+   { _id: 2, empNumber: "xyz987", feedback: { management: 2, environment: 3 }, department: "B" }
+   { _id: 3, empNumber: "ijk555", feedback: { management: 3, environment: 4 }, department: "A" }
+
+The following operation creates a ``managementRatings`` view with the
+``_id``, ``feedback.management``, and ``department`` fields:
+
+.. code-block:: javascript
+
+   db.runCommand ( {
+      create: "managementFeedback",
+      viewOn: "survey",
+      pipeline: [ { $project: { "management": "$feedback.management", department: 1 } } ]
+   } )
+
+.. important::
+
+   .. include:: /includes/extracts/views-public-definition.rst
+
+.. seealso:: :method:`db.createView()`
+
+.. _create-collation-example:
+
+Specify Collation
+~~~~~~~~~~~~~~~~~
+
+You can specify :ref:`collation <collation>` at the collection or
+:ref:`view <3.4-reference-views>` level. For example, the following
+operation creates a collection, specifying a collation for the
+collection (See :ref:`collation-document-fields` for descriptions of
+the collation fields):
+
+.. code-block:: javascript
+
+   db.runCommand ( {
+      create: "myColl",
+      collation: { locale: "fr" }
+   });
+
+This collation will be used by indexes and operations that support
+collation unless they explicitly specify a different collation. For
+example, insert the following documents into ``myColl``:
+
+.. code-block:: javascript
+
+   { _id: 1, category: "café" }
+   { _id: 2, category: "cafe" }
+   { _id: 3, category: "cafE" }
+
+The following operation uses the collection's collation:
+
+.. code-block:: javascript
+
+   db.myColl.find().sort( { category: 1 } )
+
+The operation returns documents in the following order:
+
+.. code-block:: javascript
+
+   { "_id" : 2, "category" : "cafe" }
+   { "_id" : 3, "category" : "cafE" }
+   { "_id" : 1, "category" : "café" }
+
+The same operation on a collection that uses simple binary collation
+(i.e. no specific collation set) returns documents in the following order:
+
+.. code-block:: javascript
+
+   { "_id" : 3, "category" : "cafE" }
+   { "_id" : 2, "category" : "cafe" }
+   { "_id" : 1, "category" : "café" }
+
+.. seealso:: :ref:`create-view-w-collation`, :ref:`ref-collation-and-views`
+
+Specify Storage Engine Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 3.0
+
+You can specify collection-specific storage engine configuration
+options when you create a collection with
+:method:`db.createCollection()`. Consider the following operation:
+
+.. code-block:: javascript
+
+   db.runCommand( {
+       create: "users",
+       storageEngine: { wiredTiger: { configString: "<option>=<setting>" } }
+   } )
+
+This operation creates a new collection named ``users`` with a
+specific configuration string that MongoDB will pass to the
+``wiredTiger`` storage engine. See the :wtdocs:`WiredTiger documentation of
+collection level options </struct_w_t___s_e_s_s_i_o_n.html>`
+for specific ``wiredTiger`` options.

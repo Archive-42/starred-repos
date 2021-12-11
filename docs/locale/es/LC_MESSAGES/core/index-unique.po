@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2014, MongoDB, Inc.
+# This file is distributed under the same license as the mongodb-manual package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: MongoDB Manual\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-08 13:03-0400\n"
+"PO-Revision-Date: 2013-12-16 23:49+0000\n"
+"Last-Translator: tychoish <tychoish@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/mongodb-manual/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# 429157558a9f4fa3a31f7842ad57fb9c
+#: ../source/core/index-unique.txt:6
+msgid "Unique Indexes"
+msgstr ""
+
+# 80ce2ad1b6684673bc55e91a025fcd6e
+#: ../source/core/index-unique.txt:22
+msgid "By default, ``unique`` is ``false`` on MongoDB indexes."
+msgstr ""
+
+# d8cdb9f07a374b70a75853ce67e33d50
+#: ../source/core/index-unique.txt:24
+msgid ""
+"If you use the unique constraint on a :ref:`compound index <index-type-"
+"compound>`, then MongoDB will enforce uniqueness on the *combination* of "
+"values rather than the individual value for any or all values of the key."
+msgstr ""
+
+# f6516c50a99d4c0d9542d6a8d6c03e13
+#: ../source/core/index-unique.txt:60
+msgid ""
+"If a document does not have a value for the indexed field in a unique index,"
+" the index will store a null value for this document. Because of the unique "
+"constraint, MongoDB will only permit one document that lacks the indexed "
+"field. If there is more than one document without a value for the indexed "
+"field or is missing the indexed field, the index build will fail with a "
+"duplicate key error."
+msgstr ""
+
+# 1599657b91264146962c95da7a040a46
+#: ../source/core/index-unique.txt:67
+msgid ""
+"You can combine the unique constraint with the :ref:`sparse index <index-"
+"type-sparse>` to filter these null values from the unique index and avoid "
+"the error."
+msgstr ""
+
+# a99615fa15e846f2a77c203fb28ba2be
+#: ../source/core/index-unique.txt:74
+msgid ""
+"You may not specify a unique constraint on a :ref:`hashed index <index-type-"
+"hashed>`."
+msgstr ""
+
+# 3495a69ef7894d9f934f99e63ea37a98
+#: ../source/core/index-unique.txt:1
+msgid "index"
+msgstr ""
+
+# 3495a69ef7894d9f934f99e63ea37a98
+#: ../source/core/index-unique.txt:1
+msgid "unique"
+msgstr ""
+
+#: ../source/core/index-unique.txt:10
+msgid ""
+"A unique index causes MongoDB to reject all documents that contain a "
+"duplicate value for the indexed field."
+msgstr ""
+
+#: ../source/core/index-unique.txt:13
+msgid ""
+"To create a unique index, use the :method:`db.collection.ensureIndex()` "
+"method with the ``unique`` option set to ``true``. For example, to create a "
+"unique index on the ``user_id`` field of the ``members`` collection, use the"
+" following operation in the :program:`mongo` shell:"
+msgstr ""
+
+#: ../source/core/index-unique.txt:30
+msgid "Behavior"
+msgstr ""
+
+#: ../source/core/index-unique.txt:33
+msgid "Unique Constraint Across Separate Documents"
+msgstr ""
+
+#: ../source/core/index-unique.txt:35
+msgid ""
+"The unique constraint applies to separate documents in the collection. That "
+"is, the unique index prevents *separate* documents from having the same "
+"value for the indexed key, but the index does not prevent a document from "
+"having multiple elements or embedded documents in an indexed array from "
+"having the same value. In the case of a single document with repeating "
+"values, the repeated value is inserted into the index only once."
+msgstr ""
+
+#: ../source/core/index-unique.txt:43
+msgid "For example, a collection has a unique index on ``a.b``:"
+msgstr ""
+
+#: ../source/core/index-unique.txt:49
+msgid ""
+"The unique index permits the insertion of the following document into the "
+"collection if no other document in the collection has the ``a.b`` value of "
+"``5``:"
+msgstr ""
+
+#: ../source/core/index-unique.txt:58
+msgid "Unique Index and Missing Field"
+msgstr ""
+
+#: ../source/core/index-unique.txt:72
+msgid "Restrictions"
+msgstr ""
+
+#: ../source/core/index-unique.txt:77
+msgid ":doc:`/tutorial/create-a-unique-index`"
+msgstr ""
+
+#~ msgid ""
+#~ "A unique index causes MongoDB to reject all documents that contain a "
+#~ "duplicate value for the indexed field. To create a unique index on the "
+#~ "``user_id`` field of the ``members`` collection, use the following operation"
+#~ " in the :program:`mongo` shell:"
+#~ msgstr ""

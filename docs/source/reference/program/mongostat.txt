@@ -1,0 +1,547 @@
+.. _mongostat:
+
+=============
+``mongostat``
+=============
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+.. |tool-binary| replace:: mongostat
+
+.. include:: /includes/admonition-mac-osx-sierra-restriction.rst
+
+Synopsis
+--------
+
+The :binary:`~bin.mongostat` utility provides a quick overview of the
+status of a currently running :binary:`~bin.mongod`
+or :binary:`~bin.mongos`
+instance. :binary:`~bin.mongostat` is functionally similar to the
+UNIX/Linux file system utility ``vmstat``, but provides data regarding
+:binary:`~bin.mongod` and :binary:`~bin.mongos` instances.
+
+.. include:: /includes/extracts/require-cmd-line-mongostat.rst
+
+.. seealso::
+
+   For more information about monitoring MongoDB, see
+   :doc:`/administration/monitoring`.
+
+   For more background on other MongoDB status outputs see:
+
+   - :doc:`/reference/command/serverStatus`
+   - :doc:`/reference/command/replSetGetStatus`
+   - :doc:`/reference/command/dbStats`
+   - :doc:`/reference/command/collStats`
+
+   For an additional utility that provides MongoDB metrics see
+   :doc:`mongotop </reference/program/mongotop>`.
+
+Required Access
+---------------
+
+In order to connect to a :binary:`~bin.mongod` that enforces authorization
+with the :option:`--auth <mongod --auth>` option, specify the
+:option:`--username <mongostat --username>` and :option:`--password
+<mongostat --password>` options, and the connecting user must have the
+:authaction:`serverStatus` privilege action on the cluster resources.
+
+The built-in role :authrole:`clusterMonitor` provides this privilege as
+well as other privileges. To create a role with just the privilege to
+run :binary:`~bin.mongostat`, see :ref:`create-role-for-mongostat`.
+
+Options
+-------
+
+.. binary:: mongostat
+
+.. program:: mongostat
+
+.. include:: /includes/option/option-mongostat-help.rst
+
+.. include:: /includes/option/option-mongostat-verbose.rst
+
+.. include:: /includes/option/option-mongostat-version.rst
+
+.. include:: /includes/option/option-mongostat-uri.rst
+
+.. include:: /includes/option/option-mongostat-host.rst
+
+.. include:: /includes/option/option-mongostat-port.rst
+
+.. include:: /includes/option/option-mongostat-ipv6.rst
+
+.. include:: /includes/option/option-mongostat-ssl.rst
+
+.. include:: /includes/option/option-mongostat-sslCAFile.rst
+
+.. include:: /includes/option/option-mongostat-sslPEMKeyFile.rst
+
+.. include:: /includes/option/option-mongostat-sslPEMKeyPassword.rst
+
+.. include:: /includes/option/option-mongostat-sslCRLFile.rst
+
+.. include:: /includes/option/option-mongostat-sslAllowInvalidCertificates.rst
+
+.. include:: /includes/option/option-mongostat-sslAllowInvalidHostnames.rst
+
+.. include:: /includes/option/option-mongostat-sslFIPSMode.rst
+
+.. include:: /includes/option/option-mongostat-username.rst
+
+.. include:: /includes/option/option-mongostat-password.rst
+
+.. include:: /includes/option/option-mongostat-authenticationDatabase.rst
+
+.. include:: /includes/option/option-mongostat-authenticationMechanism.rst
+
+.. include:: /includes/option/option-mongostat-gssapiServiceName.rst
+
+.. include:: /includes/option/option-mongostat-gssapiHostName.rst
+
+.. include:: /includes/option/option-mongostat-humanReadable.rst
+
+.. include:: /includes/option/option-mongostat-Columns.rst
+
+.. include:: /includes/option/option-mongostat-AppendColumns.rst
+
+.. include:: /includes/option/option-mongostat-noheaders.rst
+
+.. include:: /includes/option/option-mongostat-rowcount.rst
+
+.. include:: /includes/option/option-mongostat-discover.rst
+
+.. include:: /includes/option/option-mongostat-http.rst
+
+.. include:: /includes/option/option-mongostat-all.rst
+
+.. include:: /includes/option/option-mongostat-json.rst
+
+.. include:: /includes/option/option-mongostat-interactive.rst
+
+.. include:: /includes/option/option-mongostat-<sleeptime>.rst
+
+.. _mongostat-fields:
+
+Fields
+------
+
+:binary:`~bin.mongostat` returns values that reflect the operations over a
+1 second period. When :command:`mongostat <sleeptime>` has a value
+greater than 1, :binary:`~bin.mongostat` averages the statistics to reflect
+average operations per second.
+
+:binary:`~bin.mongostat` outputs the following fields:
+
+.. describe:: inserts
+
+   The number of objects inserted into the database per second. If
+   followed by an asterisk (e.g. ``*``), the datum refers to a
+   replicated operation.
+
+.. describe:: query
+
+   The number of query operations per second.
+
+.. describe:: update
+
+   The number of update operations per second.
+
+.. describe:: delete
+
+   The number of delete operations per second.
+
+.. describe:: getmore
+
+   The number of get more (i.e. cursor batch) operations per second.
+
+.. describe:: command
+
+   The number of commands per second. On 
+   :term:`secondary` systems, :binary:`~bin.mongostat` presents two values
+   separated by a pipe character (e.g. ``|``), in the form of
+   ``local|replicated`` commands.
+
+.. describe:: flushes
+
+   .. versionchanged:: 3.0
+
+   For the :ref:`storage-wiredtiger`, ``flushes`` refers to the number
+   of WiredTiger checkpoints triggered between each polling interval.
+
+   For the :ref:`storage-mmapv1`, ``flushes`` represents the number of
+   :term:`fsync` operations per second.
+
+.. describe:: dirty
+
+   .. versionadded:: 3.0
+
+   Only for :ref:`storage-wiredtiger`. The percentage of the WiredTiger
+   cache with dirty bytes, calculated by
+   :serverstatus:`wiredTiger.cache.tracked dirty bytes in the cache`
+   / :serverstatus:`wiredTiger.cache.maximum bytes configured`.
+
+.. describe:: used
+
+   .. versionadded:: 3.0
+
+   Only for :ref:`storage-wiredtiger`. The percentage of the WiredTiger
+   cache that is in use, calculated by
+   :serverstatus:`wiredTiger.cache.bytes currently in the cache` /
+   :serverstatus:`wiredTiger.cache.maximum bytes configured`.
+
+.. describe:: mapped
+
+   .. versionchanged:: 3.0
+
+   Only for :ref:`storage-mmapv1`. The total amount of data mapped in
+   megabytes. This is the total data size at the time of the last
+   :binary:`~bin.mongostat` call.
+
+.. describe:: vsize
+
+   The amount of virtual memory in megabytes used by the process at
+   the time of the last :binary:`~bin.mongostat` call.
+
+.. describe:: non-mapped
+
+   .. versionchanged:: 3.0
+
+   Only for :ref:`storage-mmapv1`.
+
+   *Optional*. The total amount of virtual memory excluding all mapped memory at
+   the time of the last :binary:`~bin.mongostat` call.
+
+   :binary:`~bin.mongostat` only returns this value when started with the
+   :option:`--all <mongostat --all>` option.
+
+.. describe:: res
+
+   The amount of resident memory in megabytes used by the process at
+   the time of the last :binary:`~bin.mongostat` call.
+
+.. describe:: faults
+
+   .. versionchanged:: 3.0
+
+   Only for :ref:`storage-mmapv1`. The number of page faults per second.
+
+   .. versionchanged:: 2.1
+      Before version 2.1, this value was only provided for MongoDB
+      instances running on Linux hosts.
+
+.. describe:: lr
+
+   .. versionadded:: 3.2
+
+   Only for :ref:`storage-mmapv1`. The percentage of read lock
+   acquisitions that had to wait. :binary:`~bin.mongostat` displays ``lr|lw``
+   if a lock acquisition waited.
+
+.. describe:: lw
+
+   .. versionadded:: 3.2
+
+   Only for :ref:`storage-mmapv1`. The percentage of write lock
+   acquisitions that had to wait. :binary:`~bin.mongostat` displays ``lr|lw``
+   if a lock acquisition waited.
+
+.. describe:: lrt
+
+   .. versionadded:: 3.2
+
+   Only for :ref:`storage-mmapv1`. The average acquire time, in
+   microseconds, of read lock acquisitions that waited.
+   :binary:`~bin.mongostat` displays ``lrt|lwt`` if a lock acquisition
+   waited.
+
+.. describe:: lwt
+
+   .. versionadded:: 3.2
+
+   Only for :ref:`storage-mmapv1`. The average acquire time, in
+   microseconds, of write lock acquisitions that waited.
+   :binary:`~bin.mongostat` displays ``lrt|lwt`` if a lock acquisition
+   waited.
+
+.. describe:: locked
+
+   .. versionchanged:: 3.0
+      Only appears when :binary:`~bin.mongostat` runs against pre-3.0
+      versions of MongoDB instances.
+
+   The percent of time in a global write lock.
+
+.. describe:: idx miss
+
+   .. versionchanged:: 3.0
+
+   Only for :ref:`storage-mmapv1`. The percent of index access attempts
+   that required a page fault to load a btree node. This is a sampled
+   value.
+
+.. describe:: qr
+
+   The length of the queue of clients waiting to read data from the
+   MongoDB instance.
+
+.. describe:: qw
+
+   The length of the queue of clients waiting to write data from the
+   MongoDB instance.
+
+.. describe:: ar
+
+   The number of active clients performing read operations.
+
+.. describe:: aw
+
+   The number of active clients performing write operations.
+
+.. describe:: netIn
+
+   The amount of network traffic, in *bytes*, received by the MongoDB instance.
+
+   This includes traffic from :binary:`~bin.mongostat` itself.
+
+.. describe:: netOut
+
+   The amount of network traffic, in *bytes*, sent by the MongoDB instance.
+
+   This includes traffic from :binary:`~bin.mongostat` itself.
+
+.. describe:: conn
+
+   The total number of open connections.
+
+.. describe:: set
+
+   The name, if applicable, of the replica set.
+
+.. describe:: repl
+
+   The replication status of the member.
+
+   =========  =========================
+   **Value**  **Replication Type**
+   ---------  -------------------------
+   M          master
+   SEC        :term:`secondary`
+   REC        recovering
+   UNK        unknown
+   RTR        mongos process ("router")
+   ARB        :term:`arbiter`
+   =========  =========================
+
+Use
+---
+
+Specify ``mongostat`` Collection Period and Frequency
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the first example, :binary:`~bin.mongostat` will return data every
+second for 20 seconds. :binary:`~bin.mongostat` collects data from the
+:binary:`~bin.mongod` instance running on the localhost interface on
+port 27017. All of the following invocations produce identical
+behavior:
+
+.. code-block:: sh
+
+   mongostat --rowcount 20 1
+   mongostat --rowcount 20
+   mongostat -n 20 1
+   mongostat -n 20
+
+In the next example, :binary:`~bin.mongostat` returns data every 5 minutes
+(or 300 seconds) for as long as the program runs. :binary:`~bin.mongostat`
+collects data from the :binary:`~bin.mongod` instance running on the
+localhost interface on port ``27017``. The following
+invocations produce identical behavior:
+
+.. code-block:: sh
+
+   mongostat --rowcount 0 300
+   mongostat -n 0 300
+   mongostat 300
+
+In the following example, :binary:`~bin.mongostat` returns data every 5
+minutes for an hour (12 times.) :binary:`~bin.mongostat` collects data
+from the :binary:`~bin.mongod` instance running on the localhost interface
+on port 27017. The following invocations produce identical
+behavior:
+
+.. code-block:: sh
+
+   mongostat --rowcount 12 300
+   mongostat -n 12 300
+
+.. _ex-mongostat-append-columns:
+
+Add Fields to :binary:`~bin.mongostat` Output
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 3.4
+
+:option:`-O <mongostat -O>` allows you to specify fields from
+:dbcommand:`serverStatus` output to add to the default
+:binary:`~bin.mongostat` output. The following example adds the :serverstatus:`host`
+and :serverstatus:`version` fields as well as the :serverstatus:`network.numRequests` field,
+which will display as "network requests", to the default
+:binary:`~bin.mongostat` output:
+
+.. code-block:: sh
+
+   mongostat -O 'host,version,network.numRequests=network requests'
+
+The :binary:`~bin.mongostat` output would then resemble:
+
+.. code-block:: sh
+
+   insert query update delete getmore command dirty used flushes vsize   res qrw arw net_in net_out conn                time            host version network requests
+       *0    *0     *0     *0       0     2|0  0.0% 0.0%       0 2.51G 19.0M 0|0 0|0   158b   39.4k    2 Oct 11 12:14:45.878 localhost:37017  3.3.14               91
+       *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 2.51G 19.0M 0|0 0|0   157b   39.3k    2 Oct 11 12:14:46.879 localhost:37017  3.3.14               95
+       *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 2.51G 19.0M 0|0 0|0   157b   39.2k    2 Oct 11 12:14:47.884 localhost:37017  3.3.14               99
+
+.. _ex-mongostat-specify-columns:
+
+Specify :binary:`~bin.mongostat` Output Fields
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 3.4
+
+:option:`-o <mongostat -o>` specifies the columns :binary:`~bin.mongostat` includes in its
+output. You can specify any :dbcommand:`serverStatus` field as a
+:binary:`~bin.mongostat` output column. The following example specifies the
+:serverstatus:`host`, :serverstatus:`time <localTime>`, and  :serverstatus:`metrics.document.inserted` fields:
+
+.. code-block:: sh
+
+   mongostat -o 'host,time,metrics.document.inserted'
+
+The :binary:`~bin.mongostat` output would then resemble:
+
+.. code-block:: sh
+
+              host                time metrics.document.inserted
+   localhost:37017 Oct 11 12:21:17.370                         0
+   localhost:37017 Oct 11 12:21:18.371                         0
+   localhost:37017 Oct 11 12:21:19.371                         0
+   localhost:37017 Oct 11 12:21:20.368                         0
+
+.. _ex-mongostat-rate:
+
+View Rate of Change for a Field with :method:`.rate()`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 3.4
+
+:method:`.rate()` enables you to view the rate per second at which a
+numerical field has changed from one :binary:`~bin.mongostat` call to the
+next. For example, you can view the rate at which documents have been
+inserted during an insert operation. :method:`.rate()` can therefore
+help you view the performance of your :binary:`~bin.mongod` instance.
+
+The following example reports on the rate of change of the
+:serverstatus:`metrics.document.inserted` :dbcommand:`serverStatus` field. The
+invocation uses :option:`-o <mongostat -o>`'s ability to specify the name of an column
+to label ``metrics.document.inserted.rate()`` as "inserted rate" and
+``metrics.document.inserted`` as "inserted":
+
+.. code-block:: sh
+
+   mongostat -o 'host,mem,bits,metrics.document.inserted.rate()=inserted rate,metrics.document.inserted=inserted' --rowcount 5
+
+The output would then resemble:
+
+.. code-block:: sh
+
+              host mem.bits inserted rate inserted
+   localhost:37017       64           501     3455
+   localhost:37017       64           967    13128
+   localhost:37017       64           972    22851
+   localhost:37017       64           214    25000
+   localhost:37017       64             0    25000
+
+.. _ex-mongostat-diff:
+
+View Field Changes with :method:`.diff()`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 3.4
+
+:method:`.diff()` returns the difference between the current
+:dbcommand:`serverStatus` field value and the value from the previous
+:binary:`~bin.mongostat` call. The following example returns statistics on
+the number of documents being inserted into a collection: ``inserted
+diff`` is the difference in the
+:serverstatus:`metrics.document.inserted` field between subsequent
+calls, while ``inserted`` is the value of
+:serverstatus:`metrics.document.inserted`:
+
+.. code-block:: sh
+
+   mongostat -o 'host,mem.bits,metrics.document.inserted.diff()=inserted diff,metrics.document.inserted=inserted' --rowcount 5
+
+The output would then resemble:
+
+.. code-block:: sh
+
+              host mem.bits inserted diff inserted
+   localhost:27017       64             0    25359
+   localhost:27017       64            94    25453
+   localhost:27017       64           938    26391
+   localhost:27017       64           964    27355
+   localhost:27017       64           978    28333
+
+View Statistics for a Replica Set or Sharded Cluster
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In many cases, using the :option:`--discover <mongostat --discover>` option
+will help provide a more complete snapshot of the state of an entire
+group of machines. If a :binary:`~bin.mongos` process connected to a
+:term:`sharded cluster` is running on port ``27017`` of the local
+machine, you can use the following form to return statistics from all
+members of the cluster:
+
+.. code-block:: sh
+
+   mongostat --discover
+
+.. _example-mongostat-interactive:
+
+View Statistics in an Interactive Interface
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 3.4
+
+Use the :option:`--interactive <mongostat --interactive>` option to
+view statistics in a non-scrolling `ncurses <https://www.gnu.org/software/ncurses/>`_ -style
+interactive output. The :option:`--interactive` option lets you highlight specific
+hosts, columns, or fields to view. When combined with :option:`--discover`,
+:option:`--interactive` displays statistics for all members of a
+replica set or sharded cluster, as in the following example:
+
+.. code-block:: sh
+
+   mongostat --discover --interactive
+
+The output for a sharded cluster would then resemble:
+
+.. code-block:: sh
+
+                     host insert query update delete getmore command dirty used flushes mapped vsize   res faults qrw arw net_in net_out conn set repl                time
+   hostname.local:27018     *0    *0     *0     *0       0     1|0  0.0% 0.0%       0        3.25G 25.0M    n/a 0|0 1|0   157b   43.9k   19 tic  PRI Nov  2 11:44:46.439
+   hostname.local:27019     *0    *0     *0     *0       0     2|0  0.0% 0.0%       0        3.18G 26.0M    n/a 0|0 1|0   322b   44.4k   12 tic  SEC Nov  2 11:44:46.439
+   hostname.local:27020     *0    *0     *0     *0       0     2|0  0.0% 0.0%       0        3.18G 26.0M    n/a 0|0 1|0   322b   44.4k   12 tic  SEC Nov  2 11:44:46.439
+   hostname.local:27021   2017    *0     *0     *0     826  1029|0  0.0% 0.0%       0        3.25G 31.0M    n/a 0|0 1|0  1.74m   1.60m   20 tac  PRI Nov  2 11:44:46.439
+   hostname.local:27022  *2021    *0     *0     *0       0     2|0  0.0% 0.0%       0        3.19G 32.0M    n/a 0|0 1|0   322b   44.6k   12 tac  SEC Nov  2 11:44:46.438
+   hostname.local:27023  *2022    *0     *0     *0       0     3|0  0.0% 0.0%       0        3.19G 33.0M    n/a 0|0 1|0   323b   44.7k   12 tac  SEC Nov  2 11:44:46.438
+        localhost:27017   2071    *0     *0     *0       0  2073|0                  0     0B 2.43G 9.00M      0 0|0 0|0   249k    130k    4      RTR Nov  2 11:44:47.429
+   
+   Press '?' to toggle help
+

@@ -1,0 +1,34 @@
+:orphan:
+
+=======================
+MongoDB Manual Contents
+=======================
+
+.. only:: latex
+
+   .. note::
+
+      This version of the PDF does *not* include the reference section,
+      see :hardlink:`MongoDB Reference Manual
+      <MongoDB-reference-manual.pdf>` for a PDF edition of all MongoDB
+      Reference Material.
+
+.. toctree::
+   :titlesonly:
+
+   /introduction
+   /installation
+   /mongo
+   /crud
+   /aggregation
+   /text-search
+   /data-modeling
+   /administration
+   /security
+   /indexes
+   /storage
+   /replication
+   /sharding
+   /faq
+   /release-notes
+   /about

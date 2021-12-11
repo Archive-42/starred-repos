@@ -1,0 +1,30 @@
+==========
+splitChunk
+==========
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. dbcommand:: splitChunk
+
+   An internal administrative command. To split chunks, use
+   the :method:`sh.splitFind()` and :method:`sh.splitAt()` functions
+   in the :binary:`~bin.mongo` shell.
+
+   .. include:: /includes/warning-splitting-chunks.rst
+
+   .. admin-only.
+
+   .. seealso:: :dbcommand:`moveChunk` and :method:`sh.moveChunk()`.
+
+   The :dbcommand:`splitChunk` command takes a document with the following fields:
+
+   .. include:: /includes/apiargs/command-splitChunk-field.rst

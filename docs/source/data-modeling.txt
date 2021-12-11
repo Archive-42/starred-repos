@@ -1,0 +1,20 @@
+===========
+Data Models
+===========
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Data in MongoDB has a *flexible schema*. :term:`Collections
+<collection>` do not enforce :term:`document` structure by default. This
+flexibility gives you data-modeling choices to match your application
+and its performance requirements.
+
+.. include:: /includes/toc/dfn-list-data-modeling-landing.rst
+
+.. include:: /includes/toc/data-modeling-landing.rst

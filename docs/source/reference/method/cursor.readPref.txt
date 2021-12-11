@@ -1,0 +1,27 @@
+=================
+cursor.readPref()
+=================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. method:: cursor.readPref(mode, tagSet)
+
+   Append :method:`~cursor.readPref()` to a cursor to
+   control how the client routes the query to members
+   of the replica set.
+
+   .. include:: /includes/apiargs/method-cursor.readPref-param.rst
+
+   .. note::
+
+      You must apply :method:`~cursor.readPref()` to the cursor before retrieving
+      any documents from the database.

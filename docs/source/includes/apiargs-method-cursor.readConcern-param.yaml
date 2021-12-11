@@ -1,0 +1,13 @@
+name: level
+arg_name: param
+description: |
+  :term:`Read concern` level.
+
+  .. include:: /includes/fact-readConcern-option-description.rst
+
+interface: method
+operation: cursor.readConcern
+optional: false
+position: 1
+type: string
+...

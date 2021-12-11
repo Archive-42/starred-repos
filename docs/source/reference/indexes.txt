@@ -1,0 +1,32 @@
+==================
+Indexing Reference
+==================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Indexing Methods in the ``mongo`` Shell
+---------------------------------------
+
+.. include:: /includes/toc/table-spec-indexes-methods.rst
+
+Indexing Database Commands
+--------------------------
+
+.. include:: /includes/toc/table-spec-indexes-commands.rst
+
+Geospatial Query Selectors
+--------------------------
+
+.. include:: /includes/toc/table-spec-indexes-query-selectors.rst
+
+Indexing Query Modifiers
+------------------------
+
+.. include:: /includes/toc/table-spec-indexes-query-modifiers.rst
+

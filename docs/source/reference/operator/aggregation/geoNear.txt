@@ -1,0 +1,228 @@
+======================
+$geoNear (aggregation)
+======================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. pipeline:: $geoNear
+
+   Outputs documents in order of nearest to farthest from a specified
+   point.
+
+   The :pipeline:`$geoNear` stage has the following prototype form:
+
+   .. code-block:: javascript
+
+      { $geoNear: { <geoNear options> } }
+
+   The :pipeline:`$geoNear` operator accepts a :term:`document` that
+   contains the following :pipeline:`$geoNear` options. Specify all
+   distances in the same units as those of the processed documents'
+   coordinate system:
+
+   .. include:: /includes/apiargs/pipeline-geoNear-field.rst
+
+Behavior
+--------
+
+When using :pipeline:`$geoNear`, consider that:
+
+- You can only use :pipeline:`$geoNear` as the first stage of a
+  pipeline.
+
+- You must include the ``distanceField`` option. The
+  ``distanceField`` option specifies the field that will contain
+  the calculated distance.
+
+- .. include:: /includes/extracts/geoNear-stage-index-requirement.rst
+  If you have more than one geospatial index on the collection, use the
+  ``keys`` parameter to specify which field to use in the calculation.
+  If you have only one geospatial index, :pipeline:`$geoNear` implicitly
+  uses the indexed field for the calculation.
+
+.. |geoNear| replace:: :pipeline:`$geoNear` stage
+
+- .. include:: /includes/fact-geoNear-restrict-near-in-query.rst
+
+- .. include:: /includes/extracts/views-unsupported-geoNear.rst
+
+Generally, the options for :pipeline:`$geoNear` are similar to the
+deprecated :dbcommand:`geoNear` command with the following exceptions:
+
+- ``distanceField`` is a mandatory field for the
+  :pipeline:`$geoNear` pipeline operator; the option does not exist
+  in the :dbcommand:`geoNear` command.
+
+- ``includeLocs`` accepts a ``string`` in the :pipeline:`$geoNear`
+  pipeline operator and a ``boolean`` in the :dbcommand:`geoNear`
+  command.
+
+Example
+-------
+
+Consider a collection ``places`` that has a ``2dsphere`` index. The following
+aggregation finds at most ``5`` unique documents with a location at
+most 2 meters from the center ``[ -73.99279 , 40.719296 ]`` and have ``type`` equal
+to ``public``:
+
+.. code-block:: javascript
+
+   db.places.aggregate([
+      {
+        $geoNear: {
+           near: { type: "Point", coordinates: [ -73.99279 , 40.719296 ] },
+           distanceField: "dist.calculated",
+           maxDistance: 2,
+           query: { type: "public" },
+           includeLocs: "dist.location",
+           num: 5,
+           spherical: true
+        }
+      }
+   ])
+
+The aggregation returns the following:
+
+.. code-block:: javascript
+
+   {
+      "_id" : 8,
+      "name" : "Sara D. Roosevelt Park",
+      "type" : "public",
+      "location" : {
+         "type" : "Point",
+         "coordinates" : [ -73.9928, 40.7193 ]
+      },
+      "dist" : {
+         "calculated" : 0.9539931676365992,
+         "location" : {
+            "type" : "Point",
+            "coordinates" : [ -73.9928, 40.7193 ]
+         }
+      }
+   }
+
+The matching document contains two new fields:
+
+- ``dist.calculated`` field that contains the calculated distance, and
+
+- ``dist.location`` field that contains the location used in the
+  calculation.
+
+Minimum Distance
+~~~~~~~~~~~~~~~~
+
+.. versionadded:: 3.2
+
+The following example uses the option ``minDistance`` to specify
+the minimum distance from the center point that the documents can be.
+MongoDB limits the results to those documents that fall outside the
+specified distance from the center point.
+
+.. code-block:: javascript
+
+   db.places.aggregate([ 
+      {
+        $geoNear: {
+           near: { type: "Point", coordinates: [ -73.99279 , 40.719296 ] },
+           distanceField: "dist.calculated",
+           minDistance: 2,
+           query: { type: "public" },
+           includeLocs: "dist.location",
+           num: 5,
+           spherical: true
+        }
+      }
+   ])
+
+.. _pipeline-geoNear-key-param-example:
+
+Specify Which Geospatial Index to Use
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 4.0
+
+Consider a ``places`` collection that has a :doc:`2dsphere
+</core/2dsphere>` index on the ``location`` field and a
+:doc:`2d </core/2d>` index on the ``legacy`` field.
+
+A document in the ``places`` collection resembles the following:
+
+.. code-block:: javascript
+
+   {
+      "_id" : 3,
+      "name" : "Polo Grounds",
+      "location": {
+         "type" : "Point",
+         "coordinates" : [ -73.9375, 40.8303 ]
+      },
+      "legacy" : [ -73.9375, 40.8303 ],
+      "category" : "Stadiums"
+   }
+
+The following example uses the ``keys`` option to specify that the
+aggregation should use the ``location`` field values for the
+:pipeline:`$geoNear` operation rather than the ``legacy`` field values.
+
+.. code-block:: javascript
+
+   db.places.aggregate([
+      {
+        $geoNear: {
+           near: { type: "Point", coordinates: [ -73.98142 , 40.71782 ] },
+           key: "location",
+           distanceField: "dist.calculated",
+           query: { "category": "Parks" }
+        }
+      }
+   ])
+
+The aggregation returns the following:
+
+.. code-block:: javascript
+
+   {
+      "_id" : 2,
+      "name" : "Sara D. Roosevelt Park",
+      "location" : {
+         "type" : "Point",
+         "coordinates" : [
+            -73.9928,
+            40.7193
+         ]
+      },
+      "category" : "Parks",
+      "dist" : {
+         "calculated" : 974.175764916902
+      }
+   }
+   {
+      "_id" : 1,
+      "name" : "Central Park",
+      "location" : {
+         "type" : "Point",
+         "coordinates" : [
+            -73.97,
+            40.77
+         ]
+      },
+      "legacy" : [
+         -73.97,
+         40.77
+      ],
+      "category" : "Parks",
+      "dist" : {
+         "calculated" : 5887.92792958097
+      }
+   }
+

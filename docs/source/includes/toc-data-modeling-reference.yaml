@@ -1,0 +1,5 @@
+file: /reference/database-references
+description: |
+  Discusses manual references and DBRefs, which MongoDB can use to
+  represent relationships between documents.
+...

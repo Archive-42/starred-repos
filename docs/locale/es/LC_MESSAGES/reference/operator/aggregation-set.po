@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2014, MongoDB, Inc.
+# This file is distributed under the same license as the mongodb-manual package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: MongoDB Manual\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-08 13:03-0400\n"
+"PO-Revision-Date: 2013-12-16 22:57+0000\n"
+"Last-Translator: tychoish <tychoish@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/mongodb-manual/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# 63e919c968b841a1a050d8f5295dc2bb
+#: ../source/reference/operator/aggregation-set.txt:3
+msgid "Set Operators (Aggregation)"
+msgstr ""
+
+# ef3557008272491f8826a45d24c67be1
+#: ../source/includes/toc/table-aggregation-set.rst:2
+msgid "Name"
+msgstr ""
+
+# b2748635500f43398e2747fcb8b4e739
+#: ../source/includes/toc/table-aggregation-set.rst:2
+msgid "Description"
+msgstr ""
+
+# 042ca1aceb1a43d0a9b050c922730f26
+#: ../source/includes/toc/table-aggregation-set.rst:4
+msgid ":expression:`$setEquals`"
+msgstr ""
+
+# 1c483496df00458281ed21982be4d8ec
+#: ../source/includes/toc/table-aggregation-set.rst:8
+msgid ":expression:`$setIntersection`"
+msgstr ""
+
+# 223790df2935497e9e15e2a3e5d379af
+#: ../source/includes/toc/table-aggregation-set.rst:16
+msgid ":expression:`$setDifference`"
+msgstr ""
+
+# 74f95bdb37b04e948b180b47dcacc5f8
+#: ../source/includes/toc/table-aggregation-set.rst:12
+msgid ":expression:`$setUnion`"
+msgstr ""
+
+# 176b014ea7bd43ba94d7ede84325f1ff
+#: ../source/includes/toc/table-aggregation-set.rst:23
+msgid ":expression:`$setIsSubset`"
+msgstr ""
+
+# 1971a3c50c754cb19a3c2712b6fb5d43
+#: ../source/includes/toc/table-aggregation-set.rst:29
+msgid ":expression:`$anyElementTrue`"
+msgstr ""
+
+# 6e7286fd9fe444b0ae417733fbc22326
+#: ../source/includes/toc/table-aggregation-set.rst:33
+msgid ":expression:`$allElementsTrue`"
+msgstr ""
+
+#: ../source/includes/intro-aggregation-set.rst:1
+msgid ""
+"Set expressions performs set operation on arrays, treating arrays as sets. "
+"Set expressions ignores the duplicate entries in each input array and the "
+"order of the elements."
+msgstr ""
+
+#: ../source/includes/intro-aggregation-set.rst:5
+msgid ""
+"If the set operation returns a set, the operation filters out duplicates in "
+"the result to output an array that contains only unique entries. The order "
+"of the elements in the output array is unspecified."
+msgstr ""
+
+#: ../source/includes/fact-agg-top-level-expressions.rst:1
+msgid ""
+"If a set contains a nested array element, |exp| does *not* descend into the "
+"nested array but evaluates the array at top-level."
+msgstr ""
+
+#: ../source/includes/toc/table-aggregation-set.rst:4
+msgid ""
+"Returns ``true`` if the input sets have the same distinct elements. Accepts "
+"two or more argument expressions."
+msgstr ""
+
+#: ../source/includes/toc/table-aggregation-set.rst:8
+msgid ""
+"Returns a set with elements that appear in *all* of the input sets. Accepts "
+"any number of argument expressions."
+msgstr ""
+
+#: ../source/includes/toc/table-aggregation-set.rst:12
+msgid ""
+"Returns a set with elements that appear in *any* of the input sets. Accepts "
+"any number of argument expressions."
+msgstr ""
+
+#: ../source/includes/toc/table-aggregation-set.rst:16
+msgid ""
+"Returns a set with elements that appear in the first set but not in the "
+"second set; i.e. performs a `relative complement "
+"<http://en.wikipedia.org/wiki/Complement_(set_theory)>`_ of the second set "
+"relative to the first. Accepts exactly two argument expressions."
+msgstr ""
+
+#: ../source/includes/toc/table-aggregation-set.rst:23
+msgid ""
+"Returns ``true`` if all elements of the first set appear in the second set, "
+"including when the first set equals the second set; i.e. not a `strict "
+"subset <http://en.wikipedia.org/wiki/Subset>`_. Accepts exactly two argument"
+" expressions."
+msgstr ""
+
+#: ../source/includes/toc/table-aggregation-set.rst:29
+msgid ""
+"Returns ``true`` if *any* elements of a set evaluate to ``true``; otherwise,"
+" returns ``false``. Accepts a single argument expression."
+msgstr ""
+
+#: ../source/includes/toc/table-aggregation-set.rst:33
+msgid ""
+"Returns ``true`` if *no* element of a set evaluates to ``false``, otherwise,"
+" returns ``false``. Accepts a single argument expression."
+msgstr ""
+
+#~ msgid "Returns true if two sets have the same elements."
+#~ msgstr ""
+
+#~ msgid "Returns the common elements of the input sets."
+#~ msgstr ""
+
+#~ msgid "Returns elements of a set that do not appear in a second set."
+#~ msgstr ""
+
+#~ msgid "Returns a set that holds all elements of the input sets."
+#~ msgstr ""
+
+#~ msgid "Returns true if all elements of a set appear in another set."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Returns true if *any* elements of a set evaluate to true, and false "
+#~ "otherwise."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Returns true if *all* elements of a set evaluate to true, and false "
+#~ "otherwise."
+#~ msgstr ""

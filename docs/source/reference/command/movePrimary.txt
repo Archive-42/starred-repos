@@ -1,0 +1,70 @@
+===========
+movePrimary
+===========
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. dbcommand:: movePrimary
+
+   In a :term:`sharded cluster`, :dbcommand:`movePrimary` reassigns the
+   :term:`primary shard` which holds all un-sharded collections in
+   the database.  :dbcommand:`movePrimary` first changes the primary shard in
+   the cluster metadata, and then migrates all un-sharded collections to the
+   specified :term:`shard`. Use the command with the following form:
+
+   .. code-block:: javascript
+
+      db.adminCommand( { movePrimary: <databaseName>, to: <newPrimaryShard> } )
+
+   For example, the following command moves the primary shard from ``test`` to
+   ``shard0001``:
+
+   .. code-block:: javascript
+
+      db.adminCommand( { movePrimary : "test", to : "shard0001" } )
+
+   When the command returns, the database's primary shard location
+   has switched to the specified shard. To fully decommission a
+   shard, use the :dbcommand:`removeShard` command.
+
+   .. note::
+
+      The destination shard must rebuild its indexes
+      in the foreground when it becomes the primary shard.
+      The collection locks while the indexes are building,
+      preventing reads and writes until the indexes are finished.
+      See :doc:`/core/index-creation` for details.
+
+   :dbcommand:`movePrimary` is an administrative command that is only available
+   for :binary:`~bin.mongos` instances.
+
+Considerations
+--------------
+
+.. include:: /includes/warning-movePrimary.rst
+
+Avoid accessing an un-sharded collection during migration.
+:dbcommand:`movePrimary` does not prevent reading and writing during its
+operation, and such actions yield undefined behavior.
+
+:dbcommand:`movePrimary` may take significant time to complete, and
+you should plan for this unavailability.
+
+.. include:: /includes/extracts/mongos-operations-wc-move-primary.rst
+
+:dbcommand:`movePrimary` will fail if the destination shard contains a
+conflicting collection name.  This may occur if documents are written to an
+un-sharded collection while the collection is moved away, and later the original
+primary shard is restored.
+
+Additional Information
+----------------------
+
+See :doc:`/tutorial/remove-shards-from-cluster` for a complete
+procedure.

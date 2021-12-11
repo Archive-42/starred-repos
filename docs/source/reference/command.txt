@@ -1,0 +1,247 @@
+.. _database-commands:
+
+=================
+Database Commands
+=================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+All command documentation outlined below describes a command and
+its available parameters and provides a document template or prototype
+for each command. Some command documentation also includes the relevant
+:binary:`~bin.mongo` shell helpers.
+
+To run a command against the current database, use :method:`db.runCommand()`:
+
+.. code-block:: javascript
+
+   db.runCommand( { <command> } )
+
+To run an administrative command against the ``admin`` database, use :method:`db.adminCommand()`:
+
+.. code-block:: javascript
+
+   db.adminCommand( { <command> } )
+
+.. include:: /includes/extracts/commands-toc-explanation.rst
+
+User Commands
+-------------
+
+Aggregation Commands
+~~~~~~~~~~~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-command-aggregation.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-aggregation
+
+Geospatial Commands
+~~~~~~~~~~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-command-geospatial.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-geospatial
+
+.. _collection-commands:
+
+Query and Write Operation Commands
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-command-crud.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-crud
+
+.. _query-plan-commands:
+
+Query Plan Cache Commands
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-command-plan-cache.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-plan-cache
+
+
+Database Operations
+-------------------
+
+Authentication Commands
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-command-authentication.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-authentication
+
+.. _user-management-commands:
+
+User Management Commands
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-command-user-management.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-user-management
+
+.. _role-management-commands:
+
+Role Management Commands
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-command-role-management.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-role-management
+
+Replication Commands
+~~~~~~~~~~~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-command-replication.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-replication
+
+.. seealso:: :doc:`/replication` for more information regarding
+   replication.
+
+Sharding Commands
+~~~~~~~~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-command-sharding.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-sharding
+
+.. seealso:: :doc:`/sharding` for more information about MongoDB's
+   sharding functionality.
+
+.. _session-commands:
+
+Session Commands
+~~~~~~~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/table-sessions-commands.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-sessions
+
+.. _admin-commands:
+
+Administration Commands
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-command-administration.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-administration
+
+Diagnostic Commands
+~~~~~~~~~~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-command-diagnostic.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-diagnostic
+
+Free Monitoring Commands
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. only:: website
+
+   .. list-table::
+   
+      * - Name
+
+        - Description
+
+      * - :dbcommand:`setFreeMonitoring`
+
+        - Enables/disables free monitoring during runtime.
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-free-monitoring
+
+Auditing Commands
+-----------------
+
+.. only:: website
+
+   .. include:: /includes/toc/table-command-audit.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/command/nav-auditing

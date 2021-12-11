@@ -1,0 +1,80 @@
+====================================
+Install MongoDB Enterprise on Ubuntu
+====================================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: twocols
+
+Overview
+--------
+
+Use this tutorial to install :products:`MongoDB Enterprise
+</mongodb-enterprise-advanced?jmp=docs>` on LTS Ubuntu Linux systems
+using ``.deb`` packages.
+
+.. |package-name| replace:: ``mongodb-enterprise``
+.. |distro-name| replace:: Ubuntu
+.. include:: /includes/important-dont-use-distro-packages.rst
+
+.. admonition:: Platform Support
+
+   .. include:: /includes/fact-ubuntu-lts-support.rst
+
+.. include:: /includes/admonition-power-ubuntu-restriction.rst
+
+.. include:: /includes/list-mongodb-enterprise-packages.rst
+
+Install MongoDB Enterprise
+--------------------------
+
+.. include:: /includes/extracts/install-past-mongodb-enterprise-ubuntu.rst
+
+.. include:: /includes/fact-ubuntu-lts-support.rst
+
+Using ``.deb`` Packages (Recommended)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/fact-use-distribution-package.rst
+
+.. include:: /includes/steps/install-mongodb-enterprise-on-ubuntu.rst
+
+.. _install-ubuntu-from-tarball:
+
+Using ``.tgz`` Tarballs
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Prerequisites
+`````````````
+
+.. include:: /includes/fact-tarball-dependencies.rst
+
+.. include:: /includes/extracts/install-mongodb-enterprise-manually-debian.rst
+
+Procedure
+`````````
+
+.. include:: /includes/steps/install-mongodb-enterprise-on-linux.rst
+
+Run MongoDB Enterprise
+----------------------
+
+.. |mongod-user| replace:: ``mongodb``
+.. |mongod-datadir| replace:: ``/var/lib/mongodb``
+
+.. include:: /includes/fact-installation-directories.rst
+
+.. include:: /includes/fact-installation-ulimit.rst
+
+.. include:: /includes/steps/run-mongodb-on-debian.rst
+
+Uninstall MongoDB
+-----------------
+
+.. include:: /includes/fact-uninstall.rst
+
+.. include:: /includes/steps/uninstall-mongodb-enterprise-on-debian.rst

@@ -1,0 +1,75 @@
+=========
+Collation
+=========
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. versionadded:: 3.4
+
+Collation allows users to specify language-specific rules for string
+comparison, such as rules for lettercase and accent marks.
+
+You can specify collation for a collection or a view, an index, or
+specific operations that support collation.
+
+.. _collation-document-fields:
+
+Collation Document
+------------------
+
+A collation document has the following fields:
+
+.. include:: /includes/extracts/collation-document.rst
+
+Default collation parameter values vary depending on which
+locale you specify. For a complete list of default collation
+parameters and the locales they are associated with, see
+:ref:`Collation Default Parameters<collation-default-params>`.
+
+.. include:: /includes/apiargs/option-collation-fields.rst
+
+Operations that Support Collation
+---------------------------------
+
+You can specify collation for the following operations:
+
+.. note::
+
+   .. include:: /includes/extracts/collation-single-per-operation.rst
+
+.. include:: /includes/extracts/collation-operations-table.rst
+
+Behavior
+--------
+
+Local Variants
+~~~~~~~~~~~~~~
+
+.. include:: /includes/collation-variants.rst
+
+For a complete list of all collation locales and their variants, see
+:ref:`Collation Locales<collation-languages-locales>`.
+
+.. _ref-collation-and-views:
+
+Collation and Views
+~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/extracts/views-collation-behavior.rst
+
+Collation and Index Use
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/extracts/collation-index-use.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/collation-locales-defaults

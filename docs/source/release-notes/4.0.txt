@@ -1,0 +1,1040 @@
+=============================
+Release Notes for MongoDB 4.0
+=============================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: twocols
+   
+Minor Releases
+--------------
+
+.. _4.0.1-release-notes:
+
+4.0.1 - Aug 6, 2018
+~~~~~~~~~~~~~~~~~~~
+
+Issues fixed:
+
+- :issue:`SERVER-33000`: Platform Support: add Ubuntu 18.04.
+
+- :issue:`SERVER-34933`: PCRE verb support.
+
+- :issue:`SERVER-35101`: Handle bindIp argument that contains whitespaces.
+
+- :issue:`SERVER-36027`: Enterprise build does not recognize the ``--redactClientLogData`` flag.
+
+- `All JIRA issues closed in 4.0.1
+  <https://jira.mongodb.org/issues/?jql=project%20in%20(SERVER%2CTOOLS%2CWT)%20AND%20resolution%3D%27Fixed%27%20and%20fixversion%3D%274.0.1%27>`_
+
+- :ref:`4.0.1-changelog`
+
+.. _4.0-txn:
+
+Multi-Document Transactions
+---------------------------
+
+Starting in version 4.0, MongoDB provides the ability to perform
+:doc:`multi-document transactions </core/transactions>` against replica
+sets. With multi-document transactions, until a transaction commits, no
+write operations in the transaction are visible outside the
+transaction. That is, the multi-document transactions are atomic.
+
+.. include:: /includes/extracts/transactions-usage.rst
+
+Feature Compatibility
+~~~~~~~~~~~~~~~~~~~~~
+
+The ``featureCompatibilityVersion`` of all members of the replica set
+must be ``4.0`` or greater. To check the
+``featureCompatibilityVersion`` for a member, connect to the member and
+run the following command:
+
+.. code-block:: javascript
+
+   db.adminCommand( { getParameter: 1, featureCompatibilityVersion: 1 } )
+
+For more information on the ``featureCompatibilityVersion`` flag, see
+:dbcommand:`setFeatureCompatibilityVersion`.
+
+``mongo`` Shell Methods
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :header-rows: 1
+
+   * - Method
+     - Description
+
+   * - :method:`Session.startTransaction()`
+
+     - Starts a multi-statement transaction.
+
+   * - :method:`Session.commitTransaction()`
+
+     - Commits the transaction.
+
+   * - :method:`Session.abortTransaction()`
+
+     - Aborts the transaction.
+
+MongoDB Drivers
+~~~~~~~~~~~~~~~
+
+Clients require MongoDB drivers :ref:`updated for MongoDB 4.0
+<4.0-drivers>` to use transactions.
+
+Read Concern ``snapshot``
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+MongoDB 4.0 introduces a new read concern level
+:readconcern:`"snapshot"` for :doc:`multi-document transaction
+</core/transactions>`.
+
+For a :doc:`multi-document transaction </core/transactions>`, MongoDB
+may sometimes substitute a stronger read concern for
+:readconcern:`"local"` and :readconcern:`"majority"` read concern.
+
+For a list of all operations that accept read concerns, see
+:ref:`read-concern-operations`.
+
+Read Preference
+~~~~~~~~~~~~~~~
+
+.. include:: /includes/extracts/transactions-read-pref.rst
+
+Commands
+~~~~~~~~
+
+- :dbcommand:`abortTransaction`
+     Use the corresponding driver method or :binary:`~bin.mongo` shell
+     helper :method:`Session.abortTransaction()` instead.
+
+- :dbcommand:`commitTransaction`
+     Use the corresponding driver method or :binary:`~bin.mongo` shell
+     helper :method:`Session.commitTransaction()` instead.
+
+Locks
+~~~~~
+
+By default, :doc:`multi-document transactions </core/transactions>`
+wait ``5`` milliseconds to acquire locks required by the operations in
+the transaction. If the transaction cannot acquire its required locks
+with the ``5`` milliseconds, the transaction aborts.
+
+You can use the :parameter:`maxTransactionLockRequestTimeoutMillis`
+parameter to adjust how long transactions wait to acquire locks.
+
+Transactions release all locks upon abort or commit.
+
+``$currentOp``
+~~~~~~~~~~~~~~
+
+The aggregation pipeline stage :pipeline:`$currentOp` (and the
+:dbcommand:`currentOp` command and :binary:`~bin.mongo` shell helper
+:method:`db.currentOp()` method) return information on inactive sessions
+which are holding locks as part of a transaction.
+
+Parameters
+~~~~~~~~~~
+
+- :parameter:`transactionLifetimeLimitSeconds` to specify the lifetime
+  for a :doc:`multi-document transaction </core/transactions>` after
+  which the transaction is considered expired and will be aborted when
+  the periodic cleanup process next runs.
+
+- :parameter:`maxTransactionLockRequestTimeoutMillis` to specify how
+  long :doc:`multi-document transactions </core/transactions>` should
+  wait to aquire locks required by the operations in the transaction.
+
+Aggregation
+-----------
+
+.. _4.0-agg-type-conversion:
+
+New  Type Conversion Operators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+MongoDB 4.0 adds the following new aggregation operators for type
+conversion:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 80
+
+   * - Operator
+     - Description
+
+   * - :expression:`$convert`
+     - Convert value to specified type.
+
+   * - :expression:`$toBool`
+     - Convert value to boolean.
+
+   * - :expression:`$toDate`
+     - Convert value to Date.
+
+   * - :expression:`$toDecimal`
+     - Convert value to Decimal128.
+
+   * - :expression:`$toDouble`
+     - Convert value to Double.
+
+   * - :expression:`$toInt`
+     - Convert value to integer.
+
+   * - :expression:`$toLong`
+     - Convert value to long.
+
+   * - :expression:`$toObjectId`
+     - Convert value to ObjectId.
+
+   * - :expression:`$toString`
+     - Convert value to string.
+
+New String Operators
+~~~~~~~~~~~~~~~~~~~~
+
+MongoDB 4.0 adds the following new aggregation string operators:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 80
+
+   * - Operator
+     - Description
+
+   * - :expression:`$ltrim`
+
+     - Removes whitespace or the specified characters from the
+       beginning of a string.
+
+   * - :expression:`$rtrim`
+
+     - Removes whitespace or the specified characters from the end of a
+       string.
+
+   * - :expression:`$trim`
+
+     - Removes whitespace or the specified characters from the
+       beginning and end of a string.
+
+Additional Improvements
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _4.0-bucket:
+
+``$bucket``
+```````````
+
+The :pipeline:`$bucket` stage no longer requires ``boundaries``
+document arguments to be wrapped in :pipeline:`$literal`.
+
+.. _4.0-dateToString:
+
+``$dateToString``
+`````````````````
+
+The :expression:`$dateToString` aggregation operator has the following
+option changes:
+
+.. note::
+
+   Requires ``featureCompatibilityVersion`` (fcv) set to ``"4.0"`` or greater.
+
+- A new option ``onNull`` specifies the value to return if the ``date``
+  is null or missing.
+
+- The option ``format`` is now optional.
+
+``$dateFromParts``
+``````````````````
+
+If the value specified for fields other than ``year``, ``isoYear``, and
+``timezone`` is outside the valid range, :expression:`$dateFromParts`
+carries or subtracts the difference from other date parts to calculate
+the date. For more information, see :ref:`dateFromParts-values`.
+
+.. _4.0-dateFromString:
+
+``$dateFromString``
+```````````````````
+
+The :expression:`$dateFromString` aggregation operator takes an
+optional ``format`` field.
+
+
+``$currentOp``
+~~~~~~~~~~~~~~
+
+The aggregation pipeline stage :pipeline:`$currentOp` supports the
+following new options:
+
+- ``idleSessions`` option to return information on inactive sessions
+  which are holding locks as part of a transaction.
+
+- ``localOps`` option to report operations that are running locally on
+  the current :binary:`~bin.mongos` instance, rather than reporting
+  operations that are running on the shards.
+
+.. _4.0-drivers:
+
+MongoDB Drivers
+---------------
+
+The following drivers are feature compatible with MongoDB 4.0:
+
+.. include:: /includes/list-4.0-drivers.rst
+
+Security
+--------
+
+.. _4.0-scram-sha-256:
+
+Add Support for ``SCRAM-SHA-256``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+
+   To use :ref:`SCRAM-SHA-256 <authentication-scram-sha-256>`, the
+   ``featureCompatibilityVersion`` must be set to ``4.0``. For more
+   information on featureCompatibilityVersion, see :ref:`view-fcv` and
+   :dbcommand:`setFeatureCompatibilityVersion`.
+
+MongoDB adds support for :ref:`authentication-scram` authentication
+mechanism :ref:`SCRAM-SHA-256 <scram-mechanisms>`, which uses the SHA-256
+hash function. To modify the iteration count for ``SCRAM-SHA-256``,
+MongoDB adds a new parameter :parameter:`scramSHA256IterationCount`.
+
+New Option for Create and Update User Operations
+````````````````````````````````````````````````
+
+When creating or updating a SCRAM user, you can indicate the specific
+SCRAM mechanism or mechanisms to use for the user credentials.
+Specifically, MongoDB 4.0 adds the ``mechanisms`` option to the
+following commands and :binary:`~bin.mongo` shell helpers:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Command
+     - Method
+   * - :dbcommand:`createUser`
+     - :method:`db.createUser()`
+
+   * - :dbcommand:`updateUser`
+     - :method:`db.updateUser()`
+
+When using ``SCRAM-SHA-256``, MongoDB (i.e. the server) requires
+undigested password. Starting in MongoDB 4.0, the default value of
+``digestPassword`` is ``true`` for :dbcommand:`createUser`, and the
+default value of ``passwordDigestor`` is ``"server"``. In earlier
+MongoDB versions, ``digestPassword`` is ``false`` and ``client``
+respectively.
+
+New Option for ``isMaster`` Command
+```````````````````````````````````
+
+Starting in MongoDB 4.0, the :dbcommand:`isMaster` command accepts an
+optional field ``saslSupportedMechs: <db.user>`` to return an
+additional field :data:`isMaster.saslSupportedMechs` in its result.
+
+:data:`isMaster.saslSupportedMechs` is an array of SASL mechanisms used
+to create the specified user's credentials.
+
+.. _4.0-mongodb-cr:
+
+Remove Support for ``MONGODB-CR``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Starting in version 4.0, MongoDB removes support for the deprecated
+MongoDB Challenge-Response (``MONGODB-CR``) authentication mechanism.
+
+Since version 3.0, MongoDB has not supported the creation of
+``MONGODB-CR`` users unless the deployment had been upgraded from a 2.6
+or earlier deployment that already had ``MONGODB-CR`` users and had not
+upgraded the authentication schema.
+
+If your deployment has user credentials stored in ``MONGODB-CR``
+schema, you must upgrade to :ref:`Salted Challenge Response
+Authentication Mechanism (SCRAM) <authentication-scram>` **before** you
+upgrade to version 4.0. For information on upgrading to ``SCRAM``, see
+:doc:`/release-notes/3.0-scram`.
+
+``usersInfo`` Enhancement
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The :dbcommand:`usersInfo` command can return information across all databases
+by specifying:
+
+.. code-block:: javascript
+
+   { usersInfo: { forAllDBs: true } }
+
+The :dbcommand:`usersInfo` and the :binary:`~bin.mongo` shell helpers
+:method:`db.getUser()` and :method:`db.getUsers()` method accept a new
+optional ``filter`` document. The filter document specifies
+:pipeline:`$match` stage conditions to return information only for
+users that match the conditions.
+
+The :dbcommand:`usersInfo` command and the :binary:`~bin.mongo` shell helpers
+:method:`db.getUser()` and :method:`db.getUsers()` method return the
+``mechanisms`` field for the user.
+
+
+.. _4.0-tls:
+
+TLS/SSL
+~~~~~~~
+
+.. include:: /includes/fact-tls-libraries.rst
+
+Associated with this change, the parameter
+:parameter:`opensslCipherConfig` is supported for Linux/BSD and no
+longer supported in Windows and macOS.
+
+
+TLS 1.2 Support
+```````````````
+
+MongoDB 4.0 binaries for macOS support TLS 1.2.
+
+.. _4.0-disable-tls:
+
+Disable TLS 1.0
+```````````````
+
+MongoDB binaries (:binary:`~bin.mongod`, :binary:`~bin.mongos`, and
+:binary:`~bin.mongo`) disables support for TLS 1.0 encryption on
+systems where TLS 1.1+ is available.
+
+If you need to support TLS 1.0:
+
+- For :binary:`~bin.mongod` instances, you can specify ``none`` to
+  :setting:`net.ssl.disabledProtocols` or
+  :option:`--sslDisabledProtocols none <mongod --sslDisabledProtocols>`.
+
+- For :binary:`~bin.mongos` instances, you can specify ``none`` to
+  :setting:`net.ssl.disabledProtocols` or
+  :option:`--sslDisabledProtocols none <mongos --sslDisabledProtocols>`.
+
+- For the :binary:`~bin.mongo` shell, you can specify
+  :option:`--sslDisabledProtocols none <mongo --sslDisabledProtocols>`.
+
+  The :option:`--sslDisabledProtocols <mongo --sslDisabledProtocols>`
+  option is available for the :binary:`~bin.mongo` shell in:
+
+  - MongoDB version 4.0+
+  - MongoDB version 3.6.5+
+  - MongoDB version 3.4.15+
+
+On macOS, to connect :binary:`~bin.mongo` shell version 3.6.4 or
+earlier to a MongoDB 4.0+ deployment requires explicit enabling of TLS
+1.0.
+
+AES-GCM
+~~~~~~~
+
+.. include:: /includes/fact-aes.rst
+
+.. seealso:: :ref:`4.0-ssl-systemstore`
+
+New Privilege Actions
+~~~~~~~~~~~~~~~~~~~~~~
+
+To support :ref:`free Cloud monitoring <4.0-free-monitoring>`, MongoDB
+adds the following privilege actions available for the ``cluster``
+resource:
+
+- :authaction:`checkFreeMonitoringStatus`
+
+- :authaction:`setFreeMonitoring`
+
+MongoDB modifies the :authrole:`clusterMonitor` role to include these
+privileges.
+
+x.509 Authentication Certificate Restrictions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/extracts/ssl-facts-x509-invalid-certificate.rst
+
+If you are using invalid certificates to perform x.509 authentication,
+update your certificates to valid certificates. For example, you may
+sign your existing certificates with a trusted CA, or if using a custom
+CA, specify that CA using :setting:`net.ssl.CAFile`.
+
+.. _4.0-ssl-systemstore:
+
+Enable System Store for TLS/SSL on Windows and macOS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The :option:`--sslCertificateSelector <mongod --sslCertificateSelector>`
+option (:setting:`~net.ssl.certificateSelector` setting) allows
+:binary:`~bin.mongod`, :binary:`~bin.mongo` shell and
+:binary:`~bin.mongos` to use system SSL certificate stores for Windows
+and macOS.
+
+The :option:`--sslClusterCertificateSelector <mongod
+--sslClusterCertificateSelector>` option
+(:setting:`~net.ssl.clusterCertificateSelector` setting) allows
+:binary:`~bin.mongod` and
+:binary:`~bin.mongos` to use system TLS/SSL certificate stores for Windows
+and macOS for internal TLS/SSL communication within a cluster.
+
+The option :option:`--kmipClientCertificateSelector <mongod
+--kmipClientCertificateSelector>`
+(:setting:`security.kmip.clientCertificateSelector`) allows
+:binary:`~bin.mongod` and :binary:`~bin.mongos` to use system TLS/SSL
+certificate stores for Windows and macOS when using TLS/SSL connection to the
+KMIP server.
+
+.. _4.0-deprecate-mmapv1:
+
+Deprecate MMAPv1
+----------------
+
+Starting in version 4.0, MongoDB deprecates the :ref:`storage-mmapv1`
+and will remove MMAPv1 in a future release.
+
+To change your MMAPv1 storage engine deployment to
+:doc:`/core/wiredtiger`, see:
+
+- :doc:`/tutorial/change-standalone-wiredtiger`
+
+- :doc:`/tutorial/change-replica-set-wiredtiger`
+
+- :doc:`/tutorial/change-sharded-cluster-wiredtiger`
+
+Replica Set
+-----------
+
+.. _4.0-remove-pv0:
+
+Remove ``pv0`` for Replica Sets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+MongoDB 4.0 removes the deprecated replica set protocol version 0
+``pv0``.
+
+Before upgrading to MongoDB 4.0, you must upgrade to :rsconf:`pv1
+<protocolVersion>`.
+
+To upgrade to ``pv1``, connect a :binary:`~bin.mongo` shell to the
+replica set primary and perform the following sequence of operations:
+
+.. code-block:: sh
+
+   cfg = rs.conf();
+   cfg.protocolVersion=1;
+   rs.reconfig(cfg);
+
+You can use :rsconf:`~settings.catchUpTimeoutMillis` to prioritize
+between faster failovers and preservation of :writeconcern:`w:1
+<\<number\>>` writes.
+
+For more information on ``pv1``, see
+:doc:`/reference/replica-set-protocol-versions`.
+
+.. _4.0-remove-master-slave:
+
+Remove Master-Slave Replication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+MongoDB 4.0 removes support for the deprecated master-slave
+replication. Before you can upgrade to MongoDB 4.0, if your deployment
+uses master-slave replication, you must upgrade to a replica set.
+
+To convert your master-slave replication, see
+:ref:`convert-master-slave-to-replica-set`.
+
+Journaling and Replica Sets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/wiredtiger-node-nojournal.rst
+
+``rollbackTimeLimitSecs`` Parameter Available
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Starting in MongoDB 4.0, a new :parameter:`rollbackTimeLimitSecs`
+parameter allows for the setting of the time limit in seconds between
+the common point and the last oplog write entry for the member
+indicated for rollback. The default rollback time limit is 1 day.
+
+Wait for Background Index Builds
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Starting in version 4.0, MongoDB waits for any in-progress
+:ref:`background index builds <index-creation-background>` to finish
+before starting a :doc:`rollback </core/replica-set-rollbacks>`.
+
+Rollback Files
+~~~~~~~~~~~~~~
+
+MongoDB adds the parameter :parameter:`createRollbackDataFiles` that
+determines whether during a rollback, MongoDB creates rollback files
+that contains documents affected during the rollback.
+
+``replSetGetStatus`` Output Changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The :dbcommand:`replSetGetStatus` returns the following new fields:
+
+- :data:`~replSetGetStatus.syncSourceHost`
+
+- :data:`~replSetGetStatus.syncSourceId`
+
+- :data:`~replSetGetStatus.lastStableCheckpointTimestamp`
+
+- :data:`~replSetGetStatus.members[n].syncSourceHost`
+
+- :data:`~replSetGetStatus.members[n].syncSourceId`
+
+The following fields returned from :dbcommand:`replSetGetStatus` are
+deprecated:
+
+- :data:`replSetGetStatus.syncingTo`
+
+- :data:`replSetGetStatus.members[n].syncingTo`
+
+Oplog Size
+~~~~~~~~~~
+
+.. include:: /includes/fact-oplog-size.rst
+
+Change Streams
+--------------
+
+Database and Deployment Change Streams
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+MongoDB adds the ability to:
+
+- Open a :ref:`change stream cursor <changeStreams>` for a single
+  database (excluding ``admin``, ``local``, and ``config`` database) to
+  watch for changes to all its non-``system`` collections.
+
+- Open a :ref:`change stream cursor <changeStreams>` for a deployment
+  to watch for changes to all non-``system`` collections across all
+  databases except for ``admin``, ``local``, and ``config``.
+
+.. note::
+
+   Requires ``featureCompatibilityVersion`` (fcv) set to ``"4.0"`` or greater.
+
+Start Time Option
+~~~~~~~~~~~~~~~~~
+
+MongoDB adds the ability to specify a start time
+(``startAtOperationTime`` option) for a change stream.
+
+Change Event Document Changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The :doc:`change event documents </reference/change-events>` include
+the new fields:
+
+- the ``clusterTime`` which corresponds to timestamp from the oplog
+  entry for the event.
+
+- the ``txnNumber`` and the ``lsid`` if the operation is part of a
+  :doc:`multi-document transaction </core/transactions>`.
+
+.. _4.0-resume-token:
+
+Resume Token Data Type Change
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/extracts/changestream-resume-token-change.rst
+
+.. include:: /includes/extracts/changestream-resume-token-compatibility.rst
+
+.. include:: /includes/extracts/changestream-resume-token-downgrade.rst
+
+
+.. _4.0-change-stream-methods:
+
+``mongo`` Shell Methods
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :header-rows: 1
+
+   * - Method
+     - Description
+
+   * - :method:`db.watch()`
+
+     - Opens a :ref:`change stream cursor <changeStreams>` for a single database
+       (excluding ``admin``, ``local``, and ``config`` database) to
+       watch for changes to all its non-``system`` collections.
+
+       For the corresponding MongoDB driver method, refer to your
+       driver documentation.
+
+   * - :method:`Mongo.watch()`
+
+     - Opens a :ref:`change stream cursor <changeStreams>` for a
+       deployment to watch for changes to all non-``system``
+       collections across all databases except for ``admin``,
+       ``local``, and ``config``.
+
+       For the corresponding MongoDB driver method, refer to your
+       driver documentation.
+
+       .. versionadded:: 4.0
+
+.. _4.0-free-monitoring:
+
+Free Monitoring
+---------------
+
+MongoDB 4.0 (Community Edition) offers :doc:`free Cloud monitoring
+</administration/free-monitoring>` for standalone or replica sets.
+
+Enable/Disable
+~~~~~~~~~~~~~~
+
+By default, you can enable/disable free monitoring during runtime
+using:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 60 30
+
+   * - ``mongo`` Shell Methods
+     - Command
+
+   * - | :method:`db.enableFreeMonitoring()`
+       | :method:`db.disableFreeMonitoring()`
+
+     - :dbcommand:`setFreeMonitoring`
+
+You can also enable or disable free monitoring at startup using either:
+
+- the configuration file setting :setting:`cloud.monitoring.free.state`
+  or
+
+- the command-line option :option:`--enableFreeMonitoring <mongod --enableFreeMonitoring>`
+
+View Status
+~~~~~~~~~~~
+
+To view the state of your free monitoring, MongoDB provides the
+following command and shell helper:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 60 30
+
+   * - ``mongo`` Shell Methods
+     - Command
+
+   * - :method:`db.getFreeMonitoringStatus()`
+
+     - :dbcommand:`getFreeMonitoringStatus`
+
+The :dbcommand:`serverStatus` and the helper
+:method:`db.getServerStatus()` also includes free monitoring statistics
+in the :serverstatus:`freeMonitoring` field.
+
+Access Control
+~~~~~~~~~~~~~~
+
+To support free Cloud monitoring, MongoDB adds the following privilege
+actions available for the ``cluster`` resource:
+
+- :authaction:`checkFreeMonitoringStatus`
+
+- :authaction:`setFreeMonitoring`
+
+The built-in role :authrole:`clusterMonitor` includes the new privilege
+actions.
+
+Sharded Clusters
+----------------
+
+.. include:: /includes/extracts/mongos-operations-wc.rst
+
+``.msi`` Installer on Windows
+-----------------------------
+
+Starting in MongoDB 4.0, you can configure and start MongoDB as a
+service during the install.
+
+Platform Support
+----------------
+
+- MongoDB 4.0 (Community & Enterprise) adds support for:
+
+  - :doc:`Amazon Linux 2 </tutorial/install-mongodb-on-amazon>`
+
+  - :doc:`Debian 9 "Stretch" </tutorial/install-mongodb-on-debian>`
+
+  - :doc:`Ubuntu 18.04 </tutorial/install-mongodb-on-ubuntu>`
+
+- MongoDB 4.0 (Community) adds support for:
+
+  - s390x RHEL 6.x
+
+- MongoDB 4.0 does not support SLES 11.
+
+  - Support for SLES 11 has also been removed in MongoDB 3.2.20+,
+    3.4.15+, and 3.6.4+.
+
+- MongoDB 4.0 does not support Ubuntu 12.04.
+
+  - Support for Ubuntu 12.04 has also been removed in MongoDB 3.2.20+,
+    3.4.15+, and 3.6.4+.
+
+  - Support for Ubuntu 12.04 has also been removed in MongoDB 3.2.20+,
+    3.4.15+, and 3.6.4+.
+
+- In future releases, MongoDB will end support for the following
+  platforms:
+
+  - Windows 7/2008R2
+
+  - Windows 8/2012
+
+  - Windows 8.1/2012R2
+
+  - Ubuntu 14.04
+
+Refer to :ref:`prod-notes-supported-platforms` for the full platform
+support matrix.
+
+General Improvements
+--------------------
+
+Commands
+~~~~~~~~
+
+- The command :dbcommand:`listCollections` takes Intent Shared lock on
+  the database. In previous versions, the command takes Shared lock on
+  the database.
+
+- The command :dbcommand:`listCollections` and its :binary:`~bin.mongo`
+  shell helper :method:`db.getCollectionInfos()` accepts the following
+  option:
+
+  - ``nameOnly`` to return only the collection names and types (which
+    does not require collection locks).
+
+  - ``authorizedCollections`` to allow users without the required
+    privilege to run :dbcommand:`listCollections` can run the command,
+    with ``nameOnly: true, authorizedCollections: true``, to return the
+    the collection(s) to which the user has privileges.
+
+- The command :dbcommand:`serverStatus` and its :binary:`~bin.mongo`
+  shell helper :method:`db.serverStatus()` includes
+  :serverstatus:`shardingStatistics` in its output. The
+  :serverstatus:`shardingStatistics` includes data on metadata refresh
+  on sharded clusters.
+
+- The :binary:`~bin.mongo` shell helper :method:`db.collection.drop()`
+  accepts the write concern option.
+
+- For cursors created inside a session, you cannot call
+  :dbcommand:`getMore` outside the session. Similarly, for cursors
+  created outside of a session, you cannot call :dbcommand:`getMore`
+  inside a session.
+
+- The command :dbcommand:`dbHash` includes the following fields in its
+  output:
+
+  - ``capped`` field that lists the capped collections
+
+  - ``uuids`` field that contains the collections and their
+    corresponding UUIDs.
+
+- The command :dbcommand:`killOp` now supports termination of queries that are
+  running on a :binary:`~bin.mongos`. When run on the ``mongos``, :dbcommand:`killOp`
+  can kill queries that are running in more than one shard.
+
+Geospatial Query Improvements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- The geospatial query operators :query:`$near` and
+  :query:`$nearSphere` now supports querying on sharded collections.
+
+- As of MongoDB 4.0, the :pipeline:`$geoNear` aggregation operator and
+  :dbcommand:`geoNear` command support using the ``minDistance`` option
+  with :doc:`2d </core/2d>` indexes. Similarly, :query:`$near` and
+  :query:`$nearSphere` support the ``$minDistance`` option for :doc:`2d
+  </core/2d>` indexes. Previously, ``minDistance`` and ``$minDistance``
+  were only available for :doc:`2dsphere </core/2dsphere>` indexes.
+
+- MongoDB 4.0 adds a ``key`` option for the :pipeline:`$geoNear`
+  aggregation operator and :dbcommand:`geoNear` command that enables
+  users to specify which geospatial index to use when querying a
+  collection with multiple geospatial indexes. Previously, to use the
+  :pipeline:`$geoNear` aggregation operator or :dbcommand:`geoNear`
+  command, the collection could only have one geospatial index.
+
+Network Layer Improvements
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- For the parameter :parameter:`taskExecutorPoolSize`, change default
+  value to ``1``.
+
+- Add new parameter :parameter:`AsyncRequestsSenderUseBaton` to enable
+  performance optimization on Linux for scatter/gather operations on
+  :binary:`~bin.mongos` when using a single :parameter:`Task Executor
+  connection pool <taskExecutorPoolSize>`.
+
+- Added the following parameters to manage connection pools:
+
+  - :parameter:`connPoolMaxInUseConnsPerHost`
+
+  - :parameter:`connPoolMaxShardedInUseConnsPerHost`
+
+  - :parameter:`globalConnPoolIdleTimeoutMinutes`
+
+  - :parameter:`shardedConnPoolIdleTimeoutMinutes`
+
+Configuration Options
+~~~~~~~~~~~~~~~~~~~~~
+
+- :binary:`~bin.mongos` supports:
+
+  - Command line options: :option:`slowms <mongos --slowms>` and
+    :option:`--slowOpSampleRate <mongos --slowOpSampleRate>`
+
+  - Configuration file options:
+    :setting:`operationProfiling.slowOpThresholdMs` and
+    :setting:`operationProfiling.slowOpSampleRate`
+
+Miscellaneous
+~~~~~~~~~~~~~
+
+- .. include:: /includes/fact-jit-disabled.rst
+
+- Upgrades MozJS to ESR 45.9.0.
+
+- Adds :data:`RECOVERY` component to log messages.
+
+
+- MongoDB 4.0 adds support for using the :urioption:`appName` connection
+  string option for setting a custom app name when connecting from the
+  :binary:`~bin.mongo` shell. Previously, only MongoDB drivers supported
+  using the :urioption:`appName` to set a custom value and the
+  :binary:`~bin.mongo` shell used the default ``MongoDB Shell`` value as the
+  app name.
+
+- Adds a :binary:`~bin.mongo` shell method
+  :method:`convertShardKeyToHashed` to return the hashed value for a
+  document.
+
+- Resolves ``localhost`` IP address as configured instead of assuming
+  ``127.0.0.1``.
+
+- When using the :ref:`connections-dns-seedlist` to connect to the
+  :binary:`~bin.mongo` shell with authentication, the
+  :binary:`~bin.mongo` shell will now prompt the user to
+  provide their password when starting up.
+
+Changes Affecting Compatibility
+-------------------------------
+
+Some changes can affect compatibility and may require user actions. For
+a detailed list of compatibility changes, see
+:doc:`/release-notes/4.0-compatibility`.
+
+.. _4.0-upgrade:
+
+Upgrade Procedures
+------------------
+
+.. admonition:: Feature Compatibility Version
+
+   To upgrade, the 3.6 instances must have
+   ``featureCompatibilityVersion`` set to ``3.6``. To check the version:
+
+   .. code-block:: javascript
+
+      db.adminCommand( { getParameter: 1, featureCompatibilityVersion: 1 } )
+
+   For specific details on verifying and setting the
+   ``featureCompatibilityVersion`` as well as information on other
+   prerequisites/considerations for upgrades, refer to the individual
+   upgrade instructions:
+
+   - :doc:`/release-notes/4.0-upgrade-standalone`
+
+   - :doc:`/release-notes/4.0-upgrade-replica-set`
+
+   - :doc:`/release-notes/4.0-upgrade-sharded-cluster`
+
+If you need guidance on upgrading to 4.0, `MongoDB offers major version
+upgrade services
+<https://www.mongodb.com/products/consulting?jmp=docs>`_
+to help ensure a smooth transition without interruption to your MongoDB application.
+
+Download
+--------
+
+To download MongoDB 4.0, go to the `MongoDB Download Center
+<https://www.mongodb.com/download-center?jmp=docs#production>`_
+
+.. seealso::
+
+   - `All Third Party License Notices <https://github.com/mongodb/mongo/blob/v4.0/distsrc/THIRD-PARTY-NOTICES>`_.
+
+.. _4.0.1-known-issues:
+
+Known Issues in 4.0.1
+---------------------
+
+- :issue:`WT-4018`:
+     .. include:: /includes/extracts/4.0-errata-wt-4018.rst
+
+- :issue:`SERVER-35431`:
+     .. include:: /includes/extracts/4.0-errata-server-35431.rst
+
+- :issue:`SERVER-35657`:
+     .. include:: /includes/extracts/4.0-errata-server-35657.rst
+
+.. _4.0-known-issues:
+
+Known Issues in 4.0.0
+---------------------
+
+- :issue:`TOOLS-2058`:
+     .. include:: /includes/extracts/4.0-errata-tools-2058.rst
+
+- :issue:`WT-4018`:
+     .. include:: /includes/extracts/4.0-errata-wt-4018.rst
+
+- :issue:`SERVER-35431`:
+     .. include:: /includes/extracts/4.0-errata-server-35431.rst
+
+- :issue:`SERVER-35657`:
+     .. include:: /includes/extracts/4.0-errata-server-35657.rst
+
+- :issue:`SERVER-35758`:
+     .. include:: /includes/extracts/4.0-errata-server-35758.rst
+
+Report an Issue
+---------------
+
+To report an issue, see
+https://github.com/mongodb/mongo/wiki/Submit-Bug-Reports for
+instructions on how to file a JIRA ticket for the MongoDB server or one
+of the related projects.
+
+.. class:: hidden
+
+   .. toctree::
+
+      /release-notes/4.0-compatibility
+      /release-notes/4.0-upgrade-standalone
+      /release-notes/4.0-upgrade-replica-set
+      /release-notes/4.0-upgrade-sharded-cluster
+      /release-notes/4.0-downgrade-standalone
+      /release-notes/4.0-downgrade-replica-set
+      /release-notes/4.0-downgrade-sharded-cluster
+      /release-notes/4.0-changelog

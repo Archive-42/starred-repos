@@ -1,0 +1,46 @@
+===========
+db.killOp()
+===========
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Description
+-----------
+
+.. method:: db.killOp(opid)
+
+   Terminates an operation as specified by the operation ID. To find
+   operations and their corresponding IDs, see :pipeline:`$currentOp`
+   or :method:`db.currentOp()`.
+
+   The :method:`db.killOp()` method has the following parameter:
+
+   .. include:: /includes/apiargs/method-db.killOp-param.rst
+
+   .. |command| replace:: :method:`db.killOp()`
+
+   .. include:: /includes/extracts/warning-terminating-ops-method.rst
+
+.. versionchanged:: 4.0
+
+   The ``db.killOp()`` method can be run on a :binary:`~bin.mongos` and can
+   kill queries that are running on more than one shard in a cluster.
+   For information on how to list sharding operations that are active on
+   a mongos, see the ``localOps`` parameter in  :pipeline:`$currentOp`.
+
+Access Control
+--------------
+
+On systems running with :setting:`~security.authorization`, to kill
+operations not owned by the user, the user must have access that
+includes the :authaction:`killop` privilege action.
+
+.. versionchanged:: 3.2.9
+   On :binary:`~bin.mongod` instances, users can kill their own operations
+   even without the :authaction:`killop` privilege action.

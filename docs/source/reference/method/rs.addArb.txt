@@ -1,0 +1,34 @@
+===========
+rs.addArb()
+===========
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Description
+-----------
+
+.. method:: rs.addArb(host)
+
+   Adds a new :term:`arbiter` to an existing replica set.
+
+   .. include:: /includes/admonition-multiple-arbiters.rst
+
+   The :method:`rs.addArb()` method takes the following parameter:
+
+   .. include:: /includes/apiargs/method-rs.addArb-param.rst
+
+   .. include:: /includes/extracts/arbiters-and-pvs-with-reference.rst
+
+
+
+IP Binding
+----------
+
+.. include:: /includes/fact-default-bind-ip.rst
+

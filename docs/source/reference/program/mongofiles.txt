@@ -1,0 +1,262 @@
+==============
+``mongofiles``
+==============
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. |tool-binary| replace:: mongofiles
+
+.. include:: /includes/admonition-mac-osx-sierra-restriction.rst
+
+.. only:: (not man)
+
+   .. binary:: mongofiles
+
+Synopsis
+--------
+
+The :binary:`~bin.mongofiles` utility makes it possible to manipulate files
+stored in your MongoDB instance in :term:`GridFS` objects from the
+command line. It is particularly useful as it provides an interface
+between objects stored in your file system and GridFS.
+
+All :binary:`~bin.mongofiles` commands have the following form:
+
+.. code-block:: sh
+
+   mongofiles <options> <commands> <filename>
+
+The components of the :binary:`~bin.mongofiles` command are:
+
+1. :ref:`Options <mongofiles-options>`. You may use one or more of
+   these options to control the behavior of :binary:`~bin.mongofiles`.
+
+2. :ref:`Commands <mongofiles-commands>`. Use one of these commands to
+   determine the action of :binary:`~bin.mongofiles`.
+
+3. A filename which is either: the name of a file on your local's file
+   system, or a GridFS object.
+
+.. include:: /includes/extracts/require-cmd-line-mongofiles.rst
+
+.. important:: For :term:`replica sets <replica set>`,
+   :binary:`~bin.mongofiles` can only read from the set's
+   :term:`primary`.
+
+Required Access
+---------------
+
+In order to connect to a :binary:`~bin.mongod` that enforces authorization
+with the :option:`--auth <mongod --auth>` option, you must use the
+:option:`--username <mongofiles --username>` and :option:`--password
+<mongofiles --password>` options. The connecting user must possess, at a
+minimum:
+
+- the :authrole:`read` role for the accessed database when using the
+  ``list``, ``search`` or ``get`` commands,
+
+- the :authrole:`readWrite` role for the accessed database when using
+  the ``put`` or ``delete`` commands.
+
+.. _mongofiles-options:
+
+Options
+-------
+
+.. include:: /includes/extracts/fact-3.0-tools-drop-dbpath-support-mongofiles.rst
+
+.. program:: mongofiles
+
+.. include:: /includes/option/option-mongofiles-help.rst
+
+.. include:: /includes/option/option-mongofiles-verbose.rst
+
+.. include:: /includes/option/option-mongofiles-quiet.rst
+
+.. include:: /includes/option/option-mongofiles-version.rst
+
+.. include:: /includes/option/option-mongofiles-uri.rst
+
+.. include:: /includes/option/option-mongofiles-host.rst
+
+.. include:: /includes/option/option-mongofiles-port.rst
+
+.. include:: /includes/option/option-mongofiles-ipv6.rst
+
+.. include:: /includes/option/option-mongofiles-ssl.rst
+
+.. include:: /includes/option/option-mongofiles-sslCAFile.rst
+
+.. include:: /includes/option/option-mongofiles-sslPEMKeyFile.rst
+
+.. include:: /includes/option/option-mongofiles-sslPEMKeyPassword.rst
+
+.. include:: /includes/option/option-mongofiles-sslCRLFile.rst
+
+.. include:: /includes/option/option-mongofiles-sslAllowInvalidCertificates.rst
+
+.. include:: /includes/option/option-mongofiles-sslAllowInvalidHostnames.rst
+
+.. include:: /includes/option/option-mongofiles-sslFIPSMode.rst
+
+.. include:: /includes/option/option-mongofiles-username.rst
+
+.. include:: /includes/option/option-mongofiles-password.rst
+
+.. include:: /includes/option/option-mongofiles-authenticationDatabase.rst
+
+.. include:: /includes/option/option-mongofiles-authenticationMechanism.rst
+
+.. include:: /includes/option/option-mongofiles-gssapiServiceName.rst
+
+.. include:: /includes/option/option-mongofiles-gssapiHostName.rst
+
+.. include:: /includes/option/option-mongofiles-db.rst
+
+.. include:: /includes/option/option-mongofiles-collection.rst
+
+.. include:: /includes/option/option-mongofiles-local.rst
+
+.. include:: /includes/option/option-mongofiles-type.rst
+
+.. include:: /includes/option/option-mongofiles-replace.rst
+
+.. include:: /includes/option/option-mongofiles-prefix.rst
+
+.. include:: /includes/option/option-mongofiles-writeConcern.rst
+
+.. _mongofiles-commands:
+
+Commands
+--------
+
+.. describe:: list <prefix>
+
+   Lists the files in the GridFS store. The characters specified after
+   ``list`` (e.g. ``<prefix>``) optionally limit the list of
+   returned items to files that begin with that string of characters.
+
+.. describe:: search <string>
+
+   Lists the files in the GridFS store with names that match any
+   portion of ``<string>``.
+
+.. describe:: put <filename>
+
+   Copy the specified file from the local file system into GridFS
+   storage.
+
+   Here, ``<filename>`` refers to the name the object will have in
+   GridFS, and :binary:`~bin.mongofiles` assumes that this reflects the name the
+   file has on the local file system. If the local filename is
+   different use the :option:`mongofiles --local` option.
+
+.. describe:: get <filename>
+
+   Copy the specified file from GridFS storage to the local file
+   system.
+
+   Here, ``<filename>`` refers to the name the object will have in
+   GridFS. :binary:`~bin.mongofiles` writes the file to the local
+   file system using the file's ``filename`` in GridFS. To choose a
+   different location for the file on the local file system, use the
+   :option:`--local <mongofiles --local>` option.
+
+.. describe:: get_id "<ObjectId>"
+
+   .. versionadded:: 3.2.0
+
+   Copy the specified file from GridFS storage to the local file system.
+
+   Here ``<ObjectId>`` refers to the extended JSON ``_id`` of the
+   object in GridFS. :binary:`~bin.mongofiles` writes the file to the local
+   file system using the file's ``filename`` in GridFS. To choose a
+   different location for the file on the local file system, use the
+   :option:`--local <mongofiles --local>` option.
+
+.. describe:: delete <filename>
+
+   Delete the specified file from GridFS storage.
+
+.. describe:: delete_id "<ObjectId>"
+
+   .. versionadded:: 3.2.0
+
+   Delete the specified file from GridFS storage. Specify the file using
+   its ``_id``.
+
+Examples
+--------
+
+To return a list of all files in a :term:`GridFS` collection in the
+``records`` database, use the following invocation at the system shell:
+
+.. code-block:: sh
+
+   mongofiles -d records list
+
+This :binary:`~bin.mongofiles` instance will connect to the
+:binary:`~bin.mongod` instance running on the ``27017`` localhost
+interface to specify the same operation on a different port or
+hostname, and issue a command that resembles one of the following:
+
+.. code-block:: sh
+
+   mongofiles --port 37017 -d records list
+   mongofiles --host db1.example.net -d records list
+   mongofiles --host db1.example.net --port 37017 -d records list
+
+Modify any of the following commands as needed if you're connecting
+the :binary:`~bin.mongod` instances on different ports or hosts.
+
+To upload a file named ``32-corinth.lp`` to the GridFS collection in
+the ``records`` database, you can use the following command:
+
+.. code-block:: sh
+
+   mongofiles -d records put 32-corinth.lp
+
+To delete the ``32-corinth.lp`` file from this GridFS collection in
+the ``records`` database, you can use the following command:
+
+.. code-block:: sh
+
+   mongofiles -d records delete 32-corinth.lp
+
+To search for files in the GridFS collection in the ``records``
+database that have the string ``corinth`` in their names, you can use
+following command:
+
+.. code-block:: sh
+
+   mongofiles -d records search corinth
+
+To list all files in the GridFS collection in the ``records`` database
+that begin with the string ``32``, you can use the following command:
+
+.. code-block:: sh
+
+   mongofiles -d records list 32
+
+To fetch the file from the GridFS collection in the ``records``
+database named ``32-corinth.lp``, you can use the following command:
+
+.. code-block:: sh
+
+   mongofiles -d records get 32-corinth.lp
+
+To fetch the file from the GridFS collection in the ``records`` database
+with ``_id: ObjectId("56feac751f417d0357e7140f")``, you can use
+the following command:
+
+.. code-block:: sh
+
+   mongofiles -d records get_id 'ObjectId("56feac751f417d0357e7140f")'
+
+You must include quotation marks around the ``_id``.

@@ -1,0 +1,58 @@
+============
+db.getUser()
+============
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. method:: db.getUser(username, args)
+
+   Returns user information for a specified user. Run this method on the
+   user's database. The user must exist on the database on which the method
+   runs.
+
+   The :method:`db.getUser()` method has the following parameters:
+
+   .. code-block:: javascript
+
+      db.getUser( "<username>", { 
+         showCredentials: <Boolean>,
+         showPrivileges: <Boolean>,
+         showAuthenticationRestrictions: <Boolean>,
+         filter: <document>
+      } )
+      
+      
+   .. include:: /includes/apiargs/method-db.getUser-param.rst
+
+   The ``args`` document supports the following fields:
+
+   .. include:: /includes/apiargs/method-db.getUser-field.rst
+
+   :method:`db.getUser()` wraps the :dbcommand:`usersInfo: \<username\> <usersInfo>` command.
+   
+   For details on output, see 
+
+Required Access
+---------------
+
+.. include:: /includes/access-user-info.rst
+
+Example
+-------
+
+The following sequence of operations returns information about the
+``appClient`` user on the ``accounts`` database:
+
+.. code-block:: javascript
+
+   use accounts
+   db.getUser("appClient")

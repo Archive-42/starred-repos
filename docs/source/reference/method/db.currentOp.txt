@@ -1,0 +1,147 @@
+==============
+db.currentOp()
+==============
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. method:: db.currentOp()
+
+   .. |command| replace:: db.currentOp()
+   
+   .. |operation| replace:: :method:`db.currentOp()`
+
+   Returns a :term:`document` that contains information on in-progress
+   operations for the database instance. The :method:`db.currentOp()`
+   method wraps the database command :dbcommand:`currentOp`.
+
+   .. note::
+
+      .. include:: /includes/fact-currentop.rst
+
+   :method:`db.currentOp()` has the following form:
+
+   .. code-block:: javascript
+
+      db.currentOp(<operations>)
+
+   :method:`db.currentOp()` can take the following *optional*
+   argument:
+
+   .. include:: /includes/apiargs/method-db.currentOp-param.rst
+
+.. _currentOp-behavior:
+
+Behavior
+--------
+
+:method:`db.currentOp()` can accept a filter document or a boolean
+parameter.
+
+If you pass a filter document to :method:`db.currentOp()`, the output
+returns information only for the current operations that match the
+filter. The filter document can contain:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 85
+   
+   * - Field
+     - Description
+
+   * - ``"$ownOps"``
+
+     - Boolean. If set to ``true``, returns information on the current user's
+       operations only.
+
+       On :binary:`~bin.mongod` instances, users can always run
+       ``db.currentOp( { "$ownOps": true } )`` to view their own
+       operations.
+       
+       .. versionadded:: 3.2.9
+
+   * - ``"$all"``
+
+     - Boolean. If set to ``true``, returns information on all operations,
+       including operations on idle connections and system operations.
+
+       If the document includes ``"$all": true`` along with
+       :ref:`db.currentOp-output-fields` conditions, only the
+       ``"$all":true`` applies.
+
+   * - <filter>
+
+     - Specify filter conditions on the :ref:`db.currentOp-output-fields`.
+       See :ref:`currentOp-method-examples`.
+       
+       If the document includes ``"$all": true`` along with
+       :ref:`db.currentOp-output-fields` conditions, only the ``"$all":
+       true`` applies.
+ 
+Passing in ``true`` to :method:`db.currentOp()` is equivalent to
+passing in a document of ``{ "$all": true }``. The following operations
+are equivalent:
+
+.. code-block:: javascript
+
+   db.currentOp(true)
+   db.currentOp( { "$all": true } )
+
+:method:`db.currentOp` and the
+:doc:`database profiler</reference/database-profiler>` report the same
+basic diagnostic information for all CRUD operations, including the
+following:
+
+.. include:: /includes/fact-diagnostic-info.rst
+
+Access Control
+--------------
+
+On systems running with :setting:`~security.authorization`, the user
+must have access that includes the :authaction:`inprog` privilege
+action. 
+
+.. versionchanged:: 3.2.9
+
+   On :binary:`~bin.mongod` instances, users can run ``db.currentOp( {
+   "$ownOps": true } )`` to view their own operations even without the
+   :authaction:`inprog` privilege action.
+
+.. seealso::  :ref:`create-role-to-manage-ops`
+
+.. _currentOp-method-examples:
+
+Examples
+--------
+
+The following examples use the :method:`db.currentOp()` method with
+various query documents to filter the output.
+
+.. NOTE TO WRITERS: If you're editing the following examples, make
+   sure that you also update the examples on currentOp (the equiv. 
+   command). Single sourcing is weird due to diffs in code block. - ARM
+
+.. include:: /includes/example-filter-current-op.rst
+
+Output Example
+--------------
+
+The following is a prototype of :method:`db.currentOp()` output.
+
+.. include:: /includes/currentOp-output-example.rst
+
+.. _db.currentOp-output-fields:
+
+Output Fields
+-------------
+
+For a complete list of :method:`db.currentOp()` output fields, see
+:ref:`currentOp <currentOp-output-fields>`.

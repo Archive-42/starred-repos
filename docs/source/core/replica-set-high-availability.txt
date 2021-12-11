@@ -1,0 +1,22 @@
+.. index:: pair: replica set; failover
+.. _replica-set-failover-administration:
+.. _replica-set-failover:
+.. _failover:
+
+=============================
+Replica Set High Availability
+=============================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Replica sets use elections to support high availability. 
+
+.. include:: /includes/toc/dfn-list-replica-set-high-availability.rst
+
+.. include:: /includes/toc/replica-set-high-availability.rst

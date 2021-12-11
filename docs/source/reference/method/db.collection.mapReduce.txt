@@ -1,0 +1,104 @@
+=========================
+db.collection.mapReduce()
+=========================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. method:: db.collection.mapReduce(map,reduce, {<out>,<query>,<sort>,<limit>,<finalize>,<scope>,<jsMode>,<verbose>})
+
+   The :method:`db.collection.mapReduce()` method provides a wrapper
+   around the :dbcommand:`mapReduce` command.
+
+   .. note::
+
+      .. include:: /includes/extracts/views-unsupported-mapReduce.rst
+
+   :method:`db.collection.mapReduce()` has the following syntax:
+
+   .. code-block:: javascript
+
+      db.collection.mapReduce(
+                               <map>,
+                               <reduce>,
+                               {
+                                 out: <collection>,
+                                 query: <document>,
+                                 sort: <document>,
+                                 limit: <number>,
+                                 finalize: <function>,
+                                 scope: <document>,
+                                 jsMode: <boolean>,
+                                 verbose: <boolean>,
+                                 bypassDocumentValidation: <boolean>
+                               }
+                             )
+
+   :method:`db.collection.mapReduce()` takes the following parameters:
+
+   .. include:: /includes/apiargs/command-db.collection.mapReduce-field.rst
+
+   The following table describes additional arguments that
+   :method:`db.collection.mapReduce()` can accept.
+
+   .. include:: /includes/apiargs/method-db.collection.mapReduce-args-field.rst
+
+   .. note::
+
+      .. include:: /includes/fact-group-map-reduce-where-limitations-in-24.rst
+
+.. _mapreduce-map-mtd:
+
+.. include:: /includes/parameters-map-reduce.rst
+   :start-after: start-map
+   :end-before: end-map
+
+.. _mapreduce-reduce-mtd:
+
+.. include:: /includes/parameters-map-reduce.rst
+   :start-after: start-reduce
+   :end-before: end-reduce
+
+.. _mapreduce-out-mtd:
+
+.. include:: /includes/parameters-map-reduce.rst
+   :start-after: start-out
+   :end-before: end-out
+
+.. _mapreduce-finalize-mtd:
+
+.. include:: /includes/parameters-map-reduce.rst
+   :start-after: start-finalize
+   :end-before: end-finalize
+
+.. include:: /includes/examples-map-reduce.rst
+
+Output
+------
+
+The output of the :method:`db.collection.mapReduce()` method is
+identical to that of the :dbcommand:`mapReduce` command. See the
+:ref:`Output <mapReduce-output>` section of the :dbcommand:`mapReduce`
+command for information on the :method:`db.collection.mapReduce()`
+output.
+
+Additional Information
+----------------------
+
+- :doc:`/tutorial/troubleshoot-map-function`
+
+- :doc:`/tutorial/troubleshoot-reduce-function`
+
+- :dbcommand:`mapReduce` command
+
+- :doc:`/aggregation`
+
+- :doc:`Map-Reduce </core/map-reduce>`
+
+- :doc:`/tutorial/perform-incremental-map-reduce`
+

@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2014, MongoDB, Inc.
+# This file is distributed under the same license as the mongodb-manual package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: MongoDB Manual\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-08 13:03-0400\n"
+"PO-Revision-Date: 2014-04-08 16:30+0000\n"
+"Last-Translator: tychoish <tychoish@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/mongodb-manual/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# 752db05f4eb549fc8e412a92eecc92bb
+#: ../source/tutorial/replace-config-server.txt:16
+msgid ""
+"This procedure replaces an inoperable :ref:`config server <sharding-config-"
+"server>` in a :doc:`sharded cluster </core/sharding>`. Use this procedure "
+"only to replace a config server that has become inoperable (e.g. hardware "
+"failure)."
+msgstr ""
+
+# 65098cafb8804ce995bab5d59cfaad06
+#: ../source/tutorial/replace-config-server.txt:22
+msgid ""
+"This process assumes that the hostname of the instance will not change. If "
+"you must change the hostname of the instance, use the procedure to "
+":doc:`migrate a config server and use a new hostname <migrate-config-"
+"servers-with-different-hostnames>`."
+msgstr ""
+
+#: ../source/tutorial/replace-config-server.txt:3
+msgid "Replace Disabled Config Server"
+msgstr ""
+
+#: ../source/tutorial/replace-config-server.txt:8
+msgid "Overview"
+msgstr ""
+
+#: ../source/tutorial/replace-config-server.txt:10
+msgid ""
+"Sharded clusters use a group of three config servers to store cluster meta "
+"data, and all three config servers must be available to support cluster "
+"metadata changes that include chunk splits and migrations. If one of the "
+"config servers is unavailable or inoperable you must replace it as soon as "
+"possible."
+msgstr ""
+
+#: ../source/tutorial/replace-config-server.txt:28
+msgid "Considerations"
+msgstr ""
+
+#: ../source/tutorial/replace-config-server.txt:30
+msgid ""
+"In the course of this procedure *never* remove a config server from the "
+":setting:`~sharding.configDB` parameter on any of the :program:`mongos` "
+"instances."
+msgstr ""
+
+#: ../source/tutorial/replace-config-server.txt:35
+msgid "Procedure"
+msgstr ""
+
+#: ../source/includes/steps/replace-disabled-config-server.rst:8
+msgid ""
+"Provision a new system, with the same IP address and hostname as the "
+"previous host."
+msgstr ""
+
+#: ../source/includes/steps/replace-disabled-config-server.rst:11
+msgid ""
+"You will have to ensure the new system has the same IP address and hostname "
+"as the system it's replacing *or* you will need to modify the DNS records "
+"and wait for them to propagate."
+msgstr ""
+
+#: ../source/includes/steps/replace-disabled-config-server.rst:27
+msgid "Shut down *one* of the remaining config servers."
+msgstr ""
+
+#: ../source/includes/steps/replace-disabled-config-server.rst:30
+msgid ""
+"Copy all of this host's :setting:`~storage.dbPath` path from the current "
+"system to the system that will provide the new config server. This command, "
+"issued on the system with the data files, may resemble the following:"
+msgstr ""
+
+#: ../source/includes/steps/replace-disabled-config-server.rst:52
+msgid "If necessary, update DNS and/or networking."
+msgstr ""
+
+#: ../source/includes/steps/replace-disabled-config-server.rst:55
+msgid ""
+"Ensure the new config server is accessible by the same name as the previous "
+"config server."
+msgstr ""
+
+#: ../source/includes/steps/replace-disabled-config-server.rst:70
+msgid "Start the *new* config server."
+msgstr ""
+
+#~ msgid "Replace a Config Server"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Disable the cluster balancer process temporarily. See :ref:`sharding-"
+#~ "balancing-disable-temporarily` for more information."
+#~ msgstr ""
+
+#~ msgid "Provision a new system, with the same hostname as the previous host."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You will have to ensure that the new system has the same IP address and "
+#~ "hostname as the system it's replacing *or* you will need to modify the DNS "
+#~ "records and wait for them to propagate."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Shut down *one* (and only one) of the existing config servers. Copy all of "
+#~ "this host's :setting:`~storage.dbPath` file system tree from the current "
+#~ "system to the system that will provide the new config server. This command, "
+#~ "issued on the system with the data files, may resemble the following:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Restart the config server process that you used in the previous step to copy"
+#~ " the data files to the new config server instance."
+#~ msgstr ""
+
+#~ msgid "Start the new config server instance. The default invocation is:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Re-enable the balancer to allow the cluster to resume normal balancing "
+#~ "operations. See the :ref:`sharding-balancing-disable-temporarily` section "
+#~ "for more information on managing the balancer process."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the course of this procedure *never* remove a config server from the "
+#~ ":setting:`~sharding.configDB` parameter on any of the :program:`mongos` "
+#~ "instances. If you need to change the name of a config server, always make "
+#~ "sure that all :program:`mongos` instances have three config servers "
+#~ "specified in the :setting:`~sharding.configDB` setting at all times."
+#~ msgstr ""
