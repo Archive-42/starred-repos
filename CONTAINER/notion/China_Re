@@ -1,0 +1,11 @@
+# China Research
+
+[https://www.discoursemagazine.com/politics/2021/07/29/the-china-challenge-america-as-a-rising-power/](https://www.discoursemagazine.com/politics/2021/07/29/the-china-challenge-america-as-a-rising-power/)
+
+[https://hbr.org/2021/05/what-the-west-gets-wrong-about-china](https://hbr.org/2021/05/what-the-west-gets-wrong-about-china)
+
+[https://www.theatlantic.com/international/archive/2015/05/chinese-democracy-isnt-inevitable/394325/](https://www.theatlantic.com/international/archive/2015/05/chinese-democracy-isnt-inevitable/394325/)
+
+[https://foreignpolicy.com/2021/03/11/america-chinas-regime-fails/](https://foreignpolicy.com/2021/03/11/america-chinas-regime-fails/)
+
+[https://www.google.com/amp/s/amp.theatlantic.com/amp/article/609364/](https://www.google.com/amp/s/amp.theatlantic.com/amp/article/609364/)

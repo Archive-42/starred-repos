@@ -1,0 +1,7 @@
+# Untitled
+
+Bitbucket: https://www.codewars.com/users/bgoonz
+GitHub: https://giphy.com/channel/bryanguner
+Gitlab: https://ko-fi.com/bgoonz
+Medium: https://dribbble.com/bgoonz4242?onboarding=true
+code pen: https://glitch.com/@bgoonz

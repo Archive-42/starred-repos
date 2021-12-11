@@ -1,0 +1,4 @@
+﻿Name,Description
+"table1, table2",Tables participating in joining.
+join_type,Type of the join.
+join_condition,Some condition. This is optional.

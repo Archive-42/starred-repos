@@ -1,0 +1,7 @@
+# Untitled
+
+Bitbucket: https://stackblitz.com/@bgoonz
+GitHub: https://app.contentful.com/spaces/lelpu0ihaz11/assets?id=MocOPmmNliLn6PPv
+Gitlab: https://app.netlify.com/user/settings#profile
+Medium: https://vercel.com/bgoonz
+code pen: https://www.youtube.com/channel/UC9-rYyUMsnEBK8G8fCyrXXA/featured

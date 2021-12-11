@@ -1,0 +1,13 @@
+﻿Section,Does Not Meet expectations,Meets Expectations,Exceeds Expectations
+"Profile, Cover Photo, and Headline","Photos are missing or depict
+unprofessional imagery (vulgar
+language, drinking/drug use, goofy
+faces, political content, etc.).
+Headline is irrelevant or contains spelling errors","Student has a photo of themselves; attire and background is appropriate, photo is smiling or neutral. Cover photo is work-appropriate. Headline is concise, relevant, with no errors.","Professional-looking headshot; smiling in photo, professional attire, clean background. Cover photo is work-appropriate. Headline is concise, relevant, with no errors."
+Personal Summary,"Summary is unrelated to their technical track, and/or contains multiple grammatical errors.","Summary clearly states career goals, and is concise, clear, and error free.","
+Summary is unique and engaging, clearly states career goals, and is concise, clear, and error free."
+Experience,"Prior experience is missing, or only lists company/title with no description of prior roles..",Prior experience is complete and highlights 2-3 bulleted accomplishments from past roles.,Prior experience is detailed and populated with power statements that highlight accomplishments from all past roles. Student highlights transferable skills.
+Education,Education does not include Bootcamp; details missing for other schools attended.,"Bootcamp and all other schools, including dates attended and certificates achieved.","Bootcamp and all other schools listed, including dates and certificates, as well as summaries of coursework completed."
+Skills,"Skills section does not include track related skills or is not included. ","Skills section includes all relevant track related skills and tech stack. ","Skills section includes all relevant track related skills and tech stack, with three strongest skills pinned, and endorsements through for each skill.  "
+Project,Projects missing details or not listed at all.,"At least 3 projects are included with descriptions, list of tech skills used, and links to GitHub repo and portfolio.","All projects, including personal projects completed outside of Bootcamp, included with descriptions, list of tech skills used, and links to GitHub repo and portfolio."
+,,,

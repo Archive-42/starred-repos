@@ -1,0 +1,17 @@
+﻿State,Name,Due,Flagged,Context,Format,Project,Sub-tasks,.IntAiO,Tags
+No,Welcome to the AiO Database!,,,,,,,Yes,
+No,"These tips are filtered by the property "".IntAiO"". Remember that when you don't need these tips anymore.",,,,,,,Yes,
+No,"This ""all-in-one-all-in-one database"" may also be useful for people that can't afford changing to the personal plan.",,,,,,,Yes,
+No,"To find everything on the database, use the views. Open this page to know all formats.",,,,,,,Yes,
+No,"Sub-pages (like bookmarks etc.) are called ""Folders"" in this workflow. You can set ones with the Format = ""Folder"". You can find them at the ""#Folders"" view.",,,,Folder,,,Yes,
+No,"You can also favorite the folders to show them on the sidebar! Open a folder and click on ""Favorite"".",,,,Folder,,,Yes,
+No,"You can also create notes. If you want to archive it, just open it and check off ""State"".",,,,Note,,,Yes,
+No,"The Editorial Calendar view shows all items that has the ""Editorial Calendar"" tag.",,,,,,,Yes,Editorial Calendar
+No,This is the Inbox. Here you can put everything you want to organize later.,,,,,,,No,
+No,School,,,,Context,,,No,
+No,Shopping List,,,,Folder,,,No,
+No,Work,,,,Context,,,No,
+No,Moto G5S,,,,Context,,,No,
+No,Cool YouTube video,,,,Task,,,No,"Editorial Calendar, YouTube"
+No,Home,,,,Context,,,No,
+No,Computer,,,,Context,,,No,

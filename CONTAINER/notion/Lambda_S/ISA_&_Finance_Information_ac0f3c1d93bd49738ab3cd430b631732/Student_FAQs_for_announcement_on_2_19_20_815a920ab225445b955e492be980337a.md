@@ -1,0 +1,18 @@
+# Student FAQs for announcement on 2/19/20:
+
+- **Is my ISA being “sold”? Do third-parties “own” my ISAs?**
+  Edly is an ISA marketplace that enables investors to invest in the future cash flows of ISAs as a group. The ISAs are held in trusts that distribute cash flows to the school and investors according to a contract between school and investors.
+  Whether an individual ISA is held in a trust or not will not affect the ISA itself, and students will see no change in how they log into their ISA platform, make payments, or update their information. Nothing about the Lambda School program or student experience has changed.
+  Because for students who elect to use an ISA, their payment obligation is only governed by the ISA, this creates no additional risk for students, and Lambda School’s success still completely depends on student success.
+- **Are my ISA details changing? Where do I log in to view my ISA details?**
+  No. The terms of the ISAs remain the same, and the Edly marketplace does not change any of the terms (repayment, timing, amounts, anything). Students log into their ISA service provider platform exactly as before. If, for example, you signed an ISA for 17% of income in payments for 24 months after making $50k and 60 deferral months, that will not change.
+- **Does this mean Lambda School gets paid before I get a job?**
+  Lambda School’s business model inherently requires financing because our costs to train students precede our revenues on ISAs. That is by design. There are many different forms of financing we can use, but this is the closest thing available to aligning our incentives and your incentives. As part of the partnership, while Lambda is accessing capital sooner, we maintain an interest in your post-graduation success, and our incentives are aligned. We are as committed as ever to your success.
+  This funding mechanism means Lambda School can effectively use the expected future value of the ISA to help offset the cost of teaching and placing the student. So instead of bearing 100% of that cost upfront, we now only bear a portion upfront, and we pay investors back as students make payments. This allows us to provide value to students, grow sustainably, and keep incentives aligned.
+  Because the ISA itself is what governs students’ payment obligation, this creates no additional risk or obligation for students, and the school’s success still completely depends on student success. Lambda School makes more money if students are more successful, and less money if students are less successful.
+- **Is Lambda School selling ISAs at full cost?**
+  The terms of the deal are not public, but this is a great deal for Lambda School because it allows access to capital sooner than post-graduation. We can tell you that two parts of the deal preserve the alignment of incentives commitment that underlies our entire approach at Lambda School. First, we share in upfront investment with investors, and second, in the form of the performance adjustment, we share upside when you succeed. We’re committed as ever to your learning and success.
+- **Does this affect Lambda School’s privacy policy?**
+  No, this does not affect Lambda School’s privacy policy nor does it change Lambda School’s program.
+- **Is it still true that students must be successful in order for Lambda School to be successful?**
+  Yes. We believe in keeping the promise we made to students when they signed up for Lambda School. That promise is to teach them a valuable skill and help place them in a job using that skill. It seems only fair that if we didn’t do our job well, it should count against us.

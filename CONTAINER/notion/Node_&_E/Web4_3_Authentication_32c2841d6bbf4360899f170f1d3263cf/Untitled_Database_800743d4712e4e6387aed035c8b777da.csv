@@ -1,0 +1,5 @@
+﻿Global,Description
+beforeAll,runs once before the first test
+beforeEach,"runs before the tests, good for setup code"
+afterEach,"runs after the tests, good for clean up"
+afterAll,runs once after the last test
