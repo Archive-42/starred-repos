@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "scripts": {
+    "postinstall": "./postinstall.sh",
+    "build:server": "lerna run build --scope={@abb/common,@abb/server}",
+    "build:web": "lerna run build --scope={@abb/common,@abb/controller,@abb/web}"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/rimraf",
+      "**/rimraf/**",
+      "**/react-native-elements",
+      "**/react-native-elements/**",
+      "**/react-native",
+      "**/react-native/**",
+      "**/expo",
+      "**/expo/**",
+      "**/react-native-typescript-transformer",
+      "**/react-native-typescript-transformer/**",
+      "**/metro-bundler-config-yarn-workspaces",
+      "**/metro-bundler-config-yarn-workspaces/**"
+    ]
+  },
+  "devDependencies": {
+    "lerna": "^2.11.0"
+  }
+}
