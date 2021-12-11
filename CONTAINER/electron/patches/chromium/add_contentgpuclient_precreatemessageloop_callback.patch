@@ -1,0 +1,49 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Milan Burda <milan.burda@gmail.com>
+Date: Thu, 11 Apr 2019 14:49:20 +0200
+Subject: add_contentgpuclient_precreatemessageloop_callback.patch
+
+This adds a ContentGpuClient::PreCreateMessageLoop() callback.
+Invoke in GpuMain after SetErrorMode, before starting the message loop.
+Allows Electron to restore WER when ELECTRON_DEFAULT_ERROR_MODE is set.
+
+This should be upstreamed.
+
+diff --git a/content/gpu/gpu_main.cc b/content/gpu/gpu_main.cc
+index a28a1fe24ac95191fa2f88d7df388b6ea7885d57..988ab894b756147ddae072c4d11c5d8d07b46563 100644
+--- a/content/gpu/gpu_main.cc
++++ b/content/gpu/gpu_main.cc
+@@ -236,6 +236,10 @@ int GpuMain(MainFunctionParams parameters) {
+   // to the GpuProcessHost once the GpuServiceImpl has started.
+   viz::GpuServiceImpl::InstallPreInitializeLogHandler();
+ 
++  auto* client = GetContentClient()->gpu();
++  if (client)
++    client->PreCreateMessageLoop();
++
+   // We are experiencing what appear to be memory-stomp issues in the GPU
+   // process. These issues seem to be impacting the task executor and listeners
+   // registered to it. Create the task executor on the heap to guard against
+@@ -342,7 +346,6 @@ int GpuMain(MainFunctionParams parameters) {
+   GpuProcess gpu_process(io_thread_priority);
+ #endif
+ 
+-  auto* client = GetContentClient()->gpu();
+   if (client)
+     client->PostIOThreadCreated(gpu_process.io_task_runner());
+ 
+diff --git a/content/public/gpu/content_gpu_client.h b/content/public/gpu/content_gpu_client.h
+index cb7774f89cb0a5537630208dc784c63a4b5a6f34..9baf51f1c5bfcd809d3bba47f96c2772158a51ac 100644
+--- a/content/public/gpu/content_gpu_client.h
++++ b/content/public/gpu/content_gpu_client.h
+@@ -28,6 +28,10 @@ class CONTENT_EXPORT ContentGpuClient {
+  public:
+   virtual ~ContentGpuClient() {}
+ 
++  // Allows the embedder to perform platform-specific initialization before
++  // creating the message loop.
++  virtual void PreCreateMessageLoop() {}
++
+   // Called during initialization once the GpuService has been initialized.
+   virtual void GpuServiceInitialized() {}
+ 

@@ -1,0 +1,74 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Cheng Zhao <zcbenz@gmail.com>
+Date: Thu, 20 Sep 2018 17:47:44 -0700
+Subject: gin_enable_disable_v8_platform.patch
+
+We don't use gin to create the V8 platform, because we need to inject Node
+things.
+
+diff --git a/gin/isolate_holder.cc b/gin/isolate_holder.cc
+index 6305d03e2315e8b9925071c018a81c102dda2a55..2bed8f7ce21ab052c0c319775875b9cf008b2636 100644
+--- a/gin/isolate_holder.cc
++++ b/gin/isolate_holder.cc
+@@ -115,9 +115,10 @@ IsolateHolder::~IsolateHolder() {
+ void IsolateHolder::Initialize(ScriptMode mode,
+                                v8::ArrayBuffer::Allocator* allocator,
+                                const intptr_t* reference_table,
+-                               const std::string js_command_line_flags) {
++                               const std::string js_command_line_flags,
++                               bool create_v8_platform) {
+   CHECK(allocator);
+-  V8Initializer::Initialize(mode, js_command_line_flags);
++  V8Initializer::Initialize(mode, js_command_line_flags, create_v8_platform);
+   g_array_buffer_allocator = allocator;
+   g_reference_table = reference_table;
+ }
+diff --git a/gin/public/isolate_holder.h b/gin/public/isolate_holder.h
+index cb1da2cafc275b62b2a8bf2260d97054777e6d30..cb587f852f230f84db1c50ffd6d41cad447e0949 100644
+--- a/gin/public/isolate_holder.h
++++ b/gin/public/isolate_holder.h
+@@ -99,7 +99,8 @@ class GIN_EXPORT IsolateHolder {
+   static void Initialize(ScriptMode mode,
+                          v8::ArrayBuffer::Allocator* allocator,
+                          const intptr_t* reference_table = nullptr,
+-                         const std::string js_command_line_flags = {});
++                         const std::string js_command_line_flags = {},
++                         bool create_v8_platform = true);
+ 
+   // Returns whether `Initialize` has already been invoked in the process.
+   // Initialization is a one-way operation (i.e., this method cannot return
+diff --git a/gin/v8_initializer.cc b/gin/v8_initializer.cc
+index aa866392fcc011f8e4408e3084697a9edee67a1d..51820fc5cd9bcbc835ae49f2a01f0165401790b6 100644
+--- a/gin/v8_initializer.cc
++++ b/gin/v8_initializer.cc
+@@ -333,12 +333,14 @@ void SetFlags(IsolateHolder::ScriptMode mode,
+ 
+ // static
+ void V8Initializer::Initialize(IsolateHolder::ScriptMode mode,
+-                               const std::string js_command_line_flags) {
++                               const std::string js_command_line_flags,
++                               bool create_v8_platform) {
+   static bool v8_is_initialized = false;
+   if (v8_is_initialized)
+     return;
+ 
+-  v8::V8::InitializePlatform(V8Platform::Get());
++  if (create_v8_platform)
++    v8::V8::InitializePlatform(V8Platform::Get());
+ 
+   // Set this early on as some initialization steps, such as the initialization
+   // of the virtual memory cage, already use V8's random number generator.
+diff --git a/gin/v8_initializer.h b/gin/v8_initializer.h
+index de650aa85dd083ec8c99d72b1f6cc447bb277f09..da97190ca86f5e04dd74dbff2282901fb4713f5b 100644
+--- a/gin/v8_initializer.h
++++ b/gin/v8_initializer.h
+@@ -29,7 +29,8 @@ class GIN_EXPORT V8Initializer {
+  public:
+   // This should be called by IsolateHolder::Initialize().
+   static void Initialize(IsolateHolder::ScriptMode mode,
+-                         const std::string js_command_line_flags = {});
++                         const std::string js_command_line_flags = {},
++                         bool create_v8_platform = true);
+ 
+   // Get address and size information for currently loaded snapshot.
+   // If no snapshot is loaded, the return values are null for addresses
