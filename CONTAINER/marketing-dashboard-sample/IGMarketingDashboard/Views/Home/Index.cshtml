@@ -1,0 +1,356 @@
+﻿<div class="deferred">
+    <div id="dashboard-container" class="container-fluid hidden-xs hidden-sm visible-md-block visible-lg-block">
+
+        <!-- navigation -->
+        <div id="navigation-container" class="row">
+            <div class="col-sm-1 top-adjust"><img src="~/images/logo.png" alt="Marketing Dashboard" title="Marketing Dashboard" width="102" height="26" /></div>
+            <div class="col-sm-2 nav-label top-adjust text-right">@Html.Raw(Resources.Main.Select_Range)</div>
+            <div class="col-sm-4 row top-adjust">
+                <button class="btn btn-default btn-xs" id="one-week-button">@Resources.Main.One_week</button>
+                <button class="btn btn-default btn-xs" id="one-month-button">@Resources.Main.One_month</button>
+                <button class="btn btn-default btn-xs" id="three-months-button">@Resources.Main.Three_months</button>
+                <button class="btn btn-default btn-xs selected" id="one-year-button">@Resources.Main.One_year</button>
+            </div>
+            <div class="col-sm-5" id="range-container">
+                <div class="row">
+                    <div class="col-md-3 top-adjust">
+                        <div>@Resources.Main.Range_of_days</div>
+                    </div>
+                    <div class="col-md-9 col-lg-8" id="pickers-container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="date" id="start-range-begin" />
+                                <input type="date" id="start-range-end" />
+                            </div>
+                            <div class="col-md-1 top-adjust"><div class="caps-muted">@Resources.Main.To</div></div>
+                            <div class="col-md-4">
+                                <input type="date" id="end-range-begin" />
+                                <input type="date" id="end-range-end" />
+                            </div>
+                            <div class="col-md-2 top-adjust"><button class="btn btn-default btn-xs" id="compare-button">@Resources.Main.Compare</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /navigation -->
+        <!-- highlight -->
+        <div id="highlight-container" class="row shadow">
+            <div class="col-md-3 col-lg-2 col-md-offset-1">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="trend-label title">@Html.Raw(Resources.Main.Current_Trend)</span>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="status-container"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 container" id="sessions-container">
+                <div class="row">
+                    <div class="col-md-2"><span class="direction fa fa-chevron-up"></span></div>
+                    <div class="col-md-8">
+                        <h2>@Resources.Main.Sessions</h2>
+                        <div class="percent-container"><span class="percent"></span>%</div>
+                        <div class="start-container"><span class="start"></span> @Resources.Main.Previous</div>
+                        <div class="end-container"><span class="end"></span> @Resources.Main.Current</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 container" id="conversions-container">
+                <div class="row">
+                    <div class="col-md-2"><span class="direction fa fa-chevron-up"></span></div>
+                    <div class="col-md-8">
+                        <h2>@Resources.Main.Conversions</h2>
+                        <div class="value-container"><div class="percent-container"><span class="percent"></span>%</div></div>
+                        <div class="start-container"><span class="start"></span> @Resources.Main.Previous</div>
+                        <div class="end-container"><span class="end"></span> @Resources.Main.Current</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 container" id="spend-container">
+                <div class="row">
+                    <div class="col-md-2"><span class="direction fa fa-chevron-up"></span></div>
+                    <div class="col-md-8">
+                        <h2>@Resources.Main.Spend</h2>
+                        <div class="percent-container"><span class="percent"></span>%</div>
+                        <div class="start-container"><span class="start"></span> @Resources.Main.Previous</div>
+                        <div class="end-container"><span class="end"></span> @Resources.Main.Current</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 container" id="conversionCosts-container">
+                <div class="row">
+                    <div class="col-md-2"><span class="direction fa fa-chevron-up"></span></div>
+                    <div class="col-md-8">
+                        <h2>@Resources.Main.Conversion_Costs</h2>
+                        <div class="percent-container"><span class="percent"></span>%</div>
+                        <div class="start-container"><span class="start"></span> @Resources.Main.Previous</div>
+                        <div class="end-container"><span class="end"></span> @Resources.Main.Current</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /highlight -->
+
+        <div class="row">
+            <div id="charts-container" class="col-md-9 col-lg-10">
+
+                <!-- health-chart  -->
+                <div class="row">
+                    <div class="col-md-8 col-lg-9">
+                        <h2>@Resources.Main.Overall_Health</h2>
+                    </div>
+                    <div id="chart-view-buttons" class="col-md-4 col-lg-3 buttons">
+                        <button class="btn btn-default btn-xs btn-bordered selected" id="all-button">@Resources.Main.All</button>
+                        <button class="btn btn-default btn-xs btn-bordered" id="medium-button">@Resources.Main.By_Medium</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="chart-container"></div>
+                        <div id="chart-legend"></div>
+                    </div>
+                </div>
+                <!-- /health-chart -->
+
+
+                <div class="row border-top">
+                    <div class="col-md-6">
+                        <h2>@Resources.Main.Sessions_by_Region</h2>
+                        <div id="map-container"></div>
+                        <div class="row clear">
+                            <div class="col-md-3">
+                                <button class="btn btn-default btn-xs btn-bordered" id="map-play">@Resources.Main.Play</button>
+                            </div>
+                            <div class="col-md-9 row">
+                                <div class="col-md-2 progress-start caps-muted">
+                                    @Resources.Main.Start
+                                </div>
+                                <div class="col-md-8">
+                                    <div id="map-progress"></div>
+                                </div>
+                                <div class="col-md-2 progress-end caps-muted">
+                                    @Resources.Main.End
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row border-top-light traffic-summary">
+                            <div class="col-md-3" id="users-container">
+                                <h2>@Resources.Main.Users</h2>
+                                <div class="value-container"><span class="value"></span></div>
+                            </div>
+                            <div class="col-md-4 border-left-light" id="conversionRate-container">
+                                <h2>@Resources.Main.Conversion_Rate</h2>
+                                <div class="value-container"><span class="value"></span>%</div>
+                            </div>
+                            <div class="col-md-5 border-left-light" id="topPages-container">
+                                <h2>@Resources.Main.Top_Pages</h2>
+                                <div class="value"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="health-container" class="col-md-6 border-left">
+                        <h2>@Resources.Main.Campaign_Health</h2>
+                        <div class="row health">
+                            <div class="col-md-5" id="doughnut-container">
+                                <div class="end"></div>
+                                <div class="start"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="conversions-highlight"></div>
+                                <div class="row row-labels">
+                                    <div class="col-md-6">
+                                        <div class="lbl-container" id="ppc-label"><div class="code"></div><div class="value">@Resources.Main.PPC</div></div>
+                                        <div class="lbl-container" id="email-label"><div class="code"></div><div class="value">@Resources.Main.Email</div></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="lbl-container" id="banners-label"><div class="code"></div><div class="value">@Resources.Main.Banners</div></div>
+                                        <div class="lbl-container" id="thirdParty-label"><div class="code"></div><div class="value">@Resources.Main.Third_Party</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="conversions-label">@Resources.Main.Conversions</div>
+                        <div id="target-label">@Resources.Main.Target</div>
+                        <div class="row bulletgraphs">
+                            <div class="col-md-6">
+                                <div id="ppc-container">
+                                    <div class="end"></div>
+                                    <div class="start"></div>
+                                </div>
+                                <div id="email-container">
+                                    <div class="end"></div>
+                                    <div class="start"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="banners-container">
+                                    <div class="end"></div>
+                                    <div class="start"></div>
+                                </div>
+                                <div id="thirdParty-container">
+                                    <div class="end"></div>
+                                    <div class="start"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="stats-container" class="col-md-3 col-lg-2">
+                <div class="row" id="referringDomains-container">
+                    <div class="col-md-1">
+                        <span class="direction fa fa-chevron-up"></span>
+                    </div>
+                    <div class="col-md-8">
+                        <h2>@Resources.Main.Referring_Domains</h2>
+                        <div class="percent-container"><span class="percent"></span>%</div>
+                        <div class="start-container"><span class="start"></span> @Resources.Main.Start</div>
+                        <div class="end-container"><span class="end"></span> @Resources.Main.End</div>
+                    </div>
+                </div>
+                <div id="brandedSearches-container" class="row">
+                    <div class="col-md-1">
+                        <span class="direction fa fa-chevron-up"></span>
+                    </div>
+                    <div class="col-md-8">
+                        <h2>@Resources.Main.Branded_Searches</h2>
+                        <div class="percent-container"><span class="percent"></span>%</div>
+                        <div class="start-container"><span class="start"></span> @Resources.Main.Start</div>
+                        <div class="end-container"><span class="end"></span> @Resources.Main.End</div>
+                    </div>
+                </div>
+
+                <div id="onlineSales-container" class="row">
+                    <div class="col-md-1">
+                        <span class="direction fa fa-chevron-up"></span>
+                    </div>
+                    <div class="col-md-8">
+                        <h2>@Resources.Main.Online_Sales</h2>
+                        <div class="percent-container"><span class="percent"></span>%</div>
+                        <div class="start-container"><span class="start"></span> @Resources.Main.Start</div>
+                        <div class="end-container"><span class="end"></span> @Resources.Main.End</div>
+                    </div>
+                </div>
+
+                <div id="socialTrend-container" class="row">
+                    <div class="col-md-1">
+                        <span class="direction fa fa-chevron-up"></span>
+                    </div>
+                    <div class="col-md-8">
+                        <h2>@Resources.Main.Social_Trend</h2>
+                        <div class="percent-container"><span class="percent"></span>%</div>
+                        <div class="start-container"><span class="start"></span> @Resources.Main.Start</div>
+                        <div class="end-container"><span class="end"></span> @Resources.Main.End</div>
+                    </div>
+                </div>
+                <div id="keywords-container">
+                    <h2>@Resources.Main.Top_Unbranded_Keywords</h2>
+                    <div class="startValue"></div>
+                    <div class="endValue"></div>
+                </div>
+
+                <div id="question-container"><span class="question-circle">?</span></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="unsupported-container" class="container-fluid visible-xs-block visible-sm-block hidden-md hidden-lg">
+
+    <div class="row">
+        <div class="col-sm-3 text-center"><i class="fa fa-exclamation-triangle"></i></div>
+        <div class="col-sm-8">
+            @Html.Raw(Resources.Main.Support_Text)
+        </div>
+    </div>
+
+</div>
+
+<div id="random-data-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@Resources.Main.Welcome_message</h4>
+            </div>
+            <div class="modal-body">
+                <p class="alert alert-info">
+                    @Resources.Main.Alert_info
+                </p>
+                <h2>@Resources.Main.Alert_Text_Title_Data</h2>
+                <p>
+                   @Resources.Main.Alert_Paragraph_Data 
+                </p>
+
+                <h2>@Resources.Main.Alert_Text_Title_BarChart</h2>
+                <p>
+                    @if (UICulture.Split('-')[0] == "ja"){
+                        <img src="~/images/chart-ja.png" class="img-thumbnail" />
+                    }
+                    else{                        
+                        <img src="~/images/chart.png" class="img-thumbnail" />
+                    }
+
+                    @Resources.Main.Alert_Paragraph_BarChart
+                </p>
+                <p class="clear"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="hide-random-data-modal"
+                        type="button"
+                        class="btn btn-primary modal-button"
+                        data-dismiss="modal">
+                    @Resources.Main.Confirm_button
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="error-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@Resources.Main.Error_Message</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button id="hide-random-data-modal"
+                        type="button"
+                        class="btn btn-primary modal-button"
+                        data-dismiss="modal">
+                    @Resources.Main.Error_Message_Button
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles {
+    <link rel="stylesheet" href="~/igniteui/css/themes/darkly/infragistics.theme.css" />
+    <link rel="stylesheet" href="~/igniteui/css/structure/infragistics.css" />
+}
+
+@section scripts {
+    
+    <script src="~/igniteui/infragistics.ui.regional-ja.js"></script>
+    <script src="~/igniteui/infragistics-ja.js"></script>
+    <script src="~/igniteui/infragistics.js"></script>
+    @if (File.Exists(Server.MapPath("~/scripts/i18n/locale-"+ UICulture.Split('-')[0] +".js")))
+    {
+        <script src="~/scripts/i18n/locale-@(UICulture.Split('-')[0]).js"></script>
+    }
+    else {
+        <script src="~/scripts/i18n/locale-en.js"></script>
+    }
+    <script src="~/scripts/app/utils.js"></script>
+    <script type="text/javascript"> app.utils.rootUrl = "@Url.Content("~/")";</script>
+    <script src="~/scripts/app/dataService.js"></script>
+    <script src="~/scripts/app/selectors.js"></script>
+    <script src="~/scripts/app/renderingService.js"></script>
+    <script src="~/scripts/app/viewModel.js"></script>
+
+}
