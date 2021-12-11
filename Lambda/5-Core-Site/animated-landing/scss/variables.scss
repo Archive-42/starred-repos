@@ -1,0 +1,80 @@
+// FONTS
+$body-font: ("Roboto", sans-serif);
+$body-baseline: 0.1445;
+$header-baseline: 0.1445;
+
+$gh: 1rem;
+
+//COLORS
+$color-medium: #202020;
+$default-button-color: #202020;
+$default-dark-color: #202020;
+$default-white-color: #fff;
+// other colors you can find in the colors.scss file
+
+//SHADOWS
+$small-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+$medium-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.15),
+  0 0px 5px 0px rgba(0, 0, 0, 0.1);
+$large-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+
+//MATERIAL COLORS
+$red: #f44336;
+$pink: #e91e63;
+$purple: #9c27b0;
+$deepPurple: #673ab7;
+$indigo: #3f51b5;
+$blue: #2196f3;
+$cyan: #00bcd4;
+$teal: #009688;
+$green: #4caf50;
+$lightGreen: #8bc34a;
+$lime: #cddc39;
+$yellow: #ffeb3b;
+$amber: #ffc107;
+$orange: #ff9800;
+$deepOrange: #ff5722;
+$brown: #795548;
+$gray: #9d9d9d;
+$blueGray: #607d8b;
+
+//WIDTH
+$max-width: 1114px;
+$desktop: 1240px;
+$tablet: 1024px;
+$phablet: 768px;
+$phone: 436px;
+
+//BORDER RADIUS
+$default-border-radius: 4px;
+$rounded-border-radius: 6px;
+
+//SLIDE SPEED
+$slide-speed-fast: 0.7s;
+$slide-speed-normal: 1s;
+$slide-speed-slow: 1.4s;
+
+$slide-transition-smooth: cubic-bezier(0.55, 0.05, 0.35, 0.95);
+$slide-transition-bounce: cubic-bezier(0.45, 1.15, 0.5, 1);
+
+//ELEMENT ANIMATION
+$horizontal-distance: 50px;
+$vertical-distance: 25px;
+$start-delay: 10; //ms
+
+//default
+$default-duration: 800; //ms
+$default-delay-step: 150; //ms
+
+//fast
+$fast-duration: 700; //ms
+$fast-delay-step: 100; //ms
+
+//slow
+$slow-duration: 1000; //ms
+$slow-delay-step: 200; //ms
+
+//values
+$blur-size: 10px;
+$small-scale: 0.9;
+$large-scale: 1.1;
