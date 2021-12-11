@@ -1,0 +1,88 @@
+name: Build
+on:
+  # Ensure GitHub actions are not run twice for same commits
+  push:
+    branches: [main]
+    tags: ['*']
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+        node-version: ['12.20.0', '*']
+        exclude:
+          - os: macOS-latest
+            node-version: '12.20.0'
+          - os: windows-latest
+            node-version: '12.20.0'
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+      - name: Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          check-latest: true
+      - name: Install dependencies
+        # Cypress has a postinstall script that doesn't work on older Node.js versions
+        run: npm ci --ignore-scripts
+      - name: Build For All
+        run: npm run build:json
+      - name: Build For Browser
+        run: npm run build:browser
+        if: "${{ matrix.node-version == '*' }}"
+      - name: Linting
+        run: npm run format:ci
+        if: "${{ matrix.node-version == '*' }}"
+      - name: Tests
+        run: npm run test:ci:ava
+      - name: Get test coverage flags
+        id: test-coverage-flags
+        run: |-
+          os=${{ matrix.os }}
+          node=${{ matrix.node-version }}
+          echo "::set-output name=os::${os/-latest/}"
+          echo "::set-output name=node::node_${node//[.*]/}"
+        shell: bash
+      - uses: codecov/codecov-action@v2
+        with:
+          file: coverage/coverage-final.json
+          flags: ${{ steps.test-coverage-flags.outputs.os }},${{ steps.test-coverage-flags.outputs.node }}
+  cypress-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+      - name: Using Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '*'
+          cache: 'npm'
+          check-latest: true
+      - uses: actions/cache@v2
+        with:
+          # Browsers are downloaded under node_modules
+          path: |
+            ~/.cache
+            node_modules
+          key: v1-${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        run: npm install
+      - name: Build For Browser
+        run: npm run build
+      - name: Tests
+        run: npm run test:ci:cypress
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-results
+          path: |
+            cypress/screenshots
+            cypress/videos
