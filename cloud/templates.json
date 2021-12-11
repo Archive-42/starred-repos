@@ -1,0 +1,27 @@
+[
+  {
+    "name": "todo",
+    "title": "Sample App",
+    "description": "A sample TODO app"
+  },
+  {
+    "name": "js-api",
+    "title": "JavaScript API",
+    "description": "API starter template in JS"
+  },
+  {
+    "name": "ts-api",
+    "title": "TypeScript API",
+    "description": "API starter template in TS"
+  },
+  {
+    "name": "vue-js",
+    "title": "Vue.js with API",
+    "description": "Simple Vue.js starter service"
+  },
+  {
+    "name": "react-js",
+    "title": "React with API",
+    "description": "Simple React starter service"
+  }
+]

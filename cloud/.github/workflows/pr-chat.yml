@@ -1,0 +1,41 @@
+name: Pull request (cloud-chat)
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/pr-chat.yml"
+      - "examples/cloud-chat/**"
+      - "!**.md"
+
+jobs:
+  test:
+    name: Test and preview
+    runs-on: [ubuntu-20.04]
+    env:
+      SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+      PREVIEW_INSTANCE_NAME: pr-${{ github.event.number }}
+    defaults:
+      run:
+        working-directory: examples/cloud-chat
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: v16
+      - run: npm ci
+      - run: npm test
+      - run: npm ci
+        working-directory: examples/cloud-chat/frontend
+      - run: npm run build
+        working-directory: examples/cloud-chat/frontend
+      - id: deploy
+        run: echo "::set-output name=preview_url::$(npm run preview:deploy | grep https)"
+      - uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Deployed preview instance ${{ steps.deploy.outputs.preview_url }}'
+            })
