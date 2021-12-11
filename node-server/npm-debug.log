@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'start' ]
+2 info using npm@1.4.21
+3 info using node@v0.10.25
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info prestart my-application@0.1.4
+6 info start my-application@0.1.4
+7 verbose unsafe-perm in lifecycle true
+8 info my-application@0.1.4 Failed to exec start script
+9 error my-application@0.1.4 start: `node index.js`
+9 error Exit status 1
+10 error Failed at the my-application@0.1.4 start script.
+10 error This is most likely a problem with the my-application package,
+10 error not with npm itself.
+10 error Tell the author that this fails on your system:
+10 error     node index.js
+10 error You can get their info via:
+10 error     npm owner ls my-application
+10 error There is likely additional logging output above.
+11 error System Linux 3.19.0-15-generic
+12 error command "/usr/bin/nodejs" "/usr/bin/npm" "start"
+13 error cwd /home/bobby/node-js-getting-started
+14 error node -v v0.10.25
+15 error npm -v 1.4.21
+16 error code ELIFECYCLE
+17 verbose exit [ 1, true ]

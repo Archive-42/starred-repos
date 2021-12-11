@@ -1,0 +1,7 @@
+{
+  "name": "My Application",
+  "description": "A Simple Node App With Express",
+  "repository": "https://github.com/codetrotters/node-server",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}
