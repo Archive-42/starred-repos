@@ -1,0 +1,6 @@
+name: Code Guide by @mdo
+description: Standards for developing consistent, flexible, and sustainable HTML and CSS.
+url: https://codeguide.co
+permalink: pretty
+sass:
+  style: compressed
