@@ -1,0 +1,32 @@
+{
+  "general.prev": "Önceki",
+  "general.next": "Sonraki",
+  "general.result": "Sonuç",
+  "general.regex": "Regex",
+  "general.text": "Metin",
+  "general.completedStep": "Adım Tamamlandı.",
+  "general.hintQuestion": "Cevabı Göster",
+  "general.reportStep": "Sorun Bildir",
+  "general.startLearning": "Öğrenmeye Başla",
+  "general.comingSoon": "Yakında",
+  "general.becomeSponsor": "Sponsor Ol",
+  "general.learn": "Öğren",
+  "general.playground": "Playground",
+  "general.cheatsheet": "Cheatsheet",
+  "general.ourSponsors": "Sponsorlarımız",
+
+  "notFound.intro": "Aradığın sayfa mevcut değil.",
+  "notFound.button": "Anasayfaya dön",
+
+  "page.landing.title": "Regex Learn - Adım adım, sıfırdan ileri seviyeye.",
+  "page.learn.title": "Regex Learn - RegEx İnteraktif Kurs",
+  "page.cheatsheet.title": "Regex Learn - RegEx Cheatsheet",
+  "page.404.title": "Regex Learn - Sayfa Bulunamadı",
+
+  "page.landing.description": "İnteraktif bir şekilde RegEx öğren, seviyene uygun pratikler yap, kendi RegEx'ini test et ve paylaş.",
+  "page.learn.description": "RegEx'i adım adım öğren. Öğrenmeni kolaylaştırıp hızlandıracak interaktif eğitimi tamamla.",
+  "page.cheatsheet.description": "RegEx'i bazen sadece hatırlamaya ihtiyaç duyarsın, anlamanı kolaylaştıracak ve daha iyi hatırlamanı sağlayacak cheatsheet'i dene.",
+
+  "alert.site.under.development": "Bu site hala geliştirme aşamasındadır. Şu an gördüğünüz şeyler değişebilir.",
+  "learn.safari.unsupportWarning": "Bu adımdaki düzenli ifadeler Safari tarayıcısı tarafından desteklenmez. Bu adımı geçmekte sorun yaşarsanız. Buraya tıklayabilirsiniz."
+}

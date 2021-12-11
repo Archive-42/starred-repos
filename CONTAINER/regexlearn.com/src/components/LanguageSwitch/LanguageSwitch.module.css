@@ -1,0 +1,80 @@
+.LanguageSwitch {
+  margin-left: 20px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.LanguageSwitch :global(svg) {
+  transition: 0.3s;
+}
+
+.LanguageSwitchListItem:hover,
+.LanguageSwitchListItem:hover :global(svg) {
+  color: var(--primary);
+}
+
+.LanguageSwitchCurrent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.LanguageSwitchCurrent span {
+  color: var(--landing-white);
+}
+
+.LanguageSwitchCurrentIcon {
+  margin-left: 5px;
+  color: var(--txt-1);
+}
+
+.LanguageSwitchCurrent span {
+  text-align: right;
+}
+
+.LanguageSwitchList {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  z-index: 99;
+}
+
+.LanguageSwitchListItem {
+  margin: 3px 0;
+  padding-right: 20px;
+  color: var(--txt-3);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+
+.LanguageSwitchCurrent span,
+.LanguageSwitchListItem span {
+  min-width: 20px;
+}
+
+.LanguageSwitchListItem :global(div[role='button']) {
+  margin-bottom: 2px;
+}
+
+@media only screen and (max-width: 600px) {
+  .LanguageSwitchCurrent span {
+    display: none;
+  }
+
+  .LanguageSwitch {
+    margin-left: 5px;
+  }
+
+  .LanguageSwitchList {
+    top: 20px;
+  }
+
+  .LanguageSwitchListItem {
+    padding-right: 0px;
+  }
+}
