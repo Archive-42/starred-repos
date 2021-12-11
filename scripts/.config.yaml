@@ -1,0 +1,60 @@
+# conf/config.yaml
+# 默认为True, 控制台打印消息
+debug: true
+
+# 日志保留天数
+log_days: 3
+
+# 指定进程数
+process_num: 4
+
+# 宠汪汪进程数
+joy_process_num: 1
+
+# 宠汪汪喂食狗粮克数
+joy_feed_count: 20
+
+# 宠汪汪兑换京豆数
+joy_exchange_num: 20
+
+# 拼图签到进程数
+jd_puzzle_process_num: 1
+
+# 京东COOKIES
+jd_cookies:
+  - pt_pin=;pt_key=;
+
+# 东东农场是否使用水滴换豆卡, 100水滴换20京豆
+jd_farm_bean_card: false
+
+# 东东农场每天保留多少水滴, 用于明天的十次浇水任务
+jd_farm_retain_water: 80
+
+# 消息通知
+notify:
+  # TG机器人Token
+  tg_bot_token: null
+  # TG用户ID
+  tg_user_id: null
+  # TG代理
+  tg_bot_api: null
+  # push+ token: https://pushplus.hxtrip.com/
+  push_plus_token: null
+
+  # push+ group 一对多推送才需要次配置
+  push_plus_group: null
+
+  # 依次填上corpid的值,corpsecret的值,touser的值,agentid,media_id的值，注意用,号隔开。
+  qywx_am: null
+
+  #  server酱通知key
+  server_send_key: null
+# 在此列表中的脚本, 将不会加入到定时任务中, 如需立即生效, 请手动执行命令: docker-entrypoint
+crontab_exclude_scripts:
+  - jd_bean_indiana.py
+
+# chromium路径, 默认不需要修改，除非你是本地运行或者进行开发。
+chrome_path: /usr/bin/chromium
+
+# 京东超市蓝币兑换物品,选项: 20, 1000, 或者其它商品唯一关键字, 默认20
+jd_supermarket_exchange: 20
