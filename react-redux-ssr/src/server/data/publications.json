@@ -1,0 +1,44 @@
+{
+  "sources":[
+    {
+      "category":"general",
+      "name":"The Times of India",
+      "language":"en",
+      "sourceId":"toi-in",
+      "country":"in",
+      "url":"http://www.timesofindia.indiatimes.com"
+    },
+    {
+      "category":"general",
+      "name":"DNA India",
+      "language":"en",
+      "sourceId":"dna-in",
+      "country":"in",
+      "url":"http://www.dnaindia.com"
+    },
+    {
+      "category":"general",
+      "name":"Hindustan Times",
+      "language":"en",
+      "sourceId":"ht-in",
+      "country":"in",
+      "url":"http://www.hindustantimes.com"
+    },
+    {
+      "category":"general",
+      "name":"The Hindu",
+      "language":"en",
+      "sourceId":"the-hindu",
+      "country":"in",
+      "url":"http://www.thehindu.com"
+    },
+    {
+      "category":"general",
+      "name":"Deccan herald",
+      "language":"en",
+      "sourceId":"deccan-herald",
+      "country":"in",
+      "url":"http://www.deccanherald.com"
+    }
+  ]
+}
