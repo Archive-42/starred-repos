@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "ES2018",
+    "module": "ES2020",
+    "lib": ["es2020", "DOM", "WebWorker"],
+    "strict": true,
+    "importsNotUsedAsValues": "error",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "outDir": "tsc",
+    "declaration": true,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@builder.io/partytown/intergration": ["src/integration/index.ts"],
+      "react": ["node_modules/react"]
+    }
+  },
+  "include": ["src", "scripts"]
+}

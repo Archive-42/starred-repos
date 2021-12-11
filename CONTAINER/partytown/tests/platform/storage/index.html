@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Partytown Test Page" />
+    <title>Storage</title>
+    <link
+      rel="icon"
+      id="favicon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>"
+    />
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji;
+        font-size: 12px;
+      }
+      h1 {
+        margin: 0 0 15px 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        display: block;
+        padding: 16px 8px;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: blue;
+      }
+      a:hover {
+        background-color: #eee;
+      }
+      li {
+        display: flex;
+        margin: 15px 0;
+      }
+      li strong,
+      li code,
+      li button {
+        white-space: nowrap;
+        flex: 1;
+        margin: 0 5px;
+      }
+    </style>
+    <script>
+      localStorage.clear();
+      sessionStorage.clear();
+
+      localStorage.setItem('dmc', '12');
+    </script>
+  </head>
+  <body>
+    <h1>Storage</h1>
+    <ul>
+      <li>
+        <strong>window.localStorage === localStorage</strong>
+        <code id="testWinEquals"></code>
+        <script type="text/partytown">
+          (function () {
+            const equals = localStorage === window.localStorage;
+            const elm = document.getElementById('testWinEquals');
+            elm.textContent = String(equals);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>getItem() / removeItem()</strong>
+        <code id="testLocalStorageGet"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testLocalStorageGet');
+            elm.textContent = localStorage.getItem('dmc');
+            localStorage.removeItem('dmc');
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>setItem() / getItem()</strong>
+        <code id="testLocalStorageSetGet"></code>
+        <script type="text/partytown">
+          (function () {
+            localStorage.setItem('mph', '88');
+            const elm = document.getElementById('testLocalStorageSetGet');
+            elm.textContent = localStorage.getItem('mph');
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>length</strong>
+        <code id="testLocalStorageLen"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testLocalStorageLen');
+            elm.textContent = localStorage.length;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>clear()</strong>
+        <code id="testLocalStorageClear"></code>
+        <script type="text/partytown">
+          (function () {
+            localStorage.clear();
+            const elm = document.getElementById('testLocalStorageClear');
+            elm.textContent = localStorage.length;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>setItem() / key() / removeItem()</strong>
+        <code id="testLocalStorageKey"></code>
+        <code id="testLocalStorageKeyGet"></code>
+        <code id="testLocalStorageRemove"></code>
+        <script type="text/partytown">
+          (function () {
+            localStorage.clear();
+            localStorage.setItem('gw', '1.21');
+            const elm1 = document.getElementById('testLocalStorageKey');
+            const key = localStorage.key(0);
+            elm1.textContent = key;
+            const elm2 = document.getElementById('testLocalStorageKeyGet');
+            elm2.textContent = localStorage.getItem(key);
+            localStorage.removeItem(key);
+            const elm3 = document.getElementById('testLocalStorageRemove');
+            localStorage.clear();
+            elm3.textContent = localStorage.length;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>sessionStorage set/get</strong>
+        <code id="testSessionStorageSetGet"></code>
+        <script type="text/partytown">
+          (function () {
+            sessionStorage.setItem('mph', '88');
+            const elm = document.getElementById('testSessionStorageSetGet');
+            elm.textContent = sessionStorage.getItem('mph');
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>sessionStorage length</strong>
+        <code id="testSessionStorageLen"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testSessionStorageLen');
+            elm.textContent = sessionStorage.length;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.sessionStorage clear</strong>
+        <code id="testWinSessionStorage"></code>
+        <script type="text/partytown">
+          (function () {
+            window.sessionStorage.clear();
+            window.sessionStorage.setItem('item', '88');
+            const elm = document.getElementById('testWinSessionStorage');
+            elm.textContent = window.sessionStorage.length;
+          })();
+        </script>
+      </li>
+
+      <script type="text/partytown">
+        (function () {
+          document.body.classList.add('completed');
+        })();
+      </script>
+    </ul>
+
+    <hr />
+    <p><a href="/">All Tests</a></p>
+
+    <script>
+      partytown = {
+        logCalls: true,
+        logGetters: true,
+        logSetters: true,
+        logStackTraces: false,
+        logScriptExecution: true,
+      };
+    </script>
+    <script src="/~partytown/debug/partytown.js" async defer></script>
+  </body>
+</html>

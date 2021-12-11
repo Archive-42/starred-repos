@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Partytown Test Page" />
+    <title>ResizeObserver</title>
+
+    <script>
+      partytown = {
+        debug: true,
+        logCalls: true,
+        logGetters: true,
+        logSetters: true,
+        logImageRequests: true,
+        logSendBeaconRequests: true,
+        logStackTraces: false,
+        logScriptExecution: true,
+      };
+    </script>
+    <script src="/~partytown/debug/partytown-snippet.js"></script>
+
+    <link
+      rel="icon"
+      id="favicon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>"
+    />
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji;
+        font-size: 12px;
+      }
+      h1 {
+        margin: 0 0 15px 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        display: block;
+        padding: 16px 8px;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: blue;
+      }
+      a:hover {
+        background-color: #eee;
+      }
+      li {
+        display: flex;
+        margin: 15px 0;
+      }
+      li code,
+      li button {
+        white-space: nowrap;
+        flex: 1;
+        margin: 0 5px;
+      }
+      li button {
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ResizeObserver</h1>
+
+    <ul>
+      <li>
+        <button id="buttonObserve">observe</button>
+        <button id="buttonIncrease">+</button>
+        <button id="buttonDecrease">-</button>
+
+        <script type="text/partytown">
+          (function () {
+            let step = 0;
+            function nextStep() {
+              step++;
+              const elm = document.getElementById('testResizeObserver');
+              elm.classList.add('step' + step);
+              const testStep = document.getElementById('testStep');
+              testStep.textContent = 'step' + step;
+            }
+
+            const targetNode = document.getElementById('target');
+
+            const resizeObserver = new ResizeObserver((entries) => {
+              for (let entry of entries) {
+                entry.target.textContent = 'Height: ' + entry.contentRect.height + 'px';
+              }
+            });
+
+            const buttonObserve = document.getElementById('buttonObserve');
+            buttonObserve.addEventListener('click', () => {
+              const elm = document.getElementById('testResizeObserver');
+              if (buttonObserve.textContent === 'observe') {
+                resizeObserver.observe(elm);
+                buttonObserve.textContent = 'disconnect';
+              } else {
+                resizeObserver.disconnect();
+                buttonObserve.textContent = 'observe';
+              }
+              nextStep();
+            });
+
+            const buttonIncrease = document.getElementById('buttonIncrease');
+            buttonIncrease.addEventListener('click', () => {
+              const elm = document.getElementById('testResizeObserver');
+              elm.style.height = parseInt(elm.style.height.replace('px', ''), 10) + 10 + 'px';
+              nextStep();
+            });
+
+            const buttonDecrease = document.getElementById('buttonDecrease');
+            buttonDecrease.addEventListener('click', () => {
+              const elm = document.getElementById('testResizeObserver');
+              elm.style.height = parseInt(elm.style.height.replace('px', ''), 10) - 10 + 'px';
+              nextStep();
+            });
+
+            document.body.className = 'completed';
+          })();
+        </script>
+      </li>
+    </ul>
+
+    <div
+      id="testResizeObserver"
+      style="height: 40px; text-align: center; border: 1px solid blue; background-color: #eee"
+    ></div>
+
+    <div id="testStep"></div>
+
+    <p><a href="/">All Tests</a></p>
+  </body>
+</html>

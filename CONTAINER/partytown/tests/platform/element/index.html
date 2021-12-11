@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Partytown Test Page" />
+    <title>Element</title>
+    <link
+      rel="icon"
+      id="favicon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>"
+    />
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji;
+        font-size: 12px;
+      }
+      h1 {
+        margin: 0 0 15px 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        display: block;
+        padding: 16px 8px;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: blue;
+      }
+      a:hover {
+        background-color: #eee;
+      }
+      li {
+        display: flex;
+        margin: 15px 0;
+      }
+      li strong,
+      li code,
+      li button,
+      li a {
+        white-space: nowrap;
+        flex: 1;
+        margin: 0 5px;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body mph="88">
+    <h1>Element</h1>
+    <ul>
+      <li>
+        <strong>element, nodeName/Type</strong>
+        <code id="testElementNameType"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.createElement('div');
+            document.getElementById('testElementNameType').textContent = elm.nodeName + ' ' + elm.nodeType;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>getBoundingClientRect()</strong>
+        <code id="testGetBoundingClientRectY"></code>
+        <code id="testGetBoundingClientRect"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementsByTagName('h1')[0];
+            const t = document.getElementById('testGetBoundingClientRect');
+            const y = document.getElementById('testGetBoundingClientRectY');
+            // should only be one main access
+            elm.getBoundingClientRect();
+            elm.getBoundingClientRect();
+            elm.getBoundingClientRect();
+            elm.getBoundingClientRect();
+            const r = elm.getBoundingClientRect();
+            t.textContent = JSON.stringify(r);
+            y.textContent = r.y;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>querySelector('h1')</strong>
+        <code id="testQSH1"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.querySelector('h1');
+            document.getElementById('testQSH1').innerHTML = elm.tagName;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>querySelectorAll('h1,ul').length</strong>
+        <code id="testQSLength"></code>
+        <script type="text/partytown">
+          (function () {
+            const elms = document.querySelectorAll('h1,ul');
+            document.getElementById('testQSLength').innerHTML = elms.length;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>querySelectorAll('h1,ul').forEach()</strong>
+        <code id="testQSForEach"></code>
+        <script type="text/partytown">
+          (function () {
+            const elms = document.querySelectorAll('h1,ul');
+            const tags = [];
+            for (let i = 0; i < elms.length; i++) {
+              tags.push(elms[i].nodeName);
+            }
+            document.getElementById('testQSForEach').innerHTML = tags.join(',');
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>querySelectorAll('h1,ul')[0]</strong>
+        <code id="testQSIndex"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.querySelectorAll('h1,ul')[0];
+            document.getElementById('testQSIndex').innerHTML = elm.nodeName;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>querySelectorAll('h1,ul').item(1)</strong>
+        <code id="testQSItem"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.querySelectorAll('h1,ul').item(1);
+            document.getElementById('testQSItem').innerHTML = elm.nodeName;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>querySelectorAll('h1,ul') iterable</strong>
+        <code id="testQSIterable"></code>
+        <script type="text/partytown">
+          (function () {
+            const elms = document.querySelectorAll('h1,ul');
+            let tags = [];
+            for (const elm of elms) {
+              tags.push(elm.tagName);
+            }
+            document.getElementById('testQSIterable').innerHTML = tags.join(',');
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>Array.from(querySelectorAll('h1,ul'))</strong>
+        <code id="testQSArrayFrom"></code>
+        <script type="text/partytown">
+          (function () {
+            const elms = Array.from(document.querySelectorAll('h1,ul'));
+            let tags = [];
+            for (const elm of elms) {
+              tags.push(elm.tagName);
+            }
+            document.getElementById('testQSArrayFrom').innerHTML = tags.join(',');
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>getAttribute()</strong>
+        <code id="testGetAttribute"></code>
+        <script type="text/partytown">
+          (function () {
+            const attrValue = document.body.getAttribute('mph');
+            document.getElementById('testGetAttribute').innerHTML = attrValue;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>setAttribute()</strong>
+        <code id="testSetAttribute"></code>
+        <script type="text/partytown">
+          (function () {
+            document.body.setAttribute('year', '1985');
+            document.getElementById('testSetAttribute').innerHTML = document.body.getAttribute('year');
+          })();
+        </script>
+      </li>
+
+      <li class="hasParentElement">
+        <strong>parentElement</strong>
+        <code id="testParentElement"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testParentElement');
+            elm.parentElement;
+            elm.parentElement;
+            elm.parentElement;
+            elm.parentElement;
+            const parentElement = elm.parentElement;
+            elm.textContent = parentElement.className;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>before sync setters, get</strong>
+        <code id="testSyncSetters"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testSyncSetters');
+            const section = document.createElement('section');
+            section.textContent = '101';
+            elm.textContent = section.textContent;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>before sync setters, call</strong>
+        <code id="testSyncSettersCall"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testSyncSettersCall');
+            const div = document.createElement('div');
+            div.id = 'some-id';
+            elm.textContent = div.getAttribute('id');
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong id="labelSyncSetAttr">before sync setters, setAttribute</strong>
+        <script type="text/partytown">
+          (function () {
+            const code = document.createElement('code');
+            code.setAttribute('data-year', 1885);
+            code.textContent = code.dataset.year;
+            code.id = 'testSyncSetAttr';
+
+            const label = document.getElementById('labelSyncSetAttr');
+            label.parentNode.appendChild(code);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>attributes nodeType/Name</strong>
+        <code id="testAttrsNodeType"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testAttrsNodeType');
+            elm.textContent = elm.attributes.id.nodeType + ' ' + elm.attributes.id.nodeName;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>attributes.style.value</strong>
+        <code style="color: red" id="testAttrsStyleValue"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testAttrsStyleValue');
+            const attributes = elm.attributes;
+            const style = attributes.style;
+            const name = style.name;
+            const value = style.value;
+            elm.textContent = name + ' ' + value;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>paragraph constructor.name</strong>
+        <div><p style="margin: 0; padding: 0" id="testParagraphConstructor"></p></div>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testParagraphConstructor');
+            elm.textContent = elm.constructor.name + ' ' + HTMLParagraphElement.name;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>style element</strong>
+        <code id="testStyleElement"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testStyleElement');
+
+            const css = document.createTextNode(`
+              #testStyleElement {
+                color: blue;
+              }
+            `);
+            const style = document.createElement('style');
+            style.setAttribute('mph', '88');
+            style.appendChild(css);
+            document.head.appendChild(style);
+
+            elm.textContent = getComputedStyle(elm).color;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>namespaceURI</strong>
+        <code id="testNamespaceURI"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testNamespaceURI');
+            elm.textContent = elm.namespaceURI;
+          })();
+        </script>
+      </li>
+
+      <li id="liAppendChild">
+        <strong>appendChild()</strong>
+        <script type="text/partytown">
+          (function () {
+            const text = document.createTextNode('');
+            text.textContent = 'text';
+            const span = document.createElement('span');
+            span.insertBefore(text, null);
+            const code = document.createElement('code');
+            code.id = 'testAppendChild';
+            code.appendChild(span);
+
+            const li = document.getElementById('liAppendChild');
+            li.appendChild(code);
+          })();
+        </script>
+      </li>
+
+      <li id="liDimensions">
+        <strong>dimensions</strong>
+        <code id="testDimensions"></code>
+        <script type="text/partytown">
+          (function () {
+            const li = document.getElementById('liDimensions');
+
+            // should only be one main access
+            li.clientWidth;
+            li.clientWidth;
+            li.clientHeight;
+            li.clientHeight;
+            li.offsetWidth;
+            li.offsetHeight;
+
+            const dimensions = li.clientWidth + 'x' + li.clientHeight
+            const elm = document.getElementById('testDimensions');
+            elm.textContent = dimensions;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>node === node</strong>
+        <code id="testElementEquality"></code>
+        <script type="text/partytown">
+          (function () {
+            const div1 = document.createElement('div');
+            const equalId = 'elm-equal';
+            div1.id = equalId;
+            document.body.insertBefore(div1, null);
+
+            const div2 = document.getElementById(equalId);
+
+            const elm = document.getElementById('testElementEquality');
+            elm.textContent = div1 === div2;
+          })();
+        </script>
+      </li>
+
+      <script type="text/partytown">
+        (function () {
+          document.body.classList.add('completed');
+        })();
+      </script>
+    </ul>
+
+    <hr />
+    <p><a href="/">All Tests</a></p>
+
+    <script>
+      partytown = {
+        logCalls: true,
+        logGetters: true,
+        logSetters: true,
+        logStackTraces: false,
+        logScriptExecution: true,
+        logMainAccess: true,
+      };
+    </script>
+    <script src="/~partytown/debug/partytown.js" async defer></script>
+  </body>
+</html>
