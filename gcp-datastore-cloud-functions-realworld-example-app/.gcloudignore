@@ -1,0 +1,28 @@
+# This file specifies files that are *not* uploaded to Google Cloud Platform
+# using gcloud. It follows the same syntax as .gitignore, with the addition of
+# "#!include" directives (which insert the entries of the given .gitignore-style
+# file at that point).
+#
+# For more information, run:
+#   $ gcloud topic gcloudignore
+#
+.gcloudignore
+.git
+.gitignore
+#!include:.gitignore
+
+# Following files are needed only for testing/development and need not be deployed
+.eslintrc.js
+.mochaopts
+.npmrc
+.nycrc
+.snyk
+.travis.yml
+api-tests.postman.json
+circle.yml
+deploy-to-cloud.sh
+index.yaml
+logo.png
+README.md
+run-api-tests.sh
+src/*.test.js

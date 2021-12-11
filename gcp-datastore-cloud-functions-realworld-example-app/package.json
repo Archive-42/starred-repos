@@ -1,0 +1,32 @@
+{
+  "scripts": {
+    "test": "npm run lint && npm run test:unit && npm run test:api",
+    "lint": "eslint index.js src/",
+    "test:unit": "DATASTORE_NAMESPACE=test-unit-`date +%s` nyc mocha --opts .mochaopts ./src/*.test.js",
+    "test:api": "./run-api-tests.sh",
+    "deploy": "./deploy-to-cloud.sh",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "devDependencies": {
+    "@google-cloud/functions-emulator": "^1.0.0-beta.4",
+    "casual": "^1.5.17",
+    "chai": "^4.1.2",
+    "eslint": "^4.8.0",
+    "mocha": "^5.0.0",
+    "mocha-logger": "^1.0.5",
+    "mochawesome": "^3.0.0",
+    "newman": "^3.9.2",
+    "nyc": "^12.0.2"
+  },
+  "dependencies": {
+    "@google-cloud/datastore": "^2.0.0",
+    "bcrypt": "^3.0.0",
+    "dotenv": "^6.0.0",
+    "jsonwebtoken": "^8.1.0",
+    "route-parser": "0.0.5",
+    "slugify": "^1.2.6",
+    "snyk": "^1.69.10"
+  },
+  "snyk": true
+}
