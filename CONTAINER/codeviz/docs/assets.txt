@@ -1,0 +1,255 @@
+
+# -------------------------------------------------------------------------------------------------
+# GENERAL
+# -------------------------------------------------------------------------------------------------
+
+	INSTALL: virtualbox & vagrant through -> brew install
+	ARTICLE: Docker Cheat Sheet
+	    URL: github.com/wsargent/docker-cheat-sheet
+
+# -------------------------------------------------------------------------------------------------
+# VIRTUALBOX
+# -------------------------------------------------------------------------------------------------
+
+	www.virtualbox.org
+	www.virtualbox.org/wiki/Downloads
+
+	CMD/> VBoxManage --version
+
+# -------------------------------------------------------------------------------------------------
+# VAGRANT
+# -------------------------------------------------------------------------------------------------
+
+	www.vagrantup.com
+	www.vagrantup.com/downloads.html
+
+	CMD\> vagrant --version
+
+# -------------------------------------------------------------------------------------------------
+# LINUX
+# -------------------------------------------------------------------------------------------------
+
+	sudo apt-get -y update
+	apt-get install -y wget
+
+# -------------------------------------------------------------------------------------------------
+# METEOR
+# -------------------------------------------------------------------------------------------------
+
+	website:
+		meteor.com
+
+	install:
+		curl https://install.meteor.com/ | sh
+
+# -------------------------------------------------------------------------------------------------
+# NODE
+# -------------------------------------------------------------------------------------------------
+
+	#echo 'prefix = /Users/ernst/.node' >> ~/.npmrc
+
+	sudo apt-get update
+	sudo apt-get install nodejs npm
+
+	npm root
+	which npm
+
+	npm install -g node-gyp
+
+	mkdir /root/.node-gyp
+	ln -s /usr/lib/node_modules/node-gyp /root/.node-gyp/0.10.31
+
+	export USER=root
+
+	Article: How To Use npm to Manage Node.js Packages on a Linux Server
+		www.digitalocean.com/community/tutorials/how-to-use-npm-to-manage-node-js-packages-on-a-linux-server
+
+	Resource: techniques to install node and npm without having to sudo
+		gist.github.com/isaacs/579814
+
+# -------------------------------------------------------------------------------------------------
+# PYTHON: EASY_INSTALL & PIP
+# -------------------------------------------------------------------------------------------------
+
+	www.python.org
+	python --version
+
+	install easy_install:
+		pypi.python.org/pypi/setuptools#installation-instructions
+
+		curl https://bootstrap.pypa.io/ez_setup.py -o - | python
+
+	install pip:
+
+		sudo easy_install pip
+
+# -------------------------------------------------------------------------------------------------
+# ZeroMQ, MessagePack & ZeroRPC
+# -------------------------------------------------------------------------------------------------
+
+	# ---------------------------------------------------------------------------------------------
+	# ZeroMQ
+	# ---------------------------------------------------------------------------------------------
+
+		website:
+
+			zeromq.org
+
+		homebrew install:
+
+			brew install --universal zeromq
+
+		Installation:
+
+			zeromq.org/intro:get-the-software
+			zeromq.org/distro:debian
+
+			apt-get install -y libzmq3-dev
+
+		Install-Instructions:
+
+			Article:
+				maddigitiser.wordpress.com/2013/05/02/installing-zeromq-on-ubuntu-13-04
+
+			cd ~
+			sudo apt-get install libtool autoconf automake
+			wget http://download.zeromq.org/zeromq-4.0.4.tar.gz
+			tar zxvf zeromq-4.0.4.tar.gz
+			cd zeromq-4.0.4
+			./configure
+			make && make install
+
+	# ---------------------------------------------------------------------------------------------
+	# MessagePack
+	# ---------------------------------------------------------------------------------------------
+
+		msgpack.org
+
+		sudo apt-get install msgpack-python
+
+	# ---------------------------------------------------------------------------------------------
+	# ZeroRPC
+	# ---------------------------------------------------------------------------------------------
+
+		Website:
+			
+			zerorpc.dotcloud.com
+
+		Python-ZeroRPC:
+
+			pip install zerorpc
+
+		NodeJS-ZeroRPC:
+
+			www.npmjs.org/package/zerorpc
+			sudo npm install -g zerorpc
+
+		Article: Communicating between node.js and Python
+		    
+		    ianhinsdale.com/code/2013/12/08/communicating-between-nodejs-and-python
+
+# -------------------------------------------------------------------------------------------------
+# COREOS
+# -------------------------------------------------------------------------------------------------
+
+	coreos.com
+	coreos.com/docs/running-coreos/platforms/vagrant
+
+	CoreOS Github
+		github.com/coreos/coreos-vagrant
+
+	CoreOS-Vagrant Git Repo
+		git clone https://github.com/coreos/coreos-vagrant.git
+
+# -------------------------------------------------------------------------------------------------
+# DOCKER
+# -------------------------------------------------------------------------------------------------
+
+	www.docker.com
+
+	Check docker Version
+		sudo docker version
+
+	Docker Install Mac
+		docs.docker.com/installation/mac
+
+	Boot2Docker
+		github.com/boot2docker/osx-installer/releases
+
+	Docker Cheat Sheet
+		github.com/wsargent/docker-cheat-sheet
+
+# -------------------------------------------------------------------------------------------------
+# PHUSION-PASSENGER-DOCKER
+# -------------------------------------------------------------------------------------------------
+
+	_________________________________________________________
+	Phusion-Passenger on Docker Hub
+
+		hub.docker.com/u/phusion
+
+		1) registry.hub.docker.com/u/phusion/baseimage
+		2) registry.hub.docker.com/u/phusion/passenger-full
+		3) registry.hub.docker.com/u/phusion/passenger-nodejs
+		4) registry.hub.docker.com/u/phusion/passenger-customizable
+
+	_________________________________________________________
+	1) Passenger-BaseImage-Docker
+
+			registry.hub.docker.com/u/phusion/baseimage
+
+		phusion.github.io/baseimage-docker
+		github.com/phusion/baseimage-docker
+			CMD\> git clone https://github.com/phusion/baseimage-docker.git
+		
+	_________________________________________________________
+	2) Passenger-Docker | A Docker base image for Ruby, Python, Node.js and Meteor web apps
+
+		registry.hub.docker.com/u/phusion/passenger-full
+
+		github.com/phusion/passenger-docker
+			CMD\> git clone https://github.com/phusion/passenger-docker.git
+
+		NOTE: See Version Info
+			github.com/phusion/passenger-docker/blob/master/Changelog.md
+
+	_________________________________________________________
+	3) Node.js and Meteor images
+
+		registry.hub.docker.com/u/phusion/passenger-nodejs
+
+		github.com/phusion/passenger-docker
+
+	_________________________________________________________
+	4) phusion / passenger-customizable
+
+		registry.hub.docker.com/u/phusion/passenger-customizable
+
+		github.com/phusion/passenger-docker
+
+# -------------------------------------------------------------------------------------------------
+# GIT & UNGIT
+# -------------------------------------------------------------------------------------------------
+
+	github.com/FredrikNoren/ungit
+
+	sudo -H npm update -g ungit
+
+# -------------------------------------------------------------------------------------------------
+# GIT
+#		ARTICLE: Install gitk on Mac
+#				URL: 	stackoverflow.com/questions/17582685/install-gitk-on-mac
+# -------------------------------------------------------------------------------------------------
+
+	brew update
+	brew install git
+
+	which git
+	#> /usr/local/bin/git
+
+	brew doctor
+
+# -------------------------------------------------------------------------------------------------
+# END
+# -------------------------------------------------------------------------------------------------
+

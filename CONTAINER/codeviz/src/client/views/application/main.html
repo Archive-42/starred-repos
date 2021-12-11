@@ -1,0 +1,71 @@
+
+<!-- ------------------------------------------------------------------------------------------ -->
+
+<head>
+    <title>Code Visualizer</title>
+</head>
+
+<!-- ------------------------------------------------------------------------------------------ -->
+
+<body></body>
+
+<!-- ------------------------------------------------------------------------------------------ -->
+
+<template name="blank"></template>
+
+<!-- ------------------------------------------------------------------------------------------ -->
+
+<template name="header"> 
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				{{> navbar}}
+			</div>
+		</div>
+	</div>
+
+</template>
+
+<!-- ------------------------------------------------------------------------------------------ -->
+
+<template name="navbar">
+	<a id="id-btn-codeviz" class="brand" href="#">CodeViz</a>
+
+	<ul class="nav nav-pills">
+
+		<li class="{{isFilesActive}}"><a id="id-btn-files" href="#">Files</a></li>
+
+		<li class="{{isEditorActive}}"><a id="id-btn-editor" href="#">Editor</a></li>
+
+		<li class="{{isVisualizerActive}}"><a id="id-btn-visualizer" href="#">Visualizer</a></li>
+
+		<li class="divider-vertical"></li>
+
+		<!-- <li><a id="id-btn-test" href="#">Test</a></li> -->
+
+		<li><a id="id-btn-execute" href="#">Execute</a></li>
+
+	</ul>
+
+	<div id="slider"></div>
+
+	<ul class="nav nav-pills pull-right">
+
+		<li class="divider-vertical"></li>
+
+		<li class="{{isCustomizerActive}}"><a id="id-btn-customizer" href="#">Customizer</a></li>
+
+		<li class="{{isPythonTutorActive}}"><a id="id-btn-pythonTutor" href="#">&nbsp;</a></li>
+
+		<li class="{{isDebugInfoActive}}"><a id="id-btn-debugInfo" href="#">&nbsp;</a></li>
+
+	</ul>
+
+</template>
+
+<!-- ------------------------------------------------------------------------------------------ -->
+
+<template name="footer"></template>
+
+<!-- ------------------------------------------------------------------------------------------ -->
