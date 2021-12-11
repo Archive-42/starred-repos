@@ -1,0 +1,109 @@
+
+# -------------------------------------------------------------------------------------------------
+# ONLINE PYTHON TUTOR
+#		URL: pythontutor.com
+#		URL: github.com/pgbovine/OnlinePythonTutor
+#
+# DOCS
+#		URL: github.com/pgbovine/OnlinePythonTutor/tree/master/v3/docs
+#		
+#		TITLE: Overview for Developers
+#		  URL: github.com/pgbovine/OnlinePythonTutor/blob/master/v3/docs/developer-overview.md
+#
+#		TITLE: 
+#		  URL: https://github.com/pgbovine/OnlinePythonTutor/blob/master/v3/docs/opt-trace-format.md
+# -------------------------------------------------------------------------------------------------
+
+# -------------------------------------------------------------------------------------------------
+# INDEX
+#
+# 	install: PYTHON (python.txt)
+# 	install: GOOGLE-APP-ENGINE (GoogleAppEngine.txt)
+# <OR>
+# 	Running OPT locally using bottle
+# <OR>
+# 	USE PREBUILT DOCKER IMAGE: mattmoor/python-appengine
+#
+# -------------------------------------------------------------------------------------------------
+
+	_________________________________________________________________________________________________
+	# download && run: Python Tutor
+
+	cd ~/codeviz/related
+
+	git clone https://github.com/pgbovine/OnlinePythonTutor.git PythonTutor
+
+	cd PythonTutor
+
+	dev_appserver.py v3/
+
+	dev_appserver.py --host=0.0.0.0 v3/
+
+	_________________________________________________________________________________________________
+	# ARTICLE: Installing Online Python Tutor on your laptop - localhost:8080
+	#		URL: theworldsoldestintern.wordpress.com/2012/10/15/installing-online-python-tutor-on-your-laptop-localhost8080
+
+	_________________________________________________________________________________________________
+	# DOCKER PYTHON
+	#		URL: registry.hub.docker.com/u/dockerfile/python
+
+	docker run -it --rm dockerfile/python
+
+# -------------------------------------------------------------------------------------------------
+#	Alternative Setup: : Running OPT locally using bottle
+#
+#		URL: bottlepy.org
+#		URL: github.com/pgbovine/OnlinePythonTutor/blob/master/v3/docs/developer-overview.md
+# -------------------------------------------------------------------------------------------------
+
+	# Bottle Installation
+	#		ULR: bottlepy.org/docs/dev/tutorial.html#installation
+	
+	sudo apt-get install python-bottle
+
+# -------------------------------------------------------------------------------------------------
+# PYTHON TUTOR INTEGRATION
+# -------------------------------------------------------------------------------------------------
+
+	_________________________________________________________________________________________________
+	# python tutor documentation
+	# 	URL: github.com/pgbovine/OnlinePythonTutor/blob/master/v3/docs/developer-overview.md
+
+	_________________________________________________________________________________________________
+	# FRONTEND-INTEGRATION
+
+		# Python Tutor | Required Files
+
+			OPT/css/opt-frontend.css
+			OPT/css/pytutor.css
+
+			OPT/js/opt-frontend.js
+			OPT/js/pytutor.js
+
+		# Python Tutor | Dependencies
+
+			OPT/js/d3.v2.min.js
+
+			OPT/js/jquery-1.8.2.min.js
+			OPT/js/jquery-ui-1.8.24.custom.min.js
+			VIZ/jquery-ui/jquery-ui-1.10.3.custom.js
+
+			OPT/js/jquery.ba-bbq.min.js
+			OPT/js/jquery.jsPlumb-1.3.10-all-min.js 		#DO NOT UPGRADE ABOVE 1.3.10 OR ELSE BREAKAGE WILL OCCUR
+
+			codemirror/codemirror.js
+			codemirror/python.js
+
+			VIZ/codemirror/codemirror.css
+			
+			OPT/css/ui-lightness/jquery-ui-1.8.24.custom.css
+
+		# Usage
+
+			var visualizer = new ExecutionVisualizer(container.attr('id'), data, options);
+
+# -------------------------------------------------------------------------------------------------
+# END
+# -------------------------------------------------------------------------------------------------
+
+

@@ -1,0 +1,381 @@
+
+// -------------------------------------------------------------------------------------------------------
+
+    var obj       = State.getSelectedObj();
+    var snapshots = State.getCurrentSnapshots();
+
+    snapshots.forEach(function(snapshot) {
+        // snapshot.draw.isInit = false;
+
+        if (obj.draw.location == NodeLocationTypeEnum.STACK)
+            snapshot.stack.forEach(function(o) {
+                if (o.id == obj.id) {
+
+                    o.render = obj.render;
+                    o.html = obj.render.html;
+                }
+            });//snapshot.stack.forEach
+
+        else if (obj.draw.location == NodeLocationTypeEnum.HEAP)
+            snapshot.heap.forEach(function(o) {
+                if (o.id == obj.id) {
+                    o.render = obj.render;
+                    o.html = obj.render.html;
+                }
+            });//snapshot.heap.forEach
+
+    });//snapshots.forEach
+
+    // _updateSnapshots( snapshots );
+
+    if (snapshots && obj.sid < snapshots.length) {
+        snapshots[obj.sid].draw.isInit = false;
+        app.appView.visualizer.show(snapshots[obj.sid]);
+    }
+    else
+        console.error('no matching snapshot!');
+
+
+    var obj       = State.getSelectedObj();
+    var objPtr    = undefined;
+    var snapshots = State.getCurrentSnapshots();
+
+    var snapshot  = (snapshots && obj.sid < snapshots.length) ? snapshots[obj.sid] : undefined;
+
+    if (!snapshot) {
+        console.error('ERROR | customizer.html.state.js | _saveSelectedObj | snapshot undefined.');
+        return;
+    }
+
+    if (obj.draw.location == NodeLocationTypeEnum.STACK) {
+        snapshot.stack.forEach(function(o) {
+            if (o.uid == obj.uid) {
+                objPtr = o;
+                return;
+            }
+        });
+
+    } else if (obj.draw.location == NodeLocationTypeEnum.HEAP) {
+        snapshot.heap.forEach(function(o) {
+            if (o.uid == obj.uid) {
+                objPtr = o;
+                return;
+            }
+        });
+
+    } else {
+        console.error('ERROR | customizer.html.state.js | _saveSelectedObj | unknown obj.');
+        return;
+    }
+
+    console.log('----------------------------------------------------------------');
+    console.log(obj);
+    console.log('----------------------------------------------------------------');
+    console.log(objPtr);    
+    console.log('----------------------------------------------------------------');
+    console.log(snapshot);
+
+    if (!objPtr) {
+        console.error('ERROR | customizer.html.state.js | _saveSelectedObj | undefined objPtr.');
+        return;
+    }
+
+    objPtr.render = obj.render;
+    objPtr.html = obj.render.html;
+
+    console.log('----------------------------------------------------------------');
+    console.log(objPtr);
+
+    _updateSnapshots( snapshots );
+
+    snapshot.draw.isInit = false;
+    app.appView.visualizer.show( snapshot );
+
+
+// -------------------------------------------------------------------------------------------------------
+
+"use strict";
+
+(function (data,helper) {
+    data.uid = helper.wrapUID(data.id, data.uid);
+    data.uid = helper.reduceToSingleLine(data.uid);
+    //data.values = helper.wrapUIDs(data.values);
+
+    var values = data.values;
+    var M = [];
+
+    var j=0;
+    var r=[];
+    for(var i=0; i<values.length; i++) {
+        r.push(values[i]);
+
+        if ( (i+1) % 4 == 0) {
+            M.push(r);
+            r = [];
+        }
+    }
+
+    if (r.length > 0) M.push(r)
+
+    console.log(M);
+    data.matrix = M;
+
+    return data;
+});
+
+// -------------------------------------------------------------------------------------------------------
+
+    <div id="id-div-customizer" class="affix">
+
+        
+
+    </div>
+                <!-- RENDER.TMPL -->
+        <div id="id-div-renderTmpl" class="div-customizer-render wrap">
+            <label id="id-label-renderTmpl" for="id-textArea-renderTmpl">Template</label>
+            <textarea id="id-textArea-renderTmpl" class="textarea" wrap="off">{{renderTmpl}}</textarea>
+        </div>
+
+        <!-- RENDER.DATA -->
+        <div id="id-div-renderData" class="div-customizer-render wrap">
+            <label id="id-label-renderData" for="id-textArea-renderData">Data</label>
+            <textarea id="id-textArea-renderData" class="textarea" wrap="off">{{renderData}}</textarea>
+        </div>
+
+        <!-- RENDER.HTML -->
+        <div id="id-div-renderHtml" class="div-customizer-render wrap">
+            <label id="id-label-renderHtml" for="id-textArea-renderHtml">Html</label>
+            <textarea id="id-textArea-renderHtml" class="textarea" wrap="off">{{renderHtml}}</textarea>
+        </div>
+
+// -------------------------------------------------------------------------------------------------------
+
+    Documents.find().observe({
+
+        // ----------------------------------------------------------------------------------------
+
+        added: function(doc,id) {
+            // console.log('added. id: ', id);
+            // console.log('isSelectedDoc: ', _isDocumentId(id) );
+
+            // if ( _isDocumentId(id) )
+            //  Session.set('ssn_snapshots', doc.snapshots);
+        },
+
+        // ----------------------------------------------------------------------------------------
+
+        changed: function(doc,id) {
+            // console.log('changed. id: ', id);
+            // console.log('isSelectedDoc: ', _isDocumentId(id) );
+            // console.log(doc);
+
+            // if ( _isDocumentId(id) )
+            //  Session.set('ssn_snapshots', doc.snapshots);
+        },
+
+        // ----------------------------------------------------------------------------------------
+
+        removed: function(doc,id) {
+            // console.log('removed. id: ', id);
+            // console.log('isSelectedDoc: ', _isDocumentId(id) );
+
+            // if ( _isDocumentId(id) )
+            //  Session.set('ssn_snapshots', undefined);
+        }
+
+        // ----------------------------------------------------------------------------------------
+
+    });//Documents.find().observe
+
+// -----------------------------------------------------------------------------------------------------------------
+// VIEW | Divider
+// -----------------------------------------------------------------------------------------------------------------
+
+function _divider(flexLayout) {
+    // divider: serves as a divider-container (for the divider & divider-button) 
+    // between the editor and canvas
+
+    var open = '->';
+    var closed = '<-';
+    var transition = {curve: 'easeOut', duration: 300};
+    var divBtnTxt = closed;
+    var toggle = false;
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    var divider = new famous.surfaces.ContainerSurface({
+        size: [20, undefined]
+           // properties: {
+           //     overflow: 'hidden'
+           // }
+    });
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    //divider: placed in the divider-container to serve as a background
+    var div = new famous.core.Surface({
+        size: [20, undefined],
+        properties: {
+            backgroundColor: 'grey'
+        }
+    });
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    //divider-button-modifier: used to modify the divider-button's position
+    var divBtnMod = new famous.core.Modifier({
+        transform: famous.core.Transform.translate(0, 350, 0)
+    });
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    //divider button: used to open/close the editor panel
+    var divBtn = new famous.core.Surface({
+        size: [20, 20],
+        content: divBtnTxt,
+        properties: {
+            textAlign: "center",
+            backgroundColor: 'lightgrey'
+        }
+    });
+
+    divider.add(div);
+    divider.add(divBtnMod).add(divBtn);
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    // Toggle state between 0 and 1
+    function toggleState() {
+        var ratios = State.ratios;
+        divBtn.setContent(toggle ? closed : open);
+        flexLayout.setRatios(ratios, transition);
+        toggle = !toggle;
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    // div.on('click', toggleState);
+    // divBtn.on('click', toggleState);
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    return divider;
+
+} //_divider
+
+// -----------------------------------------------------------------------------------------------------------------
+
+function _createContentController(layout) {
+
+    var controller = new Famous.RenderController();
+
+    // -------------------------------------------------------------------------------------------------------------
+
+    layout.content.add(controller);
+
+    return {
+        //default handle
+        default: controller,
+        controller: controller,
+        modifier: undefined,
+        surface: undefined
+    };
+
+}//_createContent
+
+
+// -----------------------------------------------------------------------------------------------------------------
+// Configuration
+// -----------------------------------------------------------------------------------------------------------------
+
+function _configureAppView(appView) {
+
+    var home = Factory.Surfaces.createMeteorSurface(Template.home).default;
+    var about = Factory.Surfaces.createMeteorSurface(Template.about, {context: 'Example Data'}).default;
+    var editor = Factory.LayoutParts.editorCanvas();
+
+    appView.addSection(Route.home, home);
+    appView.addSection(Route.editor, editor.layout);
+    appView.addSection(Route.about, about);
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+function _canvas() {
+    var canvas = new Famous.Surface({
+        size: [undefined, undefined],
+        properties: {
+            backgroundColor: 'lightgrey'
+        }
+    });
+
+    return canvas;
+}
+
+
+        // -------------------------------------------------------------------------------------------------------------
+        // PUBLIC MEMBERS
+        // -------------------------------------------------------------------------------------------------------------
+
+        //this.layout = headerFooter.layout;
+        //this.contentArea = headerFooter.content;
+
+        // -------------------------------------------------------------------------------------------------------------
+        // PRIVATE MEMBERS
+        // -------------------------------------------------------------------------------------------------------------
+
+        this._currentSection = undefined;
+        this._sections = {};
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// MEMBER FUNCTIONS
+// ---------------------------------------------------------------------------------------------------------------------
+
+    AppView.prototype.addSection = function (name, section) {
+        if (!section)
+            console.log('ERROR: AppView.addSection: parameter section is undefined.');
+
+        if ( (name in this._sections) )
+            console.log('WARNING: AppView.addSection: ', name, ' already exists. It is being overridden.');
+
+        this._sections[name] = section;
+
+        return section;
+    };
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+    AppView.prototype.getSection = function (name) {
+        if ( !(name in this._sections) ) {
+            console.log('ERROR: AppView.prototype.section: unknown section name: ', name);
+            return undefined;
+        }
+
+        return this._sections[name];
+    };
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+    AppView.prototype.currentSection = function () {
+        return this._currentSection;
+    };
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+    AppView.prototype.showSection = function (name) {
+        if ( !(name in this._sections) ) {
+            console.log('ERROR: AppView.prototype.show: unknown section name: ', name);
+            return;
+        }
+
+        var surface = this._sections[name];
+        this._currentSection = surface;
+        this.contentArea.show(surface);
+    };
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+    AppView.prototype.hideCurrentSection = function() {
+        this.contentArea.hide();
+    };
