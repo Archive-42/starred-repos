@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+  max-width: 1050px;
+  margin: auto;
+  padding: 0 10px;
+
+  @include respond-to(tablet) {
+    padding: 0;
+  }
+
+  @include respond-to(contain-95) {
+    width: 95%;
+  }
+
+  @include respond-to(contain-90) {
+    width: 90%;
+  }
+
+  &.narrow {
+    max-width: 900px;
+  }
+
+  &.super-narrow {
+    max-width: 700px;
+  }
+
+  &.wide {
+    max-width: 1300px;
+  }
+
+  &.no-limit {
+    width: 100%;
+    max-width: 2000px;
+    padding: 0 10px;
+  }
+}

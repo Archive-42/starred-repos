@@ -1,0 +1,84 @@
+.layout.install {
+  font-size: 15px;
+
+  .installers {
+    @extend %flex;
+    margin-top: 20px;
+    margin-right: 0;
+  }
+
+  .installer {
+    @extend %transition;
+    padding: 15px;
+    background: #fff;
+    color: #111;
+    text-align: center;
+    border: 2px solid #111;
+    flex: 1;
+    margin-left: -2px;
+    margin-right: 0;
+    transition-property: all;
+    text-decoration: none;
+
+    &:first-of-type {
+      border-left: 2px solid;
+    }
+
+    &:hover {
+      transform: scale(1.03);
+      border: 2px solid $blue;
+      z-index: 1;
+      color: $blue;
+
+      .pseudolink {
+        color: $blue;
+        text-decoration: underline;
+      }
+    }
+
+    .platform {
+      margin-top: 0;
+      font-weight: 500;
+    }
+
+    .platform-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .installers {
+      display: block;
+    }
+
+    .installer {
+      display: block;
+      border: 2px solid #111 !important;
+      margin: 0;
+
+      & + .installer {
+        border-top: 0 !important;
+      }
+    }
+  }
+
+  .release-notes {
+    border: 2px solid $blue;
+    padding: 40px 50px;
+    margin: 50px;
+    
+    h2 {
+      margin-top: 0;
+    }
+
+    h3 {
+      font-size: 1.3em;
+    }
+
+    @media (max-width: 600px) {
+      padding: 20px;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,301 @@
+.blog-breadcrumbs {
+  background: #f4f4fa;
+  padding: 8px 14px;
+  font-size: 15px;
+  margin-bottom: 40px;
+  font-weight: 500;
+
+  .container {
+    max-width: 750px;
+  }
+
+  a {
+    color: $primary !important;
+  }
+
+  &.bottom {
+    margin-bottom: 0;
+
+    & + footer {
+      margin-top: 0;
+    }
+  }
+}
+
+.blog {
+
+  main {
+    min-height: calc(100vh - 56px - 70px);
+    margin: 50px auto;
+  }
+
+  .header .container {
+    border-bottom: 0;
+  }
+
+  main .container {
+    width: 100%;
+    max-width: initial;
+  }
+
+  .post-list {
+    max-width: 100%;
+
+    @include respond-to(tablet) {
+      // max-width: 750px;
+    }
+  }
+
+  h1.title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 3rem;
+
+    @media (max-width: 800px) {
+      font-size: 2.3em;
+    }
+  }
+
+  .post {
+    display: block;
+    padding: 40px 0;
+    border-bottom: 1px dotted $gray;
+
+    &.pageview {
+      max-width: 750px;
+      font-size: 16px;
+    }
+
+    &:first-of-type {
+      border-top: 1px dotted $gray;
+    }
+
+    .container {
+      max-width: 650px;
+    }
+
+    a {
+      color: $blue !important;
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 10px;
+      font-weight: 600;
+      text-transform: initial;
+  
+      code {
+        font-weight: 500;
+      }
+    }
+  
+    h2 {
+      margin-top: 50px;
+    }
+  
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 40px;
+    }
+  
+    h3 {
+      font-size: 1.3rem;
+    }
+  
+    h4:not(code) {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  
+    p,
+    ul,
+    ol {
+      font-size: 16px;
+      color: #222;
+    }
+
+    aside {
+      display: block;
+      margin: 0 0 20px;
+      font-size: 15px;
+      color: #555;
+      background: #fafafa;
+      text-align: center;
+    }
+  
+    .columns,
+    p {
+      margin-bottom: 20px;
+    }
+  
+    p.accent {
+      font-size: 22px;
+  
+      code {
+        font-size: 18px;
+      }
+    }
+  
+    strong {
+      font-weight: 600;
+    }
+  
+    em {
+      font-style: italic;
+    }
+  
+    ul,
+    ol {
+      margin: 0 0 20px 50px;
+  
+      li:not(:last-of-type) {
+        margin-bottom: 3px;
+      }
+
+      @media (max-width: 800px) {
+        margin-left: 30px;
+      }
+    }
+  
+    blockquote {
+      margin-left: 30px;
+      padding-left: 15px;
+      border-left: 2px solid var(--page-color);
+      color: $text--light-bg-muted;
+      font-style: italic;
+      font-size: 1rem;
+    }
+  
+    figcaption.code {
+      margin-bottom: 3px;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: .25px;
+    }
+  
+    pre {
+      margin-bottom: 20px;
+      padding: 10px;
+      background: #f2f2f2;
+      font-size: 14px;
+      overflow-x: scroll;
+  
+      code {
+        background: none;
+        padding: 0;
+      }
+    }
+  
+    ul code,
+    ol code,
+    aside code,
+    p code {
+      background: #f2f2f2;
+      padding: 0 4px;
+      font-size: 13.5px;
+    }
+
+    hr {
+      border-top: 1px dotted $gray;
+      margin: 60px 0;
+      width: 100%;
+
+      @media (max-width: 500px) {
+        margin: 30px 0;
+      }
+    }
+  
+    figure.col {
+  
+      &:first-child {
+        margin-right: 30px;
+      }
+  
+      &:last-child {
+        margin-left: 30px;
+      }
+    }
+  
+    & > :last-child {
+      margin-bottom: 0;
+    }
+
+    &.listingview h2 {
+      margin: 0;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    figure img {
+      margin: 0 auto 10px;
+    }
+
+    .tldr,
+    .highlighted-blurb {
+      margin: 0 -32px 24px;
+      padding: 28px 32px;
+
+      & > :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .tldr {
+      background: #f4f4fa;
+
+      p {
+        font-size: 18px;
+      }
+    }
+
+    .highlighted-blurb {
+      border: 1px dashed $blue;
+    }
+  }
+
+  .post-meta {
+    color: $text--light-bg-muted;
+    margin-bottom: 20px;
+
+    .author {
+      color: $primary;
+      text-decoration: none !important;
+
+      &:hover {
+        text-decoration: underline !important;
+      }
+    }
+  }
+
+  .summary {
+    font-size: .9rem;
+  }
+
+  .summary a {
+    text-decoration: underline;
+  }
+
+  .read-more {
+    text-transform: uppercase;
+    display: block;
+    font-size: .9rem;
+    margin-top: 20px;
+    color: $primary;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

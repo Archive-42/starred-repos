@@ -1,0 +1,415 @@
+.hero {
+  @extend %antialiased;
+  align-items: center;
+  padding: 0 0 40px;
+  background: $blue;
+  color: #fff;
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr 630px;
+    grid-gap: 60px;
+    align-items: center;
+
+    @media (max-width: 1050px) {
+      display: block;
+      text-align: center;
+
+      .video {
+        max-width: 600px;
+        margin: 40px auto 0;
+      }
+    }
+  }
+
+  .tagline {
+    font-size: 2.1rem;
+    font-weight: 700;
+    -webkit-text-stroke: .4px;
+    letter-spacing: .5px;
+    line-height: 1.2;
+  }
+
+  .description {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .description,
+  .cta {
+    color: #fff;
+  }
+
+  video {
+    width: 100%;
+    box-shadow: 0 4px 12px #0005;
+    border-radius: 8px;
+
+    @media (min-width: 1050px) {
+      height: 340px;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+}
+
+.section.what,
+.section.how-it-works,
+.section.code-examples,
+.section.social-network {
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.15rem;
+  }
+}
+
+.section.features {
+  .featuregrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px 80px;
+
+    @media (max-width: 1050px) {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px 60px;
+    }
+
+    @media (max-width: 750px) {
+      grid-template-columns: 1fr;
+      grid-gap: 40px;
+    }
+
+    .featuregrid-col {
+      text-align: center;
+
+      h2 {
+        margin-top: 10px;
+      }
+
+      @media (max-width: 1050px) {
+        h2 {
+          margin-top: 20px;
+        }
+      }
+
+      @media (max-width: 750px) {
+        padding: 0 10px 20px;
+      }
+    }
+  }
+
+  .img-container {
+    display: flex;
+    height: 180px;
+
+    img {
+      margin: auto;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px #0005;
+      width: 260px;
+    }
+
+    @media (max-width: 750px) {
+      height: auto;
+      margin-bottom: 30px;
+
+      img {
+        max-width: 260px;
+      }
+    }
+  }
+}
+
+.section.how-it-works {
+
+  .columns {
+    align-items: center;
+    margin-bottom: 40px;
+
+    &:nth-of-type(2n) {
+      flex-direction: column-reverse;
+    }
+
+    @include respond-to(netbook) {
+
+      &:nth-of-type(2n) {
+        flex-direction: initial;
+      }
+    }
+  }
+
+  p {
+    font-size: .95rem;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+.section.mission {
+  padding-bottom: 0;
+}
+
+.section.what {
+  margin-top: 120px;
+
+  .heading {
+    font-size: 1.7rem;
+    font-weight: 400;
+  }
+}
+
+.section.code-examples {
+  background: $blue;
+  padding: 60px 0;
+
+  .columns {
+    align-items: center;
+  }
+
+  hr {
+    margin: 40px 0;
+    border-top: 1px dashed #fff5;
+    width: 100%;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 26px;
+  }
+
+  a {
+    color: $primary--light !important;
+
+    .fa {
+      font-size: 13px;
+      position: relative;
+      top: -2px;
+      left: 4px;
+      transition: left 0.2s;
+    }
+
+    &:hover .fa {
+      left: 8px;
+    }
+  }
+
+  .codebox {
+    text-align: left;
+    border-radius: 8px;
+    background: #1c183e;
+    box-shadow: 0 4px 12px #0005;
+    overflow-x: auto;
+
+    figure {
+      margin: 0;
+      padding: 18px 60px 18px 20px;
+      width: 500px;
+      max-width: 44vw;
+    }
+  }
+}
+
+.section.apps {
+  background: #fafafa;
+  padding: 50px 0;
+
+  a {
+    display: block;
+    position: relative;
+
+    span {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      z-index: 1;
+      font-size: 26px;
+      color: $primary;
+      background: white;
+    }
+  }
+
+  img {
+    margin: 0 auto;
+    border-radius: 8px;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 2px 4px #0003;
+
+    &:hover {
+      box-shadow: 0 3px 6px #0004;
+    }
+  }
+}
+
+.section.social-network {
+  h3 {
+    margin-bottom: 70px;
+    font-size: 36px;
+  }
+
+  .col {
+    img {
+      display: block;
+      width: 120px;
+      min-width: 120px;
+      margin: 0 auto 30px;
+
+      &.bigger {
+        width: 300px;
+        min-width: 300px;
+        height: 120px;
+      }
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .columns {
+      display: block;
+      column-width: unset;
+
+      .col {
+        display: block;
+        margin-bottom: 50px;
+      }
+    }
+  }
+}
+
+.section.midcta {
+  .btn {
+    font-size: 20px;
+    height: 40px;
+    line-height: 38px;
+
+    &:first-child {
+      @media (min-width: 750px) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        padding: 0 25px 0 30px;
+      }
+    }
+
+    &:last-child {
+      @media (min-width: 750px) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        padding: 0 30px 0 20px;
+      }
+    }
+
+    @media (max-width: 750px) {
+      width: auto;
+      display: block;
+      margin: 10px;
+    }
+  }
+}
+
+.section.donors {
+
+  .heading {
+    margin-bottom: 20px;
+  }
+}
+
+.section.testimonials {
+  padding-top: 0;
+}
+
+.partners {
+  @extend .grid-5;
+  margin-bottom: 4em;
+
+  &__title {
+    @extend .col-1-5;
+    margin-bottom: 1.5em;
+  }
+
+  &__body {
+    @extend .col-4-5;
+    display: flex;
+    margin-right: 2.5em;
+    text-align: left;
+
+    & > div:first-child {
+      flex: 0;
+    }
+
+    .logo {
+      height: 70px;
+      margin-right: 6em;
+    }
+
+    h3 {
+      margin-bottom: .5em;
+
+      a {
+        color: $text--light-bg;
+      }
+    }
+  }
+
+  a {
+    @extend %link;
+  }
+}
+
+.posts {
+  @extend .grid-5;
+  margin-bottom: 1rem;
+
+  &__title {
+    @extend .col-1-5;
+    margin-bottom: 1.5em;
+  }
+
+  &__preview {
+    @extend .col-2-5;
+    // @extend %card;
+    margin-right: 2.5em;
+    text-align: left;
+
+    h3 {
+      margin-bottom: .5em;
+
+      a {
+        color: $text--light-bg;
+      }
+    }
+
+    p {
+      color: $text--light-bg-muted;
+      font-style: italic;
+      font-size: .9rem;
+      margin-bottom: 1em;
+    }
+  }
+
+  &__list {
+    @extend .col-2-5;
+    font-size: .9rem;
+    padding: 1rem;
+    margin: auto;
+    text-align: left;
+
+    @include respond-to(show-grid-5) {
+      padding: 2rem 2rem 2rem 3.5rem;
+    }
+  }
+
+  a {
+    @extend %link;
+  }
+}

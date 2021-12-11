@@ -1,0 +1,85 @@
+---
+layout: default
+---
+
+<div class="hero-wrapper">
+  <div class="hero">
+    <img src="/img/logo/256x256.png">
+    <h2>What can I build with Beaker?</h2>
+  </div>
+</div>
+
+
+<div class="home">
+  <div class="section">
+    <div class="desc">
+      <p>
+        Beaker adds APIs for downloading and publishing files on the network.
+        Here's a few examples of what you can do:
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="desc desc-with-img">
+      <div>
+        <img class="bordered" src="/img/screenshot-blog.png" style="max-width: 300px">
+      </div>
+      <div>
+        <h5><span class="fa fa-pencil"></span> Self-hosted Blogging</h5>
+        <p>
+          Generate your site using <a href="https://jekyllrb.com/">a popular blogging tool</a>, or write a Beaker app to generate in-browser, then publish from your device.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section">
+    <div class="desc desc-with-img">
+      <div>
+        <h5><span class="fa fa-feed"></span> Social Feeds</h5>
+        <p>
+          Write and aggregate feed-files over the network.
+          Use existing standards such as RSS and Atom, or write your own with JSON or YAML.
+        </p>
+      </div>
+      <div>
+        <img class="bordered" src="/img/screenshot-social-feeds.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="desc desc-with-img">
+      <div>
+        <img class="bordered" src="/img/screenshot2.png">
+      </div>
+      <div>
+        <h5><span class="fa fa-file-code-o"></span> Integrated Editor</h5>
+        <p>
+          Create a files editor with the <a href="/docs/apis/dat.html">Dat API</a>.
+          Write the HTML in one tab, and view your site in the other.
+          Serve the files from the browser when its ready to go.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {% comment %}
+  <div class="section">
+    <div class="desc desc-with-img">
+      <div>
+        <h5><span class="fa fa-search"></span> Personal Search</h5>
+        <p>
+          Use the <a href="/docs/apis/sqlite.html">SQLite API</a> to index content from the P2P network and provide full-text search.
+        </p>
+      </div>
+      <div>
+        <img src="/img/screenshot3.png">
+      </div>
+    </div>
+  </div>
+  {% endcomment %}
+
+  {% include bottom-callout.html %}
+</div>

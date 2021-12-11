@@ -1,0 +1,20 @@
+{% for item in include.items %}
+  <h3 id="{{ item.name | slugify }}">
+    <code>
+      {% if item.signature %}
+        {{ item.signature }}
+      {% else %}
+        {{ item.name }}
+      {% endif %}
+    </code>
+
+    {% if item.experimental %}
+      <i class="fa fa-flask" title="Experimental. API may change"></i>
+    {% endif %}
+
+    {% if item.deprecated %}
+      <div class="badge error">Deprecated</div>
+    {% endif %}
+  </h3>
+  <div>{{ item.desc | markdownify }}</div>
+{% endfor %}

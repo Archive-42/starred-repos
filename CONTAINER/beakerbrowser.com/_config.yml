@@ -1,0 +1,46 @@
+# Site settings
+title: Beaker Browser
+email: support@beakerbrowser.com
+description:
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://beakerbrowser.com" # the base hostname and protocol for your site
+twitter_username: beakerbrowser
+github_username: beakerbrowser
+
+# Build settings
+markdown: kramdown
+theme: minima
+include: [".well-known"]
+exclude: ["node_modules"]
+keep_files: [".dat"]
+timezone: America/Chicago
+gems:
+ - jekyll-redirect-from
+ - octopress-minify-html
+
+# Sass
+sass:
+  style: :compressed
+  sass_dir: css
+
+minify_html: false
+
+# Site data
+collections:
+  releases:
+    output: true
+  docs:
+    output: true
+defaults:
+  -
+    scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "doc"
+  -
+    scope:
+      path: ""
+      type: "releases"
+    values:
+      layout: "release"
