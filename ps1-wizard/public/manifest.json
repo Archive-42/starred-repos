@@ -1,0 +1,8 @@
+{
+  "short_name": "PS1 Wizard",
+  "name": "Bash Prompt Designer",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

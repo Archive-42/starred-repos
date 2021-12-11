@@ -1,0 +1,21 @@
+.dropdown {
+  background-color: #282a36;
+  color: #bd93f9;
+  outline: none;
+  margin: 1vh;
+}
+
+.label{
+  font-size: 2vh;
+  margin: 1vh;
+}
+
+.subsection{
+  font-size: 2.5vh;
+  color: #bd93f9;
+}
+
+.subsectionForm{
+  background-color: #282a36;
+  margin: 1vh;
+}
