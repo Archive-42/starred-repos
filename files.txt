@@ -1,0 +1,1939 @@
+git add ./30-seconds-blog/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./3.1-firebase-basics/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./3Blue1Brown.com/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./algoliasearch-helper-js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./algorithms/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./algo-visualizer/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./All-About-Programming/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./allOrigins/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./andyruwruw/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./ant-design/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./applied-ml/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./art-of-js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./art-of-node/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./art-of-python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Aspose.Words-for-.NET/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./A-to-Z-Resources-for-Students/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./audioconverter/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./audiolib.js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome-algorithms/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome-bootstrappers/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome-cheatsheet/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Awesome-Ethical-Hacking-Resources/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome-gatsby/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome-github-profiles/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome-guitar/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome-jamstack/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Awesome-Linux-Software/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome-nodejs-projects/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome-resources/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome-selfhosted/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome-serverless/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome-technical-writing/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./awesome-uses/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Back-End/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./BadReads/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./basic-authentication/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./bass-station/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./beakerbrowser.com/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./beaker-core/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./beaker-editor-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./beaker-search-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./beaker-user-website-template/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./beaker-virtual-fs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./beginning-javascript/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./beginning-python-3ed/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./bgoonz/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./BGOONZ_BLOG_2.0/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./bin/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./BinaryTree/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./birds-search/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./blitz/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./blog-code-samples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./blog-post-workflow/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./boilerplate-npm/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./book-example/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./BOOKS/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Book-TDD-Web-Dev-Python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./bootstrap/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./budibase/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./calc-II/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./callbacks_lab/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./cheat.sh/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CheatSheets/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./cheesits456/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./claviska.github.io/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./clean-code-javascript/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./cloud/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./code.ashish.me/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./codebases/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Codecademy/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./code-catalog-python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./code-guide/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CodeNote/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./code-prettify/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./codesandbox-client/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./codesandbox-templates/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CodeSignal-Solution/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./codesignal-solutions/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./CodeSignal-WorkingSolutions/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./code-vault/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./codeviz/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./codingchallenge2015/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./coding-challenges/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./coding-interview-university/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./cody/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./complete-javascript-course/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./computer-science-flash-cards/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./config-files/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./continuous-reforestation/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./contributing-template/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./conwaysgameoflife/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./copilot-docs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./core/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./core-js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./create-instantsearch-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./create-react-app-template/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./css-exercises/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Data-Science-For-Beginners/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./data_structure/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./datastructures/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Data-Structures-and-Algorithms-DSA/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./db-cookie-store/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Design-Resources/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./design-resources-for-developers/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./developer.chrome.com/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./devsnippets/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./docs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./docsearch/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./docsify/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./docusaurus-lunr-search/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Dopefolio/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./dotfiles/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./dragonstack-scripts/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./DS-ALGO-OFFICIAL/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./dsviz/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./ecma262/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./elasticlunr.js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./electron/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Elements-of-Functional-Programming-in-Python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./ember-islands/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./ember-math-helpers/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./en-keyword-extractor/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./ES6-Guide/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./evoingram/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./examples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./express-photo-finder-using-unsplash-api/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./express-starter/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./family-promise-service-tracker-fe-a/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./faunadb-js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./fetch/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./files.txt
+git commit -m "update"
+git push -u origin master
+
+
+git add ./FileSystemBrowser/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Font-Awesome/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./framework-info/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./freelance-project/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./free-programming-books/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Front-End/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./fucking-algorithm/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./full-stack-blog/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./fullstack-graphql-airbnb-clone/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./garimasingh128/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./gcp-datastore-cloud-functions-realworld-example-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./geeksforgeeks/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./GeeksForGeeksScrapper/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./generative_ai_with_tensorflow/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./gistflow/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./gist-puller/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./git-extras/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./github-actions-for-packages-demo/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Github-Explorer/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Github-Ranking/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./gitlab-repo-create/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./good-celery/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./google-kgsearch/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./gravity-tooltips/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./grunt-template/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./guilyx/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./hackerrank-full-stack/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./hacker-scripts/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Hands-On-Generative-AI-with-Python-and-TensorFlow-2/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./hashTableExample/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./help/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./hiring-without-whiteboards/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./HTMHell/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./html5-boilerplate/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./human_aware_rl/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./igniteui-react-wrappers/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./infinite-list/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./interactive-examples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./INTERVIEW-PREP-COMPLETE/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./intro-to-python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./jackfrued.github.io/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./jamstackthemes/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./jamtemplates.com/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./java8-tutorial/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./javascript/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Javascript/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./javascript_curriculum/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./javascript-exercises/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./jekyll-seo-tag/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./jquery-ajaxSubmit/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./jquery_exercise_2/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./JS_callbacks_lecture_8-12/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./js-code-snippets/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./js-data-structures-and-algorithms/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./jsfrompython/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./json-server/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./js-range/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./js-to-json-logic/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./just-the-docs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./kap/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./khalby786/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./lab-dom-ironhack-cart/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./lab-javascript-basic-algorithms/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./lab-javascript-clue/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./lab-javascript-vikings/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Lambda/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./LambdaSchoolTA/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./learnGitBranching/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./learning-area/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Learning-Redux/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./learn-javascript/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./learn-node-tutorial/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./learn-redux/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./leetcode/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./LeetCode/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Leetcode-JS-PY-MD/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./LeetHub/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./lepto/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./libris-gatsby/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./machine-learning/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./machine_learning_complete/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./markdown-it-pandoc-renderer/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./markdown-to-medium-tool/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./marketing-dashboard-sample/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./markmap/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./medium-clone4/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./medusa/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./mentorship/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./merge-all-the-things/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./metronome/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./minimal-mistakes/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./minimal-starter/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./mith-static/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./ML-For-Beginners/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./monaco-editor/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./ms/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./MultiUser-Blog/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./music_source_separation/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./muzic/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./myDrive/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./nbconvert/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./nested-data-structure-traversal/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./neural-networks-and-deep-learning/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./newPortfolio/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./next-cms-ghost/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./next-js-e-commerce2/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./next-learn/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./next-server-components/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./nhucleus.github.io/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./node-auth/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./node-bulletin-board/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./node-express-course/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./NodeFloyd/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./node-full-text-search/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./nodejs-api-boilerplate/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./nodejs-clone-extend/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./node-server/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./node-spotify-web/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./notion/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./now-examples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./npm/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./nsfw_data_scraper/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./nvm-windows/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./OpenDAW/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./opensource.guide/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Particle/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./partytown/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./pedalboard/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./perseus/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./pnpm.github.io/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./pocket/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./practice-python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./prettier-formatting-example/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./PrettyDocs-Theme/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./pro-express.js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./project-based-tutorials-in-c/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./project-pages/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Projects/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./pro-react-16/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./ps1-wizard/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./public-apis/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./py/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Python/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./python-cheatsheet/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./PythonDataScienceHandbook/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./python-deepdive/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./PythonGists/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./PythonLectures/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./python-mini-projects/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Python-programming-exercises/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./python-scripts/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./python-snippets/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./quickstart-js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./raspa/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./react-blog-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./react-boilerplate/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./react-chess/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./react-complete-guide-code/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./react-design-patterns-and-best-practices/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./react-file-tree-project/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./react-for-beginners/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./reactide/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./reactjs-fundamentals/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./React-Node-FullStack---Multi-User-Blogging-Platform-with-SEO-1/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./react-notion/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./react-redux-cheatsheet/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./react-redux-registration-login-example/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./react-redux-ssr/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./react-sticky-notes/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./reflexjs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./reframe.js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./regexlearn.com/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./rekit-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./remote-jobs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Repo.js/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Responsive-Design/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./restaurant-web-crawler/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./resume/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./rnr/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Roll-your-own-CDN-using-Amazon-AWS/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./rrweb/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./sanity-asset-browser-studio/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./scottgit.github.io/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./scripter/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./scripts/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./scVAT/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./searchAwesome/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./sed-examples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./serve/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./serve-handler/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./serverless-function-examples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./ShareX/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Shell/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./sherlock/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./simple-web-crawler/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./simulated-devices/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./sloth-docs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./smooth-doc/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./smsg/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./snippets/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./soundbox/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Stack/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./stackbit-theme-planty/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./static-template/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./statusboard/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./storybook/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./styleguide/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./tailwindcss/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Task-Manager-API/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Tech-blog-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./tech-interview-handbook/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./technical-writing-template/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./template-gatsby/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./tensorflow/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./test/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./textual/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./the-art-of-command-line/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./the-book-of-secret-knowledge/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./tinysearch/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Top10/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./TranscriptionAI/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./transform/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./tutorial-sanity-blog-react-next/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./typescript-exhaustive-checks/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./useful-custom-react-hooks/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./usefulJquery/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./vanillawebprojects/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./vercel/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./vscode/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./vscode-comment-tagged-templates/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./vscode-surround/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./web-api-auth-examples/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Web-Audio-Basics/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./web-components-realworld-example-app/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./web-crawler-practice/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./webdav-client/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./web-guided-project-advanced-forms/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./web-guided-project-reducer/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./web-guided-project-testing-web-apps/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./WebMIDIAPIShim/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./web-module-project-class-components/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./web-module-project-reducer/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./web-module-project-redux/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./web-module-project-testing-web-apps/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./WebPd/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./web-scraper/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./Web-Scraping-Projects/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./website-scraper-puppeteer/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./WhateverNote/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./WhatEverNote/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./WhirlwindTourOfPython/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./wowchemy-hugo-themes/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./wsl2-hacks/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./wtfjs/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./yourls-link-creator/
+git commit -m "update"
+git push -u origin master
+
+
+git add ./
+git commit -m "update"
+git push -u origin master
+
