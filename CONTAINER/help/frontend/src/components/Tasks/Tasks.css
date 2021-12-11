@@ -1,0 +1,151 @@
+.tasks-container{
+  width: 420px;
+  min-height: 500px;
+  margin-left: 10px;
+  display: flex;
+  border-top: .5px solid #FFFEF2;
+  border-left: .5px solid #FFFEF2;
+  border-right: .5px solid #FFFEF2;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #FFFEF2;
+  font-family: 'Handlee', cursive;
+}
+
+.tabs-header__name{
+  color: teal;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 40px
+}
+
+.tabs {
+  width: 450px;
+  height: 20%
+
+}
+
+.tab-header {
+  color: teal;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 60px;
+  border-bottom: .5px dashed #e6f2f2;
+}
+
+.tab-header__incomplete,
+.tab-header__complete{
+  /* position: relative; */
+  width: 100px;
+  margin-top: -26px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #FFFEF2;
+}
+
+.tab-header__complete{
+  margin-right: 20px;
+}
+
+.tab-header__incomplete{
+  margin-right: 2px;
+}
+
+a {
+  padding: 5px;
+  display: block;
+}
+
+.tab-header > li > a.active {
+  font-weight: bold;
+  color: teal;
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  color: black;
+
+}
+
+.task-container__list__incomplete,
+.task-container__list__completed{
+  display: grid;
+  grid-template-columns: 20px 310px 60px;
+  padding-top: 12px;
+  padding-right: 10px;
+  padding-left: 15px;
+}
+
+.task-container__list__incomplete > div{
+  grid-column: 2 / 4;
+}
+
+.task-container__list__completed__link{
+  text-decoration: none;
+  color: teal;
+  text-align: right;
+}
+
+.tasks__helping-hands-icon{
+  color: teal;
+}
+
+.tasks__helping-hands-icon:hover{
+  color: #e6f2f2;
+  cursor: pointer;
+}
+
+.completed-icon{
+  padding-right: 8px;
+}
+
+.tasks__addTask{
+  padding: 15px;
+}
+
+.tasks__addTask__input{
+  box-sizing: border-box;
+  margin-left: 10px;
+  width: 220px;
+  height: 30px;
+  border: .5px solid #e6f2f2;
+  background-color: #FFFEF2;
+  border-radius: 4px;
+}
+
+
+.tasks__addTask__input::placeholder{
+  font-family: 'Handlee', cursive;
+}
+
+.tasks__checkbox{
+  padding-left: 5px;
+}
+
+.tasks__type__choice{
+  padding-right: 5px;
+}
+
+.tasks-type__selector{
+  border: .5px solid #e6f2f2;
+  background-color: #FFFEF2;
+  height: 30px;
+  border-radius: 4px;
+  font-family: 'Handlee', cursive;
+}
+
+.show{
+  border-top: .5px dashed #e6f2f2;
+  border-left: .5px dashed #e6f2f2;
+  border-right: .5px dashed #e6f2f2;
+  margin-bottom: -1px;
+}
+
+.tasks__hidden-submit{
+  display: none;
+}
+
+.task-list__checkbox{
+  width: 30px;
+}

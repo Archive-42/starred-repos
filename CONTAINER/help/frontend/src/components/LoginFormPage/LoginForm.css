@@ -1,0 +1,133 @@
+.login-all{
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.login-form-container{
+  height: 500px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin-left: 180px;
+  margin-top: 60px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.login-h1{
+  font-size: 22px;
+  font-weight: 1000;
+  color: teal;
+  margin-bottom: 10px;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+input{
+  width: 250px;
+  margin: 5px 0;
+  padding: 5px 0;
+}
+
+.login-form-button{
+  box-sizing: border-box;
+  margin-top: 20px;
+  width: 250px;
+  padding: 10px 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 1200;
+  cursor: pointer;
+  background-color: teal;
+  border-radius: 5px;
+  color: white;
+  box-shadow: none;
+  border: none;
+}
+
+.demo-login-form-button{
+  box-sizing: border-box;
+  border: 5px solid lightgrey;
+  background-color: transparent;
+  width: 250px;
+  padding: 10px 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 1200;
+  cursor: pointer;
+  border-radius: 5px;
+  color: teal;
+  box-shadow: none;
+  border: none;
+}
+
+.new-login-form{
+  display: flex;
+  flex-direction: row;
+}
+
+.login-h2{
+  padding-top: 5px;
+  font-size: 14px;
+}
+
+.navlink-login{
+  text-decoration: none;
+  font-size: 12px;
+  color: teal;
+}
+
+.navlink-login:hover{
+  text-decoration: underline;
+}
+
+.login-image{
+  height: 350px;
+  width: 350px;
+  margin-left: 200px;
+  margin-top: 120px;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 1018px) {
+  .login-image{
+    height: 320px;
+    width: 320px;
+    margin-left: 120px;
+  }
+}
+
+
+@media only screen and (max-width: 740px) {
+  .login-all{
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .login-image{
+    margin-left: 0;
+    margin-top: 20px;
+    height: 280px;
+    width: 280px;
+  }
+
+  .login-form-container{
+    margin-top: 30px;
+    margin-left: 0;
+    margin-bottom: 40px;
+  }
+
+  .login-button{
+    display: none;
+  }
+
+  .signup-button{
+    display: none;
+  }
+}

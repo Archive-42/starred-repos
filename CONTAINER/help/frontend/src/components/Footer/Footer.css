@@ -1,0 +1,45 @@
+
+.github-about-container{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+  color: teal;
+  z-index: 10;
+}
+
+.navlink-to-github{
+  min-width: 140px;
+  height: 100%;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  align-items: center;
+  color: teal;
+}
+
+.github-about-text{
+  margin: 0;
+}
+
+.github-image{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  padding-right: 5px;
+  margin: 0;
+  align-self: center;
+}
+
+.footer-logo__hands{
+  color: black;
+  font-size: 22px;
+  margin-right: 10px;
+}
