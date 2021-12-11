@@ -1,0 +1,74 @@
+======
+UUID()
+======
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+Generates a BSON :abbr:`UUID (Universally unique identifier)` object.
+
+:method:`~UUID()` has the following syntax:
+
+.. code-block:: javascript
+   
+   UUID(<string>)
+
+.. include:: /includes/apiargs/method-UUID-param.rst
+
+:returns: A BSON UUID object.
+
+Example
+-------
+
+Convert Character String to UUID
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Create a 36 character string you wish to convert to a UUID:
+
+.. cssclass:: copyable-code
+.. code-block:: javascript
+
+   var myuuid = '3b241101-e2bb-4255-8caf-4136c566a962'
+
+The following command outputs the ``myuuid`` variable as a BSON UUID object:
+
+.. cssclass:: copyable-code
+.. code-block:: javascript
+
+   UUID(myuuid)
+
+This command generates the following output:
+
+.. code-block:: javascript
+
+   UUID("3b241101-e2bb-4255-8caf-4136c566a962")
+
+Generate Random UUID
+~~~~~~~~~~~~~~~~~~~~
+
+You can run the :method:`~UUID()` method without
+specifying an argument to generate a random UUID:
+
+.. cssclass:: copyable-code
+.. code-block:: javascript
+
+   UUID()
+
+This command outputs a random UUID in the following form:
+
+.. code-block:: javascript
+
+   UUID("dee11d4e-63c6-4d90-983c-5c9f1e79e96c")
+
+.. versionchanged:: 3.6
+
+   In earlier versions of the :binary:`~bin.mongo` shell,
+   :method:`UUID` required a hexadecimal string argument.

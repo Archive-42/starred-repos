@@ -1,0 +1,102 @@
+====================================
+Change Sharded Cluster to WiredTiger
+====================================
+
+.. default-domain:: mongodb
+
+.. note::
+
+   Starting in version 4.0, MongoDB deprecates the MMAPv1 storage
+   engine and will remove MMAPv1 in a future release.
+
+Use this tutorial to update MongoDB 4.0 sharded clusters to use
+:ref:`WiredTiger <storage-wiredtiger>`.
+
+For earlier versions of MongoDB:
+
+- To convert a 3.6 sharded cluster that uses MMAPv1, see the
+  :v3.6:`MongoDB 3.6 manual
+  </tutorial/change-sharded-cluster-wiredtiger>`.
+
+- To convert a 3.4 sharded cluster that uses MMAPv1, see the
+  :v3.4:`MongoDB 3.4 manual
+  </tutorial/change-sharded-cluster-wiredtiger>`.
+
+- To convert a 3.2 sharded cluster that uses MMAPv1, see the
+  :v3.2:`MongoDB 3.2 manual
+  </tutorial/change-sharded-cluster-wiredtiger>`.
+
+Considerations
+--------------
+
+Downtime
+~~~~~~~~
+
+If you change the host or port of any :term:`shard`, you must update
+the shard configuration as well.
+
+Default Bind to Localhost
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. container:: admonition
+
+   .. include:: /includes/fact-default-bind-ip-change.rst
+
+Config Servers
+~~~~~~~~~~~~~~
+
+Starting in version 3.4, config servers must be :ref:`deployed as
+replica sets (CSRS) <3.4-remove-sccc>`. As such, version 3.4+ config
+servers already use the WiredTiger storage engine.
+
+XFS and WiredTiger
+~~~~~~~~~~~~~~~~~~
+
+With the WiredTiger storage engine, using XFS for data bearing nodes is
+recommended on Linux. For more information, see
+:ref:`prod-notes-linux-file-system`.
+
+Procedure
+---------
+
+For each replica set :term:`shard <shard>`, to change the storage
+engine to WiredTiger:
+
+A. Update the secondary members to WiredTiger.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Update the secondary members one at a time:
+
+.. container:: admonition
+
+   .. include:: /includes/steps/change-replica-set-wiredtiger.rst
+
+Repeat the steps for the remaining secondary members, updating them one
+at a time.
+
+B. Step down the primary.
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once all the secondary members have been upgraded to WiredTiger,
+connect a :binary:`~bin.mongo` shell to the primary and use
+:method:`rs.stepDown()` to step down the primary and force an election
+of a new primary.
+
+.. container:: admonition
+
+   .. code-block:: javascript
+
+      rs.stepDown()
+
+C. Update the old primary.
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When the primary has stepped down and become a secondary, update the
+secondary to use WiredTiger as before:
+
+.. container:: admonition
+
+   .. include:: /includes/steps/change-replica-set-wiredtiger.rst
+
+Repeat the procedure for the other shards.
+

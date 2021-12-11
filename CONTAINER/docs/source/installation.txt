@@ -1,0 +1,95 @@
+.. _tutorials-installation:
+.. _tutorial-installation:
+
+===============
+Install MongoDB
+===============
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: singlecol
+
+.. index:: tutorials; installation
+.. index:: installation tutorials
+.. index:: installation guides
+.. index:: installation
+
+MongoDB is released as two editions: *Community* and *Enterprise*.
+Community is the open source release of MongoDB. Enterprise provides 
+additional administration, authentication, and monitoring features. 
+*Installation steps vary depending on the edition; both procedures are 
+outlined in this section.*
+
+For upgrade instructions, see :ref:`4.0-upgrade` instead.
+
+.. note::
+
+   .. versionadded:: 3.6
+
+      Each MongoDB installer is packaged with a platform-specific
+      :ref:`MongoDB Compass <compass-index>` installation script. This
+      script installs MongoDB Compass as part of the MongoDB Server
+      installation process.
+
+.. _mongodb-supported-platforms:
+
+Supported Platforms
+-------------------
+
+.. versionchanged:: 3.4
+
+   MongoDB no longer supports 32-bit x86 platforms.
+
+x86_64
+~~~~~~
+
+.. include:: /includes/fact-platform-x86_64.rst
+
+ARM64
+~~~~~
+
+.. include:: /includes/fact-platform-arm64.rst
+
+PPC64LE (MongoDB Enterprise Edition)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/fact-platform-ppc64le.rst
+
+s390x
+~~~~~
+
+.. include:: /includes/fact-platform-s390x.rst
+
+Tutorials
+---------
+
+MongoDB Community Edition
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/toc/dfn-list-installation-community.rst
+
+MongoDB Enterprise
+~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/toc/dfn-list-installation-enterprise.rst
+
+.. include:: /includes/unicode-checkmark.rst
+
+.. include:: /includes/toc/installation-community-landing.rst
+
+.. include:: /includes/toc/installation-enterprise-landing.rst
+
+Upgrade Community Edition to Enterprise Edition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. toctree::
+   :titlesonly:
+   
+   /administration/upgrade-community-to-enterprise
+
+.. include:: /includes/toc/install-verify-files.rst
+

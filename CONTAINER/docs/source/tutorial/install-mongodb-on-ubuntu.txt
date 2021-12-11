@@ -1,0 +1,83 @@
+===========================================
+Install MongoDB Community Edition on Ubuntu
+===========================================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: twocols
+
+Overview
+--------
+
+Use this tutorial to install MongoDB Community Edition on LTS Ubuntu
+Linux systems using ``.deb`` packages.
+
+.. |package-name| replace:: ``{+package-name-org+}``
+.. |distro-name| replace:: Ubuntu
+.. include:: /includes/important-dont-use-distro-packages.rst
+
+.. admonition:: Platform Support
+
+   .. include:: /includes/fact-ubuntu-lts-support.rst
+
+.. include:: /includes/admonition-power-ubuntu-restriction.rst
+
+Packages
+--------
+
+.. include:: /includes/list-mongodb-org-packages.rst
+
+These packages conflict with the  ``mongodb``, ``mongodb-server``, and
+``mongodb-clients`` packages provided by Ubuntu.
+
+.. include:: /includes/fact-installation-bind-ip-default-in-config.rst
+
+Install MongoDB Community Edition
+---------------------------------
+
+.. include:: /includes/extracts/install-past-mongodb-org-ubuntu.rst
+
+.. include:: /includes/fact-ubuntu-lts-support.rst
+
+Using ``.deb`` Packages (Recommended)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/steps/install-mongodb-on-ubuntu.rst
+
+Using ``.tgz`` Tarballs
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Prerequisites
+`````````````
+
+.. include:: /includes/fact-tarball-dependencies.rst
+
+.. include:: /includes/extracts/install-mongodb-community-manually-debian.rst
+
+Procedure
+`````````
+
+.. include:: /includes/steps/install-mongodb-on-linux.rst
+
+Run MongoDB Community Edition
+-----------------------------
+
+.. include:: /includes/fact-installation-ulimit.rst
+
+.. |mongod-user| replace:: ``mongodb``
+.. |mongod-datadir| replace:: ``/var/lib/mongodb``
+
+.. include:: /includes/fact-installation-directories.rst
+
+.. include:: /includes/steps/run-mongodb-on-debian.rst
+
+Uninstall MongoDB Community Edition
+-----------------------------------
+
+.. include:: /includes/fact-uninstall.rst
+
+.. include:: /includes/steps/uninstall-mongodb-on-debian.rst

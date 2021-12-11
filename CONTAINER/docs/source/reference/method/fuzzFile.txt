@@ -1,0 +1,20 @@
+==========
+fuzzFile()
+==========
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Description
+-----------
+
+.. method:: fuzzFile(filename)
+
+   For internal use.
+
+   .. include:: /includes/apiargs/method-fuzzFile-param.rst

@@ -1,0 +1,39 @@
+====================
+db.cloneCollection()
+====================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. method:: db.cloneCollection(from, collection, query)
+
+   Copies data directly between MongoDB instances. The
+   :method:`db.cloneCollection()` method wraps the
+   :dbcommand:`cloneCollection` command and accepts the
+   following arguments:
+
+   .. include:: /includes/apiargs/method-db.cloneCollection-param.rst
+
+Behavior
+--------
+
+.. include:: /includes/extracts/cloneCollection-behavior-method.rst
+
+Example
+-------
+
+.. code-block:: javascript
+
+  use users
+  db.cloneCollection('mongodb.example.net:27017', 'profiles',
+                      { 'active' : true } )
+
+.. include:: /includes/example-clone-collection-text.rst

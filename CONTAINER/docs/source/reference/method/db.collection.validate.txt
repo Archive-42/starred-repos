@@ -1,0 +1,46 @@
+========================
+db.collection.validate()
+========================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Description
+-----------
+
+.. method:: db.collection.validate(true)
+
+   Validates a collection. The method scans a collection's data
+   structures for correctness and returns a single :term:`document` that
+   describes the relationship between the logical collection and the
+   physical representation of the data.
+
+   The :method:`~db.collection.validate()` method has the following
+   parameter:
+
+   .. include:: /includes/apiargs/method-db.collection.validate-param.rst
+
+   The :method:`db.collection.validate()` method output provides an
+   in-depth view of how the collection
+   uses storage. Be aware that this command is potentially resource
+   intensive and may impact the performance of your MongoDB
+   instance.
+
+   The :method:`db.collection.validate()` method is a wrapper
+   around the :dbcommand:`validate` :term:`database
+   command`.
+
+Behavior
+--------
+
+:method:`db.collection.validate()` obtains an exclusive lock on the
+collection. This will block all reads and writes on the collection
+until the operation finishes. When run on a secondary, the operation
+can sblock all other operations on that secondary until it finishes.
+
+.. seealso:: :doc:`/reference/command/validate`

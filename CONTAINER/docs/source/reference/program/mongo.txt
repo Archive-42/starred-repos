@@ -1,0 +1,473 @@
+.. _mongo:
+
+=========
+``mongo``
+=========
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. only:: html
+
+   .. meta::
+      :description: The mongo shell command man page.
+      :keywords: mongo, mongodb, man page, mongo process, mongo shell
+
+Description
+-----------
+
+.. only:: (not man)
+
+   .. class:: hidden
+
+      .. binary:: mongo
+
+:binary:`~bin.mongo` is an interactive JavaScript shell interface to
+MongoDB, which provides a powerful interface for system
+administrators as well as a way for developers to test queries and
+operations directly with the database. :binary:`~bin.mongo` also provides
+a fully functional JavaScript environment for use with a MongoDB.
+The :binary:`~bin.mongo` shell is part of the `MongoDB distributions
+<https://www.mongodb.com/download-center?jmp=docs#production>`_.
+
+.. note::
+   
+   .. include:: /includes/fact-tls-1.0.rst 
+
+.. |binary| replace:: :binary:`~bin.mongo`
+
+.. _mongo-shell-options:
+
+Options
+-------
+
+Core Options
+~~~~~~~~~~~~
+
+.. program:: mongo
+
+.. include:: /includes/option/option-mongo-shell.rst
+
+.. include:: /includes/option/option-mongo-nodb.rst
+
+.. include:: /includes/option/option-mongo-norc.rst
+
+.. include:: /includes/option/option-mongo-quiet.rst
+
+.. include:: /includes/option/option-mongo-port.rst
+
+.. include:: /includes/option/option-mongo-host.rst
+
+.. include:: /includes/option/option-mongo-eval.rst
+
+.. include:: /includes/option/option-mongo-username.rst
+
+.. include:: /includes/option/option-mongo-password.rst
+
+.. include:: /includes/option/option-mongo-help.rst
+
+.. include:: /includes/option/option-mongo-version.rst
+
+.. include:: /includes/option/option-mongo-verbose.rst
+
+.. include:: /includes/option/option-mongo-networkMessageCompressors.rst
+
+.. include:: /includes/option/option-mongo-ipv6.rst
+
+.. include:: /includes/option/option-mongo-<db name>.rst
+
+.. include:: /includes/option/option-mongo-enableJavaScriptJIT.rst
+
+.. include:: /includes/option/option-mongo-disableJavaScriptJIT.rst
+
+.. include:: /includes/option/option-mongo-disableJavaScriptProtection.rst
+
+.. _mongo-shell-file:
+
+.. include:: /includes/option/option-mongo-<file.js>.rst
+
+.. _mongo-shell-authentication-options:
+
+Authentication Options
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongo-authenticationDatabase.rst
+
+.. _mongo-shell-authentication-mechanisms:
+
+.. include:: /includes/option/option-mongo-authenticationMechanism.rst
+
+.. include:: /includes/option/option-mongo-gssapiHostName.rst
+
+.. include:: /includes/option/option-mongo-gssapiServiceName.rst
+
+.. _mongo-shell-ssl:
+
+TLS/SSL Options
+~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongo-ssl.rst
+
+.. include:: /includes/option/option-mongo-sslPEMKeyFile.rst
+
+.. include:: /includes/option/option-mongo-sslPEMKeyPassword.rst
+
+.. include:: /includes/option/option-mongo-sslCAFile.rst
+
+.. include:: /includes/option/option-mongo-sslCertificateSelector.rst
+
+.. include:: /includes/option/option-mongo-sslCRLFile.rst
+
+.. include:: /includes/option/option-mongo-sslFIPSMode.rst
+
+.. include:: /includes/option/option-mongo-sslAllowInvalidCertificates.rst
+
+.. include:: /includes/option/option-mongo-sslAllowInvalidHostnames.rst
+
+.. include:: /includes/option/option-mongo-sslDisabledProtocols.rst
+
+Sessions
+~~~~~~~~
+
+.. include:: /includes/option/option-mongo-retryWrites.rst
+
+Files
+-----
+
+.. _mongo-dbshell-file:
+
+:file:`~/.dbshell`
+   :binary:`~bin.mongo` maintains a history of commands in the :file:`.dbshell`
+   file.
+
+   .. note::
+
+      :binary:`~bin.mongo` does not record interaction related to
+      authentication in the history file, including
+      :dbcommand:`authenticate` and :method:`db.createUser()`.
+
+.. _mongo-mongorc-file:
+
+:file:`~/.mongorc.js`
+   :binary:`~bin.mongo` will read the ``.mongorc.js`` file from the home
+   directory of the user invoking :binary:`~bin.mongo`. In the file, users
+   can define variables, customize the :binary:`~bin.mongo` shell prompt,
+   or update information that they would like updated every time they
+   launch a shell. If you use the shell to evaluate a JavaScript file
+   or expression either on the command line with :option:`mongo --eval` or
+   by specifying :ref:`a .js file to mongo <mongo-shell-file>`,
+   :binary:`~bin.mongo` will read the ``.mongorc.js`` file *after* the
+   JavaScript has finished processing.
+
+   Specify the :option:`--norc <mongo --norc>` option to disable
+   reading ``.mongorc.js``.
+
+.. _mongo-global-mongorc-file:
+
+:file:`/etc/mongorc.js`
+   Global ``mongorc.js`` file which the :binary:`~bin.mongo` shell
+   evaluates upon start-up. If a user also has a :file:`.mongorc.js`
+   file located in the :envvar:`HOME` directory, the :binary:`~bin.mongo`
+   shell evaluates the global :file:`/etc/mongorc.js` file *before*
+   evaluating the user's :file:`.mongorc.js` file.
+
+   :file:`/etc/mongorc.js` must have read permission for the user
+   running the shell. The :option:`--norc <mongo --norc>` option for :binary:`~bin.mongo`
+   suppresses only the user's :file:`.mongorc.js` file.
+
+   On Windows, the global :file:`mongorc.js </etc/mongorc.js>` exists
+   in the :file:`%ProgramData%\\MongoDB` directory.
+
+:file:`/tmp/mongo_edit{<time_t>}.js`
+   Created by :binary:`~bin.mongo` when editing a file. If the file exists,
+   :binary:`~bin.mongo` will append an integer from ``1`` to ``10`` to the
+   time value to attempt to create a unique file.
+
+:file:`%TEMP%\mongo_edit{<time_t>}.js`
+   Created by :binary:`~bin.mongo.exe` on Windows when editing a file. If
+   the file exists, :binary:`~bin.mongo` will append an integer from ``1``
+   to ``10`` to the time value to attempt to create a unique file.
+
+
+Environment
+-----------
+
+.. envvar:: EDITOR
+
+   Specifies the path to an editor to use with the ``edit`` shell
+   command.  A JavaScript variable ``EDITOR`` will override the value of
+   :envvar:`EDITOR`.
+
+.. envvar:: HOME
+
+   Specifies the path to the home directory where :binary:`~bin.mongo` will
+   read the :file:`.mongorc.js` file and write the :file:`.dbshell`
+   file.
+
+.. envvar:: HOMEDRIVE
+
+   On Windows systems, :envvar:`HOMEDRIVE` specifies the path the
+   directory where :binary:`~bin.mongo` will read the :file:`.mongorc.js`
+   file and write the :file:`.dbshell` file.
+
+.. envvar:: HOMEPATH
+
+   Specifies the Windows path to the home directory where
+   :binary:`~bin.mongo` will read the :file:`.mongorc.js` file and write
+   the :file:`.dbshell` file.
+
+.. _mongo-keyboard-shortcuts:
+
+Keyboard Shortcuts
+------------------
+
+The :binary:`~bin.mongo` shell supports the following keyboard shortcuts:
+[#multiple-bindings]_
+
+.. list-table::
+   :header-rows: 1
+
+   * - **Keybinding**
+     - **Function**
+
+   * - Up arrow
+     - Retrieve previous command from history
+
+   * - Down-arrow
+     - Retrieve next command from history
+
+   * - Home
+     - Go to beginning of the line
+
+   * - End
+     - Go to end of the line
+
+   * - Tab
+     - Autocomplete method/command
+
+   * - Left-arrow
+     - Go backward one character
+
+   * - Right-arrow
+     - Go forward one character
+
+   * - Ctrl-left-arrow
+     - Go backward one word
+
+   * - Ctrl-right-arrow
+     - Go forward one word
+
+   * - Meta-left-arrow
+     - Go backward one word
+
+   * - Meta-right-arrow
+     - Go forward one word
+
+   * - Ctrl-A
+     - Go to the beginning of the line
+
+   * - Ctrl-B
+     - Go backward one character
+
+   * - Ctrl-C
+     - Exit the :binary:`~bin.mongo` shell
+
+   * - Ctrl-D
+     - Delete a char (or exit the :binary:`~bin.mongo` shell)
+
+   * - Ctrl-E
+     - Go to the end of the line
+
+   * - Ctrl-F
+     - Go forward one character
+
+   * - Ctrl-G
+     - Abort
+
+   * - Ctrl-J
+     - Accept/evaluate the line
+
+   * - Ctrl-K
+     - Kill/erase the line
+
+   * - Ctrl-L or type ``cls``
+     - Clear the screen
+
+   * - Ctrl-M
+     - Accept/evaluate the line
+
+   * - Ctrl-N
+     - Retrieve next command from history
+
+   * - Ctrl-P
+     - Retrieve previous command from history
+
+   * - Ctrl-R
+     - Reverse-search command history
+
+   * - Ctrl-S
+     - Forward-search command history
+
+   * - Ctrl-T
+     - Transpose characters
+
+   * - Ctrl-U
+     - Perform Unix line-discard
+
+   * - Ctrl-W
+     - Perform Unix word-rubout
+
+   * - Ctrl-Y
+     - Yank
+
+   * - Ctrl-Z
+     - Suspend (job control works in linux)
+
+   * - Ctrl-H
+     - Backward-delete a character
+
+   * - Ctrl-I
+     - Complete, same as Tab
+
+   * - Meta-B
+     - Go backward one word
+
+   * - Meta-C
+     - Capitalize word
+
+   * - Meta-D
+     - Kill word
+
+   * - Meta-F
+     - Go forward one word
+
+   * - Meta-L
+     - Change word to lowercase
+
+   * - Meta-U
+     - Change word to uppercase
+
+   * - Meta-Y
+     - Yank-pop
+
+   * - Meta-Backspace
+     - Backward-kill word
+
+   * - Meta-<
+     - Retrieve the first command in command history
+
+   * - Meta->
+     - Retrieve the last command in command history
+
+.. [#multiple-bindings] MongoDB accommodates multiple keybinding.
+   Since 2.0, :binary:`~bin.mongo` includes support for basic emacs
+   keybindings.
+
+.. _mongo-usage-examples:
+
+Use
+---
+
+Typically users invoke the shell with the :binary:`~bin.mongo` command at
+the system prompt. Consider the following examples for other
+scenarios.
+
+Connect to a :binary:`~bin.mongod` Instance with Access Control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To connect to a database on a remote host using authentication and a
+non-standard port, use the following form:
+
+.. code-block:: sh
+
+   mongo --username <user> --password <pass> --host <host> --port 28015
+
+Alternatively, consider the following short form:
+
+.. code-block:: sh
+
+   mongo -u <user> -p <pass> --host <host> --port 28015
+
+Replace ``<user>``, ``<pass>``, and ``<host>`` with the appropriate
+values for your situation and substitute or omit the :option:`--port <mongo --port>`
+as needed.
+
+.. _example-connect-mongo-using-srv:
+
+Connect to a Replica Set Using the DNS Seedlist Connection Format
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 3.6
+
+To connect to a replica set described using the
+:ref:`connections-dns-seedlist`, use the :option:`--host <mongo --host>` option
+to specify the connection string to the :binary:`~bin.mongo` shell. In
+the following example, the DNS configuration resembles:
+
+.. code-block:: none
+
+   Record                            TTL   Class    Priority Weight Port  Target
+   _mongodb._tcp.server.example.com. 86400 IN SRV   0        5      27317 mongodb1.example.com.
+   _mongodb._tcp.server.example.com. 86400 IN SRV   0        5      27017 mongodb2.example.com.
+
+The TXT record for the DNS entry includes the ``replicaSet`` and ``authSource`` options:
+
+.. code-block:: none
+
+   Record              TTL   Class    Text
+   server.example.com. 86400 IN TXT   "replicaSet=rs0&authSource=admin"
+
+The following command then connects the :binary:`~bin.mongo` shell to
+the replica set:
+
+.. code-block:: none
+
+   mongo --host "mongodb+srv://server.example.com/?username=allison"
+
+The :binary:`~bin.mongo` shell will automatically prompt you to provide
+the password for the user specified in the ``username`` option.
+
+Execute JavaScript Against the :binary:`~bin.mongo` Shell
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To execute a JavaScript file without evaluating the :file:`~/.mongorc.js`
+file before starting a shell session, use the following form:
+
+.. code-block:: sh
+
+   mongo --shell --norc alternate-environment.js
+
+To execute a JavaScript file with authentication, with password prompted
+rather than provided on the command-line, use the following form:
+
+.. code-block:: sh
+
+   mongo script-file.js -u <user> -p
+
+Use :option:`--eval <mongo --eval>` to Print Query Results as JSON
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To print return a query as :term:`JSON`, from the system prompt using
+the :option:`--eval <mongo --eval>` option, use the following form:
+
+.. code-block:: sh
+
+   mongo --eval 'db.collection.find().forEach(printjson)'
+
+Use single quotes (e.g. ``'``) to enclose the JavaScript, as well as
+the additional JavaScript required to generate this output.
+
+.. seealso::
+
+   - :doc:`/reference/mongo-shell`
+
+   - :doc:`/reference/method`
+
+   - :doc:`/mongo`
+
+

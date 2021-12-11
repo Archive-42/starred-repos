@@ -1,0 +1,42 @@
+=============
+rs.stepDown()
+=============
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Description
+-----------
+
+.. method:: rs.stepDown(stepDownSecs, secondaryCatchUpPeriodSecs)
+
+   .. |command-method| replace:: method
+   .. |stepdown-secs| replace:: ``stepDownSecs``
+   .. |behavior-ref| replace:: :ref:`rs.stepDown-behavior`
+
+   .. include:: /includes/stepdown-intro.rst
+   
+   The :method:`rs.stepDown()` method has the following parameters:
+
+   .. include:: /includes/apiargs/method-rs.stepDown-param.rst
+
+   :method:`rs.stepDown()` provides a wrapper around the
+   command :dbcommand:`replSetStepDown`.
+
+.. _rs.stepDown-behavior:
+
+Behavior
+--------
+
+.. |force-option| replace:: \ 
+
+.. |command-method-name| replace:: :method:`rs.stepDown()`
+
+.. include:: /includes/stepdown-behavior.rst
+
+.. include:: /includes/fact-stepdown-write-fail.rst

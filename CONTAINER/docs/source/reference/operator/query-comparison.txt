@@ -1,0 +1,21 @@
+.. _query-selectors-comparison:
+
+==========================
+Comparison Query Operators
+==========================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. include:: /includes/extracts/operators-toc-explanation.rst
+
+.. include:: /includes/fact-comparison-order.rst
+
+.. include:: /includes/toc/table-operator-query-comparison.rst
+
+.. include:: /includes/toc/operator-query-comparison.rst

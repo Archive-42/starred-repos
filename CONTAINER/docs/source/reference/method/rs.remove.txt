@@ -1,0 +1,33 @@
+===========
+rs.remove()
+===========
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. method:: rs.remove(hostname)
+
+   Removes the member described by the ``hostname`` parameter from the
+   current :term:`replica set`. This function will disconnect the
+   shell briefly and forces a reconnection as the :term:`replica set`
+   renegotiates which member will be :term:`primary`. As a
+   result, the shell will display an error even if this command
+   succeeds.
+
+   The :method:`rs.remove()` method has the following parameter:
+
+   .. include:: /includes/apiargs/method-rs.remove-param.rst
+
+   .. note::
+
+      Before running the :method:`rs.remove()` operation, it is good
+      practice to *shut down* the replica set member that you are
+      removing.

@@ -1,0 +1,26 @@
+===============
+db.removeUser()
+===============
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. deprecated:: 2.6
+   Use :method:`db.dropUser()` instead
+   of :method:`db.removeUser()`
+
+Definition
+----------
+
+.. method:: db.removeUser(username)
+
+   Removes the specified username from the database.
+
+   The :method:`db.removeUser()` method has the following parameter:
+
+   .. include:: /includes/apiargs/method-db.removeUser-param.rst

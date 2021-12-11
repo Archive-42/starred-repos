@@ -1,0 +1,68 @@
+===================
+$size (aggregation)
+===================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. versionadded:: 2.6
+
+Definition
+----------
+
+.. expression:: $size
+
+   Counts and returns the total the number of items in an array.
+
+   :expression:`$size` has the following syntax:
+
+   .. code-block:: javascript
+
+      { $size: <expression> }
+
+   The argument for :expression:`$size` can be any :ref:`expression
+   <aggregation-expressions>` as long as it resolves to an array. For
+   more information on expressions, see :ref:`aggregation-expressions`.
+
+   .. COMMENT -- do we need to mention that if missing the field, will throw an error?
+
+Example
+-------
+
+Consider a ``inventory`` collection with the following documents:
+
+.. code-block:: javascript
+
+   { "_id" : 1, "item" : "ABC1", "description" : "product 1", colors: [ "blue", "black", "red" ] }
+   { "_id" : 2, "item" : "ABC2", "description" : "product 2", colors: [ "purple" ] }
+   { "_id" : 3, "item" : "XYZ1", "description" : "product 3", colors: [ ] }
+
+The following aggregation pipeline operation use the
+:expression:`$size` to return the number of elements in the ``colors``
+array:
+
+.. code-block:: javascript
+
+   db.inventory.aggregate(
+      [
+         {
+            $project: {
+               item: 1,
+               numberOfColors: { $size: "$colors" }
+            }
+         }
+      ]
+   )
+
+The operation returns the following:
+
+.. code-block:: javascript
+
+   { "_id" : 1, "item" : "ABC1", "numberOfColors" : 3 }
+   { "_id" : 2, "item" : "ABC2", "numberOfColors" : 1 }
+   { "_id" : 3, "item" : "XYZ1", "numberOfColors" : 0 }

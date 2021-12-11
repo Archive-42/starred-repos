@@ -1,0 +1,103 @@
+===================
+Replica Set Members
+===================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+A *replica set* in MongoDB is a group of :binary:`~bin.mongod` processes
+that provide redundancy and high availability. The members of a
+replica set are:
+
+:ref:`replica-set-primary-member`.
+   The primary receives all write operations.
+
+:ref:`replica-set-secondary-members`.
+   Secondaries replicate operations from the primary to maintain an
+   identical data set. Secondaries may have additional configurations
+   for special usage profiles. For example, secondaries may be
+   :ref:`non-voting <replica-set-non-voting-members>` or
+   :ref:`priority 0 <replica-set-secondary-only-members>`.
+
+You can also maintain an :ref:`arbiter <replica-set-arbiters>` as part
+of a replica set. Arbiters do not keep a copy of the data. However,
+arbiters play a role in the elections that select a primary if the
+current primary is unavailable.
+
+The minimum recommended configuration for a replica set is a three
+member replica set with three data-bearing members: one :ref:`primary
+<replica-set-primary-member>` and two :ref:`secondary
+<replica-set-secondary-members>` members. You may alternatively deploy
+a three member replica set with *two* data-bearing members: a
+:ref:`primary <replica-set-primary-member>`, a :ref:`secondary
+<replica-set-secondary-members>`, and an :ref:`arbiter
+<replica-set-arbiters>`, but replica sets with at least three
+data-bearing members offer better redundancy.
+
+A replica set can have up to :ref:`50 members
+<3.0-replica-sets-max-members>` but only 7 voting members.
+
+.. only:: (website or singlehtml)
+
+   .. _replica-set-primary-member:
+
+   Primary
+   -------
+
+   .. include:: /core/replica-set-primary.txt
+      :start-after: start-content
+      :end-before: start-content-election-example
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /core/replica-set-primary
+
+.. only:: (website or singlehtml)
+
+   .. _replica-set-secondary-members:
+
+   Secondaries
+   -----------
+
+   .. include:: /core/replica-set-secondary.txt
+      :start-after: start-content
+      :end-before: start-content-election-example
+
+   .. include:: /core/replica-set-secondary.txt
+      :start-after: end-content-election-example
+      :end-before: end-content
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /core/replica-set-secondary
+
+.. only:: (website or singlehtml)
+
+   .. _replica-set-arbiters:
+
+   Arbiter
+   -------
+
+   .. include:: /core/replica-set-arbiter.txt
+      :start-after: start-content
+      :end-before: end-content
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /core/replica-set-arbiter
+
+.. [#edge-cases-2-primaries]
+
+   .. include:: /includes/footnote-two-primaries-edge-cases.rst
+

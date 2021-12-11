@@ -1,0 +1,26 @@
+====================================
+Replica Set Read and Write Semantics
+====================================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+From the perspective of a client application, whether a MongoDB
+instance is running as a single server (i.e. "standalone") or a
+:term:`replica set` is transparent. However, MongoDB provides
+additional read and write configurations for replica sets.
+
+.. note::
+
+   :term:`Sharded clusters <sharded cluster>` where the shards are also
+   replica sets provide the same operational semantics with regards to
+   write and read operations.
+
+.. include:: /includes/toc/dfn-list-replica-set-read-write-semantics.rst
+
+.. include:: /includes/toc/replica-set-read-write-semantics.rst

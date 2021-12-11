@@ -1,0 +1,82 @@
+==============================
+Write Concern for Replica Sets
+==============================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Write concern describes the level of acknowledgement requested from
+MongoDB for write operations.
+
+Verify Write Operations to Replica Sets
+---------------------------------------
+
+For a replica set, the default :doc:`write concern
+</reference/write-concern>` requests acknowledgement only from the primary.
+You can, however, override this default write concern, such as to
+confirm write operations on a specified number of the replica set
+members.
+
+.. include:: /images/crud-write-concern-w2.rst
+
+To override the default write concern, specify a write concern with
+each write operation. For example, the following method includes a
+write concern that specifies that the method return only after the
+write propagates to the primary and at least one secondary or the
+method times out after 5 seconds.
+
+.. code-block:: javascript
+
+   db.products.insert(
+      { item: "envelopes", qty : 100, type: "Clasp" },
+      { writeConcern: { w: 2, wtimeout: 5000 } }
+   )
+
+You can include a timeout threshold for a write concern. This prevents
+write operations from blocking indefinitely if the write concern is
+unachievable. For example, if the write concern requires
+acknowledgement from 4 members of the replica set and the replica set
+has only available 3 members, the operation blocks until those members
+become available. See :ref:`wc-wtimeout`.
+
+.. seealso::
+   :ref:`write-methods-incompatibility`
+
+.. _repl-set-modify-default-write-concern:
+
+Modify Default Write Concern
+----------------------------
+
+.. TODO need to remove most of this section and rewrite what's left.
+   Post 2.6 though.
+
+You can modify the default write concern for a replica set by setting
+the :rsconf:`settings.getLastErrorDefaults` setting
+in the :doc:`replica set configuration
+</reference/replica-configuration>`. The following sequence of commands
+creates a configuration that waits for the write operation to complete
+on a majority of the voting members before returning:
+
+.. code-block:: javascript
+
+   cfg = rs.conf()
+   cfg.settings.getLastErrorDefaults = { w: "majority", wtimeout: 5000 }
+   rs.reconfig(cfg)
+
+If you issue a write operation with a specific write concern, the write
+operation uses its own write concern instead of the default.
+
+.. seealso:: :doc:`/reference/write-concern`
+
+Custom Write Concerns
+---------------------
+
+You can :doc:`tag </tutorial/configure-replica-set-tag-sets>` the
+members of replica sets and use the resulting tag sets to create custom write
+concerns. See :doc:`/tutorial/configure-replica-set-tag-sets` for
+information on configuring custom write concerns using tag sets.

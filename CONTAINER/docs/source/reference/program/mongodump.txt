@@ -1,0 +1,319 @@
+.. _mongodump:
+
+=============
+``mongodump``
+=============
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. |tool-binary| replace:: mongodump
+
+.. include:: /includes/admonition-mac-osx-sierra-restriction.rst
+
+Synopsis
+--------
+
+:binary:`~bin.mongodump` is a utility for creating a binary export of the
+contents of a database. :binary:`~bin.mongodump` can export data from
+either :binary:`~bin.mongod` or :binary:`~bin.mongos` instances.
+
+:binary:`~bin.mongodump` can be a part of a :ref:`backup strategy
+<backup-with-mongodump>` with :binary:`~bin.mongorestore` for partial
+backups based on a query, syncing from production to staging or
+development environments, or changing the storage engine of a
+standalone. However, the use of :binary:`~bin.mongodump` and
+:binary:`~bin.mongorestore` as a backup strategy can be problematic for
+sharded clusters and replica sets.
+
+.. include:: /includes/extracts/require-cmd-line-mongodump.rst
+
+For an overview of :binary:`~bin.mongodump` in conjunction with
+:binary:`~bin.mongorestore` part of a backup and recovery strategy, see
+:doc:`/tutorial/backup-and-restore-tools`.
+
+.. seealso:: :binary:`~bin.mongorestore`,
+   :doc:`/tutorial/backup-sharded-cluster-with-database-dumps`
+   and :doc:`/core/backups`.
+
+.. _mongodump-behavior:
+
+Behavior
+--------
+
+Data Exclusion
+~~~~~~~~~~~~~~
+
+.. include:: /includes/fact-mongodump-local-database.rst
+
+:binary:`~bin.mongodump` only captures the documents in the database in its
+backup data and does not include index data. :binary:`~bin.mongorestore` or
+:binary:`~bin.mongod` must then rebuild the indexes after restoring data.
+
+.. versionchanged:: 3.4 MongoDB 3.4 added support for
+   :doc:`read-only views </core/views>`. By default,
+   :binary:`~bin.mongodump` only captures a view's metadata: it does not
+   create a binary export of the documents included in the view. To
+   capture the documents in a view use :option:`--viewsAsCollections <mongodump --viewsAsCollections>`.
+
+.. _mongodump-read-preference:
+
+Read Preference
+~~~~~~~~~~~~~~~
+
+Replica Sets
+````````````
+
+.. versionchanged:: 3.2.0
+
+   The choice of target or targets for the :option:`--host <mongodump --host>`
+   parameter affects the read preference of :binary:`~bin.mongodump`
+   when connecting to a replica set.
+
+   - If the string passed to ``--host`` is prefixed by the replica set name,
+     :binary:`~bin.mongodump` reads from the :readmode:`primary` replica set
+     member by default. For example:
+
+     .. code-block:: javascript
+
+       --host "replSet/rep1.example.net:27017,rep2.example.net:27017,rep3.example.net:27017"
+
+   - If the string passed to ``--host`` contains a list of
+     :binary:`~bin.mongod` instances, but does not include the replica set
+     name as a prefix to the host string, :binary:`~bin.mongodump`
+     reads from the :readmode:`nearest` node by default. For example:
+
+     .. code-block:: javascript
+
+       --host "rep1.example.net:27017,rep2.example.net:27017,rep3.example.net:27017"
+
+Sharded Clusters
+````````````````
+
+.. versionchanged:: 3.0.5
+
+   For a sharded cluster where the shards are replica sets,
+   :binary:`~bin.mongodump` no longer prefers reads from secondary
+   members when run against the :binary:`~bin.mongos` instance.
+
+For sharded clusters, specify the hostname of a :binary:`~bin.mongos`
+for the ``--host`` option.
+:binary:`~bin.mongodump` reads from the :readmode:`primary` replica set
+member on each shard replica set in the cluster.
+
+Unsharded collections in a sharded cluster are stored on a
+:ref:`primary shard <primary-shard>`.
+:binary:`~bin.mongodump` reads from the primary replica set member on
+the primary shard for any unsharded collections. Note: each
+database has its own primary shard.
+
+Overwrite Files
+~~~~~~~~~~~~~~~
+
+.. include:: /includes/fact-mongodump-overwrite-files.rst
+
+Data Compression Handling
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When run against a :binary:`~bin.mongod` instance that uses the
+:doc:`WiredTiger </core/wiredtiger>` storage engine,
+:binary:`~bin.mongodump` outputs uncompressed data.
+
+Working Set
+~~~~~~~~~~~
+
+:binary:`~bin.mongodump` can adversely affect performance of the
+:binary:`~bin.mongod`. If your data is larger than system memory, the
+:binary:`~bin.mongodump` will push the working set out of memory.
+
+Required Access
+---------------
+
+.. include:: /includes/access-mongodump-collections.rst
+
+Options
+-------
+
+.. include:: /includes/extracts/fact-3.0-tools-drop-dbpath-support-mongodump.rst
+
+.. binary:: mongodump
+
+.. program:: mongodump
+
+.. include:: /includes/option/option-mongodump-help.rst
+
+.. include:: /includes/option/option-mongodump-verbose.rst
+
+.. include:: /includes/option/option-mongodump-quiet.rst
+
+.. include:: /includes/option/option-mongodump-version.rst
+
+.. include:: /includes/option/option-mongodump-uri.rst
+
+.. include:: /includes/option/option-mongodump-host.rst
+
+.. include:: /includes/option/option-mongodump-port.rst
+
+.. include:: /includes/option/option-mongodump-ipv6.rst
+
+.. include:: /includes/option/option-mongodump-ssl.rst
+
+.. include:: /includes/option/option-mongodump-sslCAFile.rst
+
+.. include:: /includes/option/option-mongodump-sslPEMKeyFile.rst
+
+.. include:: /includes/option/option-mongodump-sslPEMKeyPassword.rst
+
+.. include:: /includes/option/option-mongodump-sslCRLFile.rst
+
+.. include:: /includes/option/option-mongodump-sslAllowInvalidCertificates.rst
+
+.. include:: /includes/option/option-mongodump-sslAllowInvalidHostnames.rst
+
+.. include:: /includes/option/option-mongodump-sslFIPSMode.rst
+
+.. include:: /includes/option/option-mongodump-username.rst
+
+.. include:: /includes/option/option-mongodump-password.rst
+
+.. include:: /includes/option/option-mongodump-authenticationDatabase.rst
+
+.. include:: /includes/option/option-mongodump-authenticationMechanism.rst
+
+.. include:: /includes/option/option-mongodump-gssapiServiceName.rst
+
+.. include:: /includes/option/option-mongodump-gssapiHostName.rst
+
+.. include:: /includes/option/option-mongodump-db.rst
+
+.. include:: /includes/option/option-mongodump-collection.rst
+
+.. include:: /includes/option/option-mongodump-query.rst
+
+.. include:: /includes/option/option-mongodump-queryFile.rst
+
+.. include:: /includes/option/option-mongodump-readPreference.rst
+
+.. include:: /includes/option/option-mongodump-forceTableScan.rst
+
+.. include:: /includes/option/option-mongodump-gzip.rst
+
+.. include:: /includes/option/option-mongodump-out.rst
+
+.. include:: /includes/option/option-mongodump-archive.rst
+
+.. include:: /includes/option/option-mongodump-repair.rst
+
+.. include:: /includes/option/option-mongodump-oplog.rst
+
+.. include:: /includes/option/option-mongodump-dumpDbUsersAndRoles.rst
+
+.. include:: /includes/option/option-mongodump-excludeCollection.rst
+
+.. include:: /includes/option/option-mongodump-excludeCollectionsWithPrefix.rst
+
+.. include:: /includes/option/option-mongodump-numParallelCollections.rst
+
+.. include:: /includes/option/option-mongodump-viewsAsCollections.rst
+
+Examples
+--------
+
+``mongodump`` a Collection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following operation creates a dump file that contains only the
+collection named ``collection`` in the database named ``test``. In
+this case the database is running on the local interface on port
+``27017``:
+
+.. code-block:: sh
+
+   mongodump  --db test --collection collection
+
+
+``mongodump`` a Database Excluding Specified Collections
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following operation dumps all collections in the ``test`` database
+except for ``users`` and ``salaries``:
+
+.. code-block:: sh
+
+   mongodump  --db test --excludeCollection=users --excludeCollection=salaries
+
+``mongodump`` with Access Control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the next example, :binary:`~bin.mongodump` creates a database dump
+located at ``/opt/backup/mongodump-2011-10-24``, from a database
+running on port ``37017`` on the host ``mongodb1.example.net`` and
+authenticating using the username ``user`` and the password
+``pass``, as follows:
+
+.. code-block:: sh
+
+   mongodump --host mongodb1.example.net --port 37017 --username user --password "pass" --out /opt/backup/mongodump-2011-10-24
+
+.. _mongodump-example-archive-file:
+
+Output to an Archive File
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 3.2
+
+To output the dump to an archive file, run :binary:`~bin.mongodump` with the
+``--archive`` option and the archive filename. For example, the following
+operation creates a file ``test.20150715.archive`` that contains the dump
+of the ``test`` database.
+
+.. code-block:: sh
+
+   mongodump --archive=test.20150715.archive --db test
+
+.. _mongodump-example-archive-stdout:
+
+Output an Archive to Standard Output
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 3.2
+
+To output the archive to the standard output stream in order to pipe to
+another process, run :binary:`~bin.mongodump` with the ``archive``
+option but *omit* the filename:
+
+.. code-block:: sh
+
+   mongodump --archive --db test --port 27017 | mongorestore --archive --port 27018
+
+.. note::
+
+   You cannot use the ``--archive`` option with the
+   :option:`--out <mongodump --out>` option.
+
+.. _mongodump-example-gzip:
+
+Compress the Output
+~~~~~~~~~~~~~~~~~~~
+
+To compress the files in the output dump directory, run
+:binary:`~bin.mongodump` with the new ``--gzip`` option. For example,
+the following operation outputs compressed files into the default
+``dump`` directory.
+
+.. code-block:: sh
+
+   mongodump --gzip --db test
+
+To compress the archive file output by :binary:`~bin.mongodump`, use the
+``--gzip`` option in conjunction with the :option:`--archive <mongodump --archive>`
+option, specifying the name of the compressed file.
+
+.. code-block:: sh
+
+   mongodump --archive=test.20150715.gz --gzip --db test

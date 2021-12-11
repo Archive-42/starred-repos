@@ -1,0 +1,280 @@
+.. _mongoexport:
+
+===============
+``mongoexport``
+===============
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+.. |tool-binary| replace:: mongoexport
+
+.. include:: /includes/admonition-mac-osx-sierra-restriction.rst
+
+Synopsis
+--------
+
+:binary:`~bin.mongoexport` is a utility that produces a JSON or CSV export
+of data stored in a MongoDB instance.
+
+See the :doc:`mongoimport` document for more
+information regarding the :binary:`~bin.mongoimport` utility, which
+provides the inverse "importing" capability.
+
+.. include:: /includes/extracts/require-cmd-line-mongoexport.rst
+
+Considerations
+--------------
+
+.. include:: /includes/fact-type-fidelity-loss.rst
+
+:binary:`~bin.mongoexport` must be run directly from the system command line.
+
+.. include:: /includes/fact-type-fidelity-loss-example.rst
+
+Required Access
+---------------
+
+:binary:`~bin.mongoexport` requires read access on the target database.
+
+Ensure that the connecting user possesses, at a minimum, the :authrole:`read`
+role on the target database.
+
+When connecting to a :binary:`~bin.mongod` or :binary:`~bin.mongos` that enforces
+:doc:`/core/authentication`, ensure you use the required security
+parameters based on the configured
+:ref:`authentication mechanism <available-authentication-mechanisms>`.
+
+.. _mongoexport-read-preference:
+
+Read Preference
+---------------
+
+:binary:`~bin.mongoexport` defaults to :readmode:`primary` :ref:`read
+preference <replica-set-read-preference>` when connected to a :binary:`~bin.mongos`
+or a :term:`replica set`.
+
+You can override the default read preference using the
+:option:`--readPreference <mongoexport --readPreference>` option.
+
+.. important::
+
+   Using a non-primary read preference on a :binary:`~bin.mongos` may
+   produce inconsistencies in data, including duplicates or missing
+   documents.
+
+Options
+-------
+
+.. include:: /includes/extracts/fact-3.0-tools-drop-dbpath-support-mongoexport.rst
+
+.. include:: /includes/fact-3.0-mongoexport-drop-csv-option.rst
+
+.. binary:: mongoexport
+
+.. program:: mongoexport
+
+.. include:: /includes/option/option-mongoexport-help.rst
+
+.. include:: /includes/option/option-mongoexport-verbose.rst
+
+.. include:: /includes/option/option-mongoexport-quiet.rst
+
+.. include:: /includes/option/option-mongoexport-version.rst
+
+.. include:: /includes/option/option-mongoexport-uri.rst
+
+.. include:: /includes/option/option-mongoexport-host.rst
+
+.. include:: /includes/option/option-mongoexport-port.rst
+
+.. include:: /includes/option/option-mongoexport-ipv6.rst
+
+.. include:: /includes/option/option-mongoexport-ssl.rst
+
+.. include:: /includes/option/option-mongoexport-sslCAFile.rst
+
+.. include:: /includes/option/option-mongoexport-sslPEMKeyFile.rst
+
+.. include:: /includes/option/option-mongoexport-sslPEMKeyPassword.rst
+
+.. include:: /includes/option/option-mongoexport-sslCRLFile.rst
+
+.. include:: /includes/option/option-mongoexport-sslAllowInvalidCertificates.rst
+
+.. include:: /includes/option/option-mongoexport-sslAllowInvalidHostnames.rst
+
+.. include:: /includes/option/option-mongoexport-sslFIPSMode.rst
+
+.. include:: /includes/option/option-mongoexport-username.rst
+
+.. include:: /includes/option/option-mongoexport-password.rst
+
+.. include:: /includes/option/option-mongoexport-authenticationDatabase.rst
+
+.. include:: /includes/option/option-mongoexport-authenticationMechanism.rst
+
+.. include:: /includes/option/option-mongoexport-gssapiServiceName.rst
+
+.. include:: /includes/option/option-mongoexport-gssapiHostName.rst
+
+.. include:: /includes/option/option-mongoexport-db.rst
+
+.. include:: /includes/option/option-mongoexport-collection.rst
+
+.. include:: /includes/option/option-mongoexport-fields.rst
+
+.. include:: /includes/option/option-mongoexport-fieldFile.rst
+
+.. include:: /includes/option/option-mongoexport-query.rst
+
+.. include:: /includes/option/option-mongoexport-type.rst
+
+.. include:: /includes/option/option-mongoexport-out.rst
+
+.. include:: /includes/option/option-mongoexport-jsonArray.rst
+
+.. include:: /includes/option/option-mongoexport-pretty.rst
+
+.. include:: /includes/option/option-mongoexport-noHeaderLine.rst
+
+.. include:: /includes/option/option-mongoexport-slaveOk.rst
+
+.. include:: /includes/option/option-mongoexport-readPreference.rst
+
+.. include:: /includes/option/option-mongoexport-forceTableScan.rst
+
+.. include:: /includes/option/option-mongoexport-skip.rst
+
+.. include:: /includes/option/option-mongoexport-limit.rst
+
+.. include:: /includes/option/option-mongoexport-sort.rst
+
+Use
+---
+
+Export in CSV Format
+~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/fact-3.0-mongoexport-drop-csv-option.rst
+
+.. _mongoexport-fields-example:
+
+Export Data in CSV Format using ``--fields`` option
+```````````````````````````````````````````````````
+
+In the following example, :binary:`~bin.mongoexport` exports data from the
+collection ``contacts`` collection in the ``users`` database in :term:`CSV`
+format to the file ``/opt/backups/contacts.csv``.
+
+The :binary:`~bin.mongod` instance that :binary:`~bin.mongoexport` connects to is
+running on the localhost port number ``27017``.
+
+When you export in CSV format, you must specify the fields in the documents
+to export. The operation specifies the ``name`` and ``address`` fields
+to export.
+
+.. code-block:: sh
+
+   mongoexport --db users --collection contacts --type=csv --fields name,address --out /opt/backups/contacts.csv
+
+The output would then resemble:
+
+.. code-block:: none
+
+   name, address
+   Sophie Monroe, 123 Example Road
+   Charles Yu, 345 Sample Street
+
+.. _mongoexport-fieldFile-example:
+
+Use a File to Specify the Fields to Export in CSV Format
+````````````````````````````````````````````````````````
+
+For CSV exports only, you can also specify the fields in a file
+containing the line-separated list of fields to export. The file must
+have only one field per line.
+
+For example, you can specify the ``name`` and ``address`` fields in a
+file ``fields.txt``:
+
+.. code-block:: none
+
+   name
+   address
+
+Then, using the :option:`--fieldFile <mongoexport --fieldFile>` option, specify the fields to export with
+the file:
+
+.. code-block:: sh
+
+   mongoexport --db users --collection contacts --type=csv --fieldFile fields.txt --out /opt/backups/contacts.csv
+
+.. _mongoexport-noHeaderLine-example:
+
+Exclude Field Names from CSV Output
+```````````````````````````````````
+
+.. versionadded:: 3.4
+
+MongoDB 3.4 added the :option:`--noHeaderLine <mongoexport --noHeaderLine>` option for excluding the
+field names in a CSV export. The following example exports the ``name``
+and ``address`` fields in the ``contacts`` collection in the ``users``
+database and uses :option:`--noHeaderLine <mongoexport --noHeaderLine>` to suppress the output
+of the field names as the first line:
+
+.. code-block:: sh
+
+   mongoexport --db users --collection contacts --type csv --fields name,address --noHeaderLine --out /opt/backups/contacts.csv
+
+The CSV output would then resemble:
+
+.. code-block:: none
+
+   Sophie Monroe, 123 Example Road
+   Charles Yu, 345 Sample Street
+
+Export in JSON Format
+~~~~~~~~~~~~~~~~~~~~~
+
+This example creates an export of the ``contacts`` collection from the
+MongoDB instance running on the localhost port number ``27017``. This
+writes the export to the ``contacts.json`` file in :term:`JSON` format.
+
+.. code-block:: sh
+
+   mongoexport --db sales --collection contacts --out contacts.json
+
+Export from Remote Host Running with Authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following example exports the ``contacts`` collection from the
+``marketing`` database, which requires authentication.
+
+This data resides on the MongoDB instance located on the host
+``mongodb1.example.net`` running on port ``37017``, which requires the username
+``user`` and the password ``pass``.
+
+.. code-block:: sh
+
+   mongoexport --host mongodb1.example.net --port 37017 --username user --password "pass" --collection contacts --db marketing --out mdb1-examplenet.json
+
+Export Query Results
+~~~~~~~~~~~~~~~~~~~~
+You can export only the results of a query by supplying a query filter with
+the :option:`--query <mongoexport --query>` option, and limit the results to a single
+database using the ":option:`--db <mongoexport --db>`" option.
+
+For instance, this command returns all documents in the ``sales`` database's
+``contacts`` collection that contain a field named ``field`` with a value
+of ``1``.
+
+.. code-block:: sh
+
+   mongoexport --db sales --collection contacts --query '{"field": 1}'
+
+.. include:: /includes/fact-quote-command-line-query.rst

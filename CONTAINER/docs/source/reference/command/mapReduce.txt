@@ -1,0 +1,248 @@
+=========
+mapReduce
+=========
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. dbcommand:: mapReduce
+
+   The :dbcommand:`mapReduce` command allows you to run
+   :term:`map-reduce` aggregation operations over a collection. The
+   :dbcommand:`mapReduce` command has the following prototype
+   form:
+
+   .. code-block:: javascript
+
+      db.runCommand(
+                     {
+                       mapReduce: <collection>,
+                       map: <function>,
+                       reduce: <function>,
+                       finalize: <function>,
+                       out: <output>,
+                       query: <document>,
+                       sort: <document>,
+                       limit: <number>,
+                       scope: <document>,
+                       jsMode: <boolean>,
+                       verbose: <boolean>,
+                       bypassDocumentValidation: <boolean>,
+                       collation: <document>,
+                       writeConcern: <document>
+                     }
+                   )
+
+   Pass the name of the collection to the ``mapReduce`` command
+   (i.e. ``<collection>``) to use as the source documents to perform
+   the map-reduce operation.
+
+   .. note::
+
+      .. include:: /includes/extracts/views-unsupported-mapReduce.rst
+
+   The command also accepts the following parameters:
+
+   .. include:: /includes/apiargs/command-mapReduce-field.rst
+
+   The following is a prototype usage of the :dbcommand:`mapReduce`
+   command:
+
+   .. code-block:: javascript
+
+      var mapFunction = function() { ... };
+      var reduceFunction = function(key, values) { ... };
+
+      db.runCommand(
+                     {
+                       mapReduce: <input-collection>,
+                       map: mapFunction,
+                       reduce: reduceFunction,
+                       out: { merge: <output-collection> },
+                       query: <query>
+                     }
+                   )
+
+   .. include:: /includes/extracts/admonition-js-prevalence-mapReduce.rst
+
+.. _mapreduce-map-cmd:
+
+.. include:: /includes/parameters-map-reduce.rst
+   :start-after: start-map
+   :end-before: end-map
+
+.. _mapreduce-reduce-cmd:
+
+.. include:: /includes/parameters-map-reduce.rst
+   :start-after: start-reduce
+   :end-before: end-reduce
+
+.. _mapreduce-finalize-cmd:
+
+.. include:: /includes/parameters-map-reduce.rst
+   :start-after: start-finalize
+   :end-before: end-finalize
+
+.. _mapreduce-out-cmd:
+
+.. include:: /includes/parameters-map-reduce.rst
+   :start-after: start-out
+   :end-before: end-out
+
+Required Access
+---------------
+
+If your MongoDB deployment enforces authentication, the user executing
+the :dbcommand:`mapReduce` command must possess the following
+privilege actions:
+
+Map-reduce with ``{out : inline}`` output option:
+- :authaction:`find`
+
+Map-reduce with the ``replace`` action when :ref:`outputting to a
+collection <mapreduce-out-mtd>`:
+- :authaction:`find`,
+- :authaction:`insert`,
+- :authaction:`replace`
+
+Map-reduce with the ``merge`` or ``reduce`` actions when
+:ref:`outputting to a collection <mapreduce-out-mtd>`:
+- :authaction:`find`,
+- :authaction:`insert`,
+- :authaction:`update`
+
+The :authrole:`readWrite` built-in role provides the necessary
+permissions to perform map-reduce aggregation.
+
+Map-Reduce Examples
+-------------------
+
+In the :binary:`~bin.mongo` shell, the :method:`db.collection.mapReduce()`
+method is a wrapper around the :dbcommand:`mapReduce` command. The
+following examples use the :method:`db.collection.mapReduce()` method:
+
+.. include:: /includes/examples-map-reduce.rst
+   :start-after: map-reduce-document-prototype-begin
+
+For more information and examples, see the
+:doc:`Map-Reduce </core/map-reduce>` page and
+:doc:`/tutorial/perform-incremental-map-reduce`.
+
+.. _mapreduce-output:
+
+Output
+------
+
+.. include:: /includes/extracts/bypassDocumentValidation-mapReduce.rst
+
+If you set the :ref:`out <mapReduce-out-cmd>` parameter to write the
+results to a collection, the :dbcommand:`mapReduce` command returns a
+document in the following form:
+
+.. code-block:: javascript
+
+   {
+       "result" : <string or document>,
+       "timeMillis" : <int>,
+       "counts" : {
+           "input" : <int>,
+           "emit" : <int>,
+           "reduce" : <int>,
+           "output" : <int>
+       },
+       "ok" : <int>,
+   }
+
+If you set the :ref:`out <mapReduce-out-cmd>` parameter to output the
+results inline, the :dbcommand:`mapReduce` command returns a document
+in the following form:
+
+.. code-block:: javascript
+
+   {
+       "results" : [
+          {
+             "_id" : <key>,
+             "value" :<reduced or finalizedValue for key>
+          },
+          ...
+       ],
+       "timeMillis" : <int>,
+       "counts" : {
+          "input" : <int>,
+          "emit" : <int>,
+          "reduce" : <int>,
+          "output" : <int>
+       },
+       "ok" : <int>
+   }
+
+.. data:: mapReduce.result
+
+   For output sent to a collection, this value is either:
+
+   - a string for the collection name if :ref:`out <mapReduce-out-cmd>`
+     did not specify the database name, or
+
+   - a document with both ``db`` and ``collection`` fields if :ref:`out
+     <mapReduce-out-cmd>` specified both a database and collection name.
+
+.. data:: mapReduce.results
+
+   For output written inline, an array of resulting documents. Each
+   resulting document contains two fields:
+
+   - ``_id`` field contains the ``key`` value,
+
+   - ``value`` field contains the reduced or finalized value for the
+     associated ``key``.
+
+.. data:: mapReduce.timeMillis
+
+   The command execution time in milliseconds.
+
+.. data:: mapReduce.counts
+
+   Various count statistics from the :dbcommand:`mapReduce` command.
+
+.. data:: mapReduce.counts.input
+
+   The number of input documents, which is the number of times the
+   :dbcommand:`mapReduce` command called the ``map`` function.
+
+.. data:: mapReduce.counts.emit
+
+   The number of times the :dbcommand:`mapReduce` command called the
+   ``emit`` function.
+
+.. data:: mapReduce.counts.reduce
+
+   The number of times the :dbcommand:`mapReduce` command called the
+   ``reduce`` function.
+
+.. data:: mapReduce.counts.output
+
+   The number of output values produced.
+
+.. data:: mapReduce.ok
+
+   A value of ``1`` indicates the :dbcommand:`mapReduce` command ran
+   successfully. A value of ``0`` indicates an error.
+
+Additional Information
+----------------------
+
+- :doc:`/tutorial/troubleshoot-map-function`
+
+- :doc:`/tutorial/troubleshoot-reduce-function`
+
+- :method:`db.collection.mapReduce()`
+
+- :doc:`/aggregation`
+
+.. slave-ok

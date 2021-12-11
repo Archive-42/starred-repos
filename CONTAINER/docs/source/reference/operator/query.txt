@@ -1,0 +1,138 @@
+==============================
+Query and Projection Operators
+==============================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. include:: /includes/extracts/operators-toc-explanation.rst
+
+.. _query-selectors:
+
+Query Selectors
+---------------
+
+Comparison
+~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/fact-comparison-order.rst
+   .. include:: /includes/toc/table-operator-query-comparison.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/operator/query-comparison
+
+Logical
+~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-operator-query-logical.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/operator/query-logical
+
+Element
+~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-operator-query-element.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/operator/query-element
+
+Evaluation
+~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-operator-query-evaluation.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/operator/query-evaluation
+
+Geospatial
+~~~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-operator-query-geospatial.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/operator/query-geospatial
+
+.. _operator-query:
+
+Array
+~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-operator-query-array.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/operator/query-array
+
+Bitwise
+~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-operator-query-bitwise.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/operator/query-bitwise
+
+Comments
+~~~~~~~~
+
+.. only:: website
+
+   .. include:: /includes/toc/table-operator-query-comment.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/operator/query/comment
+
+Projection Operators
+--------------------
+
+.. only:: website
+
+   .. include:: /includes/toc/table-operator-projection.rst
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+   /reference/operator/projection

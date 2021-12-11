@@ -1,0 +1,101 @@
+=======================================================================
+Install MongoDB Community Edition on Red Hat Enterprise or CentOS Linux
+=======================================================================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: twocols
+
+Overview
+--------
+
+Use this tutorial to install MongoDB Community Edition on Red Hat
+Enterprise Linux or CentOS Linux versions 6 and 7 using ``.rpm``
+packages.
+
+.. admonition:: Platform Support
+
+   .. include:: /includes/fact-installation-rhel5.rst
+
+   .. include:: /includes/fact-installation-64bit.rst
+
+
+Packages
+--------
+
+.. include:: /includes/list-mongodb-org-packages.rst
+
+.. include:: /includes/fact-installation-bind-ip-default-in-config.rst
+
+Install MongoDB Community Edition
+---------------------------------
+
+.. include:: /includes/extracts/install-past-mongodb-org-red-hat.rst
+
+.. include:: /includes/fact-installation-64bit.rst
+
+Using ``.rpm`` Packages (Recommended)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/steps/install-mongodb-on-red-hat.rst
+
+Using Tarballs
+~~~~~~~~~~~~~~
+
+Prerequisites
+`````````````
+
+.. include:: /includes/fact-tarball-dependencies.rst
+
+.. include:: /includes/extracts/install-mongodb-community-manually-redhat.rst
+
+Procedure
+`````````
+
+.. include:: /includes/steps/install-mongodb-on-linux.rst
+
+Run MongoDB Community Edition
+-----------------------------
+
+Prerequisites
+~~~~~~~~~~~~~
+
+.. _install-rhel-configure-selinux:
+
+Configure SELinux
+`````````````````
+
+.. include:: /includes/fact-selinux-redhat-options.rst
+
+.. |mongod-user| replace:: ``mongod``
+.. |mongod-datadir| replace:: ``/var/lib/mongo``
+
+.. _install-selinux-data-directory:
+
+Data Directories and Permissions
+````````````````````````````````
+
+.. include:: /includes/warning-selinux-rhel7.rst
+
+.. include:: /includes/fact-installation-directories.rst
+
+ulimit
+``````
+
+.. include:: /includes/fact-installation-ulimit.rst
+
+Procedure
+~~~~~~~~~
+
+.. include:: /includes/steps/run-mongodb-on-a-linux-distribution.rst
+
+Uninstall MongoDB Community Edition
+-----------------------------------
+
+.. include:: /includes/fact-uninstall.rst
+
+.. include:: /includes/steps/uninstall-mongodb-on-redhat.rst

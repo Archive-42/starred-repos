@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2011-2014, MongoDB, Inc.
+# This file is distributed under the same license as the mongodb-manual package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: MongoDB Manual\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-08 13:03-0400\n"
+"PO-Revision-Date: 2014-04-08 18:51+0000\n"
+"Last-Translator: tychoish <tychoish@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/mongodb-manual/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# bcb6ee38ffc6428ca9fadaa8b07cc7e1
+#: ../source/reference/operator/aggregation/min.txt:3
+msgid "$min (aggregation)"
+msgstr ""
+
+# 94e0cc9d0cd74fd88824380a28898470
+#: ../source/reference/operator/aggregation/min.txt:39
+msgid ""
+"Before 2.4, if any of the documents for the :group:`$min` operation were "
+"missing the field, the :group:`$min` operator would not return any value. If"
+" any of the documents for the :group:`$min` had the value ``null``, the "
+":group:`$min` operator would return a ``null``."
+msgstr ""
+
+# 68d573321e704e80bf97b231833a2411
+# 0c772df4672640a5abd63d9f936ce290
+#: ../source/reference/operator/aggregation/min.txt:45
+msgid "Example"
+msgstr ""
+
+#: ../source/reference/operator/aggregation/min.txt:9
+msgid ""
+"Returns the lowest value that results from applying an expression to each "
+"document in a group of documents that share the same group by key."
+msgstr ""
+
+#: ../source/includes/fact-aggregation-accumulator.rst:1
+msgid ""
+"|accumulator| is an :ref:`accumulator operator <aggregation-accumulator-"
+"operators>` available only in the :pipeline:`$group` stage."
+msgstr ""
+
+#: ../source/reference/operator/aggregation/min.txt:16
+msgid ":expression:`$min` has the following syntax:"
+msgstr ""
+
+#: ../source/reference/operator/aggregation/min.txt:22
+msgid ""
+"For more information on expressions, see :ref:`aggregation-expressions`."
+msgstr ""
+
+#: ../source/reference/operator/aggregation/min.txt:26
+msgid "Behavior"
+msgstr ""
+
+#: ../source/reference/operator/aggregation/min.txt:30
+msgid ""
+"If some, **but not all**, documents for the :group:`$min` operation have "
+"either a ``null`` value for the field or are missing the field, the "
+":group:`$min` operator only considers the non-null and the non-missing "
+"values for the field."
+msgstr ""
+
+#: ../source/reference/operator/aggregation/min.txt:35
+msgid ""
+"If **all** documents for the :group:`$min` operation have ``null`` value for"
+" the field or are missing the field, the :group:`$min` operator returns "
+"``null`` for the minimum value."
+msgstr ""
+
+#: ../source/reference/operator/aggregation/min.txt:47
+msgid "Consider a ``sales`` collection with the following documents:"
+msgstr ""
+
+#: ../source/reference/operator/aggregation/min.txt:57
+msgid ""
+"Grouping the documents by the ``item`` field, the following operation uses "
+"the :group:`$min` accumulator to compute the minimum amount and minimum "
+"quantity for each grouping."
+msgstr ""
+
+#: ../source/reference/operator/aggregation/min.txt:75
+msgid "The operation returns the following results:"
+msgstr ""
+
+#~ msgid ""
+#~ "The :group:`$min` operator returns the lowest non-null value of a field in "
+#~ "the documents for a :pipeline:`$group` operation."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If some, **but not all**, documents for the :group:`$min` operation have "
+#~ "either a ``null`` value for the field or are missing the field, the "
+#~ ":group:`$min` operator only considers the non-null and the non-missing "
+#~ "values for the field. If **all** documents for the :group:`$min` operation "
+#~ "have ``null`` value for the field or are missing the field, the "
+#~ ":group:`$min` operator returns ``null`` for the minimum value."
+#~ msgstr ""
+
+#~ msgid "The ``users`` collection contains the following documents:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To find the minimum value of the ``age`` field from all the documents, use "
+#~ "the :group:`$min` operator:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The operation returns the value of the ``age`` field in the ``minAge`` "
+#~ "field:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To find the minimum value of the ``age`` field for only those documents with"
+#~ " ``_id`` starting with the letter ``a``, use the :group:`$min` operator "
+#~ "after a :pipeline:`$match` operation:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The operation returns the minimum value of the ``age`` field for the two "
+#~ "documents with ``_id`` starting with the letter ``a``:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The ``users`` collection contains the following documents where some of the "
+#~ "documents are either missing the ``age`` field or the ``age`` field contains"
+#~ " ``null``:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following operation finds the minimum value of the ``age`` field in all "
+#~ "the documents:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Because only some documents for the :group:`$min` operation are missing the "
+#~ "``age`` field or have ``age`` field equal to ``null``, :group:`$min` only "
+#~ "considers the non-null and the non-missing values and the operation returns "
+#~ "the following document:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following operation finds the minimum value of the ``age`` field for "
+#~ "only those documents where the ``_id`` equals ``\"xxx001\"`` or "
+#~ "``\"zzz001\"``:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The :group:`$min` operation returns ``null`` for the minimum age since "
+#~ "**all** documents for the :group:`$min` operation have ``null`` value for "
+#~ "the field ``age`` or are missing the field:"
+#~ msgstr ""

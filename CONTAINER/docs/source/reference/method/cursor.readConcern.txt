@@ -1,0 +1,58 @@
+====================
+cursor.readConcern()
+====================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+
+Definition
+----------
+
+.. method:: cursor.readConcern(level)
+
+   .. versionadded:: 3.2
+
+   Specify a :term:`read concern` for the :method:`db.collection.find()`
+   method.
+
+   The :method:`~cursor.readConcern()` method has the following form:
+
+   .. code-block:: javascript
+
+      db.collection.find().readConcern(<level>)
+
+   The :method:`~cursor.readConcern()` method has the following
+   parameter:
+
+   .. include:: /includes/apiargs/method-cursor.readConcern-param.rst
+
+Considerations
+--------------
+
+``"majority"`` Read Concern
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/fact-enable-majority-readConcern.rst
+
+Read Your Own Writes
+~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/fact-read-own-writes.rst
+
+Linearizable Read Concern Performance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/extracts/maxTimeMS-readConcern-cursor.rst
+
+.. code-block:: javascript
+
+   db.restaurants.find( { _id: 5 } ).readConcern("linearizable").maxTimeMS(10000)
+
+
+.. seealso:: :doc:`/reference/read-concern`

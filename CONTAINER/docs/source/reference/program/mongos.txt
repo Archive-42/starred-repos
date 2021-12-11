@@ -1,0 +1,218 @@
+.. _mongos:
+
+==========
+``mongos``
+==========
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Synopsis
+--------
+
+:binary:`~bin.mongos` for "MongoDB Shard," is a routing service for
+MongoDB shard configurations that processes queries from the
+application layer, and determines the location of this data in the
+:term:`sharded cluster`, in order to complete these operations.
+From the perspective of the application, a
+:binary:`~bin.mongos` instance behaves identically to any other MongoDB
+instance.
+
+.. seealso:: :ref:`conf-file-command-line-mapping`
+
+.. note::
+
+   .. include:: /includes/fact-tls-1.0.rst
+
+.. |binary| replace:: MongoDB
+
+Considerations
+--------------
+
+Never change the name of the :binary:`~bin.mongos` binary.
+
+Options
+-------
+
+.. only:: (not man)
+
+   .. class:: hidden
+
+      .. binary:: mongos
+
+Core Options
+~~~~~~~~~~~~
+
+.. program:: mongos
+
+.. include:: /includes/option/option-mongos-help.rst
+
+.. include:: /includes/option/option-mongos-version.rst
+
+.. include:: /includes/option/option-mongos-config.rst
+
+.. include:: /includes/option/option-mongos-verbose.rst
+
+.. include:: /includes/option/option-mongos-quiet.rst
+
+.. include:: /includes/option/option-mongos-port.rst
+
+.. include:: /includes/option/option-mongos-bind_ip.rst
+
+.. include:: /includes/option/option-mongos-bind_ip_all.rst
+
+.. include:: /includes/option/option-mongos-maxConns.rst
+
+.. include:: /includes/option/option-mongos-syslog.rst
+
+.. include:: /includes/option/option-mongos-syslogFacility.rst
+
+.. include:: /includes/option/option-mongos-logpath.rst
+
+.. include:: /includes/option/option-mongos-logappend.rst
+
+.. include:: /includes/option/option-mongos-redactClientLogData.rst
+
+.. include:: /includes/option/option-mongos-timeStampFormat.rst
+
+.. include:: /includes/option/option-mongos-pidfilepath.rst
+
+.. include:: /includes/option/option-mongos-keyFile.rst
+
+.. include:: /includes/option/option-mongos-setParameter.rst
+
+.. include:: /includes/option/option-mongos-nounixsocket.rst
+
+.. include:: /includes/option/option-mongos-unixSocketPrefix.rst
+
+.. include:: /includes/option/option-mongos-filePermissions.rst
+
+.. include:: /includes/option/option-mongos-fork.rst
+
+.. include:: /includes/option/option-mongos-transitionToAuth.rst
+
+.. include:: /includes/option/option-mongos-networkMessageCompressors.rst
+
+.. include:: /includes/option/option-mongos-serviceExecutor.rst
+
+.. include:: /includes/option/option-mongos-timeZoneInfo.rst
+
+Sharded Cluster Options
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongos-configdb.rst
+
+.. include:: /includes/option/option-mongos-localThreshold.rst
+
+TLS/SSL Options
+~~~~~~~~~~~~~~~
+
+.. see:: :doc:`/tutorial/configure-ssl` for full
+   documentation of MongoDB's support.
+
+.. include:: /includes/option/option-mongos-sslOnNormalPorts.rst
+
+.. include:: /includes/option/option-mongos-sslMode.rst
+
+.. include:: /includes/option/option-mongos-sslPEMKeyFile.rst
+
+.. include:: /includes/option/option-mongos-sslPEMKeyPassword.rst
+
+.. include:: /includes/option/option-mongos-clusterAuthMode.rst
+
+.. include:: /includes/option/option-mongos-sslClusterFile.rst
+
+.. include:: /includes/option/option-mongos-sslClusterPassword.rst
+
+.. include:: /includes/option/option-mongos-sslCAFile.rst
+
+.. include:: /includes/option/option-mongos-sslCertificateSelector.rst
+
+.. include:: /includes/option/option-mongos-sslClusterCertificateSelector.rst
+
+.. include:: /includes/option/option-mongos-sslCRLFile.rst
+
+.. include:: /includes/option/option-mongos-sslAllowConnectionsWithoutCertificates.rst
+
+.. include:: /includes/option/option-mongos-sslAllowInvalidCertificates.rst
+
+.. include:: /includes/option/option-mongos-sslAllowInvalidHostnames.rst
+
+.. include:: /includes/option/option-mongos-sslDisabledProtocols.rst
+
+.. include:: /includes/option/option-mongos-sslFIPSMode.rst
+
+Audit Options
+~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongos-auditDestination.rst
+
+.. include:: /includes/option/option-mongos-auditFormat.rst
+
+.. include:: /includes/option/option-mongos-auditPath.rst
+
+.. include:: /includes/option/option-mongos-auditFilter.rst
+
+Profiler Options
+~~~~~~~~~~~~~~~~
+
+.. versionadded:: 4.0
+
+.. include:: /includes/option/option-mongos-slowms.rst
+
+.. include:: /includes/option/option-mongos-slowOpSampleRate.rst
+
+Text Search Options
+~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongos-basisTechRootDirectory.rst
+
+LDAP Authentication and Authorization Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongos-ldapServers.rst
+
+.. include:: /includes/option/option-mongos-ldapQueryUser.rst
+
+.. include:: /includes/option/option-mongos-ldapQueryPassword.rst
+
+.. include:: /includes/option/option-mongos-ldapBindWithOSDefaults.rst
+
+.. include:: /includes/option/option-mongos-ldapBindMethod.rst
+
+.. include:: /includes/option/option-mongos-ldapBindSASLMechanisms.rst
+
+.. include:: /includes/option/option-mongos-ldapTransportSecurity.rst
+
+.. include:: /includes/option/option-mongos-ldapTimeoutMS.rst
+
+.. include:: /includes/option/option-mongos-ldapUserToDNMapping.rst
+
+
+Additional Options
+~~~~~~~~~~~~~~~~~~
+
+.. this section will move into the top following the resolution of
+   SERVER-12889
+
+.. include:: /includes/option/option-mongos-ipv6.rst
+
+.. pending removal with SERVER-12888
+
+   .. .. include:: /includes/option/option-mongos-test.rst
+
+.. The following options no longer appear in the help.
+
+   .. objcheck is enabled by default
+
+      .. .. include:: /includes/option/option-mongos-objcheck.rst
+
+   .. ssl is replaced by sslMode
+
+      .. .. include:: /includes/option/option-mongos-ssl.rst
+

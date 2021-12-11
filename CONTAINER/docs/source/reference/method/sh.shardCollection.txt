@@ -1,0 +1,102 @@
+====================
+sh.shardCollection()
+====================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. method:: sh.shardCollection(namespace, key, unique, options)
+
+   .. |command| replace:: :method:`sh.shardCollection`
+
+   Shards a collection using the ``key`` as a the :term:`shard
+   key`. :method:`sh.shardCollection()` takes the following arguments:
+
+   .. include:: /includes/apiargs/method-sh.shardCollection-param.rst
+
+The ``options`` argument supports the following options:
+
+.. include:: /includes/apiargs/method-sh.shardCollection-options-param.rst
+
+Considerations
+--------------
+
+.. include:: /includes/fact-cannot-unshard-collection.rst
+
+Shard Keys
+~~~~~~~~~~
+
+Choosing the best shard key to effectively distribute load among your
+shards requires some planning. Review :ref:`sharding-shard-key`
+regarding choosing a shard key and restrictions.
+
+Hashed Shard Keys
+~~~~~~~~~~~~~~~~~
+
+:ref:`Hashed shard keys <sharding-hashed-sharding>` use a
+hashed index of a single field as the shard key.
+
+Use the form ``{field: "hashed"}`` to specify a hashed shard key.
+Hashed shard keys may not be compound indexes.
+
+.. include:: /includes/note-hashed-shard-key-during-chunk-migration.rst
+
+.. seealso:: :doc:`/core/hashed-sharding`
+
+Uniqueness
+~~~~~~~~~~
+
+If specifying ``unique: true``:
+
+.. include:: /includes/extracts/shard-collection-unique-restriction-method.rst
+
+See also :ref:`Sharded Collection and Unique Indexes
+<sharding-shard-key-unique>`
+
+.. include:: /includes/fact-shardCollection-collation.rst
+  
+Write Concern
+~~~~~~~~~~~~~
+
+.. include:: /includes/extracts/mongos-operations-wc-shard-collection.rst
+
+Examples
+--------
+
+Simple Usage
+~~~~~~~~~~~~
+
+Given a collection named ``people`` in a database named ``records``,
+the following command shards the collection by the
+``zipcode`` field:
+
+.. code-block:: javascript
+
+   sh.shardCollection("records.people", { zipcode: 1 } )
+
+Usage with Options
+~~~~~~~~~~~~~~~~~~
+
+Given a collection named ``contacts`` in a database named ``phonebook``,
+the following command:
+
+- Shards the collection by the ``last_name`` field.
+- Indicates that there is no unique constraint on the underlying
+  index.
+- Specifies ``5`` initial chunks.
+- Specifies a :doc:`collation</reference/collation>`.
+
+.. code-block:: javascript
+
+   sh.shardCollection("phonebook.contacts", { last_name: 1 }, false,
+                       { numInitialChunks: 5, collation: { locale: "simple" } } )
+
+.. seealso:: :dbcommand:`shardCollection`, :doc:`/sharding`

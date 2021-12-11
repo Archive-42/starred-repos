@@ -1,0 +1,27 @@
+=============
+3.6 Changelog
+=============
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+
+.. include:: /includes/changelogs/releases/3.6.7.rst
+
+.. include:: /includes/changelogs/releases/3.6.6.rst
+
+.. include:: /includes/changelogs/releases/3.6.5.rst
+
+.. include:: /includes/changelogs/releases/3.6.4.rst
+
+.. include:: /includes/changelogs/releases/3.6.3.rst
+
+
+.. include:: /includes/changelogs/releases/3.6.2.rst
+
+.. include:: /includes/changelogs/releases/3.6.1.rst

@@ -1,0 +1,143 @@
+=============================================
+Install MongoDB Enterprise Edition on Windows
+=============================================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. |mdb-edition| replace:: MongoDB Enterprise Edition
+.. |mdb-download-link| replace:: `MongoDB Download Center <https://www.mongodb.com/download-center#enterprise>`__
+
+Use this tutorial to install |mdb-edition| {+version+}
+on Windows hosts.
+
+.. include:: /includes/extracts/install-past-mongodb-enterprise-windows.rst
+
+System Requirements
+-------------------
+
+.. include:: /includes/fact-install-windows-prereq.rst
+
+Considerations
+--------------
+
+Use Command Interpreter, not Powershell
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Every time this tutorial refers to the command line, you should use 
+the `Windows command interpreter <https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd>`__ (``cmd.exe``) 
+with Administrative privileges. Not all commands work in Powershell.
+
+To start ``cmd.exe`` with Administrative privileges: 
+
+1. `Open the Start menu <https://support.microsoft.com/en-us/help/4028294/windows-open-the-start-menu>`__.
+
+   - Press the :icon:`windows` key.
+
+   - Click on the :guilabel:`Start` :icon:`windows` icon at the left
+     end of the taskbar.
+
+#. Type ``cmd.exe`` in the search box.
+
+#. Press **Ctrl** + **Shift** + **Enter**.
+
+   This starts the :guilabel:`Command Prompt` as the 
+   **Administrator** user.
+
+Add MongoDB binaries to the System PATH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All command-line examples in this tutorial are provided as absolute paths to the MongoDB binaries. You can add ``C:\Program Files\MongoDB\Server\{+version+}\bin`` to your System ``PATH`` and then omit the full path to the MongoDB binaries. 
+
+Remember the directory where you installed MongoDB
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This tutorial uses the default |mdb-edition| location of
+``C:\Program Files\MongoDB\Server\{+version+}\``.
+
+If you have installed in an alternative directory, you must
+adjust the paths as appropriate. 
+
+Configuration File
+~~~~~~~~~~~~~~~~~~
+
+The installation process installs both the MongoDB binaries as well as
+the default :doc:`configuration file
+</reference/configuration-options>` :file:`<install
+directory>/bin/mongod.cfg`.
+
+Install |mdb-edition|
+---------------------
+
+You can install using the Windows Installer wizard or from the command line.
+
+.. tabs::
+
+   tabs:
+     - id: interactive
+       name: Interactive Installation (Windows Installer Wizard)
+       content: |
+
+         You may install |mdb-edition| using the Windows Installer and 
+         following its wizard.
+
+         Starting in MongoDB 4.0, you can set up MongoDB as a service
+         during the install.
+
+         .. include:: /includes/steps/install-mongodb-on-windows-enterprise-interactive.rst
+
+     - id: unattended
+       name: Unattended Installation
+       content: |
+         You may install |mdb-edition| unattended on Windows 
+         from the command line using ``msiexec.exe``.
+
+         .. include:: /includes/steps/install-mongodb-enterprise-on-windows-unattended.rst
+
+Start |mdb-edition| from the Command Interpreter
+------------------------------------------------
+
+.. include:: /includes/steps/run-mongodb-on-windows.rst
+
+.. _manually-create-windows-service-enterprise:
+
+Start |mdb-edition| as a Windows Service
+----------------------------------------
+
+Starting in version 4.0, you can install and configure MongoDB as a
+:guilabel:`Windows Service` during the install, and the MongoDB service
+is started upon successful installation.
+
+To start/restart the service, you can use the Services Manager.
+
+You can also manage the service from the command line. To start the
+MongoDB service from the command line, invoke the following command:
+
+.. include:: /includes/steps/create-manually-windows-service-for-mongodb.rst
+
+Stop |mdb-edition| as a Windows Service
+----------------------------------------
+
+To stop/pause the MongoDB service, you can use the Services Manager.
+
+You can also manage the service from the command line. To stop the
+MongoDB service from the command line, invoke the following command:
+  
+.. code-block:: bat
+
+   net stop MongoDB
+
+Remove |mdb-edition| as a Windows Service
+------------------------------------------
+
+To remove the MongoDB service, first stop the service and then
+run the following command:
+
+.. code-block:: bat
+
+   sc.exe delete MongoDB

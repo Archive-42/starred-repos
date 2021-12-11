@@ -1,0 +1,842 @@
+.. _configuration-options:
+
+==========================
+Configuration File Options
+==========================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: singlecol
+
+The following page describes the configuration options available in
+MongoDB |version|. For configuration file options for other versions of
+MongoDB, see the appropriate version of the MongoDB Manual.
+
+Configuration File
+------------------
+
+You can configure :binary:`~bin.mongod` and :binary:`~bin.mongos` instances at
+startup using a configuration file. The configuration file contains
+settings that are equivalent to the :binary:`~bin.mongod` and
+:binary:`~bin.mongos` command-line options. See :ref:`conf-file-command-line-mapping`.
+
+Using a configuration file makes managing :binary:`~bin.mongod` and
+:binary:`~bin.mongos` options easier, especially for large-scale
+deployments. You can also add comments to the configuration file to
+explain the server's settings.
+
+On Linux, a default :file:`/etc/mongod.conf` configuration file is
+included when using a package manager to install MongoDB.
+
+On Windows, a default :file:`<install directory>/bin/mongod.cfg`
+configuration file is included during the installation.
+
+On macOS, the installation does not include a default configuration
+file; instead, to use a configuration file, create a file.  
+
+
+File Format
+~~~~~~~~~~~
+
+.. versionchanged:: 2.6
+
+   MongoDB 2.6 introduced a YAML-based configuration file format.
+   The :v2.4:`2.4 configuration file format
+   </reference/configuration-options>` remains for backward
+   compatibility.
+
+MongoDB configuration files use the `YAML <http://www.yaml.org>`_ format
+[#yaml-json]_.
+
+The following sample configuration file contains several :binary:`~bin.mongod`
+settings that you may adapt to your local configuration:
+
+.. note::
+
+   YAML does not support tab characters for indentation: use spaces instead.
+
+.. code-block:: yaml
+
+   systemLog:
+      destination: file
+      path: "/var/log/mongodb/mongod.log"
+      logAppend: true
+   storage:
+      journal:
+         enabled: true
+   processManagement:
+      fork: true
+   net:
+      bindIp: 127.0.0.1
+      port: 27017
+   setParameter:
+      enableLocalhostAuthBypass: false
+   ...
+
+The Linux package init scripts included in the official MongoDB packages depend
+on specific values for :setting:`systemLog.path`, :setting:`storage.dbPath`, and
+:setting:`processManagement.fork`. If you modify these settings in the default
+configuration file, :binary:`~bin.mongod` may not start.
+
+.. [#yaml-json] YAML is a superset of :term:`JSON`.
+
+Use the Configuration File
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To configure :binary:`~bin.mongod` or :binary:`~bin.mongos` using a config file,
+specify the config file with the ``--config`` option or the
+``-f`` option, as in the following examples:
+
+For example, the following uses :option:`mongod --config
+\<configuration file\> <mongod --config>` :option:`mongos --config
+\<configuration file\> <mongos --config>`:
+
+.. code-block:: sh
+
+   mongod --config /etc/mongod.conf
+
+   mongos --config /etc/mongos.conf
+
+You can also use the ``-f`` alias to specify the configuration
+file, as in the following:
+
+.. code-block:: sh
+
+   mongod -f /etc/mongod.conf
+
+   mongos -f /etc/mongos.conf
+
+If you installed from a package and have started MongoDB using your
+system's :term:`init script`, you are already using a configuration
+file.
+
+Core Options
+------------
+
+``systemLog`` Options
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: yaml
+
+   systemLog:
+      verbosity: <int>
+      quiet: <boolean>
+      traceAllExceptions: <boolean>
+      syslogFacility: <string>
+      path: <string>
+      logAppend: <boolean>
+      logRotate: <string>
+      destination: <string>
+      timeStampFormat: <string>
+      component:
+         accessControl:
+            verbosity: <int>
+         command:
+            verbosity: <int>
+
+         # COMMENT additional component verbosity settings omitted for brevity
+
+.. include:: /includes/option/setting-conf-systemLog.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.quiet.rst
+
+.. include:: /includes/option/setting-conf-systemLog.traceAllExceptions.rst
+
+.. include:: /includes/option/setting-conf-systemLog.syslogFacility.rst
+
+.. include:: /includes/option/setting-conf-systemLog.path.rst
+
+.. include:: /includes/option/setting-conf-systemLog.logAppend.rst
+
+.. include:: /includes/option/setting-conf-systemLog.logRotate.rst
+
+.. include:: /includes/option/setting-conf-systemLog.destination.rst
+
+.. include:: /includes/option/setting-conf-systemLog.timeStampFormat.rst
+
+``systemLog.component`` Options
+```````````````````````````````
+
+.. code-block:: yaml
+
+   systemLog:
+      component:
+         accessControl:
+            verbosity: <int>
+         command:
+            verbosity: <int>
+
+         # COMMENT some component verbosity settings omitted for brevity
+
+         replication:
+            verbosity: <int>
+            heartbeats:
+               verbosity: <int>
+            rollback:
+               verbosity: <int>
+         storage:
+            verbosity: <int>
+            journal:
+               verbosity: <int>
+            recovery:
+               verbosity: <int>
+         write:
+            verbosity: <int>
+
+.. include:: /includes/option/setting-conf-systemLog.component.accessControl.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.command.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.control.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.ftdc.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.geo.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.index.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.network.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.query.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.replication.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.replication.heartbeats.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.replication.rollback.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.sharding.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.storage.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.storage.journal.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.storage.recovery.verbosity.rst
+
+.. include:: /includes/option/setting-conf-systemLog.component.write.verbosity.rst
+
+``processManagement`` Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: yaml
+
+   processManagement:
+      fork: <boolean>
+      pidFilePath: <string>
+      timeZoneInfo: <string>
+
+.. include:: /includes/option/setting-conf-processManagement.fork.rst
+.. include:: /includes/option/setting-conf-processManagement.pidFilePath.rst
+.. include:: /includes/option/setting-conf-processManagement.timeZoneInfo.rst
+
+.. _free-monitoring-configuration-options:
+
+``cloud`` Options
+~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 4.0
+
+.. code-block:: yaml
+
+   cloud:
+      monitoring:
+         free:
+            state: <string>
+            tag: <string>
+
+.. include:: /includes/option/setting-conf-cloud.monitoring.free.state.rst
+
+.. include:: /includes/option/setting-conf-cloud.monitoring.free.tag.rst
+
+
+``net`` Options
+~~~~~~~~~~~~~~~
+
+.. code-block:: yaml
+
+   net:
+      port: <int>
+      bindIp: <string>
+      bindIpAll: <boolean>
+      maxIncomingConnections: <int>
+      wireObjectCheck: <boolean>
+      ipv6: <boolean>
+      unixDomainSocket:
+         enabled: <boolean>
+         pathPrefix: <string>
+         filePermissions: <int>
+      ssl:
+         sslOnNormalPorts: <boolean>  # deprecated since 2.6
+         certificateSelector: <string>
+         clusterCertificateSelector: <string>
+         mode: <string>
+         PEMKeyFile: <string>
+         PEMKeyPassword: <string>
+         clusterFile: <string>
+         clusterPassword: <string>
+         CAFile: <string>
+         CRLFile: <string>
+         allowConnectionsWithoutCertificates: <boolean>
+         allowInvalidCertificates: <boolean>
+         allowInvalidHostnames: <boolean>
+         disabledProtocols: <string>
+         FIPSMode: <boolean>
+      compression:
+         compressors: <string>
+      serviceExecutor: <string>
+
+.. include:: /includes/option/setting-conf-net.port.rst
+
+.. include:: /includes/option/setting-conf-net.bindIp.rst
+
+.. include:: /includes/option/setting-conf-net.bindIpAll.rst
+
+.. include:: /includes/option/setting-conf-net.maxIncomingConnections.rst
+
+.. include:: /includes/option/setting-conf-net.wireObjectCheck.rst
+
+.. include:: /includes/option/setting-conf-net.ipv6.rst
+
+.. PENDING SERVER-13097
+
+``net.unixDomainSocket`` Options
+````````````````````````````````
+
+.. code-block:: yaml
+
+   net:
+      unixDomainSocket:
+         enabled: <boolean>
+         pathPrefix: <string>
+         filePermissions: <int>
+
+.. include:: /includes/option/setting-conf-net.unixDomainSocket.enabled.rst
+
+.. include:: /includes/option/setting-conf-net.unixDomainSocket.pathPrefix.rst
+
+.. include:: /includes/option/setting-conf-net.unixDomainSocket.filePermissions.rst
+
+``net.http`` Options
+````````````````````
+
+.. include:: /includes/warning-http-interface.rst
+
+
+``net.ssl`` Options
+```````````````````
+
+.. code-block:: yaml
+
+   net:
+      ssl:
+         sslOnNormalPorts: <boolean>  # deprecated since 2.6
+         mode: <string>
+         PEMKeyFile: <string>
+         PEMKeyPassword: <string>
+         certificateSelector: <string>
+         clusterCertificateSelector: <string>
+         clusterFile: <string>
+         clusterPassword: <string>
+         CAFile: <string>
+         CRLFile: <string>
+         allowConnectionsWithoutCertificates: <boolean>
+         allowInvalidCertificates: <boolean>
+         allowInvalidHostnames: <boolean>
+         disabledProtocols: <string>
+         FIPSMode: <boolean>
+
+.. include:: /includes/option/setting-conf-net.ssl.sslOnNormalPorts.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.mode.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.PEMKeyFile.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.PEMKeyPassword.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.certificateSelector.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.clusterCertificateSelector.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.clusterFile.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.clusterPassword.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.CAFile.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.CRLFile.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.allowConnectionsWithoutCertificates.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.allowInvalidCertificates.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.allowInvalidHostnames.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.disabledProtocols.rst
+
+.. include:: /includes/option/setting-conf-net.ssl.FIPSMode.rst
+
+
+``net.compression`` Option
+``````````````````````````
+
+.. code-block:: yaml
+
+   net:
+      compression:
+         compressors: <string>
+
+.. include:: /includes/option/setting-conf-net.compression.compressors.rst
+
+.. include:: /includes/option/setting-conf-net.serviceExecutor.rst
+
+``security`` Options
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: yaml
+
+   security:
+      keyFile: <string>
+      clusterAuthMode: <string>
+      authorization: <string>
+      transitionToAuth: <boolean>
+      javascriptEnabled:  <boolean>
+      redactClientLogData: <boolean>
+      sasl:
+         hostName: <string>
+         serviceName: <string>
+         saslauthdSocketPath: <string>
+      enableEncryption: <boolean>
+      encryptionCipherMode: <string>
+      encryptionKeyFile: <string>
+      kmip:
+         keyIdentifier: <string>
+         rotateMasterKey: <boolean>
+         serverName: <string>
+         port: <string>
+         clientCertificateFile: <string>
+         clientCertificatePassword: <string>
+         clientCertificateSelector: <string>
+         serverCAFile: <string>
+      ldap:
+         servers: <string>
+         bind:
+            method: <string>
+            saslMechanisms: <string>
+            queryUser: <string>
+            queryPassword: <string>
+            useOSDefaults: <boolean>
+         transportSecurity: <string>
+         timeoutMS: <int>
+         userToDNMapping: <string>
+         authz:
+            queryTemplate: <string>
+
+.. include:: /includes/option/setting-conf-security.keyFile.rst
+
+.. include:: /includes/option/setting-conf-security.clusterAuthMode.rst
+
+.. include:: /includes/option/setting-conf-security.authorization.rst
+
+.. include:: /includes/option/setting-conf-security.transitionToAuth.rst
+
+.. include:: /includes/option/setting-conf-security.javascriptEnabled.rst
+
+.. include:: /includes/option/setting-conf-security.redactClientLogData.rst
+
+.. _encryption-key-management-conf-options:
+
+Key Management Configuration Options
+````````````````````````````````````
+
+.. code-block:: yaml
+
+   security:
+      enableEncryption: <boolean>
+      encryptionCipherMode: <string>
+      encryptionKeyFile: <string>
+      kmip:
+         keyIdentifier: <string>
+         rotateMasterKey: <boolean>
+         serverName: <string>
+         port: <string>
+         clientCertificateFile: <string>
+         clientCertificatePassword: <string>
+         clientCertificateSelector: <string>
+         serverCAFile: <string>
+
+.. include:: /includes/option/setting-conf-security.enableEncryption.rst
+
+.. include:: /includes/option/setting-conf-security.encryptionCipherMode.rst
+
+.. include:: /includes/option/setting-conf-security.encryptionKeyFile.rst
+
+.. include:: /includes/option/setting-conf-security.kmip.keyIdentifier.rst
+
+.. include:: /includes/option/setting-conf-security.kmip.rotateMasterKey.rst
+
+.. include:: /includes/option/setting-conf-security.kmip.serverName.rst
+
+.. include:: /includes/option/setting-conf-security.kmip.port.rst
+
+.. include:: /includes/option/setting-conf-security.kmip.clientCertificateFile.rst
+
+.. include:: /includes/option/setting-conf-security.kmip.clientCertificatePassword.rst
+
+.. include:: /includes/option/setting-conf-security.kmip.clientCertificateSelector.rst
+
+.. include:: /includes/option/setting-conf-security.kmip.serverCAFile.rst
+
+``security.sasl`` Options
+`````````````````````````
+
+.. code-block:: yaml
+
+   security:
+      sasl:
+         hostName: <string>
+         serviceName: <string>
+         saslauthdSocketPath: <string>
+
+.. include:: /includes/option/setting-conf-security.sasl.hostName.rst
+
+.. include:: /includes/option/setting-conf-security.sasl.serviceName.rst
+
+.. include:: /includes/option/setting-conf-security.sasl.saslauthdSocketPath.rst
+
+.. _security.ldap.options:
+
+``security.ldap`` Options
+`````````````````````````
+
+.. code-block:: yaml
+
+   security:
+      ldap:
+         servers: <string>
+         bind:
+            method: <string>
+            saslMechanisms: <string>
+            queryUser: <string>
+            queryPassword: <string>
+            useOSDefaults: <boolean>
+         transportSecurity: <string>
+         timeoutMS: <int>
+         userToDNMapping: <string>
+         authz:
+            queryTemplate: <string>
+
+.. include:: /includes/option/setting-conf-security.ldap.servers.rst
+
+.. include:: /includes/option/setting-conf-security.ldap.bind.queryUser.rst
+
+.. include:: /includes/option/setting-conf-security.ldap.bind.queryPassword.rst
+
+.. include:: /includes/option/setting-conf-security.ldap.bind.useOSDefaults.rst
+
+.. include:: /includes/option/setting-conf-security.ldap.bind.method.rst
+
+.. include:: /includes/option/setting-conf-security.ldap.bind.saslMechanisms.rst
+
+.. include:: /includes/option/setting-conf-security.ldap.transportSecurity.rst
+
+.. include:: /includes/option/setting-conf-security.ldap.timeoutMS.rst
+
+.. include:: /includes/option/setting-conf-security.ldap.userToDNMapping.rst
+
+.. include:: /includes/option/setting-conf-security.ldap.authz.queryTemplate.rst
+
+
+``setParameter`` Option
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/setting-conf-setParameter.rst
+
+LDAP Parameters
+```````````````
+
+.. include:: /includes/option/setting-conf-setParameter.ldapUserCacheInvalidationInterval.rst
+
+.. code-block:: yaml
+
+   setParameter:
+      ldapUserCacheInvalidationInterval: <int>
+
+``storage`` Options
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: yaml
+
+   storage:
+      dbPath: <string>
+      indexBuildRetry: <boolean>
+      repairPath: <string>
+      journal:
+         enabled: <boolean>
+         commitIntervalMs: <num>
+      directoryPerDB: <boolean>
+      syncPeriodSecs: <int>
+      engine: <string>
+      mmapv1:
+         preallocDataFiles: <boolean>
+         nsSize: <int>
+         quota:
+            enforced: <boolean>
+            maxFilesPerDB: <int>
+         smallFiles: <boolean>
+         journal:
+            debugFlags: <int>
+            commitIntervalMs: <num>
+      wiredTiger:
+         engineConfig:
+            cacheSizeGB: <number>
+            journalCompressor: <string>
+            directoryForIndexes: <boolean>
+         collectionConfig:
+            blockCompressor: <string>
+         indexConfig:
+            prefixCompression: <boolean>
+      inMemory:
+         engineConfig:
+            inMemorySizeGB: <number>
+
+.. include:: /includes/option/setting-conf-storage.dbPath.rst
+
+.. include:: /includes/option/setting-conf-storage.indexBuildRetry.rst
+
+.. include:: /includes/option/setting-conf-storage.repairPath.rst
+
+.. include:: /includes/option/setting-conf-storage.journal.enabled.rst
+
+.. include:: /includes/option/setting-conf-storage.journal.commitIntervalMs.rst
+
+.. include:: /includes/option/setting-conf-storage.directoryPerDB.rst
+
+.. include:: /includes/option/setting-conf-storage.syncPeriodSecs.rst
+
+.. include:: /includes/option/setting-conf-storage.engine.rst
+
+``storage.mmapv1`` Options
+``````````````````````````
+
+.. admonition:: Deprecated
+   :class: warning
+
+   .. include:: /includes/fact-4.0-mmapv1-deprecated.rst
+
+.. code-block:: yaml
+
+   storage:
+      mmapv1:
+         preallocDataFiles: <boolean>
+         nsSize: <int>
+         quota:
+            enforced: <boolean>
+            maxFilesPerDB: <int>
+         smallFiles: <boolean>
+         journal:
+            debugFlags: <int>
+            commitIntervalMs: <num>
+
+.. include:: /includes/option/setting-conf-storage.mmapv1.preallocDataFiles.rst
+
+.. include:: /includes/option/setting-conf-storage.mmapv1.nsSize.rst
+
+.. include:: /includes/option/setting-conf-storage.mmapv1.quota.enforced.rst
+
+.. include:: /includes/option/setting-conf-storage.mmapv1.quota.maxFilesPerDB.rst
+
+.. include:: /includes/option/setting-conf-storage.mmapv1.smallFiles.rst
+
+.. include:: /includes/option/setting-conf-storage.mmapv1.journal.debugFlags.rst
+
+.. include:: /includes/option/setting-conf-storage.mmapv1.journal.commitIntervalMs.rst
+
+
+``storage.wiredTiger`` Options
+``````````````````````````````
+
+.. code-block:: yaml
+
+   storage:
+      wiredTiger:
+         engineConfig:
+            cacheSizeGB: <number>
+            journalCompressor: <string>
+            directoryForIndexes: <boolean>
+         collectionConfig:
+            blockCompressor: <string>
+         indexConfig:
+            prefixCompression: <boolean>
+
+.. include:: /includes/option/setting-conf-storage.wiredTiger.engineConfig.cacheSizeGB.rst
+
+.. include:: /includes/option/setting-conf-storage.wiredTiger.engineConfig.journalCompressor.rst
+
+.. include:: /includes/option/setting-conf-storage.wiredTiger.engineConfig.directoryForIndexes.rst
+
+.. include:: /includes/option/setting-conf-storage.wiredTiger.collectionConfig.blockCompressor.rst
+
+.. include:: /includes/option/setting-conf-storage.wiredTiger.indexConfig.prefixCompression.rst
+
+``storage.inmemory`` Options
+````````````````````````````
+
+.. code-block:: yaml
+
+   storage:
+      inMemory:
+         engineConfig:
+            inMemorySizeGB: <number>
+
+.. include:: /includes/option/setting-conf-storage.inMemory.engineConfig.inMemorySizeGB.rst
+
+.. _operation-profiling-configuration-options:
+
+``operationProfiling`` Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: yaml
+
+   operationProfiling:
+      mode: <string>
+      slowOpThresholdMs: <int>
+      slowOpSampleRate: <double>
+
+.. _configuration-profiling-mode:
+.. include:: /includes/option/setting-conf-operationProfiling.mode.rst
+
+.. _configuration-profiling-slowOpThresholdMs:
+.. include:: /includes/option/setting-conf-operationProfiling.slowOpThresholdMs.rst
+
+.. _configuration-profiling-slowOpSampleRate:
+.. include:: /includes/option/setting-conf-operationProfiling.slowOpSampleRate.rst
+
+``replication`` Options
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: yaml
+
+   replication:
+      oplogSizeMB: <int>
+      replSetName: <string>
+      secondaryIndexPrefetch: <string>
+      enableMajorityReadConcern: <boolean>  ## Deprecated in 3.6
+
+.. include:: /includes/option/setting-conf-replication.oplogSizeMB.rst
+
+.. include:: /includes/option/setting-conf-replication.replSetName.rst
+
+.. include:: /includes/option/setting-conf-replication.secondaryIndexPrefetch.rst
+
+.. include:: /includes/option/setting-conf-replication.enableMajorityReadConcern.rst
+
+``sharding`` Options
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: yaml
+
+   sharding:
+      clusterRole: <string>
+      archiveMovedChunks: <boolean>
+
+.. include:: /includes/option/setting-conf-sharding.clusterRole.rst
+
+.. include:: /includes/option/setting-conf-sharding.archiveMovedChunks.rst
+
+``auditLog`` Options
+~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/note-audit-in-enterprise-only.rst
+
+.. code-block:: yaml
+
+   auditLog:
+      destination: <string>
+      format: <string>
+      path: <string>
+      filter: <string>
+
+.. include:: /includes/option/setting-conf-auditLog.destination.rst
+
+.. include:: /includes/option/setting-conf-auditLog.format.rst
+
+.. include:: /includes/option/setting-conf-auditLog.path.rst
+
+.. include:: /includes/option/setting-conf-auditLog.filter.rst
+
+``snmp`` Options
+~~~~~~~~~~~~~~~~
+
+.. note::
+
+   .. include:: /includes/fact-macos-snmp.rst
+
+.. code-block:: yaml
+
+   snmp:
+      subagent: <boolean>
+      master: <boolean>
+
+.. include:: /includes/option/setting-conf-snmp.subagent.rst
+
+.. include:: /includes/option/setting-conf-snmp.master.rst
+
+Text Search Options
+~~~~~~~~~~~~~~~~~~~
+
+.. setting:: basisTech
+
+.. include:: /includes/option/setting-conf-basisTech.rootDirectory.rst
+
+``mongos``\ -only Options
+-------------------------
+
+.. versionchanged:: 3.4
+
+   MongoDB 3.4 removes ``sharding.chunkSize`` and
+   ``sharding.autoSplit`` settings.
+
+.. code-block:: yaml
+
+   replication:
+      localPingThresholdMs: <int>
+
+   sharding:
+      configDB: <string>
+
+.. include:: /includes/option/setting-conf-replication.localPingThresholdMs.rst
+
+.. include:: /includes/option/setting-conf-sharding.configDB.rst
+
+Windows Service Options
+-----------------------
+
+.. code-block:: yaml
+
+   processManagement:
+      windowsService:
+         serviceName: <string>
+         displayName: <string>
+         description: <string>
+         serviceUser: <string>
+         servicePassword: <string>
+
+.. include:: /includes/option/setting-conf-processManagement.windowsService.serviceName.rst
+
+.. include:: /includes/option/setting-conf-processManagement.windowsService.displayName.rst
+
+.. include:: /includes/option/setting-conf-processManagement.windowsService.description.rst
+
+.. include:: /includes/option/setting-conf-processManagement.windowsService.serviceUser.rst
+
+.. include:: /includes/option/setting-conf-processManagement.windowsService.servicePassword.rst
+
+.. toctree::
+   :hidden:
+   :titlesonly:
+
+   /reference/configuration-file-settings-command-line-options-mapping

@@ -1,0 +1,23 @@
+================
+db.commandHelp()
+================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Description
+-----------
+
+.. method:: db.commandHelp(command)
+
+   Displays help text for the specified :term:`database command`. See
+   the :doc:`/reference/command`.
+
+   The :method:`db.commandHelp()` method has the following parameter:
+
+   .. include:: /includes/apiargs/method-db.commandHelp-param.rst

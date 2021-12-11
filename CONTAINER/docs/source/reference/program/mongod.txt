@@ -1,0 +1,356 @@
+.. _mongod:
+
+==========
+``mongod``
+==========
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: singlecol
+
+Synopsis
+--------
+
+:binary:`~bin.mongod` is the primary daemon process for the MongoDB
+system. It handles data requests, manages data access, and performs
+background management operations.
+
+This document provides a complete overview of all command line options
+for :binary:`~bin.mongod`. These command line options are primarily useful
+for testing: In common operation, use the :doc:`configuration file
+options </reference/configuration-options>` to control the behavior of
+your database.
+
+.. seealso:: :ref:`conf-file-command-line-mapping`
+
+.. note::
+
+   .. include:: /includes/fact-tls-1.0.rst
+
+.. |binary| replace:: MongoDB
+
+Options
+-------
+
+.. only:: (not man)
+
+   .. class:: hidden
+
+      .. binary:: mongod
+
+Core Options
+~~~~~~~~~~~~
+
+.. program:: mongod
+
+.. include:: /includes/option/option-mongod-help.rst
+
+.. include:: /includes/option/option-mongod-version.rst
+
+.. include:: /includes/option/option-mongod-config.rst
+
+.. include:: /includes/option/option-mongod-verbose.rst
+
+.. include:: /includes/option/option-mongod-quiet.rst
+
+.. include:: /includes/option/option-mongod-port.rst
+
+.. include:: /includes/option/option-mongod-bind_ip.rst
+
+.. include:: /includes/option/option-mongod-bind_ip_all.rst
+
+.. include:: /includes/option/option-mongod-ipv6.rst
+
+.. include:: /includes/option/option-mongod-listenBacklog.rst
+
+.. include:: /includes/option/option-mongod-maxConns.rst
+
+.. include:: /includes/option/option-mongod-logpath.rst
+
+.. include:: /includes/option/option-mongod-syslog.rst
+
+.. include:: /includes/option/option-mongod-syslogFacility.rst
+
+.. include:: /includes/option/option-mongod-logappend.rst
+
+.. include:: /includes/option/option-mongod-logRotate.rst
+
+.. include:: /includes/option/option-mongod-timeStampFormat.rst
+
+.. COMMENT traceExceptions is internal use only and not in mongod help output
+
+.. include:: /includes/option/option-mongod-traceExceptions.rst
+
+.. include:: /includes/option/option-mongod-pidfilepath.rst
+
+.. include:: /includes/option/option-mongod-keyFile.rst
+
+.. include:: /includes/option/option-mongod-setParameter.rst
+
+
+.. COMMENT clusterAuthMode moved to SSL section
+
+.. include:: /includes/option/option-mongod-nounixsocket.rst
+
+.. include:: /includes/option/option-mongod-unixSocketPrefix.rst
+
+.. include:: /includes/option/option-mongod-filePermissions.rst
+
+.. include:: /includes/option/option-mongod-fork.rst
+
+.. include:: /includes/option/option-mongod-auth.rst
+
+.. include:: /includes/option/option-mongod-noauth.rst
+
+.. include:: /includes/option/option-mongod-transitionToAuth.rst
+
+.. include:: /includes/option/option-mongod-cpu.rst
+
+.. include:: /includes/option/option-mongod-sysinfo.rst
+
+.. COMMENT objcheck and noobjcheck missing from mongod help output
+
+.. .. include:: /includes/option/option-mongod-objcheck.rst
+
+.. .. include:: /includes/option/option-mongod-noobjcheck.rst
+
+.. include:: /includes/option/option-mongod-noscripting.rst
+
+.. include:: /includes/option/option-mongod-notablescan.rst
+
+.. include:: /includes/option/option-mongod-shutdown.rst
+
+.. include:: /includes/option/option-mongod-redactClientLogData.rst
+
+.. include:: /includes/option/option-mongod-networkMessageCompressors.rst
+
+.. include:: /includes/option/option-mongod-timeZoneInfo.rst
+
+.. include:: /includes/option/option-mongod-serviceExecutor.rst
+
+Free Monitoring
+~~~~~~~~~~~~~~~
+
+.. versionadded:: 4.0
+
+.. include:: /includes/option/option-mongod-enableFreeMonitoring.rst
+
+.. include:: /includes/option/option-mongod-enableFreeMonitoringTag.rst
+
+
+LDAP Authentication or Authorization Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongod-ldapServers.rst
+
+.. include:: /includes/option/option-mongod-ldapQueryUser.rst
+
+.. include:: /includes/option/option-mongod-ldapQueryPassword.rst
+
+.. include:: /includes/option/option-mongod-ldapBindWithOSDefaults.rst
+
+.. include:: /includes/option/option-mongod-ldapBindMethod.rst
+
+.. include:: /includes/option/option-mongod-ldapBindSASLMechanisms.rst
+
+.. include:: /includes/option/option-mongod-ldapTransportSecurity.rst
+
+.. include:: /includes/option/option-mongod-ldapTimeoutMS.rst
+
+.. include:: /includes/option/option-mongod-ldapUserToDNMapping.rst
+
+.. include:: /includes/option/option-mongod-ldapAuthzQueryTemplate.rst
+
+Storage Options
+~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongod-storageEngine.rst
+
+.. include:: /includes/option/option-mongod-dbpath.rst
+
+.. include:: /includes/option/option-mongod-directoryperdb.rst
+
+.. include:: /includes/option/option-mongod-noIndexBuildRetry.rst
+
+.. include:: /includes/option/option-mongod-noprealloc.rst
+
+.. include:: /includes/option/option-mongod-nssize.rst
+
+.. include:: /includes/option/option-mongod-quota.rst
+
+.. include:: /includes/option/option-mongod-quotaFiles.rst
+
+.. include:: /includes/option/option-mongod-smallfiles.rst
+
+.. include:: /includes/option/option-mongod-syncdelay.rst
+
+.. include:: /includes/option/option-mongod-upgrade.rst
+
+.. include:: /includes/option/option-mongod-repair.rst
+
+.. include:: /includes/option/option-mongod-repairpath.rst
+
+.. include:: /includes/option/option-mongod-journal.rst
+
+.. include:: /includes/option/option-mongod-nojournal.rst
+
+.. include:: /includes/option/option-mongod-journalOptions.rst
+
+.. include:: /includes/option/option-mongod-journalCommitInterval.rst
+
+.. _cli-wiredtiger-options:
+
+WiredTiger Options
+~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongod-wiredTigerCacheSizeGB.rst
+
+.. include:: /includes/option/option-mongod-wiredTigerJournalCompressor.rst
+
+.. include:: /includes/option/option-mongod-wiredTigerDirectoryForIndexes.rst
+
+.. include:: /includes/option/option-mongod-wiredTigerCollectionBlockCompressor.rst
+
+.. include:: /includes/option/option-mongod-wiredTigerIndexPrefixCompression.rst
+
+.. _cli-mongod-replica-set:
+
+Replication Options
+~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongod-replSet.rst
+
+.. include:: /includes/option/option-mongod-oplogSize.rst
+
+.. include:: /includes/option/option-mongod-replIndexPrefetch.rst
+
+.. include:: /includes/option/option-mongod-enableMajorityReadConcern.rst
+
+Sharded Cluster Options
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongod-configsvr.rst
+
+.. include:: /includes/option/option-mongod-configsvrMode.rst
+
+.. include:: /includes/option/option-mongod-shardsvr.rst
+
+.. include:: /includes/option/option-mongod-moveParanoia.rst
+
+.. include:: /includes/option/option-mongod-noMoveParanoia.rst
+
+TLS/SSL Options
+~~~~~~~~~~~~~~~
+
+.. see:: :doc:`/tutorial/configure-ssl` for full
+   documentation of MongoDB's support.
+
+.. include:: /includes/option/option-mongod-sslOnNormalPorts.rst
+
+.. include:: /includes/option/option-mongod-sslMode.rst
+
+.. include:: /includes/option/option-mongod-sslPEMKeyFile.rst
+
+.. include:: /includes/option/option-mongod-sslPEMKeyPassword.rst
+
+.. COMMENT moved clusterAuthMode to here from above
+
+.. include:: /includes/option/option-mongod-clusterAuthMode.rst
+
+.. include:: /includes/option/option-mongod-sslClusterFile.rst
+
+.. include:: /includes/option/option-mongod-sslCertificateSelector.rst
+
+.. include:: /includes/option/option-mongod-sslClusterCertificateSelector.rst
+
+.. include:: /includes/option/option-mongod-sslClusterPassword.rst
+
+.. include:: /includes/option/option-mongod-sslCAFile.rst
+
+.. include:: /includes/option/option-mongod-sslCRLFile.rst
+
+.. include:: /includes/option/option-mongod-sslAllowInvalidCertificates.rst
+
+.. include:: /includes/option/option-mongod-sslAllowInvalidHostnames.rst
+
+.. include:: /includes/option/option-mongod-sslAllowConnectionsWithoutCertificates.rst
+
+.. include:: /includes/option/option-mongod-sslDisabledProtocols.rst
+
+.. include:: /includes/option/option-mongod-sslFIPSMode.rst
+
+
+Profiler Options
+~~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongod-profile.rst
+
+.. include:: /includes/option/option-mongod-slowms.rst
+
+.. _cli-mongod-profiler-slowOpSampleRate:
+.. include:: /includes/option/option-mongod-slowOpSampleRate.rst
+
+Audit Options
+~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongod-auditDestination.rst
+
+.. include:: /includes/option/option-mongod-auditFormat.rst
+
+.. include:: /includes/option/option-mongod-auditPath.rst
+
+.. include:: /includes/option/option-mongod-auditFilter.rst
+
+SNMP Options
+~~~~~~~~~~~~
+
+.. note::
+
+   .. include:: /includes/fact-macos-snmp.rst
+
+.. include:: /includes/option/option-mongod-snmp-subagent.rst
+
+.. include:: /includes/option/option-mongod-snmp-master.rst
+
+.. _cli-mongod-inmemory:
+
+inMemory Options
+~~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongod-inMemorySizeGB.rst
+
+.. _encryption-key-management-options:
+
+Encryption Key Management Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongod-enableEncryption.rst
+
+.. include:: /includes/option/option-mongod-encryptionCipherMode.rst
+
+.. include:: /includes/option/option-mongod-encryptionKeyFile.rst
+
+.. include:: /includes/option/option-mongod-kmipKeyIdentifier.rst
+
+.. include:: /includes/option/option-mongod-kmipRotateMasterKey.rst
+
+.. include:: /includes/option/option-mongod-kmipServerName.rst
+
+.. include:: /includes/option/option-mongod-kmipPort.rst
+
+.. include:: /includes/option/option-mongod-kmipClientCertificateSelector.rst
+
+.. include:: /includes/option/option-mongod-kmipClientCertificateFile.rst
+
+.. include:: /includes/option/option-mongod-kmipClientCertificatePassword.rst
+
+.. include:: /includes/option/option-mongod-kmipServerCAFile.rst
+
+Text Search Options
+~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/option/option-mongod-basisTechRootDirectory.rst
