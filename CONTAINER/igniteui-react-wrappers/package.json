@@ -1,0 +1,38 @@
+{
+  "name": "igniteui-react-wrappers",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IgniteUI/igniteui-react-wrappers.git"
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "create-react-class": "^15.6.3",
+    "prop-types": "^15.6.2",
+    "babel-core": "^6.26.3"
+  },
+  "scripts": {
+    "build": "npm run prepare-dist",
+    "prepare-dist": "uglifyjs src/props/* -b -o dist/npm/igniteui-react.js && node -e \"require('concat-files')(['build/build-wrapper-start','dist/npm/igniteui-react.js','build/build-wrapper-end'], 'dist/npm/igniteui-react.js');\" && uglifyjs src/util/* dist/npm/igniteui-react.js -b -o dist/npm/igniteui-react.js && node -e \"require('fs-extra').ensureDirSync('dist/npm/ui');require('fs-extra').copySync('src/components', 'dist/npm/ui');require('fs-extra').ensureDirSync('dist/npm/dist');\" && uglifyjs dist/npm/igniteui-react.js src/components/* -b -o dist/npm/dist/igniteui-react.js && uglifyjs dist/npm/dist/igniteui-react.js -o dist/npm/dist/igniteui-react.min.js",
+    "pretest": "npm run build",
+    "test": "karma start tests/karma.conf.js --single-run --watch=false --code-coverage"
+  },
+  "devDependencies": {
+    "concat-files": "^0.1.1",
+    "coveralls": "^3.1.0",
+    "fs-extra": "^9.1.0",
+    "jasmine-core": "^3.7.1",
+    "jspm": "~2.0.0-beta.7",
+    "karma": "^6.3.2",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage": "^2.0.3",
+    "karma-jasmine": "^4.0.1",
+    "karma-jasmine-html-reporter": "^1.5.4",
+    "karma-junit-reporter": "^2.0.1",
+    "karma-remap-istanbul": "",
+    "systemjs": "0.21.6",
+    "uglify-js": "^3.13.4"
+  }
+}
