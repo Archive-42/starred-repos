@@ -1,0 +1,42 @@
+.authorimage {
+    height: 340px;
+    width: auto;
+}
+
+.answer {
+    background-color: #F0F7FD;
+    border-color: #D0E3F0;
+    margin-bottom: 20px;
+    padding: 15px 30px 15px 15px;
+    border-left: 5px solid #D0E3F0;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background-color: #D0E3F0;
+}
+
+#footer {
+    margin-top: 60px;
+}
+
+.top {
+height: auto !important;
+    margin: 0 auto -60px;
+    min-height: 100%;
+    padding: 0 0 60px;    
+}
+
+.neutral {
+    height: 340px;
+}
+
+.pass {
+    background-color: green;
+    height: 340px;
+}
+
+.fail {
+    background-color: red;
+    height: 340px;
+}
