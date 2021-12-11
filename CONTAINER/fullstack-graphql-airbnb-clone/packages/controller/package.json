@@ -1,0 +1,35 @@
+{
+  "name": "@abb/controller",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "watch": "tsc --watch",
+    "schema:download": "apollo schema:download --endpoint=http://localhost:4000",
+    "codegen:generate": "apollo codegen:generate --queries=./src/**/*.tsx --schema=./schema.json --target=typescript ./src/schemaTypes.ts",
+    "gen:types": "npm run schema:download && npm run codegen:generate",
+    "refresh:types": "npm run gen:types && npm run build"
+  },
+  "dependencies": {
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
+    "react": "^16.4.1",
+    "react-apollo": "^2.1.6",
+    "react-dom": "^16.4.1",
+    "react-router": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^10.3.4",
+    "@types/react": "^16.4.0",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-router": "^4.0.29",
+    "apollo": "^1.1.1",
+    "apollo-codegen": "^0.20.2",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.13.0",
+    "typescript": "^3.0.3"
+  }
+}
