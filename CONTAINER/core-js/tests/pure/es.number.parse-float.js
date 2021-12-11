@@ -1,0 +1,24 @@
+import { WHITESPACES } from '../helpers/constants';
+
+import parseFloat from 'core-js-pure/features/number/parse-float';
+
+QUnit.test('Number.parseFloat', assert => {
+  assert.isFunction(parseFloat);
+  assert.arity(parseFloat, 1);
+  assert.same(parseFloat('0'), 0);
+  assert.same(parseFloat(' 0'), 0);
+  assert.same(parseFloat('+0'), 0);
+  assert.same(parseFloat(' +0'), 0);
+  assert.same(parseFloat('-0'), -0);
+  assert.same(parseFloat(' -0'), -0);
+  assert.same(parseFloat(`${ WHITESPACES }+0`), 0);
+  assert.same(parseFloat(`${ WHITESPACES }-0`), -0);
+  assert.same(parseFloat(null), NaN);
+  assert.same(parseFloat(undefined), NaN);
+
+  /* eslint-disable es/no-symbol -- safe */
+  if (typeof Symbol == 'function') {
+    assert.throws(() => parseFloat(Symbol()), 'throws on symbol argument');
+    assert.throws(() => parseFloat(Object(Symbol())), 'throws on boxed symbol argument');
+  }
+});

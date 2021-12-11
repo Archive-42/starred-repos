@@ -1,0 +1,25 @@
+{
+  "name": "core-js-builder",
+  "description": "core-js builder",
+  "version": "3.19.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zloirock/core-js.git",
+    "directory": "packages/core-js-builder"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "core-js": "3.19.3",
+    "core-js-compat": "3.19.3",
+    "mkdirp": ">=0.5.5 <1",
+    "webpack": ">=4.46.0 <5"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/core-js"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,23 @@
+import { STRICT } from '../helpers/constants';
+
+import padStart from 'core-js-pure/features/string/pad-start';
+import Symbol from 'core-js-pure/features/symbol';
+
+QUnit.test('String#padStart', assert => {
+  assert.isFunction(padStart);
+  assert.same(padStart('abc', 5), '  abc');
+  assert.same(padStart('abc', 4, 'de'), 'dabc');
+  assert.same(padStart('abc'), 'abc');
+  assert.same(padStart('abc', 5, '_'), '__abc');
+  assert.same(padStart('', 0), '');
+  assert.same(padStart('foo', 1), 'foo');
+  assert.same(padStart('foo', 5, ''), 'foo');
+
+  assert.throws(() => padStart(Symbol(), 10, 'a'), 'throws on symbol context');
+  assert.throws(() => padStart('a', 10, Symbol()), 'throws on symbol argument');
+
+  if (STRICT) {
+    assert.throws(() => padStart(null, 0), TypeError);
+    assert.throws(() => padStart(undefined, 0), TypeError);
+  }
+});
