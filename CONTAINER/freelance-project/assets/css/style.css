@@ -1,0 +1,722 @@
+
+*[class^='b-']
+{
+	/*background: rgba(68, 68, 68, 0.23);*/
+}
+
+/* БЛОК ПРОМО */
+.b-intro{
+
+}
+
+.intro-back{
+    background-image: url('../images/intro_back.png');
+    background-repeat: no-repeat;
+    background-size: 1920px auto;
+    background-position: -262px -4px;
+    overflow: hidden;
+}
+
+.order-block{
+    margin: -466px 0 0 182px;
+    float: right;
+}
+
+.intro__picture-list-box{
+	margin: 30px 0 4px 210px;
+    width: 640px;
+    overflow: hidden;
+}
+
+.intro__picture-list-box_one-colum{
+    margin: 10px 0 10px 206px;
+    float: left;
+}
+
+.picture-list-item{
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    line-height: 1.3em;
+} 
+
+.picture-list-item span{
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    font-size: 17px;
+    display: block;
+    clear: both;
+} 
+
+.intro__picture-list-box .item-1{
+    background: url('../images/micro.png');
+    background-repeat: no-repeat;
+    padding: 18px 0 18px 95px;
+    margin: 0 0 0 5px;
+    width: 305px;
+}
+
+.intro__picture-list-box .item-2{
+    background: url('../images/like.png');
+    background-repeat: no-repeat;
+    padding: 18px 0 18px 95px;
+	margin: 0 0 0 -10px;
+}
+
+.intro__picture-list-box_one-colum .picture-list-item{
+    float: none;
+    background: url('../images/circle.png');
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    padding: 19px 0 27px 24px;
+    margin: 0 0 0px 0;
+}
+
+.intro__picture-list-box_one-colum .cols{
+    float: none !important;
+}
+
+.logo-text{
+    font-size: 172px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    margin: 0 0 0 -10px;
+}
+
+.logo-smtext{
+    font-size: 65px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    margin: 0 0 0 -10px;
+}
+
+.head {
+    margin-left: 206px; 
+}
+
+.logo-xsmtext {
+    font-size: 33px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    margin: 0 0 0 -10px;
+}
+
+.logo-doctor {
+    font-size: 32px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 25px 10px 15px 40px;
+}
+
+.logo-smtext span, .logo-xsmtext span, .caution span {
+    color: #e74700;
+}
+
+.pack-box{
+    margin-left: 437px;
+    margin-top: 14px;
+}
+
+.discount-border-block{
+    width: 175px;
+    height: 175px;
+    padding: 10px;
+    background: transparent;
+    border: 5px solid #efb10e;
+    border-radius: 50%;
+    position: relative;
+    margin: -87px 0 0 -145px;
+}
+
+.discount-block{
+    width: 145px;
+    height: 145px;
+    background: #e74700;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+}
+
+.discount-value{
+    padding: 27px 0 0;
+    width: 100%;
+    text-align: center;
+    font-size: 72px;
+}
+
+.discount-percent{
+    width: 100%;
+    text-align: right;
+    padding: 0 12px 0 0px;
+    margin-top: -29px;
+    font-size: 17px;
+}
+
+.discount-label{
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    margin: 10px 0 0;
+}
+
+.intro-form{
+    position: relative;
+    width: 301px;
+    height: 354px;
+    border-radius: 7px;
+    border: 5px solid #6ab5c8;
+    background: #fff;
+    margin: -87px 0 0 55px;
+}
+
+.text-PriceOnly{
+    width: 100%;
+    margin: 15px 0 13px;
+    padding-right: 12px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.text-PriceValue{
+    width: 100%;
+    padding-right: 8px;
+    margin: 0 0 25px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #5d2638;
+}
+
+.input{
+    width: 220px;
+    height: 57px;
+    padding-left: 16px;
+    border: thin solid #b2b2b2;
+    border-radius: 6px;
+    line-height: 57px;
+    margin: 0px auto 16px;
+    display: block;
+}
+
+.btn-order{
+    display: block;
+    width: 240px;
+    height: 57px;
+    border-radius: 6px;
+    line-height: 52px;
+    margin: 0px auto 16px;
+    background: #e74700;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    font-size: 22px;
+    transition: all 0.3s ease;
+}
+
+.btn-order:hover{
+    background: #fd621e;
+}
+
+.btn-order:active{
+    background: #ae3500;
+}
+/* БЛОК ПРИЗНАКИ */
+.b-warning {
+    margin-top: 5%;
+}
+
+.images-position {
+    height: 500px;
+    width: 800px;
+    background: url(../../TMP/img/bg.png);
+    background-repeat: no-repeat;
+    background-position: 0 40px;
+}
+
+.images-position .stamp {
+    float: right;
+    margin: 65px 140px 0 0;
+}
+
+#million {
+    font-size: 35px;
+    letter-spacing: -0.03em;
+    font-weight: 300;
+    margin: 40px 0 0 210px;
+    color: white;
+}
+
+#million span {
+    font-size: 90px;
+    font-weight: 800;
+}
+
+.parasite .cols {
+    margin: 30px 40px 0 0;
+}
+
+#move-down {
+    padding-top: 10px; 
+}
+
+.text-position {
+    height: 500px;
+    background: url(../../TMP/img/backgroundForCaution.png);
+    background-repeat: no-repeat;
+    background-position: -30px 15px;
+    margin-top: 72px;
+}
+
+.caution {
+    font-size: 32px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.organism {
+    margin: 57px 0 20px 40px;
+}
+
+.fifty-percent {
+    margin: 220px 0 0 0;
+    width: 290px;
+}
+
+.fifty-form {
+    margin-bottom: 100px;
+    width: 290px;
+}
+
+.mail-form {
+    width: 290px;
+    height: 350px;
+    border-radius: 7px;
+    border: 5px solid #6ab5c8;
+    background: #fff;
+    margin: 0;
+}
+
+.form-position {
+    width: 290px;
+    margin-top: 20px;
+}
+
+
+.list-of-reasons {
+    margin-left: 50px;
+    line-height: 2.5;
+    list-style-image: url(../../TMP/img/Vector%20Smart%20Object.png);
+}
+ 
+/* БЛОК ФОРМА ЗАКАЗА ПРЕПАРАТА */
+
+.b-order {
+    margin-top: 5%;
+    background: url(../../TMP/img/bg1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.suborder {
+    height: 650px;
+    width: 680px;
+    background: url(../../TMP/img/Rounded%20Rectangle%202.png);
+    background-size: 632px 637px;
+    background-repeat: no-repeat;
+    background-position: -5px 15px;
+    z-index: 2;
+}
+
+.suborder.cols {
+    margin-right: 0;
+}
+
+.suborder .row {
+    height: 180px;
+}
+
+.suborder span {
+    font-weight: 600;
+}
+
+.line-1 img {
+    margin: 15px 0 0 70px;
+}
+
+.line-1 div {
+    margin-left: 40px;
+}
+
+.line-2 {
+    padding: 0 0 50px 30px;
+}
+
+.line-3 {
+    padding: 0 0 40px 40px;
+}
+
+.line-4 {
+    margin: 0 0 0 40px;
+}
+
+
+/* БЛОК КАК ПАРАЗИТЫ ПОПАДАЮТ */
+.b-effects {
+
+}
+
+.linear {
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    line-height: 1.3em;
+    height: 82px;
+    width: 280px;
+}
+
+.linear.item-1 {
+    background: url(../../TMP/img/4/Vector%20Smart%20Object4.png);
+    background-repeat: no-repeat;
+    padding: 18px 0 18px 95px;
+    margin: 0 0 0 5px;   
+}
+
+.linear.item-2 {
+    background: url(../../TMP/img/4/Vector%20Smart%20Object2.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding: 18px 20px 18px 95px;
+    margin: 0 0 0 5px; 
+}
+
+.linear.item-3 {
+    background: url(../../TMP/img/4/Vector%20Smart%20Object3.png);
+    background-repeat: no-repeat;
+    background-position: 50px 0;
+    padding: 18px 20px 18px 150px;
+    margin: 0 0 0 5px;
+}
+
+.linear.item-4 {
+    background: url(../../TMP/img/4/Vector%20Smart%20Object1.png);
+    background-repeat: no-repeat;
+    background-position: 60px 0;
+    padding: 18px 0 18px 160px;
+    margin: 0 0 0 5px;
+}
+ 
+
+/* БЛОК КЛИНИЧЕСКИЕ ИССЛЕДОВАНИЯ */
+.b-source {
+    margin: 150px 0 60px 0;
+}
+
+.how {
+    text-align: center;
+    margin-bottom: 40px;
+}
+ 
+
+/* БЛОК КЛИНИЧЕСКИЕ ИССЛЕДОВАНИЯ */
+
+.b-researches {
+    margin-bottom: 0;
+}
+
+#doctor {
+    height: 644px;
+    width: 404px;
+    background: url(../../TMP/img/5/expert.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text-doctor {
+    line-height: 1.2;
+    margin: 0 20px 0 40px;
+}
+ 
+.name-doctor {
+    margin: 285px 20px 20px 40px;
+}
+
+.statistic {
+    line-height: 3.3;
+    margin-left: 38px;
+    background: url(../../TMP/img/5/Layer%2042.png);
+    background-repeat: no-repeat;
+    background-position: right 70px;
+}
+
+.no-statistic {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.desease {
+    margin: 10px 0 45px 0;
+}
+
+.page-diagram {
+    height: 600px;
+    background: url(../../TMP/img/5/bg2.png);
+    background-size: 100% 75%;
+    background-position: 65px 20px;
+    background-repeat: no-repeat;
+    color: black;
+}
+
+#firstid {
+    padding-top: 18px;
+}
+
+
+.page-diagram img {
+    float: right;
+}
+
+.secondbox {
+    height: 300px;
+    width: 150px;
+}
+
+.page-diagram span {
+    margin: 0 40px 0 10px;
+}
+
+.results {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.results-2 {
+    font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+/* БЛОК ЧЕМ INTOXIC ЛУЧШЕ */
+.b-benefits {
+    
+}
+
+.center-align {
+    text-align: center;
+}
+
+#imggrid {
+    width: 400px;
+    height: 500px;
+    margin: 15px 15px 0 0;
+    padding: 0;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.listimg {
+    height: 120px;
+}
+
+.listimg.item-1 {
+    background: url(../../TMP/img/6/Vector%20Smart%20Object7.png);
+    background-repeat: no-repeat;
+    background-position: 40px 30px;
+    padding: 18px 0 18px 95px;
+    margin: 0 0 0 5px;
+}
+
+.listimg.item-2 {
+    background: url(../../TMP/img/6/Vector%20Smart%20Object5.png);
+    background-repeat: no-repeat;
+    background-position: 40px 30px;
+    padding: 18px 0 18px 95px;
+    margin: 0 0 0 5px;
+}
+
+.listimg.item-3 {
+    background: url(../../TMP/img/6/Vector%20Smart%20Object6.png);
+    background-repeat: no-repeat;
+    background-position: 40px 30px;
+    padding: 18px 0 18px 95px;
+    margin: 0 0 0 5px;
+}
+
+#strong {
+    font-weight: 600;
+}
+
+#imggrid div {
+    padding-left: 70px;
+    padding-right: 20px;
+    line-height: 1.3;
+}
+
+.short-center {
+    padding: 20px 0 20px 0;
+    text-align: center;
+}
+ 
+
+/* БЛОК ФОРМА ЗАКАЗА ПРЕПАРАТА */
+.b-order {
+
+}
+
+.full {
+    width: 1296px;
+}
+
+.rectangle {
+    height: 650px;
+    width: 680px;
+    background: url(../../TMP/img/Rounded%20Rectangle%202.png);
+    background-repeat: no-repeat;
+    background-size: 632px 637px;
+    background-position: -5px 15px;
+}
+
+.cell {
+    width: 500px;
+    height: 126px;
+    line-height: 1.4;
+}
+
+.cell.item-1 {
+    background: url(../../TMP/img/7/Layer%2022.png);
+    background-repeat: no-repeat;
+    background-position: 50px 0;
+    padding: 18px 0 18px 200px;
+    margin: 0 0 0 5px;
+}
+
+.cell.item-2 {
+    background: url(../../TMP/img/7/Layer%2023.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    padding: 18px 150px 18px 50px;
+    margin: 0 0 0 5px;
+}
+
+.cell.item-3 {
+    background: url(../../TMP/img/7/Layer%2024.png);
+    background-repeat: no-repeat;
+    background-position: 50px 0;
+    padding: 18px 0 18px 200px;
+    margin: 0 0 0 5px;
+}
+
+.box-shape {
+    margin-top: 80px;
+}
+
+/* БЛОК ОТЗЫВЫ */
+.b-reviews {
+    
+}
+
+.b-reviews .logo-xsmtext {
+    margin: 100px 0 50px 0;
+}
+ 
+
+/* БЛОК СЕРТИФИКАТЫ */
+.b-certificates {
+    text-align: center;
+}
+
+.b-certificates .logo-xsmtext {
+    margin-top: 50px;
+}
+
+.b-certificates img {
+    margin-left: 20px;
+}
+ 
+.firstimg {
+    position: relative;
+    z-index: 2;
+}
+
+.secondimg {
+    position: relative;
+    z-index: 1;
+    top: 110px;
+    right: 70px;
+    margin: 0;
+}
+
+
+/* БЛОК ФОРМА ЗАКАЗА ПРЕПАРАТА */
+.b-order {
+
+}
+
+.tab {
+    margin: 0 80px 20px 40px; 
+}
+ 
+.intoxic {
+    width: 270px;
+    height: 170px;
+    margin: 0 0 5px 100px;
+    
+}
+
+/* БЛОК КАК МЫ РАБОТАЕМ */
+.b-deal {
+    text-align: center;
+    margin: 10px 0 40px 0;
+}
+
+.b-deal .logo-xsmtext {
+    margin-top: 50px;
+}
+
+.deal-with {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.b-deal .item-1 {
+    background: url(../../TMP/img/11/Vector%20Smart%20Object10.png);
+    background-repeat: no-repeat;
+    background-position: 60px 0;
+    padding: 18px 0 18px 150px;
+    margin: 0 0 0 5px;
+    height: 82px;
+}
+
+.b-deal .item-2 {
+    background: url(../../TMP/img/11/Vector%20Smart%20Object9.png);
+    background-repeat: no-repeat;
+    background-position: 60px 0;
+    padding: 18px 0 18px 150px;
+    margin: 0 0 0 5px;
+    height: 82px;
+}
+
+.b-deal .item-3 {
+    background: url(../../TMP/img/11/Vector%20Smart%20Object11.png);
+    background-repeat: no-repeat;
+    background-position: 60px 0;
+    padding: 18px 0 18px 150px;
+    margin: 0 0 0 5px;
+    height: 82px;
+}
+
+.b-deal .item-4 {
+    background: url(../../TMP/img/11/Vector%20Smart%20Object12.png);
+    background-repeat: no-repeat;
+    background-position: 60px 0;
+    padding: 18px 0 18px 150px;
+    height: 82px;
+    margin: 0 0 0 5px;
+}

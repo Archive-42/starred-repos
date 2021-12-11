@@ -1,0 +1,236 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic);
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,700&subset=latin,cyrillic);
+
+/* RESET */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, a, img, sub, sup, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, canvas, details, embed
+hgroup, menu, nav, output, time, mark, audio, video 
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;  
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	line-height: 1;
+	font-family: 'Fira Sans', sans-serif;
+}
+
+body,html{
+	height: 100%; /* Use for making blocks height 100% of container */
+} 
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* CLEARFIX */
+
+.main-container:after,
+.row:after,
+.main-container:after,
+*[class^='b-']:after,
+.intro__picture-list-box_one-colum:after
+ {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* MAIN STYLE */
+.main-container{
+	margin: 0 auto;
+	display: block;
+}
+
+.cols{
+	float: left;
+	margin: 0;
+	padding: 0;
+	word-wrap: break-word;
+	content: "";
+  	display: table;
+	/*background: rgba(255, 249, 0, 0.1);*/
+}
+
+.input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;font-family: 'Pt Sans',sans-serif;font-size: 16px;}
+.input::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;font-family: 'Pt Sans',sans-serif;font-size: 16px;}
+.input:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;font-family: 'Pt Sans',sans-serif;font-size: 16px;}
+.input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;font-family: 'Pt Sans',sans-serif;font-size: 16px;}
+.input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+.input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+.input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+.input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
+
+input:focus, textarea:focus, keygen:focus, select:focus {
+    outline-offset: 0px;
+}
+
+button:focus {outline:0;border: 0;}
+:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+
+/* COMMON QUERIES */
+
+@media only screen and (min-width : 0px) {
+	.main-container{
+		width: 320px;
+	}
+
+	.cols{margin-right:10px;margin-left:10px;}
+
+	.x-xsm-cols_size-12{width: 300px;}
+}
+
+@media only screen and (min-width : 480px) {
+	.main-container{
+		width: 480px;
+	}
+
+	.cols{margin-right:20px;margin-left:20px;}
+
+	.xsm-cols_size-12{width: 440px;}
+}
+
+@media only screen and (min-width : 640px) {
+	.main-container{
+		width: 640px;
+	}
+	.cols{margin-right:0px;margin-left:0px;}
+	.cols:nth-child(even){margin-right:20px;}
+	.cols:nth-child(odd){margin-left:20px;}
+
+	.x-sm-cols_size-6{width: 300px;}
+	.x-sm-cols_size-12{width: 640px;}
+}
+
+
+@media only screen and (min-width : 768px) {
+	.main-container{
+		width: 768px;
+	}
+
+	.sm-cols_size-6{width: 364px;}
+	.sm-cols_size-12{width: 728px;}
+    
+    .pack-box {
+        margin-left: 350px;
+    }
+}
+
+@media only screen and (min-width : 976px) {
+	.main-container{
+		width: 976px;
+	}
+	.cols{margin-right:20px;}
+	.cols:last-child{margin-right:0;}
+	.cols:first-child{margin-left:0px;}
+
+	.cols:nth-child(even){margin-right:0px;}
+	.cols:nth-child(odd){margin-left:0px;}
+
+	.md-cols_size-1{width: 83px;}
+	.md-cols_size-2{width: 146px;}
+	.md-cols_size-3{width: 229px;}
+	.md-cols_size-4{width: 312px;}
+	.md-cols_size-5{width: 395px;}
+	.md-cols_size-6{width: 478px;}
+	.md-cols_size-7{width: 561px;}
+	.md-cols_size-8{width: 644px;}
+	.md-cols_size-9{width: 727px;}
+	.md-cols_size-10{width: 810px;}
+	.md-cols_size-11{width: 893px;}
+	.md-cols_size-12{width: 976px;}
+    
+    
+}
+
+@media only screen and (min-width : 1286px) {
+	.main-container{
+		width: 1266px;
+	}
+	.cols{margin-right:30px;}
+	.cols:last-child{margin-right:0;}
+
+	.lg-cols_size-1{width: 64px;}
+	.lg-cols_size-2{width: 118px;}
+	.lg-cols_size-3{width: 294px;}
+	.lg-cols_size-4{width: 402px;}
+	.lg-cols_size-5{width: 510px;}
+	.lg-cols_size-6{width: 618px;}
+	.lg-cols_size-7{width: 726px;}
+	.lg-cols_size-8{width: 834px;}
+	.lg-cols_size-9{width: 942px;}
+	.lg-cols_size-10{width: 1050px;}
+	.lg-cols_size-11{width: 1158px;}
+	.lg-cols_size-12{width: 1266px;}
+}
+
+/* SPECIFIC QUERIES */
+
+/* iPhone 4 */
+/*
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+}
+*/
+
+/* iPads (landscape) */
+/*
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+}
+*/
+
+/* iPads (portrait) */
+/*
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+}
+*/
+
+/* Smartphones (portrait and landscape) */
+/*
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+}
+*/
+
+/* iPads (portrait and landscape) */
+/*
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+}
+*/
+
+/* LIQUID SITES RULES */
+
+/*
+
+% use for blocks
+em use for font sizes
+BLOCK WIDTH = TARGET / CONTEXT * 100%
+NEED FONT SIZE / 16 = X em (BODY base font-size - 16 px or 100%)
+
+
+*/

@@ -1,0 +1,160 @@
+
+/******************РЅРµ РјРµРЅСЏС‚СЊ_РЅР°С‡Р°Р»Рѕ**********************/
+.flexslider {
+    /*width: 780px;*/
+    width: 100%;
+	margin: 0px auto 0px auto;
+	position: relative;
+}
+
+.flex-control-nav {
+    display: none;
+}
+
+.slides {
+    float: left;
+}
+
+.slides li {
+    list-style: none;
+}
+
+.slides li .review {
+    width: 100%;
+}
+
+.flex-next, .flex-prev {
+    position: absolute;
+    margin-top: -40px;
+    text-indent: -9999999px;
+    display: none;
+}
+
+
+/******************РЅРµ РјРµРЅСЏС‚СЊ_РєРѕРЅРµС†**********************/
+
+.flexslider {
+    width: auto;
+}
+.flex-control-nav {
+    display: block;
+    width: 100%;
+    margin-top: 150px;
+    top: 150px;
+    position: absolute;
+
+    text-align: center;
+}
+.flex-control-nav li {
+    list-style: none;
+    display: inline-block;
+}
+.flex-control-nav li:not(:last-child) {
+    margin-right: 29px;
+}
+.flex-control-nav li a {
+    display: block;
+    width: 60px;
+    height: 3px;
+    font-size: 0;
+    background-color: #4d4853;
+}
+.flex-control-nav li a.flex-active {
+    background-color: #e74700;
+}
+.flex-next {
+    background: url("../TMP/img/SliderRightArrow.png") no-repeat center center;
+    width: 22px;
+    height: 47px;
+    right: -10%;
+    top: 45%;
+}
+
+.flex-prev {
+    background: url("../TMP/img/SliderLeftArrow.png") no-repeat center center;
+    width: 22px;
+    height: 47px;
+    left: 0;
+    top: 45%;
+}
+
+.slides li .review img {
+    display: block;
+    margin: 0 auto 25px;
+}
+.slides li .review h3 {
+    font-size: 22px;
+    text-align: center;
+}
+.slides li .review .city {
+    margin-bottom: 60px;
+    font-size: 18px;
+    text-align: center;
+}
+.slides li .review .text {
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+.slides li .review .text span {
+    color: #e74700;
+}
+.slides li .review .text:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (min-width: 480px) {
+    .flex-next {
+        right: 16%;
+        top: 48%;
+    }
+
+    .flex-prev {
+        left: 16%;
+        top: 48%;
+    }
+}
+@media screen and (min-width: 640px) {
+    .flex-next {
+        right: 24%;
+        top: 54%;
+    }
+
+    .flex-prev {
+        left: 24%;
+        top: 54%;
+    }
+    .slides li .review .text {
+        font-size: 16px;
+    }
+}
+@media screen and (min-width: 768px) {
+
+}
+@media screen and (min-width: 970px) {
+
+    .slides li .review .cont970 {
+        float: left;
+        width: 240px;
+    }
+    .flex-prev {
+        left: 0;
+        top: 82%;
+    }
+    .flex-next {
+        right: 75%;
+        top: 82%;
+    }
+    .flex-control-nav {
+        top: 320px;
+        text-align: center;
+    }
+    .slides li .review .text {
+        margin-bottom: 35px;
+        margin-left: 300px;
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+
+
+}
