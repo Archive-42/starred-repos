@@ -1,0 +1,165 @@
+.main-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #262626;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  display: grid;
+  grid-template-areas: 'nav notes editor';
+  /* grid-template-columns: 325px 400px 1fr; */
+  grid-template-columns: 17% 2fr 6fr;
+  grid-template-rows: 100%;
+}
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.navbar-homepage {
+  grid-area: nav;
+
+  padding: 1px;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.notes-homepage {
+  grid-area: notes;
+
+  background-color: #1a1a1a;
+}
+
+.text-editor-homepage {
+  grid-area: editor;
+
+  overflow: hidden;
+  background-color: #262626;
+}
+
+.social-links {
+  z-index: 1;
+  bottom: 20;
+  display: flex;
+  position: relative;
+  top: 50%;
+  justify-content: space-around;
+}
+
+.linkedin-hover:hover,
+.github-hover:hover {
+  opacity: 0.8;
+  transition-duration: 0.5s;
+}
+
+.new-note-button {
+  display: flex;
+  justify-content: left;
+  outline:none;
+  height: 36px;
+  text-align: center;
+  width: 90%;
+  max-width: 282px;
+  border-radius:40px;
+  background-color: #00A82D;
+  border: 0.5px solid #00A82D;
+  color: black;
+  letter-spacing:1px;
+  text-shadow:0;
+  cursor: pointer;
+  font: 14px;
+  margin: 40px 4px 40px 10px;
+  transition: all 0.25s ease;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+#button-label {
+  overflow: hidden;
+  min-width: 95px;
+ color: black;
+ text-align: left;
+ width: 100%;
+ margin-left: 5px;
+ height: 100%;
+ font-size: 20px;
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
+}
+
+.new-note-button:hover {
+  opacity: 0.8;
+  transition-duration: 0.2s
+}
+
+
+.col-resize {
+  padding-left: 4px;
+  height: 100%;
+  background-color: grey;
+  cursor: col-resize;
+}
+
+.notes-homepage {
+  overflow-y: scroll;
+}
+
+.notes-homepage::-webkit-scrollbar {
+  width: 9px;               /* width of the entire scrollbar */
+}
+
+.notes-homepage::-webkit-scrollbar-track {
+  background: rgb(38,38,38);        /* color of the tracking area */
+}
+
+.notes-homepage::-webkit-scrollbar-thumb {
+  background-color: #b4b4b498;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid rgb(38,38,38);  /* creates padding around scroll thumb */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #e6e6e6;
+
+}
+
+.nav-link-tab {
+  text-decoration: none;
+  color: #e6e6e6;
+  display: flex;
+  width: 100%;
+}
+
+
+.route-selected {
+  background-color: rgba(99, 96, 96, 0.267);
+}
+
+.route {
+  padding: 5px;
+  font-size: 18px;
+  display: flex;
+}
+/* .route:hover {
+  background-color: rgba(99, 96, 96, 0.267);
+  transition-duration: 0.2s
+} */
+
+#note-tab-label {
+  overflow: hidden;
+  min-width: 95px;
+ color: #e6e6e6;
+ text-align: left;
+ font-size: 20px;
+ padding: 3px 0px 0px 3px;
+ font-family: Arial, Helvetica, sans-serif;
+}
+
+.not-selected:hover {
+  background-color: rgba(73, 72, 72, 0.267);
+  transition-duration: 0.2s
+}
