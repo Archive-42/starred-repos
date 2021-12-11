@@ -1,0 +1,11 @@
+.kanban_card {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+  margin-bottom: 8px;
+  width: 100%;
+  cursor: pointer;
+}
+.kanban_card .kanban_card_content {
+    padding: 10px;
+}

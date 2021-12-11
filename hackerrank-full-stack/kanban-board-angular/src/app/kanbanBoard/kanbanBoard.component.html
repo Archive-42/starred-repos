@@ -1,0 +1,42 @@
+<div class="mt-20 layout-column justify-content-center align-items-center">
+    <section class="mt-50 layout-row align-items-center justify-content-center">
+      <input id="create-task-input" [(ngModel)]="newTask" type="text" class="large" placeholder="New task name" data-test-id="create-task-input"/>
+      <button type="submit" class="ml-30" (click)="createTask()" data-test-id="create-task-button">Create task</button>
+    </section>
+
+    <div class="mt-50 layout-row">
+      <div class="card outlined ml-20 mt-0" *ngFor="let tasks of stagesTasks;index as i;">
+        <div class="card-text">
+          <h4>{{this.stagesNames[i]}}</h4>
+          <ul class="styled mt-50" [attr.data-test-id]="'stage-'+ i">
+            <li *ngFor="let task of tasks; index as index;">
+              <div class="li-content layout-row justify-content-between align-items-center">
+                  <span [attr.data-test-id]="generateTestId(task.name)+ '-name'">{{task.name}}</span>
+                  <div class="icons">
+                    <button class="icon-only x-small mx-2"
+                    [disabled]="task.stage === 0"
+                          (click)="backMove(task)"
+                            [attr.data-test-id]="generateTestId(task.name)+ '-back'">
+                      <i class="material-icons">arrow_back</i>
+                    </button>
+
+                    <button class="icon-only x-small mx-2"
+                    (click)="forwardMove(task)"
+                    [disabled]="task.stage === 3"
+                            [attr.data-test-id]="generateTestId(task.name)+ '-forward'">
+                      <i class="material-icons">arrow_forward</i>
+                    </button>
+
+                    <button class="icon-only danger x-small mx-2"
+                    (click)="delete(task)"
+                            [attr.data-test-id]="generateTestId(task.name)+ '-delete'">
+                      <i class="material-icons">delete</i>
+                    </button>
+                  </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
