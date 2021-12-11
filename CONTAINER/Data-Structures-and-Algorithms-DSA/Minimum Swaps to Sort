@@ -1,0 +1,45 @@
+/*Given an array of n distinct elements. Find the minimum number of swaps required to sort the array in strictly increasing order.
+
+Input:
+nums = {2, 8, 5, 4}
+Output:
+1
+Explaination:
+swap 8 with 4.
+*/
+
+
+class Solution {
+  public:
+
+    int minSwaps(vector < int > arr) {
+      int n = arr.size();
+      vector < pair < int, int >> vec(n);
+
+      for (int i = 0; i < n; i++) {
+        vec[i].first = arr[i];
+        vec[i].second = i;
+      }
+
+      sort(vec.begin(), vec.end());
+
+      int ans = 0, c = 0, j;
+
+      for (int i = 0; i < n; i++) {
+
+        if (vec[i].second == i)
+          continue;
+        else {
+          swap(vec[i].first, vec[vec[i].second].first);
+          swap(vec[i].second, vec[vec[i].second].second);
+        }
+
+        if (i != vec[i].second)
+          --i;
+
+        ans++;
+      }
+
+      return ans;
+    }
+};
