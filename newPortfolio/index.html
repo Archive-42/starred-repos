@@ -1,0 +1,571 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+    <title>Portfolio of Erica Ingram</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js">
+    </script>
+    <link href="css/bootstrap.min.css" rel="preload" as="style">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type='text/css'>
+    <link href="css/font-awesome.min.css" rel="preload" as="style">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type='text/css'>
+    <link rel="stylesheet" href="css/index.css" type='text/css'>
+    <link href="css/media-player.css" rel="preload" as="style">
+    <link rel="stylesheet" href="css/media-player.css" type='text/css'>
+    <link href="css/subtitles.css" rel="preload" as="style">
+    <link rel="stylesheet" href="css/subtitles.css" type='text/css'>
+    <link rel=preload as="font" href="fonts/CascadiaCode.woff2" type="font/woff2" crossorigin>
+    <link rel=preload as="font" href="fonts/Barlow.ttf" type="font/ttf" crossorigin>
+    <link rel=preload as="font" href="fonts/SourceSansPro.ttf" type="font/ttf" crossorigin>
+
+        <!-- favicons -->
+    <link rel="icon" href="img/myAvatar.webp" sizes="32x32" />
+    <link rel="icon" href="img/myAvatar.webp" sizes="192x192" />
+    <link rel="apple-touch-icon-precomposed" href="img/myAvatar.webp" sizes="180x180" />
+
+
+    <meta name="keywords"
+        content="Erica Ingram, software engineer, software developer, developer, full-stack web developer, full-stack software engineer, full-stack software developer, HTML, CSS, Java, JavaScript, LESS, React, Redux, TypeScript, UML, Node.js, Express, Knex, SQL, MySQL, PostgreSQL, Jest, Cypress, GraphQL, Python, Swagger, Maven, JUnit, Agile, Git, Visual Basic" />
+
+    <meta name="description"
+        content="portfolio of Erica Ingram, full-stack web developer from Seattle, Washington.">
+
+</head>
+
+<body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <span class="avatar"><img src="img/myAvatar.webp" alt="" /></span>
+            <h1>Hello, my name's Erica Ingram. Welcome to my new portfolio. I'm
+                a full-stack web developer, working in a JavaScript, Node, and React-based stack, and I love building apps and solving problems.</h1>
+            <ul class="icons">
+                <li>
+                    <a href="https://www.linkedin.com/in/aquocotrans" target="_blank" rel="noopener noreferrer"
+                        class="icon style2 fa-linkedin" aria-label="LinkedIn">
+                        <span class="label">LinkedIn</span>
+                    </a>
+                </li>
+                <li><a href="https://www.github.com/evoingram" target="_blank" rel="noopener noreferrer"
+                        class="icon style2 fa-github" aria-label="GitHub"><span class="label">GitHub</span></a></li>
+                <li><a href="http://hackerrank.com/evoingram" target="_blank" rel="noopener noreferrer"
+                        class="icon style2 fa-hackerrank" aria-label="Hackerrank"><span class="label">Hackerrank</span></a></li>
+                <li>
+                    <a href="tel:425-610-7447" target="_blank" rel="noopener noreferrer" class="icon style2 fa-phone" aria-label="Phone">
+                        <span class="label">Phone</span>
+                    </a>
+                </li>
+                <li><a href="mailto:me@ericaingram.tech" target="_blank" rel="noopener noreferrer" class="icon style2
+                            fa-envelope" aria-label="Email"><span class="label">Email</span></a></li>
+            </ul>
+            <div>(425) 610-7447<br />me at ericaingram dot tech</div>
+        </header>
+
+        <!-- Main -->
+        <section id="main">
+            <section class="video-section">
+                <h2 id="video-player-title" class="video-player-title">NEW:  Project Walkthrough</h2>
+                <!-- Video Player & Video -->
+                <p>To learn even more about me and how I work, please check out the below video (32:26).  Because I am a developer more than a filmmaker, I'm of course most excited to show off the custom video player I built, which features captions, chapters, volume and playback speed controls, and social media sharing in addition to standard video controls.  I also transcribed the captions!</p>
+                <br />
+                <figure id='media-player'>
+                    <div id="player-controls">
+                        <video id='media-video' controls preload="auto">
+                            <source src='img/video/ProjectWalkthrough-FINAL.mp4' type='video/mp4'>
+                            <track id="chapters-track"
+                                kind="chapters" 
+                                label="Projects" 
+                                src="img/video/chapters.vtt" 
+                                srclang="en" 
+                                default 
+                                />  
+                            <track label="English" kind="subtitles" srclang="en" src="img/video/captions.vtt" default>
+                        </video>
+                        <div id='media-controls'>
+                            <div id="progress-label">Video Progress:</div>
+                            <div class="progress"><div class="progress__filled"></div></div>
+                            <div id="speed-label">Speed:</div>
+                            <label for="playbackSpeed">Playback Speed</label>
+                            <input 
+                                id="playbackSpeed" 
+                                type="range" 
+                                name="playbackRate" 
+                                class="player__slider" 
+                                min="0.5" 
+                                max="2" 
+                                step="0.1" 
+                                value="1">
+                            <div id="media-buttons">
+                                <div id='replay-button' class='replay icon style2' 
+                                        title='replay'>
+                                        <img src="img/video/replay.webp" alt="replay" />
+                                </div>	
+                                <div id='play-pause-button' class='play icon style2' 
+                                        title='play'>
+                                        <img id='play-img' src="img/video/play.webp" alt="play/pause" />
+                                </div>
+                                <div id='stop-button' class='stop icon style2' 
+                                        title='stop'>
+                                        <img src="img/video/stop.webp" alt="stop" />
+                                </div>
+                                <div id='volume-inc-button' class='volume-plus icon style2' 
+                                        title='increase volume'>
+                                        <img src="img/video/plus.webp" alt="volume up" />
+                                </div>	
+                                <div id='volume-dec-button' class='volume-minus icon style2' 
+                                        title='decrease volume'>
+                                        <img src="img/video/minus.webp" alt="volume down" />
+                                </div>	
+                                <div id='mute-button' class='mute icon style2' 
+                                        title='mute'>
+                                        <img id='mute-img' src="img/video/mute.webp" alt="mute/unmute" />
+                                </div>		
+                                <div id='share-button' class='icon style2' 
+                                        title='share on social media'>
+                                        <img id='share-img' src="img/share/share.webp" alt="share on social media" />
+                                </div>	
+                                <div id='cc-button' class='icon style2' 
+                                        title='closed captioning'>
+                                        <img id='cc-img' src="img/video/cc.webp" alt="toggle closed captioning" />
+                                </div>		
+                            </div>
+                        </div>
+                    </div>
+                    <div id='media-chapters'>
+                        <figcaption>
+                            <ol id="chapters">
+                            </ol>
+                        </figcaption>
+                    </div>
+                    <div id="share-modal" class="share-modal">
+                        <div class="share-modal-content">
+                            <div class="share-modal-body">
+                                <div id='facebook' 
+                                     title='Share on Facebook'>
+                                     <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.ericaingram.com" target="_blank"  rel="noopener noreferrer">
+                                        <img src="img/share/facebook.webp" alt="Share on Facebook" />
+                                    </a>
+                                </div>	
+                                <div id='twitter'
+                                        title='Share on Twitter'>
+                                    <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20cool%20project%20walkthrough%20and%20custom%20video%20player%20by%20Erica%20Ingram%20at%20http%3A//www.ericaingram.com." target="_blank"  rel="noopener noreferrer">
+                                        <img src="img/share/twitter.webp" alt="Share on Twitter" />
+                                    </a>
+                                </div>
+                                <div id='linkedin'
+                                        title='Share on LinkedIn'>
+                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//www.ericaingram.com&title=Cool%20Project%20Walkthrough%20%26%20Custom%20Video%20Player&summary=Check%20out%20this%20cool%20project%20walkthrough%20and%20custom%20video%20player%20by%20Erica%20Ingram.&source=" target="_blank" rel="noopener noreferrer">
+                                            <img src="img/share/linkedin.webp" alt="Share on LinkedIn"/>
+                                        </a>
+                                </div>
+                                <div id='email'
+                                        title='Share via email' >
+                                        <a href="mailto:?subject=cool%20project%20walkthrough%20%26%20custom%20video&body=Check%20out%20this%20cool%20project%20walkthrough%20and%20custom%20video%20player%20by%20Erica%20Ingram%20at%20http%3A//www.ericaingram.com." target="_blank"  rel="noopener noreferrer">
+                                        <img src="img/share/email.webp" alt="Share via email" />
+                                    </a>
+                                </div>	
+                                <span class="share-close">&times;</span>
+                            </div>	
+                        </div>
+                    </div>
+                </figure>
+                
+
+                <br />
+                <span class="below-video-container"><a href="https://www.youtube.com/watch?v=W3Ar4sdL-JI#t=0m27s" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/%20-What's%20detasseling%3F-informational?style=flat&logo=Youtube&logoColor=white&color=7a28cc&cacheSeconds=2592000" class="below-vid-links" alt="What's detasseling?"></a>  <a href="img/video/Presentation.pptx" target="_blank" rel="noopener noreferrer"><img class="below-vid-links" src="https://img.shields.io/badge/%20-Download%20Presentation-informational?style=flat&logo=Microsoft%20PowerPoint&logoColor=white&color=7a28cc&cacheSeconds=2592000" alt="Download the presentation"></a>  <a href="img/video/ProjectWalkthrough-FINAL.mp4" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/%20-Download%20Video-informational?style=flat&logoColor=white&color=7a28cc&cacheSeconds=2592000" class="below-vid-links" alt="Download Video"></a></span>
+            </section>
+            <hr />
+            <section class="menu-section">
+                <ul class="icons main-section-menu">
+                    <li onclick="toggleMainSection('resume')">
+                        <h2 class="icon style2">Resume</h2>
+                    </li>
+                    <li onclick="toggleMainSection('projects')">
+                        <h2 class="icon style2">Projects</h2>
+                    </li>
+                    <li onclick="toggleMainSection('about-me')">
+                        <h2 class="icon style2">About</h2>
+                    </li>
+                </ul>
+            </section>
+            <section class="content-container">
+                <section id="resume" class="resume submenu">
+                    <section class="resume-icons">
+                        <ul class="icons">
+                            <li><a href="https://www.aquoco.co/Erica_Ingram_Resume.pdf" target="_blank" rel="noopener noreferrer"
+                                    class="icon resume-icon style2 fa-file-pdf fa-3x"><span class="label">PDF</span></a></li>
+                            <li><a href="https://www.linkedin.com/in/aquocotrans/" target="_blank" rel="noopener noreferrer"
+                                    class="icon resume-icon style2 fa-linkedin fa-3x"><span class="label">LinkedIn</span></a></li>
+                            <li><a href="https://gist.github.com/evoingram/3f73c92881179f4abcb4e9ee7c13a82f" target="_blank" rel="noopener noreferrer"
+                                    class="icon resume-icon style2 fa-markdown fa-3x"><span class="label">Markdown</span></a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        
+                        <h2>Experience:</h2>
+                        <hr />
+                        <h3>Owner/Operator, <a href="https://www.aquoco.co/" target="_blank" rel="noopener noreferrer">A Quo Co.</a></h3>
+                        <h3>May 2009 to present</h3>
+                        <ul>
+                            <li>Remote work</li>
+                            <li>Developed & maintained company website</li>
+                            <li>Spent three years developing software to automate workflow with VB & MySQL, integrating with several APIs & programs</li>
+                            <li>Diverse customer base, attorneys & pro se parties</li>
+                            <li>Standard business operations such as accounting and project management</li>
+                            <li>Streamlined consistent business communications and marketing</li>
+                            <li>General & legal transcription services of digital audio and video formats</li>
+                            <li>Completely unique features such as authority hyperlinking via CourtListener, .gov
+                                sites, and the like as well as tables of authority for free with every transcript
+                                via VBA automation</li>
+                            <li>Consistently produced twice the number of transcript pages over average due to VBA
+                                automation</li>
+                            <li>Used text-analyzing software on over 10,000 transcript pages to produce autocorrect
+                                entries in Word to improve typing speed and accuracy, then used VBA to automate
+                                creation of those entries regarding proper names and nouns</li>
+                        </ul>
+
+                        <h3>Team Lead, <a href="https://lambdaschool.com/courses/full-stack-web-development" target="_blank" rel="noopener noreferrer">Lambda School</a></h3>
+                        <h3>January 2020 to June 2020</h3>
+                        <ul>
+                            <li>Code review for every student in my team twice a week</li>
+                            <li>Hosted stand-up meetings with seven students two to three times a week</li>
+                            <li>Presentations on various resources to facilitate students' growth during stand-ups
+                            </li>
+                            <li>Mentored and provided feedback to students on areas of improvement</li>
+                            <li>Tracked attendance and other student metrics</li>
+                            <li>Use of Slackbot and Slack Workflow Builder to manage tasks, information, and
+                                reminders</li>
+                        </ul>
+                        <h2>Skills:</h2>
+                        <hr />
+                        <div class="thumbnails skills-section">
+                            <div class="skills-row">
+                                <h2>Front End:</h2>
+                                <p>Bootstrap</p>
+                                <p>CSS</p>
+                                <p>Cypress</p>
+                                <p>Formik</p>
+                                <p>GSAP</p>
+                                <p>HTML</p>
+                                <p>jQuery</p>
+                                <p>LESS</p>
+                                <p>JavaScript</p>
+                                <p>Jest</p>
+                                <p>React</p>
+                                <p>Redux</p>
+                                <p>Tailwind</p>
+                                <p>TypeScript</p>
+                            </div>
+                            <div class="skills-row">
+                                <h2>Back End:</h2>
+                                <p>Express</p>
+                                <p>GraphQL</p>
+                                <p>Java</p>
+                                <p>Knex</p>
+                                <p>MySQL</p>
+                                <p>Node</p>
+                                <p>SQL</p>
+                                <p>PostgreSQL</p>
+                                <p>Postman</p>
+                                <p>Python</p>
+                            </div>
+                            <div class="skills-row">
+                                <h2>Other:</h2>
+                                <p>Adobe XD</p>
+                                <p>Agile</p>
+                                <p>COBOL</p>
+                                <p>Cortana</p>
+                                <p>Data Structures</p>
+                                <p>Algorithms</p>
+                                <p>Emmet</p>
+                                <p>Git</p>
+                                <p>GitHub</p>
+                                <p>JCL</p>
+                                <p>Microsoft Office</p>
+                                <p>Object-Oriented Analysis</p>
+                                <p>Object-Oriented Design</p>
+                                <p>Powershell</p>
+                                <p>Rexx</p>
+                                <p>Scalability</p>
+                                <p>UML</p>
+                                <p>Visual Basic</p>
+                            </div>
+                        </div>
+                        <h2>Education:</h2>
+                        <hr />
+                        <h3>
+                            <a href="https://www.youracclaim.com/badges/5787404e-dabf-4433-b11b-6f622b4419a0/public_url" target="_blank" rel="noopener
+                            noreferrer">Lambda School, full stack web development</a>
+                        </h3>
+                        <h4>October 2019 to July 2020</h4>
+                        <ul>
+                            <li>Nine-month computer science and software engineering academy providing intense
+                                immersive curriculum in web development and computer science-focused topics</li>
+                        </ul>
+
+                        <h3><a href="http://freecodecamp.org/evoingram">freeCodeCamp, full stack web development</a></h3>
+                        <h4>June 2019 to present</h4>
+                        <ul>
+                            <li>Responsive Web Design</li>
+                            <li>JavaScript Algorithms and Data Structures</li>
+                            <li>Front End Libraries</li>
+                            <li>Data Visualization</li>
+                        </ul>
+                        <br>
+                    </section>
+                </section>
+                <section id="projects" class="projects submenu">
+                    <!-- Thumbnails -->
+                    <section class="thumbnails">
+                        <div>
+                            <div class="myBtn" onclick="openModal('AQC')">
+                                    <img src="img/projects/projectpicture-AQC.webp" alt="Company App:  Marketing Website" title="Company App:  Marketing Website" />
+                                    <h3>Company App:  Marketing Website</h3>
+                            </div>
+                            <div class="myBtn" onclick="openModal('portfolio')">
+                                <img src="img/projects/projectpicture-portfolio.webp" alt="Portfolio" title="Portfolio" />
+                                <h3>Portfolio</h3>
+                            </div>
+                            <div class="myBtn" onclick="openModal('swaap')">
+                                <img src="img/projects/projectpicture-swaap.webp" alt="Swaap:  A business contact trading app" title="Swaap:  A business contact trading app" />
+                                <h3>Swaap:  A business contact trading app</h3>
+                            </div>
+                            <div class="myBtn" onclick="openModal('blogbackend')">
+                                <img src="img/projects/projectpicture-blogbackend2.webp" alt="Blog Back End" title="Blog Back End" />
+                                <h3>Blog Back End</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="myBtn" onclick="openModal('nodeBE')">
+                                <img src="img/projects/projectpicture-nodeBE2-thumb.webp" alt="Company App:  Node Back End" title="Company App:  Node Back End" />
+                                <h3>Company App:  Node Back End</h3>
+                            </div>
+                            <div class="myBtn" onclick="openModal('cgol')">
+                                <img src="img/projects/projectpicture-cgol.webp" alt="Conway's Game of Life" title="Conway's Game of Life" />
+                                <h3>Conway's Game of Life</h3>
+                            </div>
+                            <div class="myBtn" onclick="openModal('nasaSearch')">
+                                <img src="img/projects/projectpicture-nasaSearch.webp" alt="NASA Images Library Clone" title="NASA Images Library Clone" />
+                                <h3>NASA Images Library Clone</h3>
+                            </div>
+                            <div class="myBtn" onclick="openModal('vbDatabase')">
+                                <img src="img/projects/projectpicture-vbDatabase.webp" alt="Company App:  Production Software" title="Company App:  Production Software" />
+                                <h3>Company App:  Production Software</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="myBtn" onclick="openModal('javabe')">
+                                <img src="img/projects/projectpicture-javabe.webp" alt="Company App:  Java Back End" title="Company App:  Java Back End" />
+                                <h3>Company App:  Java Back End</h3>
+                            </div>
+                            <div class="myBtn" onclick="openModal('ucCustomer')">
+                                <img src="img/projects/projectpicture-ucCustomer.webp" alt="Company App:  Use Case Diagrams" title="Company App:  Use Case Diagrams" />
+                                <h3>Company App:  Use Case Diagrams</h3>
+                            </div>
+                            <div class="myBtn" onclick="openModal('speechRecog')">
+                                <img src="img/projects/projectpicture-speechRecog.webp" alt="Company App:  Speech Recognition" title="Company App:  Speech Recognition" 
+                                />
+                                <h3>Company App:  Speech Recognition</h3>
+                            </div>
+                            <div class="myBtn" onclick="openModal('webappFE')">
+                                    <img src="img/projects/projectpicture-webappFE.webp" alt="Company App:  Front End" title="Company App:  Front End" />
+                                    <h3>Company App:  Front End</h3>
+                            </div>
+                            <div class="myBtn" onclick="openModal('aQuack')">
+                                <img src="img/projects/projectpicture-aQuack.webp" alt="Company App:  Chat Bot" title="Company App:  Chat Bot" />
+                                <h3>Company App:  Chat Bot</h3>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="modals">
+                        
+                        
+                        <div id="project-modal" class="modal">
+                            <!-- Modal content -->
+                            <div id="modal-content" class="modal-content">
+                                <div class="modal-header">
+                                    <div id="close" class="close">&times;</div>
+                                </div>
+                                <div id="modal-header" class="modal-header">
+                                </div>
+                                <div id="modal-body" class="modal-body">
+                                </div>
+                                <div id="modal-footer" class="modal-footer">
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                </section>
+                <section id="about-me" class="about-me submenu">
+                    <section>
+                        <div class="githubc">
+                            <a href="https://www.github.com/evoingram" target="_blank" rel="noopener
+                            noreferrer" style="text-decoration:
+                                    none;">
+                                <div class="center">
+                                    <h2><strong>Github Contributions:</strong></h2>
+                                </div>
+                                <br />
+                                <div id=calendar class="calendar">
+                                    Loading GitHub data just for you.
+                                </div>
+                            </a>
+                        </div>
+                        <br /><br />
+                        <div class="badge-row">
+                            <div id="#lambda-badge" class="single-badge">
+                                <a href="https://www.youracclaim.com/badges/5787404e-dabf-4433-b11b-6f622b4419a0/public_url"
+                                    target="_blank" rel="noopener
+                                        noreferrer">
+                                    <img src="img/badges/badge-Lambda.webp"
+                                        title="Lambda School full-stack web development track completion badge"
+                                        alt="Lambda School full-stack web development track completion badge" />
+                                </a>
+                            </div>
+                            <div class="single-badge">
+                                <a href="https://www.youracclaim.com/badges/f4956178-1924-48d7-ae75-e72ca51c2c2d/public_url"
+                                    target="_blank" rel="noopener
+                                        noreferrer">
+                                    <img src="img/badges/badge-ibmMTMainframe.webp"
+                                        title="Master the Mainframe 2019 - Part 3"
+                                        alt="Master the Mainframe 2019 - Part 3 badge" />
+                                </a>
+                            </div>
+                            <div class="single-badge">
+
+                                <a href="https://www.youracclaim.com/badges/c1b569d5-d862-4b55-9387-936b7cbb9773/public_url"
+                                    target="_blank" rel="noopener
+                                        noreferrer">
+
+                                    <img src="img/badges/badge-ibmZOSDeveloper.webp"
+                                        title="IBM Developer for z/OS Basics"
+                                        alt="IBM Developer for z/OS Basics badge" />
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="badge-row">
+
+                            <div class="single-badge">
+                                <a href="https://www.youracclaim.com/badges/d5c014bd-bb06-4238-9141-ae7c18f7f498/public_url"
+                                    target="_blank" rel="noopener
+                                        noreferrer">
+                                    <img src="img/badges/badge-ZOSTCPIP.webp" title="z/OS TCP/IP Configuration with NCA"
+                                        alt="z/OS TCP/IP Configuration with NCA badge" />
+                                </a>
+                            </div>
+                            <div class="single-badge">
+                                <a href="https://www.youracclaim.com/badges/6e7740dd-ee50-43fe-b1af-124a8f4f872b/public_url"
+                                    target="_blank" rel="noopener noreferrer">
+
+                                    <img src="img/badges/badge-ibmZOSNetworkingFoundations.webp"
+                                        title="Networking on z/OS - Foundations"
+                                        alt="Networking on z/OS - Foundations badge" />
+                                </a>
+                            </div>
+                            <div class="single-badge" rel="noopener
+                                    noreferrer">
+                                <a href="https://www.youracclaim.com/badges/6e7740dd-ee50-43fe-b1af-124a8f4f872b/public_url"
+                                target="_blank" rel="noopener
+                                noreferrer">
+
+                                    <img src="img/badges/badge-ibmIntroMainframe.webp"
+                                        title="Introduction to IBM z/OS Mainframe"
+                                        alt="Introduction to IBM z/OS Mainframe badge" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="badge-row">
+                            <div class="single-badge" rel="noopener
+                                    noreferrer">
+                                <a href="https://www.youracclaim.com/badges/6e7740dd-ee50-43fe-b1af-124a8f4f872b/public_url"
+                                target="_blank" rel="noopener
+                                noreferrer">
+
+                                    <img src="img/badges/badge-OfficeMaster2016.webp"
+                                        title="Microsoft Office Master 2016"
+                                        alt="Microsoft Office Master 2016 badge" />
+                                </a>
+                            </div>
+                    </div>
+                        <div class="blurbs">
+                            <h2>About Me!</h2>
+                            <p>I am a recent Lambda School grad seeking a position as I transition careers. In my past,
+                                I've done lots of different things; worked in retail, customer service, as a project
+                                manager @ Kinkos, run a news department for a gaming league with a readership of over
+                                500k, and had a book published as well as articles featured on the front cover of
+                                Massive and Computer Games Magazines.</p>
+                            <br />
+                            <p>I am a leader by example, even when I am doing things for fun. For a year and a half, I
+                                belonged to a guild in World of Warcraft which was 25th in the U.S. out of upwards of
+                                10,000 guilds to clear Sunwell Plateau, and was present for and participated in each and
+                                every boss kill. I was known for combat log analysis and helped mentor junior raiders by
+                                deeply analyzing logs and collaborating with other guildies to help juniors improve
+                                their rotations.</p>
+                            <br />
+                            <p>I've run my own court transcription business for over a decade. My company's transcripts
+                                are truly unique and have features that none other does. For several years of owning my
+                                business, I developed software using VB and MySQL to automate a large chunk of it, and
+                                then wrote a few blog posts describing how to do some of the things I did. The software
+                                integrates with Word, Excel, Publisher, Outlook, Express Scribe, FTR Player, Acrobat,
+                                and Paypal, among others (also with Wunderlist when that was still a thing). I built a
+                                speech recognition engine using batch files and PocketSphinx, and then integrated that
+                                engine into my database. I cleaned up and automated feeding all the data (audio and
+                                transcripts) so it could learn. I loved doing all that so much that, when I found
+                                Lambda, I knew what I needed to do.</p>
+                            <p>&nbsp;</p>
+                            <p>During Lambda, I:</p>
+                            <ul>
+                                <li>had over 1,200 hours of hands-on development/coding time.</li>
+                                <li>presented product vision and release canvasses for approval to the product owner.
+                                </li>
+                                <li>gave presentations on supplemental content to teach students how to build certain
+                                    apps.</li>
+                                <li>on the side learned Java, TypeScript, Docker, UML, advanced Postman, advanced Agile
+                                    methodology, PowerShell, advanced VB, system design, scalability, and
+                                    object-oriented design patterns.</li>
+                                <li>received 14 references/recommendations while at school, seven on <a href="https://www.linkedin.com/in/aquocotrans/">LinkedIn</a> and seven
+                                    more via <a href="https://github.com/evoingram/evoingram/blob/master/Reference%20Report%20for%20Erica%20Ingram.pdf">Searchlight</a>, a third-party service which hides nearly all the recommender's
+                                    content from the recommendee to promote candor, which can be sent on request via e-mail.</li>
+                                <li>had over 5,900 GitHub contributions over the last year.</li>
+                                <li>studied data structures and algorithms, CTCI, and Leetcode on the side for many,
+                                    many hours.</li>
+                            </ul>
+                            <p>&nbsp;</p>
+                            <p>For six of the nine months at Lambda, I went to school 40 hours a week, served as team
+                                lead in the evenings 16-20 hours per week, and ran my business in between. Now I've been
+                                endorsed by Lambda, and am seeking a position in the tech field. As always, I will take
+                                my attitude, discipline, empathy, respect, problem-solving ability, teamwork, and grit
+                                with me wherever I land.</p>
+                        </div>
+
+                    </section>
+                </section>
+            </section>
+
+
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p>&copy; 2020 Erica Ingram. All rights reserved.  <br />(425) 610-7447   |  me at ericaingram dot tech</p>
+        </footer>
+
+    </div>
+
+    <script src="js/modal.js"></script>
+    <script src="js/fontawesome.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/media-player.js" ></script>
+</body>
+
+</html>

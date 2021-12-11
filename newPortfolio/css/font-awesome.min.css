@@ -1,0 +1,509 @@
+/*!
+ *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+@font-face {
+    font-family: FontAwesome;
+    src: url(../fonts/fontawesome-webfont.eot?v=4.5.0);
+    src: url(../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0) format('embedded-opentype'), url(../fonts/fontawesome-webfont.woff2?v=4.5.0) format('woff2'), url(../fonts/fontawesome-webfont.woff?v=4.5.0) format('woff'), url(../fonts/fontawesome-webfont.ttf?v=4.5.0) format('truetype'), url(../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular) format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback;
+}
+
+.fa {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1
+}
+
+.fa-1x {
+    font-size: 1em
+}
+
+.fa-2x {
+    font-size: 2em
+}
+
+.fa-3x {
+    font-size: 3em
+}
+
+.fa-4x {
+    font-size: 4em
+}
+
+.fa-5x {
+    font-size: 5em
+}
+
+.fa-6x {
+    font-size: 6em
+}
+
+.fa-7x {
+    font-size: 7em
+}
+
+.fa-8x {
+    font-size: 8em
+}
+
+.fa-9x {
+    font-size: 9em
+}
+
+.fa-10x {
+    font-size: 10em
+}
+
+.fa-ul {
+    list-style-type: none;
+    margin-left: 2.5em;
+    padding-left: 0
+}
+
+.fa-ul>li {
+    position: relative
+}
+
+.fa-li {
+    left: -2em;
+    position: absolute;
+    text-align: center;
+    width: 2em;
+    line-height: inherit
+}
+
+@-webkit-keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+
+.fa-stack {
+    display: inline-block;
+    height: 2em;
+    line-height: 2em;
+    position: relative;
+    vertical-align: middle;
+    width: 2.5em
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%
+}
+
+.fa-stack-1x {
+    line-height: inherit
+}
+
+.fa-stack-2x {
+    font-size: 2em
+}
+
+.fa-adobe:before {
+    content: "\f778"
+}
+
+.fa-apple:before {
+    content: "\f179"
+}
+
+.fa-apple-alt:before {
+    content: "\f5d1"
+}
+
+.fa-at:before {
+    content: "\f1fa"
+}
+
+.fa-audio-description:before {
+    content: "\f29e"
+}
+
+.fa-blog:before {
+    content: "\f781"
+}
+
+.fa-book:before {
+    content: "\f02d"
+}
+
+.fa-bootstrap:before {
+    content: "\f836"
+}
+
+.fa-building:before {
+    content: "\f1ad"
+}
+
+.fa-business-time:before {
+    content: "\f64a"
+}
+
+.fa-calendar:before {
+    content: "\f133"
+}
+
+.fa-calendar-alt:before {
+    content: "\f073"
+}
+
+.fa-calendar-check:before {
+    content: "\f274"
+}
+
+.fa-calendar-minus:before {
+    content: "\f272"
+}
+
+.fa-calendar-plus:before {
+    content: "\f271"
+}
+
+.fa-calendar-times:before {
+    content: "\f273"
+}
+
+.fa-calendar-week:before {
+    content: "\f784"
+}
+
+.fa-cc-paypal:before {
+    content: "\f1f4"
+}
+
+.fa-check:before {
+    content: "\f00c"
+}
+
+.fa-clone:before {
+    content: "\f24d"
+}
+
+.fa-closed-captioning:before {
+    content: "\f20a"
+}
+
+.fa-code:before {
+    content: "\f121"
+}
+
+.fa-copy:before {
+    content: "\f0c5"
+}
+
+.fa-css3:before {
+    content: "\f13c"
+}
+
+.fa-css3-alt:before {
+    content: "\f38b"
+}
+
+.fa-d-and-d:before {
+    content: "\f38d"
+}
+
+.fa-database:before {
+    content: "\f1c0"
+}
+
+.fa-docker:before {
+    content: "\f395"
+}
+
+.fa-download:before {
+    content: "\f019"
+}
+
+.fa-edge:before {
+    content: "\f282"
+}
+
+.fa-envelope:before {
+    content: "\f0e0"
+}
+
+.fa-facebook:before {
+    content: "\f09a"
+}
+
+.fa-facebook-f:before {
+    content: "\f39e"
+}
+
+.fa-file:before {
+    content: "\f15b"
+}
+
+.fa-file-alt:before {
+    content: "\f15c"
+}
+
+.fa-file-audio:before {
+    content: "\f1c7"
+}
+
+.fa-file-code:before {
+    content: "\f1c9"
+}
+
+.fa-file-download:before {
+    content: "\f56d"
+}
+
+.fa-file-excel:before {
+    content: "\f1c3"
+}
+
+.fa-file-pdf:before {
+    content: "\f1c1"
+}
+
+.fa-file-powerpoint:before {
+    content: "\f1c4"
+}
+
+.fa-file-video:before {
+    content: "\f1c8"
+}
+
+.fa-file-word:before {
+    content: "\f1c2"
+}
+
+.fa-git:before {
+    content: "\f1d3"
+}
+
+.fa-git-alt:before {
+    content: "\f841"
+}
+
+.fa-github:before {
+    content: "\f09b"
+}
+
+.fa-github-alt:before {
+    content: "\f113"
+}
+
+.fa-hackerrank:before {
+    content: "\f5f7"
+}
+
+.fa-hands:before {
+    content: "\f4c2"
+}
+
+.fa-html5:before {
+    content: "\f13b"
+}
+
+.fa-icons:before {
+    content: "\f86d"
+}
+
+.fa-id-badge:before {
+    content: "\f2c1"
+}
+
+.fa-images:before {
+    content: "\f302"
+}
+
+.fa-java:before {
+    content: "\f4e4"
+}
+
+.fa-js:before {
+    content: "\f3b8"
+}
+
+.fa-less:before {
+    content: "\f41d"
+}
+
+.fa-less-than:before {
+    content: "\f536"
+}
+
+.fa-link:before {
+    content: "\f0c1"
+}
+
+.fa-linkedin:before {
+    content: "\f08c"
+}
+
+.fa-linkedin-in:before {
+    content: "\f0e1"
+}
+
+.fa-markdown:before {
+    content: "\f60f"
+}
+
+.fa-microsoft:before {
+    content: "\f3ca"
+}
+
+.fa-minus:before {
+    content: "\f068"
+}
+
+.fa-node:before {
+    content: "\f419"
+}
+
+.fa-node-js:before {
+    content: "\f3d3"
+}
+
+.fa-pause:before {
+    content: "\f04c"
+}
+
+.fa-paypal:before {
+    content: "\f1ed"
+}
+
+.fa-phone:before {
+    content: "\f095"
+}
+
+.fa-phone-alt:before {
+    content: "\f879"
+}
+
+.fa-phone-volume:before {
+    content: "\f2a0"
+}
+
+.fa-php:before {
+    content: "\f457"
+}
+
+.fa-play:before {
+    content: "\f04b"
+}
+
+.fa-plus:before {
+    content: "\f067"
+}
+
+.fa-python:before {
+    content: "\f3e2"
+}
+
+.fa-react:before {
+    content: "\f41b"
+}
+
+.fa-school:before {
+    content: "\f549"
+}
+
+.fa-share:before {
+    content: "\f064"
+}
+
+.fa-share-alt:before {
+    content: "\f1e0"
+}
+
+.fa-slack:before {
+    content: "\f198"
+}
+
+.fa-stop:before {
+    content: "\f04d"
+}
+
+.fa-tasks:before {
+    content: "\f0ae"
+}
+
+.fa-text-width:before {
+    content: "\f035"
+}
+
+.fa-th:before {
+    content: "\f00a"
+}
+
+.fa-th-large:before {
+    content: "\f009"
+}
+
+.fa-times:before {
+    content: "\f00d"
+}
+
+.fa-toggle-off:before {
+    content: "\f204"
+}
+
+.fa-toggle-on:before {
+    content: "\f205"
+}
+
+.fa-twitter:before {
+    content: "\f099"
+}
+
+.fa-ups:before {
+    content: "\f7e0"
+}
+
+.fa-video:before {
+    content: "\f03d"
+}
+
+.fa-volume-down:before {
+    content: "\f027"
+}
+
+.fa-volume-mute:before {
+    content: "\f6a9"
+}
+
+.fa-volume-off:before {
+    content: "\f026"
+}
+
+.fa-volume-up:before {
+    content: "\f028"
+}
+
+.fa-youtube:before {
+    content: "\f167"
+}
