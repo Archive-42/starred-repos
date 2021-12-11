@@ -1,0 +1,169 @@
+import { get, writable } from "svelte/store"
+import { datasources, queries, views } from "./"
+import { cloneDeep } from "lodash/fp"
+import api from "builderStore/api"
+import { SWITCHABLE_TYPES } from "../../constants/backend"
+
+export function createTablesStore() {
+  const store = writable({})
+  const { subscribe, update, set } = store
+
+  async function fetch() {
+    const tablesResponse = await api.get(`/api/tables`)
+    const tables = await tablesResponse.json()
+    update(state => ({ ...state, list: tables }))
+    return tables
+  }
+
+  async function select(table) {
+    if (!table) {
+      update(state => ({
+        ...state,
+        selected: {},
+      }))
+    } else {
+      update(state => ({
+        ...state,
+        selected: table,
+        draft: cloneDeep(table),
+      }))
+      views.unselect()
+      queries.unselect()
+      datasources.unselect()
+    }
+  }
+
+  async function save(table) {
+    const updatedTable = cloneDeep(table)
+    const oldTable = get(store).list.filter(t => t._id === table._id)[0]
+
+    const fieldNames = []
+    // update any renamed schema keys to reflect their names
+    for (let key of Object.keys(updatedTable.schema)) {
+      // if field name has been seen before remove it
+      if (fieldNames.indexOf(key.toLowerCase()) !== -1) {
+        delete updatedTable.schema[key]
+        continue
+      }
+      const field = updatedTable.schema[key]
+      const oldField = oldTable?.schema[key]
+      // if the type has changed then revert back to the old field
+      if (
+        oldField != null &&
+        oldField?.type !== field.type &&
+        SWITCHABLE_TYPES.indexOf(oldField?.type) === -1
+      ) {
+        updatedTable.schema[key] = oldField
+      }
+      // field has been renamed
+      if (field.name && field.name !== key) {
+        updatedTable.schema[field.name] = field
+        updatedTable._rename = { old: key, updated: field.name }
+        delete updatedTable.schema[key]
+      }
+      // finally record this field has been used
+      fieldNames.push(key.toLowerCase())
+    }
+
+    const response = await api.post(`/api/tables`, updatedTable)
+    if (response.status !== 200) {
+      throw (await response.json()).message
+    }
+    const savedTable = await response.json()
+    await fetch()
+    if (table.type === "external") {
+      await datasources.fetch()
+    }
+    await select(savedTable)
+    return savedTable
+  }
+
+  return {
+    subscribe,
+    update,
+    fetch,
+    select,
+    unselect: () => {
+      update(state => ({
+        ...state,
+        selected: null,
+      }))
+    },
+    save,
+    init: async () => {
+      const response = await api.get("/api/tables")
+      const json = await response.json()
+      set({
+        list: json,
+        selected: {},
+        draft: {},
+      })
+    },
+    delete: async table => {
+      const response = await api.delete(
+        `/api/tables/${table._id}/${table._rev}`
+      )
+      if (response.status !== 200) {
+        throw (await response.json()).message
+      }
+      update(state => ({
+        ...state,
+        list: state.list.filter(existing => existing._id !== table._id),
+        selected: {},
+      }))
+    },
+    saveField: async ({
+      originalName,
+      field,
+      primaryDisplay = false,
+      indexes,
+    }) => {
+      let promise
+      update(state => {
+        // delete the original if renaming
+        // need to handle if the column had no name, empty string
+        if (originalName != null && originalName !== field.name) {
+          delete state.draft.schema[originalName]
+          state.draft._rename = {
+            old: originalName,
+            updated: field.name,
+          }
+        }
+
+        // Optionally set display column
+        if (primaryDisplay) {
+          state.draft.primaryDisplay = field.name
+        } else if (state.draft.primaryDisplay === originalName) {
+          const fields = Object.keys(state.draft.schema)
+          // pick another display column randomly if unselecting
+          state.draft.primaryDisplay = fields.filter(
+            name => name !== originalName || name !== field
+          )[0]
+        }
+
+        if (indexes) {
+          state.draft.indexes = indexes
+        }
+
+        state.draft.schema = {
+          ...state.draft.schema,
+          [field.name]: cloneDeep(field),
+        }
+        promise = save(state.draft)
+        return state
+      })
+      if (promise) {
+        await promise
+      }
+    },
+    deleteField: field => {
+      update(state => {
+        delete state.draft.schema[field.name]
+        save(state.draft)
+        return state
+      })
+    },
+  }
+}
+
+export const tables = createTablesStore()
