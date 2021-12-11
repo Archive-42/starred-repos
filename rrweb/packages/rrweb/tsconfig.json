@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "target": "ES5",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "rootDir": "src",
+    "outDir": "build",
+    "lib": ["es6", "dom"],
+    "downlevelIteration": true
+  },
+  "exclude": ["test"],
+  "include": ["src", "node_modules/@types/css-font-loading-module/index.d.ts"]
+}

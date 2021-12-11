@@ -1,0 +1,33 @@
+{
+  "description": "record and replay the web",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rrweb-io/rrweb.git"
+  },
+  "keywords": [
+    "rrweb"
+  ],
+  "author": "yanzhen@smartx.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rrweb-io/rrweb/issues"
+  },
+  "private": true,
+  "homepage": "https://github.com/rrweb-io/rrweb#readme",
+  "workspaces": [
+    "packages/rrweb",
+    "packages/rrweb-snapshot",
+    "packages/rrweb-player"
+  ],
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "lerna": "lerna",
+    "build:all": "yarn lerna run prepublish",
+    "test": "yarn lerna run test",
+    "test:watch": "yarn lerna run test:watch --parallel",
+    "dev": "yarn lerna run dev --parallel",
+    "repl": "cd packages/rrweb && npm run repl"
+  }
+}
