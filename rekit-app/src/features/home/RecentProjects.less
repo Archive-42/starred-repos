@@ -1,0 +1,81 @@
+@import '../../styles/mixins';
+
+.home-recent-projects {
+  background-color: #222;
+  height: 400px;
+  padding-left: 20px;
+  overflow: hidden;
+  .scroll-style();
+
+  h2 {
+    line-height: 44px;
+    border-bottom: 1px solid #444;
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  ul {
+    height: 360px;
+    overflow: auto;
+    padding-right: 20px;
+    .scroll-style();
+  }
+
+  .no-recent {
+    color: #777;
+    line-height: 36px;
+  }
+
+  .row-button {
+    padding-left: 50px;
+    margin: 0;
+    color: #ccc;
+    height: 60px;
+    border-bottom: 1px solid #444;
+    white-space: nowrap;
+    .anticon {
+      left: 7px;
+      top: 15px;
+      font-size: 32px;
+      color: #BCAAA4;
+      opacity: 0.7;
+    }
+    img.icon {
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      left: 7px;
+      top: 15px;
+      opacity: 0.7;
+    }
+    h4 {
+      padding-top: 13px;
+      margin: 0;
+      line-height: 16px;
+      color: #ccc;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      font-weight: 300;
+    }
+     p {
+      color: #777;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    &:hover {
+      h4,
+      p {
+        color: @primary-color;
+      }
+      img.icon {
+        opacity: 0.9;
+      }
+    }
+   
+  }
+}

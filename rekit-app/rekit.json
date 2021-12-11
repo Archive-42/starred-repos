@@ -1,0 +1,8 @@
+{
+  "devPort": 6093,
+  "studioPort": 3002,
+  "appType": "rekit-react",
+  "rekitTest": true,
+  "exclude": ["dist"],
+  "css": "less"
+}
