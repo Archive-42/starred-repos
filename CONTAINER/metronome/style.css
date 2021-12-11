@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: blanchedalmond;
+}
+
+#beat-squares {
+    display: flex;
+    width: 50vw;
+    justify-content: space-around;
+}
+
+#beat-squares .square {
+    width: 75px;
+    height: 75px;
+    margin-top: 1rem;
+    opacity: 0;
+}
+.square.black {
+    background: #333;
+}
+.square.purple {
+    background: rgb(168, 29, 168);
+}
+.square.green {
+    background: rgb(102, 219, 102);
+}
+.square.red {
+    background: red;
+}
+.square.blue {
+    background: rgb(74, 74, 185);
+}

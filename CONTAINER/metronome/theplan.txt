@@ -1,0 +1,27 @@
+
+
+    Metronome
+
+    Producing an audible click every second CHECKED
+
+    Setting BPM which allows ticks to play at a certain rate
+        - allow people to fine tune the set bpm
+        - TAP feature
+
+    Accents
+        - different sound on the one*
+        - configurable accenting
+
+    Visualizing the beat*
+        - pulse visualization, 4 squares, bouncing ball
+
+    Choose different clicks
+
+    Upload a song to get BPM
+
+    Other music features
+        - adding a tuner with the webaudioapi 
+        - recording
+        - evolve into a loop builder
+
+

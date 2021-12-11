@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Metronomnomnom</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div id="metronome-body">
+        <button id="play-control-button">Play</button>
+        <h2 id="current-bpm-value">60</h2>
+        <input id="bpm-slider" type="range" min="5" max="260" value="60" />
+        <div id="beat-squares">
+            <div class="square black" id="see-1st"></div>
+            <div class="square green" id="see-2nd"></div>
+            <div class="square red" id="see-4th"></div>
+            <div class="square blue" id="see-8th"></div>
+            <div class="square purple" id="see-16th"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
