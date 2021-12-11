@@ -1,0 +1,45 @@
+.page-research .research {
+  display: grid;
+  grid-column-gap: var(--content-spacing-lg);
+  grid-row-gap: var(--base-content-spacing);
+}
+.page-research .research h1 {
+  grid-column: 1 / -1;
+  margin-bottom: var(--content-spacing-sm);
+}
+.page-research .research-item-post {
+  align-content: flex-start;
+  padding: var(--base-content-spacing);
+  margin-bottom: var(--base-content-spacing);
+  border: 1px solid #dadada;
+}
+.page-research .header,
+.page-research .title {
+  line-height: 1.4;
+}
+.page-research .research-image {
+  max-width: 500px;
+} 
+.page-research a {
+  color: inherit;
+  border-bottom: 0;
+}
+.page-research a.header:hover {
+  border-bottom: 0;
+}
+.page-research .post-excerpt {
+  font-size: 0.9rem;
+}
+@media screen and (min-width: 45em) {
+  .page-research .research {
+    grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+  }
+}
+@media screen and (min-width: 61em) {
+  .page-research .research {
+    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+  }
+}
+.research #mith_digital_dialogues {
+  display: none;
+}

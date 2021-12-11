@@ -1,0 +1,1 @@
+The white paper (12,000 words) from this Level 1 NEH Start Up project is [now available](http://www.neh.gov/ODH/Default.aspx?tabid=111&id=37).

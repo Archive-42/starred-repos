@@ -1,0 +1,22 @@
+@import 'variables.css';
+
+footer {
+  padding: 0 var(--content-spacing-md);
+  margin-top: var(--content-spacing-lg);
+  background-color: #282a2b;
+  border-color: var(--color-gray);
+  font-size: 0.789rem;
+  color: var(--color-gray);
+}
+.small-print {
+  padding: var(--content-spacing-md) 0 var(--content-spacing-xl) 0;
+}
+footer a {
+  color: var(--color-gray);
+  border-bottom: 1px dotted var(--color-gray);
+}
+footer a:hover,
+footer a:active {
+  color: var(--color-gray-lt);
+  border-bottom: 1px dotted var(--color-gray-lt);
+}

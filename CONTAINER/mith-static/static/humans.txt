@@ -1,0 +1,16 @@
+
+_|      _|      _|_|_|      _|_|_|_|_|      _|    _|  
+_|_|  _|_|        _|            _|          _|    _|  
+_|  _|  _|        _|            _|          _|_|_|_|  
+_|      _|        _|            _|          _|    _|  
+_|      _|      _|_|_|          _|          _|    _|  
+
+This website for the Maryland Institute for Technology 
+in the Humanities has been developed at the University
+of Maryland since 1999. Over that time it has had many
+curators, who have used a variety of web publishing tools. 
+Please visit our archive to see what some of these 
+projects have looked like: https://archive.mith.umd.edu
+and take a look at our staff page to see who some of
+these people are: https://mith.umd.edu/people/
+

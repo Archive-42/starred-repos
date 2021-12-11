@@ -1,0 +1,1 @@
+On Tuesday of next week, MITH Acting Associate Director Matthew Kirschenbaum will speak at the School of Information at the University of Texas at Austin. The talk, based on his current book manuscript on new media textuality, is entitled "The Textual Forensics of Mystery_House.dsk."
