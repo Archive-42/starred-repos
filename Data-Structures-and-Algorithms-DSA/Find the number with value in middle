@@ -1,0 +1,24 @@
+/*Find the number with value in middle
+Example:
+
+Input:
+A = 900, B = 500, C = 250
+Output:
+500
+Explanation:
+Since 500>250 and 500<900, so 
+500 is the middle element.
+*/
+
+//code
+ int mid(int A, int B, int C){
+        
+        int mid=0;
+        if ((A<B && B<C)|| (C<B && B<A))
+          mid = B;
+        else if ((B<A && A<C) ||(C<A && A<B))
+            mid = A;
+        else
+            mid = C;
+        return mid;
+ }
