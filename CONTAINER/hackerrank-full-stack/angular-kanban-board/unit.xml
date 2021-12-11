@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<testsuite name="HeadlessChrome 90.0.4430 (Mac OS X 10.14.6)" package="unit" timestamp="2021-05-08T10:36:34" id="0" hostname="Taruns-MacBook-Air.local" tests="10" errors="0" failures="0" time="2.511">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/90.0.4430.93 Safari/537.36"/>
+  </properties>
+  <testcase name="KanbanViewComponent Kanban view should rendered with all controls" time="0.57" classname=".KanbanViewComponent"/>
+  <testcase name="KanbanViewComponent Task Move Backward." time="0.307" classname=".KanbanViewComponent"/>
+  <testcase name="KanbanViewComponent Kanban view should rendered with correct stages and cards" time="0.337" classname=".KanbanViewComponent"/>
+  <testcase name="KanbanViewComponent On click of card in first stage that card should be selected. With appropriate UI changes" time="0.155" classname=".KanbanViewComponent"/>
+  <testcase name="KanbanViewComponent On click of card in last stage that card should be selected. With appropriate UI changes" time="0.258" classname=".KanbanViewComponent"/>
+  <testcase name="KanbanViewComponent Task Move forward." time="0.305" classname=".KanbanViewComponent"/>
+  <testcase name="KanbanCardComponent Cards should rendered correctly" time="0.121" classname=".KanbanCardComponent"/>
+  <testcase name="KanbanCardComponent On click of card, onCardSelected method should call with correct params" time="0.148" classname=".KanbanCardComponent"/>
+  <testcase name="KanbanStageComponent should render stages correct name and cards" time="0.17" classname=".KanbanStageComponent"/>
+  <testcase name="KanbanStageComponent On click of card, onCardselect method should call with correct params" time="0.14" classname=".KanbanStageComponent"/>
+  <system-out>
+    <![CDATA[HeadlessChrome 90.0.4430 (Mac OS X 10.14.6) LOG: 1
+,HeadlessChrome 90.0.4430 (Mac OS X 10.14.6) LOG: 1
+,HeadlessChrome 90.0.4430 (Mac OS X 10.14.6) WARN: 'Spec 'KanbanViewComponent On click of card in first stage that card should be selected. With appropriate UI changes' has no expectations.'
+,HeadlessChrome 90.0.4430 (Mac OS X 10.14.6) LOG: 1
+,HeadlessChrome 90.0.4430 (Mac OS X 10.14.6) LOG: 'Resolve a merge conflict'
+,HeadlessChrome 90.0.4430 (Mac OS X 10.14.6) LOG: 1
+,HeadlessChrome 90.0.4430 (Mac OS X 10.14.6) WARN: 'Spec 'KanbanViewComponent On click of card in last stage that card should be selected. With appropriate UI changes' has no expectations.'
+,HeadlessChrome 90.0.4430 (Mac OS X 10.14.6) LOG: 'Bug Fixing #1'
+,HeadlessChrome 90.0.4430 (Mac OS X 10.14.6) LOG: 1
+,HeadlessChrome 90.0.4430 (Mac OS X 10.14.6) LOG: 1
+,HeadlessChrome 90.0.4430 (Mac OS X 10.14.6) LOG: 1
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
