@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+           <form method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <div><h2>Sign Up</h2></div>
+                        <br>
+                        <label>
+                            <h4>Username</h4>  <input type="text" name="username" class="form-control" placeholder="Username" value="{{ name }}">
+                        </label>
+                        <br>
+                        <label>
+                            <h4>Password </h4> <input type="password" name="password"class="form-control" placeholder="Password">
+                        </label>
+                        <br>
+                        <label>
+                            <h4>Verify Password</h4>  <input type="password" name="verify"class="form-control" placeholder="Verify Password">
+                        </label>
+                        <br>
+                        <label>
+                            <h4>Email(Optional)</h4>  <input type="email" name="email"class="form-control" placeholder="Email" value="{{ email }}">
+                        </label>
+                        <!-- Error Area -->
+                        {% if error %}
+                        <div class="error alert alert-danger">
+                            {{ error }}
+                        </div>
+                        {% endif %}
+                        <br>
+                        <input type="submit" value="Sign Up" class="btn btn-default btn-signup">
+                        <br><br>
+                        <div class="post-display">Already have an account ?  </div><button class="btn btn-primary"><a href="/login">Login</a></button>
+                    </div>
+                </form>
+{% endblock %}
+

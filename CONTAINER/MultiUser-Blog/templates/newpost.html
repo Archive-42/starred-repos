@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+        {% if post %}
+            <h2>Edit post</h2>
+        {% else %}
+            <h2>New post</h2>
+        {% endif %}
+                <form method="post">
+                    <div class="form-group">
+                        <label>
+                            <div><h3>Title</h3></div>
+                            <input type="text" name="subject" value="{% if post %} {{  post.subject }} {% endif %}" class="form-control">
+                        </label>
+                        <br>
+
+                        <label>
+                        <div><h3>Blog Post</h3></div>
+                            <textarea name="content" class="form-control">{% if post %} {{  post.content }} {% endif %}</textarea>
+                        </label>
+                        <br>
+                        <!-- Error Area -->
+                        {% if error %}
+                        <br>
+                        <div class="error alert alert-danger">
+                            {{ error }}
+                        </div>
+                        {% endif %}
+                        <input type="submit" value="Submit" class="btn btn-default">
+                        <button class="btn btn-primary"><a href="/" id="cancel-btn">Cancel</a></button>
+                    </div>
+                </form>
+{% endblock %}
