@@ -1,0 +1,14 @@
+{
+  "name": "igniteui-react-wrappers",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IgniteUI/igniteui-react-wrappers.git"
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "create-react-class": "^15.6.3",
+    "prop-types": "^15.6.2"
+  }
+}
