@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@variants group-hover {
+  .delay-0 {
+    transition-delay: 0ms;
+  }
+
+  .delay-100 {
+    transition-delay: 100ms;
+  }
+
+  .delay-250 {
+    transition-delay: 250ms;
+  }
+
+  .delay-500 {
+    transition-delay: 500ms;
+  }
+
+  .delay-750 {
+    transition-delay: 750ms;
+  }
+
+  .delay-1000 {
+    transition-delay: 1000ms;
+  }
+}
+
+.break-inside-avoid {
+  break-inside: avoid;
+}
+
+@screen print {
+  /* Hide the print page header and footer */
+  @page {
+    margin: 0;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    color: black !important;
+
+    padding: 4rem !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  p,
+  svg {
+    color: black !important;
+  }
+
+  html {
+    font-size: 13px !important;
+  }
+}
