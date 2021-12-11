@@ -1,0 +1,47 @@
+{
+  "name": "markmap-autoloader",
+  "version": "0.2.0",
+  "description": "Load markmaps automatically in HTML",
+  "author": "Gerald <gera2ld@live.com>",
+  "license": "MIT",
+  "keywords": [
+    "markmap",
+    "markdown",
+    "mindmap"
+  ],
+  "homepage": "https://github.com/gera2ld/markmap/packages/markmap-autoloader#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gera2ld/markmap.git"
+  },
+  "scripts": {
+    "dev": "rollup -wc rollup.conf.js",
+    "clean": "del-cli dist types",
+    "build:types": "tsc",
+    "build:js": "rollup -c rollup.conf.js"
+  },
+  "bugs": {
+    "url": "https://github.com/gera2ld/markmap/issues"
+  },
+  "main": "dist/index.js",
+  "unpkg": "dist/index.min.js",
+  "jsdelivr": "dist/index.min.js",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "markmap-common": "^0.1.6"
+  },
+  "devDependencies": {
+    "markmap-lib": "^0.12.0",
+    "markmap-view": "^0.2.7"
+  }
+}
