@@ -1,0 +1,77 @@
+.toc-container {
+  max-width: 100%;
+  width: px-to-rem(320px);
+}
+
+.toc > summary {
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.toc__icon {
+  // We need this for Safari, otherwise it makes the toc__icon too large.
+  display: inline-flex;
+  margin-left: get-size(200);
+
+  > svg {
+    display: flex;
+    transform: rotate(90deg);
+  }
+}
+
+.toc[open] .toc__icon > svg {
+  transform: rotate(270deg);
+}
+
+toc-active {
+  display: block;
+  max-height: calc(100vh - #{get-size(200)} * 2);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  position: sticky;
+  top: get-size(200);
+
+  [toc--active] {
+    font-weight: 600;
+    letter-spacing: -0.35px;  // makes the text roughly the same width
+  }
+}
+
+
+// The eleventy-plugin-toc doesn't let us put classes on ul/ol or li children
+// so we have to style them all with descendant selectors.
+.toc__wrapper {
+  a {
+    @extend %type--small;
+    text-decoration: none;
+  }
+
+  li {
+    line-height: 1.2;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  li + li {
+    margin-top: get-size(200);
+  }
+
+  ul,
+  ol {
+    list-style-type: none;
+    margin: get-size(200) 0;
+    padding: 0;
+
+    ul,
+    ol {
+      border-left: 1px solid var(--color-hairline);
+      padding-left: get-size(300);
+    }
+  }
+}
