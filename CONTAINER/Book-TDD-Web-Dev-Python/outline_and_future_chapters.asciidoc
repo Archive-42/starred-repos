@@ -1,0 +1,160 @@
+Outline to date & future chapters plan
+--------------------------------------
+
+Thanks for reading this far!  I'd really like your input on this too:  What do
+you think of the book so far, and what do you think about the topics I'm
+proposing to cover in the list below?  Email me at
+obeythetestinggoat@gmail.com!
+
+NB - when I say "book" below, they're all going to be parts of this book. I
+guess I should say "part" instead, but for some reason I've decided book sounds
+cooler.  Like Lord of the Rings.
+
+
+* Preface (Chapter 0) - intro + pre-requisites
+
+BOOK 1: Building a minimum viable app with TDD
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Done:
+
+* Chapter 1 - Getting Django set up using a Functional Test
+* Chapter 2 - Extending our FT using the unittest module
+* Chapter 3 - Testing a simple home page with unit tests
+* Chapter 4 - What are we doing with all these tests?
+* Chapter 5 - Saving form submissions to the database
+* Chapter 6 - Getting to the minimum viable site
+* Chapter 7 - Prettification
+* Chapter 8 - Deploy!
+
+
+BOOK 2: Growing the site
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Done:
+
+* Chapter 9 - Input validation and test organisation
+* Chapter 10 - A simple form
+* Chapter 11 - More advanced Forms 
+* Chapter 12 - Database migrations
+* Chapter 13 - Dipping our toes, very tentatively, into JavaScript
+* Chapter 14 - User authentication, integrating 3rd party plugins, and Mocking
+               with JavaScript
+* Chapter 15 - Mocking 3rd party web services with Python mock
+* Chapter 16 - Server-side test database management
+* Chapter 17 - Continuous Integration (CI) with Jenkins
+
+Planned:
+
+
+Chapter 18: sharing lists
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* email notifications
+* django notifications (?)
+* "claim" an existing list (?)
+* URLs would need to be less guessable
+
+
+More/Other possible contents
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Django stuff:*
+
+* switch database to eg postgres
+* uploading files?
+
+
+*Testing topics to work in*
+
+* more how to read a traceback (ref step 4 in chapter 3)
+* simplify the model test down to minimal/best practice.
+* talk about the "purist" approach to unit testing vs the django test client.
+* AKA "Functional core imperative shell"
+* selenium page pattern
+* coverage
+* alternative test runners -- py.test, nose (lots of ppl mentioned latter)
+* addCleanup
+* PhantomJS for faster Fts?
+* fixtures (factory boy?)
+* JS: mocking external web service to simulate errors
+* Splinter
+* difference between unittest.TestCase, django.test.TestCase, LiveServerTestCase
+* general troubleshooting tips (appendix, collecting all notes etc?)
+* LiveServerTestCase does not flush staging server DB. fix in CI chapter?
+* How to stop and start (expand on bit in ch4. refer to stop+start book)
+* some kind of indicator of where in the tdd cycle we are, in the margin?
+
+
+*Deployment stuff*
+
+* FT for 404 and 500 pages?
+* email integration
+
+
+
+BOOK 3: Trendy stuff
+~~~~~~~~~~~~~~~~~~~~
+
+Chapter 19 & 20: Javascript MVC frameworks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* MVC tool (backbone / angular)
+* single page website (?) or bottomless web page?
+* switching to a full REST API
+* HTML5, eg LocalStorage
+* Encryption - client-side decrypt lists, for privacy?
+
+
+Chapter 21: Async
+^^^^^^^^^^^^^^^^^
+
+* websockets
+* tornado/gevent (or sthing based on Python 3 async??)
+* how to get django to talk to tornado: redis? (just for fun?)
+* for collaborative lists??
+
+
+Chapter 22: Caching
+^^^^^^^^^^^^^^^^^^^
+
+* unit testing `memcached`
+* Functionally testing performance
+* Apache `ab` testing
+
+5/6 chapters?
+
+
+Appendices
+~~~~~~~~~~
+
+
+Possible appendix topics
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+* BDD  (+2 from reddit)
+* Mobile (use selenium, link to using bootstrap?)
+* Payments... Some kind of shopping cart?
+* unit testing fabric scripts
+* testing tools pros & cons, eg django test client vs mocks, liverservertestcase vs roll-your-own
+* NoSQL / Redis / MongoDB?
+
+
+
+A PythonAnywhere
+^^^^^^^^^^^^^^^^^
+
+* Running Firefox Selenium sessions with pyVirtualDisplay
+* Setting up Django as a PythonAnywhere web app
+* Cleaning up /tmp
+* Screenshots
+
+
+B: Django class-based views
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* refactoring, proving usefulness of view tests.
+
+C: Automated provisioning and configuration management with Ansible
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* light appendix.
+

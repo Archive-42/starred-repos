@@ -1,0 +1,167 @@
+[[cheat-sheet]]
+[appendix]
+Cheat Sheet
+-----------
+
+By popular demand, this "cheat sheet" is loosely based on the little
+recap/summary boxes from the end of each chapter.  The idea is to provide a few
+reminders, and links to the chapters where you can find out more to jog your
+memory. I hope you find it useful!
+
+
+Initial Project Setup
+~~~~~~~~~~~~~~~~~~~~~
+
+* ((("cheat sheet", "project setup")))((("Django framework", "set up", "project creation")))Start
+with a 'User Story' and map it to a first 'functional test'.
+
+* Pick a test framework&mdash;`unittest` is fine, and options like `py.test`,
+  `nose`, or `Green` can also offer some advantages.
+
+* Run the functional test and see your first 'expected failure'.
+
+* Pick a web framework such as Django, and find out how to run
+  'unit tests' against it.
+
+* Create your first 'unit test' to address the current FT failure,
+  and see it fail.
+
+* Do  your 'first commit' to a VCS like 'Git'.
+
+Relevant chapters: <<chapter_01>>, <<chapter_02_unittest>>, <<chapter_unit_test_first_view>>
+
+
+The Basic TDD Workflow
+~~~~~~~~~~~~~~~~~~~~~~
+
+* ((("cheat sheet", "TDD workflow")))((("Test-Driven Development (TDD)", "overall process of")))Double-loop TDD (<<Double-Loop-TDD-diagram2>>)
+
+* Red, Green, Refactor
+
+* Triangulation
+
+* The scratchpad
+
+* "3 Strikes and Refactor"
+
+* "Working State to Working State"
+
+* "YAGNI"
+
+
+[[Double-Loop-TDD-diagram2]]
+.The TDD process with functional and unit tests
+image::images/twp2_0404.png["A flowchart showing functional tests as the overall cycle, and unit tests helping to code"]
+
+
+Relevant chapters: <<chapter_philosophy_and_refactoring>>, <<chapter_post_and_database>>, <<chapter_working_incrementally>>
+
+
+
+Moving Beyond Dev-Only Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* ((("cheat sheet", "moving beyond dev-only testing")))Start
+system testing early. Ensure your components work together: web server,
+  static content, database.
+
+* Build a staging environment to match your production environment, and run
+  your FT suite against it.
+
+* Automate your staging and production environments:
+
+    - PaaS vs. VPS
+    - Fabric
+    - Configuration management (Chef, Puppet, Salt, Ansible)
+    - Vagrant
+
+* Think through deployment pain points: the database, static files, 
+  dependencies, how to customise settings, and so on.
+
+* Build a CI server as soon as possible, so that you don't have to rely
+  on self-discipline to see the tests run.
+
+Relevant chapters: <<chapter_manual_deployment>>, <<chapter_automate_deployment_with_fabric>>, <<chapter_CI>>,
+<<appendix3>>
+
+
+General Testing Best Practices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* ((("cheat sheet", "testing best practices")))((("testing best practices")))Each
+test should test one thing.
+
+* One test file per application code source file.
+
+* Consider at least a placeholder test for every function and class,
+  no matter how simple.
+
+* "Don't test constants".
+
+* Try to test behaviour rather than implementation.
+
+* Try to think beyond the charmed path through the code, and think
+  through edge cases and error cases.
+
+
+Relevant chapters: <<chapter_philosophy_and_refactoring>>, <<chapter_database_layer_validation>>,
+<<chapter_simple_form>>
+
+
+Selenium/Functional Testing Best Practices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Use explicit rather than implicit waits, and the interaction/wait pattern.
+
+* Avoid duplication of test code--helper methods in a base class and the
+  Page pattern are possible solutions.
+
+* Avoid double-testing functionality. If you have a test that covers a 
+  time-consuming process (e.g., login), consider ways of skipping it in 
+  other tests (but be aware of unexpected interactions between seemingly
+  unrelated bits of functionality).
+
+* Look into BDD tools as another way of structuring your FTs.
+
+Relevant chapters: <<chapter_server_side_debugging>>, <<chapter_CI>>,
+<<chapter_page_pattern>>
+
+Outside-In, Test Isolation Versus Integrated Tests, and Mocking
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+((("cheat sheet", "isolated vs. integrated tests")))Remember
+the reasons we write tests in the first place:
+
+* To ensure correctness and prevent regressions
+* To help us to write clean, maintainable code
+* To enable a fast, productive workflow
+
+And with those objectives in mind, think of different types of tests,
+and the trade-offs between them:
+
+
+Functional tests::
+    * Provide the best guarantee that your application really works correctly, from the point of view of the user
+    * But: it's a slower feedback cycle
+    * And they don't necessarily help you write clean code
+
+Integrated tests (reliant on, for example, the ORM or the Django Test Client)::
+    * Are quick to write
+    * Are easy to understand
+    * Will warn you of any integration issues
+    * But: may not always drive good design (that's up to you!)
+    * And are usually slower than isolated tests
+
+Isolated ("mocky") tests::
+    * Involve the most hard work
+    * Can be harder to read and understand
+    * But: are the best ones for guiding you towards better design
+    * And run the fastest
+
+If you do find yourself writing tests with lots of mocks, and they feel
+painful, remember &#x201c;__listen to your tests__&#x201d;—ugly, mocky tests may be
+trying to tell you that your code could be simplified.
+
+Relevant chapters: <<chapter_outside_in>>, <<chapter_purist_unit_tests>>,
+<<chapter_hot_lava>>
+
