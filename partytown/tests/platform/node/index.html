@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Partytown Test Page" />
+    <title>Node</title>
+    <link
+      rel="icon"
+      id="favicon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>"
+    />
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji;
+        font-size: 12px;
+      }
+      h1 {
+        margin: 0 0 15px 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        display: block;
+        padding: 16px 8px;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: blue;
+      }
+      a:hover {
+        background-color: #eee;
+      }
+      li {
+        display: flex;
+        margin: 15px 0;
+      }
+      li strong,
+      li code,
+      li button {
+        white-space: nowrap;
+        flex: 1;
+        margin: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Node</h1>
+    <ul>
+      <li>
+        <strong>node, nodeName/Type</strong>
+        <code id="testNodeNameType"></code>
+        <script type="text/partytown">
+          (function () {
+            const text = document.createTextNode('Hello');
+            document.getElementById('testNodeNameType').textContent = text.nodeName + ' ' + text.nodeType;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>createElement() / appendChild()</strong>
+        <code id="testInput"></code>
+        <script type="text/partytown">
+          (function () {
+            const input = document.createElement('input');
+            input.type = 'checkbox';
+            input.checked = true;
+            input.id = 'testCheckbox';
+            document.getElementById('testInput').appendChild(input);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>createTextNode() / insertBefore()</strong>
+        <code id="testText"> World</code>
+        <script type="text/partytown">
+          (function () {
+            const text = document.createTextNode('Hello');
+            const i = document.getElementById('testText');
+            i.insertBefore(text, i.firstChild);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>removeChild()</strong>
+        <code id="testRemove">This is<span id="testNot"> not</span> awesome</code>
+        <script type="text/partytown">
+          (function () {
+            const i = document.getElementById('testNot');
+            i.parentNode.removeChild(i);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>set/get node.href undefined</strong>
+        <code id="testHrefProp"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testHrefProp');
+            elm.href = './some/other/path';
+            elm.textContent = String(elm.href);
+          })();
+        </script>
+      </li>
+
+      <li class="hasParentNode">
+        <strong>parentNode</strong>
+        <code id="testParentNode"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testParentNode');
+            const parentNode = elm.parentNode;
+            elm.textContent = parentNode.className;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>comment</strong>
+        <code id="testComment"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testComment');
+            const c = document.createComment('1.21');
+            const hasChildNodes = c.hasChildNodes();
+            const commentText = c.data;
+            elm.textContent = c.nodeType + ' ' + c.nodeName + ' ' + commentText + ' ' + hasChildNodes;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>fragment nodeType/Name</strong>
+        <code id="testFragmentNodeType"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testFragmentNodeType');
+            const f = document.createDocumentFragment();
+            elm.textContent = f.nodeType + ' ' + f.nodeName;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>fragment childNodes</strong>
+        <code id="testFragmentChildNodes"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testFragmentChildNodes');
+            const f = document.createDocumentFragment();
+            const div = document.createElement('div');
+            div.innerHTML = '<span>fragment</span>';
+            f.appendChild(div);
+            f.children;
+            f.children;
+            f.children;
+            f.children;
+            const fragDiv = f.children[0];
+            const fragSpan = div.children[0];
+            const qSpan = f.querySelector('span');
+            elm.textContent =
+              f.childElementCount +
+              ' ' +
+              fragDiv.nodeName +
+              ' ' +
+              fragSpan.nodeName +
+              ' ' +
+              qSpan.textContent;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>compareDocumentPosition()</strong>
+        <code id="testCompareDocumentPosition"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testCompareDocumentPosition');
+            const div = document.createElement('div');
+            const p = elm.compareDocumentPosition(div);
+            elm.textContent = p;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>body.parentNode</strong>
+        <code id="testBodyParentNode"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testBodyParentNode');
+            const node = document.createTextNode('');
+            document.body.appendChild(node);
+
+            node.parentNode;
+            node.parentNode;
+            node.parentNode;
+            const parentNode = node.parentNode;
+            elm.textContent = parentNode.nodeName;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>cached parentNode</strong>
+        <code id="testCachedParentNode"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testCachedParentNode');
+            const node = document.createTextNode('');
+
+            const nodeContainer = document.createElement('span');
+            nodeContainer.id = 'cached-parent-node';
+            nodeContainer.appendChild(node);
+            document.body.appendChild(nodeContainer);
+
+            node.parentNode;
+            node.parentNode;
+            node.parentNode;
+            const parentNode = node.parentNode;
+            elm.textContent = parentNode.id;
+          })();
+        </script>
+      </li>
+
+      <script type="text/partytown">
+        (function () {
+          document.body.className = 'completed';
+        })();
+      </script>
+    </ul>
+
+    <hr />
+    <p><a href="/">All Tests</a></p>
+
+    <script>
+      partytown = {
+        logCalls: true,
+        logGetters: true,
+        logSetters: true,
+        logStackTraces: false,
+        logScriptExecution: true,
+        logMainAccess: true,
+      };
+    </script>
+    <script src="/~partytown/debug/partytown.js" async defer></script>
+  </body>
+</html>

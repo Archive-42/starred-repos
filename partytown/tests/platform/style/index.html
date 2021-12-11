@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Partytown Test Page" />
+    <title>Style</title>
+    <link
+      rel="icon"
+      id="favicon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>"
+    />
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji;
+        font-size: 12px;
+      }
+      h1 {
+        margin: 0 0 15px 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        display: block;
+        padding: 16px 8px;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: blue;
+      }
+      a:hover {
+        background-color: #eee;
+      }
+      li {
+        display: flex;
+        margin: 15px 0;
+      }
+      li strong,
+      li code,
+      li button {
+        white-space: nowrap;
+        flex: 1;
+        margin: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Style</h1>
+    <ul>
+      <li>
+        <strong>sheet.type</strong>
+        <code id="testSheetType"></code>
+        <script type="text/partytown">
+          (function () {
+            const style = document.createElement('style');
+            document.head.appendChild(style);
+            const elm = document.getElementById('testSheetType');
+            elm.textContent = style.sheet.type;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>sheet.cssRules.length</strong>
+        <code id="testCssRulesLength"></code>
+        <script type="text/partytown">
+          (function () {
+            const style = document.createElement('style');
+            style.innerHTML = `#testCssRulesLength { color: blue; }`;
+            document.head.appendChild(style);
+            const elm = document.getElementById('testCssRulesLength');
+            elm.textContent = style.sheet.cssRules.length;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>sheet.ownerNode</strong>
+        <code id="testOwnerNode"></code>
+        <script type="text/partytown">
+          (function () {
+            const style = document.createElement('style');
+            document.head.appendChild(style);
+            const elm = document.getElementById('testOwnerNode');
+            elm.textContent = style.sheet.ownerNode.nodeName;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>sheet.cssRules[0].cssText</strong>
+        <code id="testCssRules0"></code>
+        <script type="text/partytown">
+          (function () {
+            const style = document.createElement('style');
+            style.innerHTML = `#testCssRules0 { color: red; }`;
+            document.head.appendChild(style);
+            const elm = document.getElementById('testCssRules0');
+            const sheet = style.sheet;
+            const cssRules = sheet.cssRules;
+            const cssRule = cssRules[0];
+            elm.textContent = cssRule.cssText;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>sheet.cssRules.item(0).selectorText</strong>
+        <code id="testCssRulesItem0"></code>
+        <script type="text/partytown">
+          (function () {
+            const style = document.createElement('style');
+            style.innerHTML = `#testCssRulesItem0 { color: maroon; }`;
+            document.head.appendChild(style);
+            const elm = document.getElementById('testCssRulesItem0');
+            elm.textContent = style.sheet.cssRules.item(0).selectorText;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>sheet.insertRule()</strong>
+        <code id="testInsertRule"></code>
+        <script type="text/partytown">
+          (function () {
+            const style = document.createElement('style');
+            document.head.appendChild(style);
+            style.sheet.insertRule(`#testInsertRule { color: blue; }`);
+            const elm = document.getElementById('testInsertRule');
+            const sheet = style.sheet;
+            const cssRules = sheet.cssRules;
+            const cssRule = cssRules[0];
+            elm.textContent = cssRule.selectorText;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>sheet.deleteRule()</strong>
+        <code id="testDeleteRule"></code>
+        <script type="text/partytown">
+          (function () {
+            const style = document.createElement('style');
+            document.head.appendChild(style);
+            style.sheet.insertRule(`#testDeleteRule { color: red; }`, 0);
+            style.sheet.insertRule(`#testDeleteRule { color: green; }`, 1);
+            style.sheet.insertRule(`#testDeleteRule { color: blue; }`, 2);
+            const elm = document.getElementById('testDeleteRule');
+            const sheet = style.sheet;
+            sheet.deleteRule(2);
+            const computedStyle = getComputedStyle(elm);
+            elm.textContent = computedStyle.color + ' ' + sheet.cssRules.length;
+          })();
+        </script>
+      </li>
+
+      <script type="text/partytown">
+        (function () {
+          document.body.classList.add('completed');
+        })();
+      </script>
+    </ul>
+
+    <hr />
+    <p><a href="/">All Tests</a></p>
+
+    <script>
+      partytown = {
+        logCalls: true,
+        logGetters: true,
+        logSetters: true,
+        logStackTraces: false,
+        logScriptExecution: true,
+      };
+    </script>
+    <script src="/~partytown/debug/partytown.js" async defer></script>
+  </body>
+</html>

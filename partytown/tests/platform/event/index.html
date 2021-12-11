@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Partytown Test Page" />
+    <title>Event</title>
+    <link
+      rel="icon"
+      id="favicon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>"
+    />
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji;
+        font-size: 12px;
+      }
+      h1 {
+        margin: 0 0 15px 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        display: block;
+        padding: 16px 8px;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: blue;
+      }
+      a:hover {
+        background-color: #eee;
+      }
+      li {
+        display: flex;
+        margin: 15px 0;
+      }
+      li strong,
+      li code,
+      li button {
+        white-space: nowrap;
+        flex: 1;
+        margin: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Event</h1>
+    <ul>
+      <li>
+        <strong>button.addEventListener('click')</strong>
+        <button id="buttonAddEventListener">inc</button>
+        <code id="testAddEventListener">0</code>
+        <code id="testTarget"></code>
+        <script type="text/partytown">
+          (function () {
+            let count = 0;
+            const btn = document.getElementById('buttonAddEventListener');
+            btn.addEventListener('click', function (ev) {
+              document.getElementById('testAddEventListener').textContent = ++count;
+              document.getElementById('testTarget').textContent = this.tagName;
+            });
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>add/remove listener</strong>
+        <button id="buttonInc">inc</button>
+        <button id="buttonAdd">add</button>
+        <button id="buttonRemove">remove</button>
+        <code id="testInc">0</code>
+        <script type="text/partytown">
+          (function () {
+            let count = 0;
+            const buttonAdd = document.getElementById('buttonAdd');
+            const buttonInc = document.getElementById('buttonInc');
+            const buttonRemove = document.getElementById('buttonRemove');
+            function inc() {
+              document.getElementById('testInc').textContent = ++count;
+            }
+            buttonAdd.addEventListener('click', (ev) => {
+              buttonInc.addEventListener('click', inc);
+            });
+            buttonRemove.addEventListener('click', (ev) => {
+              buttonInc.removeEventListener('click', inc);
+            });
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.addEventListener('click')</strong>
+        <code id="testWinAddEventListenerCount">0</code>
+        <code id="testWinAddEventListener"></code>
+        <script type="text/partytown">
+          (function () {
+            let count = 0;
+            window.addEventListener('click', function (ev) {
+              document.getElementById('testWinAddEventListenerCount').textContent = ++count;
+              document.getElementById('testWinAddEventListener').textContent =
+                this.constructor.name + ' ' + ev.type;
+            });
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>document.createEvent('Event')</strong>
+        <code id="testCreateEvent" class="currentTarget"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testCreateEvent');
+            const event = document.createEvent('Event');
+            event.initEvent('DOC_CREATE', true, false);
+            elm.addEventListener('DOC_CREATE', (ev) => {
+              elm.textContent = [
+                ev.type,
+                ev.bubbles,
+                ev.cancelable,
+                ev.currentTarget.className,
+              ].join(' ');
+              elm.className = 'testCreateEvent';
+            });
+            elm.dispatchEvent(event);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>new Event('NEW_EVENT')</strong>
+        <code id="testNewEvent" class="target"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testNewEvent');
+            const event = new Event('NEW_EVENT', { cancelable: true });
+            elm.addEventListener('NEW_EVENT', (ev) => {
+              elm.textContent = [ev.type, ev.bubbles, ev.cancelable, ev.target.className].join(' ');
+              elm.className = 'testNewEvent';
+            });
+            elm.dispatchEvent(event);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>new CustomEvent('NEW_CUSTOM_EVENT')</strong>
+        <code id="testNewCustomEvent"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testNewCustomEvent');
+            const event = new CustomEvent('NEW_CUSTOM_EVENT', {
+              bubbles: true,
+              cancelable: true,
+              detail: 88,
+            });
+            elm.addEventListener('NEW_CUSTOM_EVENT', (ev) => {
+              elm.textContent = [ev.type, ev.bubbles, ev.cancelable, ev.detail].join(' ');
+              elm.className = 'testNewCustomEvent';
+            });
+            elm.dispatchEvent(event);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>cross origin message</strong>
+        <code id="testCrossOriginMessage"></code>
+        <script type="text/partytown">
+          (function () {
+            addEventListener('message', (ev) => {
+              const elm = document.getElementById('testCrossOriginMessage');
+              elm.textContent = ev.type + ' ' + ev.data;
+              elm.className = 'testCrossOriginMessage';
+            });
+          })();
+        </script>
+        <script>
+          setTimeout(() => {
+            // simulating cross origin iframe by using a datauri
+            // which won't have the same origin
+            const crossOriginHtml = `
+              <${'script'}>
+                parent.postMessage('cross origin', '${origin}');
+              </${'script'}>
+            `;
+            const dataUri = `data:text/html;base64,${btoa(crossOriginHtml)}`;
+
+            const iframe = document.createElement('iframe');
+            iframe.hidden = true;
+            iframe.src = dataUri;
+            document.body.appendChild(iframe);
+          }, 1000);
+        </script>
+      </li>
+
+      <script type="text/partytown">
+        (function () {
+          document.body.classList.add('completed');
+        })();
+      </script>
+    </ul>
+
+    <hr />
+    <p><a href="/">All Tests</a></p>
+
+    <script>
+      partytown = {
+        logCalls: true,
+        logGetters: true,
+        logSetters: true,
+        logStackTraces: false,
+        logScriptExecution: true,
+      };
+    </script>
+    <script src="/~partytown/debug/partytown.js" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Partytown Test Page" />
+    <title>Window</title>
+    <link
+      rel="icon"
+      id="favicon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>"
+    />
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji;
+        font-size: 12px;
+      }
+      h1 {
+        margin: 0 0 15px 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        display: block;
+        padding: 16px 8px;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: blue;
+      }
+      a:hover {
+        background-color: #eee;
+      }
+      li {
+        display: flex;
+        margin: 15px 0;
+      }
+      li strong,
+      li code,
+      li button {
+        white-space: nowrap;
+        flex: 1;
+        margin: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Window</h1>
+    <ul>
+      <li>
+        <strong>Window.name</strong>
+        <code id="testWindowName"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testWindowName');
+            elm.textContent = Window.name;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.name</strong>
+        <code id="testName" style="font-size: 10px"></code>
+        <code id="testNameEquals"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testName');
+            elm.textContent = window.name;
+
+            const elmEqls = document.getElementById('testNameEquals');
+            elmEqls.textContent = name === window.name;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.top same</strong>
+        <code id="testTop"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testTop');
+            elm.textContent = window.top.name === window.name;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.parent same</strong>
+        <code id="testParent"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testParent');
+            elm.textContent = window.parent.name === window.name;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.HTMLBodyElement.name</strong>
+        <code id="testHTMLBodyElementName"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testHTMLBodyElementName');
+            elm.textContent = HTMLBodyElement.name + ' ' + window.HTMLBodyElement.name;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>getComputedStyle()</strong>
+        <code id="testGetComputedStyle" style="color: purple"></code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testGetComputedStyle');
+            const style = getComputedStyle(elm);
+            elm.textContent = style.color;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>requestAnimationFrame()</strong>
+        <code id="testRaf"></code>
+        <script type="text/partytown">
+          (function () {
+            requestAnimationFrame(() => {
+              const elm = document.getElementById('testRaf');
+              elm.textContent = true;
+              elm.classList.add('testRaf');
+            });
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.requestAnimationFrame()</strong>
+        <code id="testWindowRaf"></code>
+        <script type="text/partytown">
+          (function () {
+            window.requestAnimationFrame(() => {
+              const elm = document.getElementById('testWindowRaf');
+              elm.textContent = true;
+              elm.classList.add('testWindowRaf');
+            });
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>requestIdleCallback()</strong>
+        <code id="testWindowRic"></code>
+        <script type="text/partytown">
+          (function () {
+            requestIdleCallback(
+              () => {
+                const elm = document.getElementById('testWindowRic');
+                elm.textContent = true;
+                elm.classList.add('testWindowRic');
+              },
+              { timeout: 500 }
+            );
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>btoa</strong>
+        <code id="testBtoa"></code>
+      </li>
+
+      <li>
+        <strong>atob</strong>
+        <code id="testAtob"></code>
+        <script type="text/partytown">
+          (function () {
+            const b = document.getElementById('testBtoa');
+            const a = document.getElementById('testAtob');
+            const v1 = window.btoa('88');
+            const v2 = atob(v1);
+            b.textContent = v1;
+            a.textContent = v2;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <button id="button-prompt">prompt()</button>
+        <code id="testPrompt"></code>
+        <script type="text/partytown">
+          (function () {
+            const btn = document.getElementById('button-prompt');
+            btn.addEventListener('click', () => {
+              const elm = document.getElementById('testPrompt');
+              elm.textContent = prompt('MPH');
+            });
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.postMessage()</strong>
+        <code>
+          <span id="testPostMessage"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testPostMessage');
+            window.onmessage = (ev) => {
+              if (ev.data === '88') {
+                elm.textContent = ev.type + ' ' + ev.data;
+                elm.className = 'testPostMessage';
+              }
+            };
+            window.postMessage('88');
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>set/get window.someWindowNumber</strong>
+        <code>
+          <span id="testSomeWindowNumber"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testSomeWindowNumber');
+            window.someWindowNumber = 1885;
+            elm.textContent = window.someWindowNumber;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>set/get someGlobalNumber</strong>
+        <code>
+          <span id="testSomeGlobalNumber"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testSomeGlobalNumber');
+            someGlobalNumber = 1985;
+            elm.textContent = someGlobalNumber;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>set/get window.someWindowObject</strong>
+        <code>
+          <span id="testSomeWindowObject"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testSomeWindowObject');
+            window.someWindowObject = {
+              some: {
+                object: 88
+              }
+            };
+            elm.textContent = JSON.stringify(window.someWindowObject);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>set/get someGlobalObject</strong>
+        <code>
+          <span id="testSomeGlobalObject"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testSomeGlobalObject');
+            someGlobalObject = {
+              some: {
+                object: 99
+              }
+            };
+            elm.textContent = JSON.stringify(someGlobalObject);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.Promise</strong>
+        <code>
+          <span id="testPromise"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            const p = new window.Promise((resolve) => {
+              resolve('resolved');
+            }).then((val) => {
+              const elm = document.getElementById('testPromise');
+              elm.textContent = val;
+              elm.className = 'testPromise';
+            });
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.Promise polyfilled</strong>
+        <code>
+          <span id="testPromisePolyfilled"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            window.Promise = undefined;
+
+            Promise = class ShadyPromise {
+              constructor(fn) {
+                fn((v) => setTimeout(this.cb('polyfill ' + v)));
+              }
+              then(cb) {
+                this.cb = cb;
+              }
+            };
+
+            const p = new Promise((resolve) => {
+              setTimeout(() => resolve('resolved'));
+            }).then((val) => {
+              const elm = document.getElementById('testPromisePolyfilled');
+              elm.textContent = val;
+              elm.className = 'testPromisePolyfilled';
+            });
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.performance</strong>
+        <code>
+          <span id="testPerformance"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testPerformance');
+            elm.textContent = window.performance.now() + performance.now();
+            elm.className = 'testPerformance';
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.performance.timing</strong>
+        <code>
+          <span id="testPerformanceTiming"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testPerformanceTiming');
+            const timing = window.performance.timing.toJSON();
+            const keys = Object.keys(timing);
+            elm.textContent = String(keys.length > 0);
+            elm.className = 'testPerformanceTiming';
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.frameElement</strong>
+        <code>
+          <span id="testFrameElement"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testFrameElement');
+            elm.textContent = String(window.frameElement);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>innerWidth/Height</strong>
+        <code>
+          <span id="testInnerWidthHeight"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            window.innerWidth;
+            window.innerHeight;
+            window.innerWidth;
+            window.innerHeight;
+            const elm = document.getElementById('testInnerWidthHeight');
+            if (typeof window.innerWidth === 'number' && typeof window.innerWidth === 'number') {
+              elm.textContent = window.innerWidth + 'x' + window.innerHeight;
+            }
+            elm.className = 'testInnerWidthHeight';
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>devicePixelRatio</strong>
+        <code>
+          <span id="testDevicePixelRatio"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testDevicePixelRatio');
+            if (typeof window.devicePixelRatio === 'number') {
+              window.devicePixelRatio;
+              window.devicePixelRatio;
+              window.devicePixelRatio;
+              elm.textContent = window.devicePixelRatio;
+            }
+            elm.className = 'testDevicePixelRatio';
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>origin</strong>
+        <code>
+          <span id="testOrigin"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testOrigin');
+            elm.textContent = origin;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>crypto.getRandomValues()</strong>
+        <code>
+          <span id="testCrypto"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testCrypto');
+            const arr = new Uint32Array(1);
+            window.crypto.getRandomValues(arr);
+            elm.textContent = arr[0];
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.indexedDB</strong>
+        <code>
+          <span id="testIndexedDB"></span>
+        </code>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testIndexedDB');
+            elm.textContent = !!window.indexedDB;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.fnNotNative()</strong>
+        <code>
+          <span id="testFnNotNative"></span>
+        </code>
+        <script>
+          (function () {
+            window.fnNotNative = () => {};
+          })();
+        </script>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testFnNotNative');
+            const w = window;
+            const fn = w.fnNotNative
+            elm.textContent = typeof fn;
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>avoid window.__NOT_STANDARD_PROP</strong>
+        <code>
+          <span id="testNotStandard"></span>
+        </code>
+        <script>
+          (function () {
+            window.__NOT_STANDARD_PROP = true;
+          })();
+        </script>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testNotStandard');
+            elm.textContent = String(window.__NOT_STANDARD_PROP);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>avoid window[0]</strong>
+        <code>
+          <span id="testWindowIndex"></span>
+        </code>
+        <script>
+          (function () {
+            window[0] = true;
+          })();
+        </script>
+        <script type="text/partytown">
+          (function () {
+            const elm = document.getElementById('testWindowIndex');
+            const value = window[0];
+            elm.textContent = String(value);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>window.fetch(url) text</strong>
+        <code>
+          <span id="testFetchText"></span>
+        </code>
+        <script type="text/partytown">
+          (async function () {
+            const elm = document.getElementById('testFetchText');
+            const rsp = await window.fetch('text.txt');
+            const text = await rsp.text();
+            elm.textContent = text;
+            elm.className = 'testFetchText';
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>fetch(URL) json</strong>
+        <code>
+          <span id="testFetchJson"></span>
+        </code>
+        <script type="text/partytown">
+          (async function () {
+            const url = new URL('data.json', location);
+            const elm = document.getElementById('testFetchJson');
+            const rsp = await fetch(url);
+            const data = await rsp.json();
+            elm.textContent = JSON.stringify(data);
+            elm.className = 'testFetchJson';
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>opener</strong>
+        <code>
+          <span id="testOpener"></span>
+        </code>
+        <script type="text/partytown">
+          (async function () {
+            const elm = document.getElementById('testOpener');
+            elm.textContent = String(window.opener);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>user object</strong>
+        <code>
+          <span id="testUserObject"></span>
+        </code>
+        <script>
+          userObject = {};
+        </script>
+        <script type="text/partytown">
+          (async function () {
+            const elm = document.getElementById('testUserObject');
+            elm.textContent = String(window.userObject);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>user constructor</strong>
+        <code>
+          <span id="testUserConstructor"></span>
+        </code>
+        <script>
+          class UserConstructor {}
+          userCstr = new UserConstructor();
+        </script>
+        <script type="text/partytown">
+          (async function () {
+            const elm = document.getElementById('testUserConstructor');
+            elm.textContent = String(window.userCstr);
+          })();
+        </script>
+      </li>
+
+      <script type="text/partytown">
+        (function () {
+          document.body.classList.add('completed');
+        })();
+      </script>
+    </ul>
+
+    <hr />
+    <p><a href="/">All Tests</a></p>
+
+    <script>
+      partytown = {
+        logCalls: true,
+        logGetters: true,
+        logSetters: true,
+        logStackTraces: false,
+        logScriptExecution: true,
+        logMainAccess: true,
+      };
+    </script>
+    <script src="/~partytown/debug/partytown.js" async defer></script>
+  </body>
+</html>

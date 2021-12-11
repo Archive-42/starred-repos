@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Partytown Test Page" />
+    <title>Image</title>
+    <link
+      rel="icon"
+      id="favicon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>"
+    />
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji;
+        font-size: 12px;
+      }
+      h1 {
+        margin: 0 0 15px 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        display: block;
+        padding: 16px 8px;
+      }
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: blue;
+      }
+      a:hover {
+        background-color: #eee;
+      }
+      li {
+        display: flex;
+        margin: 15px 0;
+      }
+      li strong,
+      li code,
+      li button {
+        white-space: nowrap;
+        flex: 1;
+        margin: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Image</h1>
+    <ul>
+      <li>
+        <strong>Image() onload</strong>
+        <code id="testImageOnLoad"></code>
+        <script type="text/partytown">
+          (function () {
+            const image = new Image();
+            image.onload = function (ev) {
+              const elm = document.getElementById('testImageOnLoad');
+              elm.textContent = ev.type;
+              elm.className = 'testImageOnLoad';
+            };
+            image.src = 'dot.gif?testImageOnLoad';
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>Image() onerror</strong>
+        <code id="testImageOnError"></code>
+        <script type="text/partytown">
+          (function () {
+            const image = new Image();
+            image.onerror = function (ev) {
+              const elm = document.getElementById('testImageOnError');
+              elm.textContent = ev.type;
+              elm.className = 'testImageOnError';
+            };
+            image.src = '404.gif?testImageOnError';
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>Image() addEventListener('load')</strong>
+        <code id="testImageListenerLoad"></code>
+        <script type="text/partytown">
+          (function () {
+            const image = new Image();
+            image.addEventListener('load', function (ev) {
+              const elm = document.getElementById('testImageListenerLoad');
+              elm.textContent = ev.type;
+              elm.className = 'testImageListenerLoad';
+            });
+            image.src = 'dot.gif?testImageListenerLoad';
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>Image() addEventListener('error')</strong>
+        <code id="testImageListenerError"></code>
+        <script type="text/partytown">
+          (function () {
+            const image = new Image();
+            image.addEventListener('error', function (ev) {
+              const elm = document.getElementById('testImageListenerError');
+              elm.textContent = ev.type;
+              elm.className = 'testImageListenerError';
+            });
+            image.src = '404.gif?testImageListenerError';
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>&lt;img&gt; onload</strong>
+        <code id="testImgOnLoad"></code>
+        <script type="text/partytown">
+          (function () {
+            const img = document.createElement('img');
+            img.onload = function (ev) {
+              const elm = document.getElementById('testImgOnLoad');
+              elm.textContent = ev.type;
+              elm.className = 'testImgOnLoad';
+            };
+            img.src = 'dot.gif?testImgOnLoad';
+            document.body.insertBefore(img, null);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>&lt;img&gt; onerror</strong>
+        <code id="testImgOnError"></code>
+        <script type="text/partytown">
+          (function () {
+            const img = document.createElement('img');
+            img.onerror = function (ev) {
+              const elm = document.getElementById('testImgOnError');
+              elm.textContent = ev.type;
+              elm.className = 'testImgOnError';
+            };
+            img.src = '404.gif?testImgOnError';
+            document.body.appendChild(img);
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>&lt;img&gt; addEventListener('load')</strong>
+        <code id="testImgListenerLoad"></code>
+        <script type="text/partytown">
+          (function () {
+            const image = new Image();
+            image.addEventListener('load', function (ev) {
+              const elm = document.getElementById('testImgListenerLoad');
+              elm.textContent = ev.type;
+              elm.className = 'testImgListenerLoad';
+            });
+            image.src = 'dot.gif?testImgListenerLoad';
+          })();
+        </script>
+      </li>
+
+      <li>
+        <strong>&lt;img&gt; addEventListener('error')</strong>
+        <code id="testImgListenerError"></code>
+        <script type="text/partytown">
+          (function () {
+            const image = new Image();
+            image.addEventListener('error', function (ev) {
+              const elm = document.getElementById('testImgListenerError');
+              elm.textContent = ev.type;
+              elm.className = 'testImgListenerError';
+            });
+            image.src = '404.gif?testImgListenerError';
+          })();
+        </script>
+      </li>
+    </ul>
+
+    <hr />
+    <p><a href="/">All Tests</a></p>
+
+    <script>
+      partytown = {
+        logImageRequests: true,
+        logScriptExecution: true,
+      };
+    </script>
+    <script src="/~partytown/debug/partytown.js" async defer></script>
+  </body>
+</html>
