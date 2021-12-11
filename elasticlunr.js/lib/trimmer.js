@@ -1,0 +1,35 @@
+/* !
+ * elasticlunr.trimmer
+ * Copyright (C) @YEAR Oliver Nightingale
+ * Copyright (C) @YEAR Wei Song
+ */
+
+/**
+ * elasticlunr.trimmer is a pipeline function for trimming non word
+ * characters from the begining and end of tokens before they
+ * enter the index.
+ *
+ * This implementation may not work correctly for non latin
+ * characters and should either be removed or adapted for use
+ * with languages with non-latin characters.
+ *
+ * @module
+ * @param {String} token The token to pass through the filter
+ * @return {String}
+ * @see elasticlunr.Pipeline
+ */
+export default function (elasticlunr) {
+  elasticlunr.trimmer = function (_token) {
+    var token = _token.toString();
+
+    if (token === null || token === undefined) {
+      throw new Error('token should not be undefined');
+    }
+
+    return _token.update((word) => word
+      .replace(/^\W+/, '')
+      .replace(/\W+$/, ''));
+  };
+
+  elasticlunr.Pipeline.registerFunction(elasticlunr.trimmer, 'trimmer');
+};
