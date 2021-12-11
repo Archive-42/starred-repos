@@ -1,0 +1,52 @@
+{
+  "name": "sanity-asset-browser-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "Robin Pyon <robin@robinpyon.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "test": "sanity check"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^0.144.1",
+    "@sanity/components": "^0.142.10",
+    "@sanity/core": "^0.144.0",
+    "@sanity/default-layout": "^0.144.2",
+    "@sanity/default-login": "^0.144.0",
+    "@sanity/desk-tool": "^0.144.2",
+    "@sanity/schema": "^0.144.0",
+    "@sanity/vision": "^0.144.2",
+    "date-fns": "2.6.0",
+    "filesize": "5.0.3",
+    "idx": "2.5.6",
+    "immer": "4.0.2",
+    "is-hotkey": "0.1.6",
+    "pluralize": "8.0.0",
+    "prop-types": "^15.6",
+    "react": "^16.2",
+    "react-chess": "^1.1.0",
+    "react-dom": "^16.2",
+    "react-icons": "3.7.0",
+    "react-ink": "6.4.0",
+    "rxjs": "6.5.3",
+    "styled-components": "5.0.0-beta.11",
+    "styled-system": "5.1.2",
+    "use-deep-compare-effect": "1.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "10.0.3",
+    "eslint": "6.5.1",
+    "eslint-config-prettier": "6.4.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-prettier": "3.1.1",
+    "eslint-plugin-react": "7.16.0",
+    "eslint-plugin-react-hooks": "2.2.0",
+    "prettier": "1.18.2"
+  }
+}

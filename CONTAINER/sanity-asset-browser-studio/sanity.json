@@ -1,0 +1,25 @@
+{
+  "root": true,
+  "project": {
+    "name": "asset-browser-test"
+  },
+  "api": {
+    "projectId": "8d8ufi1s",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/asset-browser",
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "@sanity/vision"
+  ],
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema.js"
+    }
+  ]
+}
