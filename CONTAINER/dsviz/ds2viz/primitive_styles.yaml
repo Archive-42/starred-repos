@@ -1,0 +1,29 @@
+_point:
+  radius: 4
+  fill: [0,0,0]
+  stroke: [0,0,0]
+  stroke_width: 0
+
+_circle:
+  fill: [1,1,1]
+  stroke: [0,0,0]
+  stroke_width: 2
+
+_path:
+  fill: [1,1,1]
+  stroke: [0,0,0]
+  stroke_width: 2
+  fill: null
+
+_polygon:
+  fill: [1,1,1]
+  stroke: [0,0,0]
+  stroke_width: 2
+
+_text:
+  fontfamily: 'monospace'
+  fontsize: '32pt'
+  fill: [0,0,0]
+  stroke: [0,0,0]
+  stroke_width: 0
+  font_weight: 'normal'
