@@ -1,0 +1,226 @@
+# [110. 平衡二叉树](https://leetcode-cn.com/problems/balanced-binary-tree)
+
+[English Version](/solution/0100-0199/0110.Balanced%20Binary%20Tree/README_EN.md)
+
+## 题目描述
+
+<!-- 这里写题目描述 -->
+
+<p>给定一个二叉树，判断它是否是高度平衡的二叉树。</p>
+
+<p>本题中，一棵高度平衡二叉树定义为：</p>
+
+<blockquote>
+<p>一个二叉树<em>每个节点 </em>的左右两个子树的高度差的绝对值不超过 1 。</p>
+</blockquote>
+
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0110.Balanced%20Binary%20Tree/images/balance_1.jpg" style="width: 342px; height: 221px;" />
+<pre>
+<strong>输入：</strong>root = [3,9,20,null,null,15,7]
+<strong>输出：</strong>true
+</pre>
+
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0110.Balanced%20Binary%20Tree/images/balance_2.jpg" style="width: 452px; height: 301px;" />
+<pre>
+<strong>输入：</strong>root = [1,2,2,3,3,null,null,4,4]
+<strong>输出：</strong>false
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>root = []
+<strong>输出：</strong>true
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li>树中的节点数在范围 <code>[0, 5000]</code> 内</li>
+	<li><code>-10<sup>4</sup> <= Node.val <= 10<sup>4</sup></code></li>
+</ul>
+
+## 解法
+
+<!-- 这里可写通用的实现逻辑 -->
+
+<!-- tabs:start -->
+
+### **Python3**
+
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isBalanced(self, root: TreeNode) -> bool:
+        def height(root):
+            if root is None:
+                return 0
+            l, r = height(root.left), height(root.right)
+            if l == -1 or r == -1 or abs(l - r) > 1:
+                return -1
+            return 1 + max(l, r)
+        
+        return height(root) >= 0
+```
+
+### **Java**
+
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean isBalanced(TreeNode root) {
+        return height(root) >= 0;
+    }
+
+    private int height(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int l = height(root.left);
+        int r = height(root.right);
+        if (l == -1 || r == -1 || Math.abs(l - r) > 1) {
+            return -1;
+        }
+        return 1 + Math.max(l, r);
+    }
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isBalanced = function(root) {
+    let height = function(root) {
+        if (root == null) {
+            return 0;
+        }
+        const l = height(root.left);
+        const r = height(root.right);
+        if (l == -1 || r == -1 || Math.abs(l - r) > 1) {
+            return -1;
+        }
+        return 1 + Math.max(l, r);
+    }
+
+    return height(root) >= 0;
+};
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isBalanced(TreeNode* root) {
+        return height(root) >= 0;
+    }
+
+    int height(TreeNode* root) {
+        if (!root) return 0;
+        int l = height(root->left), r = height(root->right);
+        if (l == -1 || r == -1 || abs(l - r) > 1) return -1;
+        return 1 + max(l, r);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func isBalanced(root *TreeNode) bool {
+	return height(root) >= 0
+}
+
+func height(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	l, r := height(root.Left), height(root.Right)
+	if l == -1 || r == -1 || abs(l-r) > 1 {
+		return -1
+	}
+	return 1 + max(l, r)
+}
+
+func abs(x int) int {
+	if x >= 0 {
+		return x
+	}
+	return -x
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **...**
+
+```
+
+```
+
+<!-- tabs:end -->
