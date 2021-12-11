@@ -1,0 +1,24 @@
+@import "../utils/placeholders";
+
+// TODO need to get this all sorted out
+
+figure {
+  margin: 40px auto;
+  // max-width: 300px;
+
+  img {
+    display: block;
+    // border: 1px solid #eee;
+    // border-radius: 2px;
+  }
+
+  figcaption {
+    font-family: 'Inter UI';
+    font-size: 11px;
+    font-style: italic;
+    max-width: 300px;
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+  }
+}

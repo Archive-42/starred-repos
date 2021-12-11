@@ -1,0 +1,156 @@
+---
+layout: home
+header: light
+desc: Beaker is a new peer-to-peer browser for a Web where users control their data and websites are hosted locally.
+---
+<div class="hero">
+
+  {% comment %}
+  <div class="container">
+    <a class="notice" href="https://decentralizedweb.net/">
+      <div class="badge round">
+        July 31
+      </div>
+
+      <span>
+        Decentralized Web Summit, San Francisco
+      </span>
+    </a>
+  </div>
+  {% endcomment %}
+
+  <div class="container hero-container">
+    <div class="hero-container-col">
+      <h1 class="tagline">
+        Beaker Browser
+      </h1>
+
+      <p class="description">
+        An experimental peer-to-peer Web browser.
+      </p>
+
+      <p class="cta">
+        <a href="/install/" class="btn action white">
+          Install Beaker
+        </a>
+
+        <a href="https://docs.beakerbrowser.com/" class="btn white">
+          Read the Docs
+        </a>
+      </p>
+    </div>
+
+    <div class="hero-container-col video">
+      <video autoplay loop playsinline poster="/img/beaker-site-demo-poster.png" src="/beaker-site-demo.mp4"></video>
+    </div>
+  </div>
+
+  <div class="testimonials-wrapper">
+    {% for t in site.data.testimonials %}
+      <a class="testimonial" href="{{ t.href }}">
+        <img class="avatar" src="{{ t.img }}"/>
+        <q class="testimonial__quote">{{ t.text }}</q>
+      </a>
+    {% endfor %}
+  </div>
+
+  <div class="container">
+    <button id="show-all-testimonials">
+      <span>Show more</span>
+      <span class="fa fa-angle-down"></span>
+    </button>
+  </div>
+
+  <script src="/js/testimonials.js"></script>
+</div>
+
+<div class="section features">
+  <div class="container featuregrid">
+    <div class="featuregrid-col">
+      <div class="img-container">
+        <img src="/img/feature-instant-deploy.png">
+      </div>
+      <h2>Create a P2P site</h2>
+      <p>
+        Create a new Hyperdrive site with one click.
+      </p>
+    </div>
+
+    <div class="featuregrid-col">
+      <div class="img-container">
+        <img src="/img/feature-editor.png">
+      </div>
+      <h2>Edit the source</h2>
+      <p>
+        The integrated editor lets you work side-by-side with your page.
+      </p>
+    </div>
+
+    <div class="featuregrid-col">
+      <div class="img-container">
+        <img src="/img/feature-cohost.png">
+      </div>
+      <h2>And share!</h2>
+      <p>
+        Other Beaker users can visit your site directly from your computer.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% include midcta.html %}
+
+<div class="section how-it-works">
+  <div class="container narrow">
+    <div class="columns">
+      <div class="col col-1-2">
+        <img src="/img/how-it-works/url-bar.svg"/>
+      </div>
+    
+      <div class="col col-1-2">
+        <h3>How it works</h3>
+
+        <p>
+          Beaker uses a new peer-to-peer network called
+          <strong><a href="https://hypercore-protocol.org">Hypercore Protocol</a>.</strong>
+          Other Beaker users can visit these Websites with no servers required.
+        </p>
+      </div>
+    </div>    
+  </div>
+</div>
+
+<div class="section code-examples">
+  <div class="container columns">
+    <div class="col col-1-2">
+      <div class="codebox">
+        {% include code-examples/hyperdrive.html %}
+      </div>
+    </div>
+    <div class="col col-1-2">
+      <h3>Read & write files</h3>
+      <p><a href="https://docs.beakerbrowser.com/apis/beaker.hyperdrive" target="_blank">beaker.hyperdrive API <span class="fa fa-arrow-right"></span></a></p>
+    </div>
+  </div>
+</div>
+
+<div class="section what">
+  <div class="container columns">
+    <div class="col col-1-2">
+      <img src="/img/what-is-beaker.svg"/>
+    </div>
+
+    <div class="col col-1-2">
+      <h3>
+        Make Websites from inside the browser
+      </h3>
+
+       <p>
+        Beaker is great for classrooms and offices where you need an easy way to share Websites
+        without setting up servers or touching the command-line.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% include midcta.html %}

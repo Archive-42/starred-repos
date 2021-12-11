@@ -1,0 +1,9 @@
+{% highlight javascript %}
+async function readSocialFeed (sites) {
+  return beaker.hyperdrive.query({
+    path: '/microblog/*',
+    drive: sites.map(site => site.url),
+    sort: 'ctime'
+  })
+}
+{% endhighlight %}

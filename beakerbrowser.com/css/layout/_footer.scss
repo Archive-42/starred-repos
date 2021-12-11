@@ -1,0 +1,47 @@
+.footer {
+  padding: 40px 0;
+  background: $blue;
+  color: #fff;
+  margin-top: 60px;
+
+  a {
+
+    &:not(.btn):hover {
+      text-decoration: underline;
+    }
+  }
+
+  .container {
+    @extend %flex;
+    align-items: flex-start !important;
+    flex-direction: column;
+  }
+
+  .col {
+    flex-basis: 33%;
+    margin-bottom: 40px;
+
+    &:first-child > div:first-child {
+      margin-bottom: 20px;
+    }
+  }
+
+  .links {
+    font-size: 15px;
+
+    a {
+      display: block;
+    }
+  }
+
+  @include respond-to(show-grid-3) {
+
+    .container {
+      flex-direction: row;
+    }
+
+    .col {
+      margin-bottom: 0;
+    }
+  }
+}
