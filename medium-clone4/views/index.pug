@@ -1,0 +1,37 @@
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel="stylesheet" href="/stylesheets/trending.css")
+  //- add page specific js
+  //- script(src="/javascripts/index.js" type="module" defer)
+
+block content
+  div(class="hero")
+
+    h1 Where good poems find you
+    p Read and share you're favorite poems with the world. Everyone’s welcome.
+    if !session.auth
+      a(href='/users/new' class="heroButton") Get Started
+  div(class='img-cont')
+    img(class= 'poe-quote' src='../images/poe-quote.jpg')    
+  div(class="trending container") 
+    if following
+      div(class='articles-cont')
+        h2(class="trending-title") <i class="fas fa-user-friends"></i> LATEST FROM FOLLOWING
+        div(class="articles-div mb-40")
+          each follow in following, i
+            div(class="trending-article-box")
+                a(href=`/users/${follow.User.id}` class="trending-article-name following-name") #{follow.User.userName}
+          //- p=follow.User.userName
+    h2(class="trending-title") <i class="far fa-arrow-alt-circle-down"></i> TRENDING ON POEDIUM
+    div(class='articles-cont')
+      div(class="articles-div")
+        each article,i in articles
+          div(class="trending-article")
+            p(class="number") 0#{i+1}
+            div(class="trending-article-box")
+              a(href=`/users/${article.User.id}` class="trending-article-name") #{article.User.firstName} #{article.User.lastName}
+              a(href=`/articles/${article.id}` class="trending-article-title")=article.title
+              p(class="trending-article-date") Dec 7 · #{Math.floor(Math.random()*6)+1} min read

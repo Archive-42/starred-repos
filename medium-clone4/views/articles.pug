@@ -1,0 +1,12 @@
+extends layout
+block content
+    div(class="new-articles-container")
+        form(method='post' action='/articles/new')
+            input(type='hidden' name='_csrf' value=token)
+            input(type='hidden' name='userId' value=session.auth.userId)
+            input(name='title' type='text' class="new-article-title" placeholder='Title')
+            div
+            textarea(name='body' class="new-article-body" placeholder='Write your poem')
+            div
+                button(type='submit' class="black-outline" value='submit') Submit
+    

@@ -1,0 +1,79 @@
+doctype html
+<html lang='en' prefix='og: http://ogp.me/ns#'>
+  head
+      <title>Poedium</title>
+      <meta name="title" content="Poedium">
+      <meta name="description" content="A Community for Poets">
+      <!-- Open Graph / Facebook -->
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://poedium.herokuapp.com/">
+      <meta property="og:title" content="Poedium">
+      <meta property="og:description" content="A Community for Poets">
+      <meta property="og:image" content="https://i.imgur.com/WhGBpfw.png">
+      <!-- Twitter -->
+      <meta property="twitter:card" content="summary_large_image">
+      <meta property="twitter:url" content="https://poedium.herokuapp.com/">
+      <meta property="twitter:title" content="Poedium">
+      <meta property="twitter:description" content="A Community for Poets">
+      <meta property="twitter:image" content="https://i.imgur.com/WhGBpfw.png">
+
+      block head
+        title="Poedium"
+        link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel="stylesheet", href="/stylesheets/navbar.css")
+        link(rel="stylesheet", href="/stylesheets/articles.css")
+        <script src="https://kit.fontawesome.com/1f57d4952c.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.1/moment.min.js"></script>
+
+        
+
+  body
+    if !session.auth
+      div(class="navbar yellow")
+        div
+          a(href="/" class="logo") <i class="fas fa-crow"></i> Poedium
+        div(class="navlinks")
+          ul
+            li(class="lg-only") Our Story
+            li(class="lg-only") Membership
+            li(class="lg-only") Write
+            li 
+                a(href="/users/login" id="login" ) Login     
+          a(href="/users/new" id="getStarted" class= 'get_started_button') Get Started       
+    if session.auth
+      div(class="navbar")
+        div 
+          a(href="/" class="logo") <i class="fas fa-crow"></i> Poedium
+        a(href=`/users/${session.auth.userId}` class="nav_user" )  
+          div(class="greeting lg-only") Hello #{session.auth.userName}
+        div(class="navlinks")
+          ul
+            //- li(class="lg-only") Our Story
+            //- li(class="lg-only") Membership
+            div(class="user-menu")
+              li(class="dropdown") 
+                <i class="fas fa-user user-icon"></i>
+                div(class="dropdown-content") 
+                  a(href="/users/logout" id="logout" ) Logout 
+                  a(href="/articles/new" id="newPoem" ) Write a poem
+                  a(href=`/users/${session.auth.userId}` id="myPoems" ) My Poems 
+    //- script(src="/javascripts/index.js")
+            
+    block content
+    div(class='break')
+    div(class='footer')
+      div(class='flex-footer')
+        a(target="_blank" href=`http://michaelsanford.me`) Mike Sanford
+        a(href='https://github.com/mikethecodegeek') <i class="fab fa-github"></i>
+        a(href='https://www.linkedin.com/in/michael-sanford-1180b3115/') <i class="fab fa-linkedin"></i>
+
+      div(class='flex-footer')
+        a(href=`mailto:tannerschmutte@gmail.com`) Tanner Schmutte
+        a(href='https://github.com/tanner-schmutte') <i class="fab fa-github"></i>
+        a(href='https://www.linkedin.com/in/tannman/') <i class="fab fa-linkedin"></i>
+      
+      div(class='flex-footer')
+        a(target="_blank" href=`https://nickmenon.com/`) Nick Menon
+        a(href='https://github.com/nikhilmenon2') <i class="fab fa-github"></i>
+        a(href='https://www.linkedin.com/in/nickmenon/') <i class="fab fa-linkedin"></i>
+     

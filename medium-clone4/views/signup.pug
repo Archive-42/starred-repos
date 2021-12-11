@@ -1,0 +1,37 @@
+extends layout
+block content 
+  title= title
+  h1= title
+
+   div(id="myModal" class="modal")
+      div(class="modal-content")
+        span
+          a(href="/" class="modalClose") X
+        p(class="modalTitle") Join Poedium.
+        if errors
+          ul
+            for error in errors
+              li(class='error')=error
+        form(method="post" action="/users/new")
+          div(class="modalInputFields")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            //- label(for="firstName") Enter A Firstname 
+            input(class="modalInput" type="text" name="firstName" placeholder="Enter First Name" value=user.firstName)
+            br
+            //- label(for="lastName") Enter A Lastname
+            input(class="modalInput" type="text" name="lastName" placeholder = "Enter Last Name" value=user.lastName)
+            br
+            //- label(for="userName") Enter A Username
+            input(class="modalInput" type="text" name="userName" placeholder="Enter Username" value=user.userName)
+            br
+            //- label(for="email") Enter Your Email
+            input(class="modalInput" type="email" name='email' placeholder="Enter Email" value=user.email)
+            br
+            //- label(for="password") Password
+            input(class="modalInput" type="password" name='password' placeholder="Enter Password")
+            br
+            //- label(for="confirmPassword") Confirm Password
+            input(class="modalInput" type="password" name="confirmPassword" placeholder="Confirm Password")
+            br
+            button(class="modalSubmit" type="submit" value='Submit') Submit
+  script(src="/javascripts/modal.js")
