@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+og_image: {{ title | slug }}
+---
+
+<div class="entry-header">
+  <h1 class="entry-heading">{{ title }}</h1>
+  submitted on <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time> by {% author author %}
+</div>
+
+<div class="entry">
+  {{ content | safe }}
+</div>
+
+{% set previousPost = collections.entries | getPreviousCollectionItem(page) %}
+{% set nextPost = collections.entries | getNextCollectionItem(page) %}
+
+<nav aria-label="Select next or previous entry">
+  <ol class="page-nav">
+    {% if previousPost %}
+      <li class="page-nav__item page-nav__item--prev">
+        <a class="page-nav__link page-nav__link--prev" href="{{ previousPost.url }}">
+          <div class="page-nav__label">Previous</div>
+          {{ previousPost.data.title }}
+        </a>
+      </li>
+    {% endif %}
+
+    {% if nextPost %}
+      <li class="page-nav__item page-nav__item--next">
+        <a class="page-nav__link page-nav__link--next" href="{{ nextPost.url }}">
+          <div class="page-nav__label">Next</div>
+          {{ nextPost.data.title }}
+        </a>
+      </li>
+    {% endif %}
+  </ol>
+</nav>
