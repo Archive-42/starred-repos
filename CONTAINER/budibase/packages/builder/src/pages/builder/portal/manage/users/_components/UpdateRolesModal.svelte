@@ -1,0 +1,72 @@
+<script>
+  import { createEventDispatcher } from "svelte"
+  import { Body, Select, ModalContent, notifications } from "@budibase/bbui"
+  import { users } from "stores/portal"
+
+  export let app
+  export let user
+
+  const NO_ACCESS = "NO_ACCESS"
+
+  const dispatch = createEventDispatcher()
+
+  const roles = app.roles
+  let options = roles
+    .filter(role => role._id !== "PUBLIC")
+    .map(role => ({ value: role._id, label: role.name }))
+  options.push({ value: NO_ACCESS, label: "No Access" })
+  let selectedRole = user?.roles?.[app?._id]
+
+  async function updateUserRoles() {
+    let res
+    if (selectedRole === NO_ACCESS) {
+      // remove the user role
+      const filteredRoles = { ...user.roles }
+      delete filteredRoles[app?._id]
+      res = await users.save({
+        ...user,
+        roles: {
+          ...filteredRoles,
+        },
+      })
+    } else {
+      // add the user role
+      res = await users.save({
+        ...user,
+        roles: {
+          ...user.roles,
+          [app._id]: selectedRole,
+        },
+      })
+    }
+
+    if (res.status === 400) {
+      notifications.error("Failed to update role")
+    } else {
+      notifications.success("Role updated")
+      dispatch("update")
+    }
+  }
+</script>
+
+<ModalContent
+  onConfirm={updateUserRoles}
+  title="Update App Role"
+  confirmText="Update role"
+  cancelText="Cancel"
+  size="M"
+  showCloseIcon={false}
+>
+  <Body>
+    Update {user.email}'s role for <strong>{app.name}</strong>.
+  </Body>
+  <Select
+    placeholder={null}
+    bind:value={selectedRole}
+    on:change
+    {options}
+    label="Role"
+    getOptionLabel={role => role.label}
+    getOptionValue={role => role.value}
+  />
+</ModalContent>
