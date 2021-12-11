@@ -1,0 +1,52 @@
+{
+  "name": "js-to-json-logic",
+  "version": "0.1.3",
+  "description": "Generate JSON Logic objects using JavaScript syntax.",
+  "main": "lib/index.js",
+  "types": "js-to-json-logic.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/krismuniz/js-to-json-logic.git"
+  },
+  "scripts": {
+    "test": "nyc --reporter=html --reporter=text mocha",
+    "lint": "eslint ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
+  },
+  "files": [
+    "*.d.ts",
+    "lib"
+  ],
+  "runkitExample": "const transformJS = require('js-to-json-logic');",
+  "keywords": [
+    "json",
+    "logic",
+    "rules",
+    "code",
+    "jsonlogic",
+    "json-logic",
+    "js-to-json"
+  ],
+  "author": "Kristian Muñiz <contact@krismuniz.com> (https://krismuniz.com)",
+  "license": "MIT",
+  "dependencies": {
+    "meriyah": "^1.9.15"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^7.3.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.5",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0"
+  }
+}
