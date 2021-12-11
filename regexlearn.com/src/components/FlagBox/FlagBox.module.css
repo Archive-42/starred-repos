@@ -1,0 +1,36 @@
+.FlagBox {
+  display: flex;
+  margin-top: 10px;
+  align-items: flex-start;
+}
+
+.FlagBoxItem {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 5px;
+  position: relative;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.FlagBoxItemInput {
+  margin-right: 5px;
+}
+
+.FlagBoxItemHighlight {
+  color: var(--primary);
+}
+
+.FlagBoxShortcutWrapper {
+  display: flex;
+}
+
+
+
+@media only screen and (max-width: 374px) {
+  .FlagBox {
+    flex-direction: column;
+  }
+}

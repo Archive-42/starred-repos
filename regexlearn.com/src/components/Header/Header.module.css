@@ -1,0 +1,60 @@
+.Header {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.HeaderNav {
+  display: flex;
+  align-items: center;
+  color: var(--txt-1);
+  font-size: 14px;
+}
+
+.HeaderLink {
+  text-decoration: none;
+  color: var(--txt-1);
+  margin-left: 20px;
+  user-select: none;
+  transition: .3s;
+}
+
+.HeaderLink :global(svg) {
+  margin-left: 5px;
+  transition: .3s;
+}
+
+.HeaderLinkActive {
+  color: var(--primary);
+  border-bottom: 1px solid var(--primary);
+}
+
+.HeaderLink:not(.HeaderLinkDisabled):hover,
+.HeaderLink:not(.HeaderLinkDisabled):hover :global(svg) {
+  color: var(--primary);
+}
+
+.HeaderLinkDisabled {
+  display: flex;
+  align-items: center;
+  color: var(--txt-3);
+  cursor: pointer;
+  margin-right: -4px;
+}
+
+.HeaderLinkDisabledIcon {
+  margin-left: 0.3em;
+}
+
+@media only screen and (max-width: 600px) {
+  .HeaderLink {
+    margin-left: 10px;
+  }
+
+  .HeaderLinkDisabledIcon {
+    display: none;
+  }
+}

@@ -1,0 +1,44 @@
+.Footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 80px;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.FooterSocial {
+  display: flex;
+  align-items: center;
+  color: var(--txt-1);
+  font-size: 14px;
+}
+
+.FooterSocialLink {
+  text-decoration: none;
+  color: var(--txt-1);
+  margin: 0 10px;
+}
+
+.FooterSocialLink:hover {
+  color: var(--primary);
+}
+
+.FooterCopyright {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.FooterCopyrightLink {
+  text-decoration: none;
+  user-select: none;
+  color: var(--txt-3);
+}
+
+.FooterCopyrightLink:hover {
+  opacity: .8;
+}
