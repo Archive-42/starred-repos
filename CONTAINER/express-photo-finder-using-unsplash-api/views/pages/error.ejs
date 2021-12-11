@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+
+<header>
+  <%- include('../partials/header', { 
+    page: 0,
+    query: 0
+  }); %>
+</header>
+
+<main role="main" class="grid-container m-t-100">
+  <h3 class="color-grey uppercase">Error 🤦</h3>
+    <section class="content">
+      <p class="lead"><%= error %> <a href="/search">Please try again</a></p>
+    </section>
+</main>
+
+<%- include('../partials/footer') %>
+
+</body>
+</html>

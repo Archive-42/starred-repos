@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+
+<header>
+  <%- include('../partials/header', { 
+    page: output.page,
+    query: output.query
+  }); %>
+</header>
+
+<main role="main" class="grid-container m-t-100">
+  <h3 class="color-grey uppercase"><%= (output.total).toLocaleString() %> results for "<%= output.query %>"</h3>
+
+  <section class="jumbotron p-20">
+    <% if (output.results.length) { %>
+    <p class="lead">
+
+      <a href="/search?page=<%= Number(output.page) - 1 %>&query=<%= output.query %>&totalpages=<%= output.total_pages %>" class="m-l-10"><i class="fas fa-arrow-circle-left"></i> prev</a> | 
+
+      <a href="/search?page=<%= Number(output.page) + 1 %>&query=<%= output.query %>&totalpages=<%= output.total_pages %>">next <i class="fas fa-arrow-circle-right"></i></a>
+
+      <span class="m-l-10">page <%= (output.page).toLocaleString() %> of <%= Number(output.total_pages).toLocaleString() %></span>
+
+    </p>
+    <% } %>
+  
+  <%- include('../partials/form', { query : '' }) %>
+  
+  <article class="image-container">
+
+  <%
+  const params = `&w=300&h=300&fit=crop&fm=jpg&q=95`;
+  output.results.forEach(item => { %>
+      <section style="background-image:url(<%= item.urls.regular %><%= params %>)" class="image">
+        <i class="fas fa-1x fa-star favourite" id="<%= item.id %>"></i>
+        <div class="details">
+          <a href="<%= item.links.html %>" target="_blank" class="new-tab-icon">
+          <i class="fas fa-info-circle info"></i>
+          <span>@<%= item.user.username.substr(0, 6) %></span></a>
+        </div>
+      </section>
+  <%
+  });
+  %>
+  </article>
+</main>
+
+<script>
+  // const existingResults = window.localStorage.getItem('results') || '[]';
+  const newResults = <%- JSON.stringify(output.results, null, 2) %>;
+  // const combinedResults = [...JSON.parse(existingResults), ...newResults];
+  // console.log({ combinedResults });
+  window.localStorage.setItem('results', JSON.stringify(newResults));
+</script>
+<script src="script.js"></script>
+<script>
+  generateFavourites();
+</script>
+<%- include('../partials/footer') %>
+
+</body>
+</html>

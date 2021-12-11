@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark nav-centering">
+  <a class="navbar-brand" href="/">
+    <i class="fas fa-images" aria-hidden="true"></i>
+    <strong>Unsplash Photo Finder</strong>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto nav-centering">
+      <li class="nav-item">
+        <a class="nav-link<%= uri == '/' || uri == '/search' ? ' active' : '';  %>" href="/new-search">Search</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link<%= uri.includes('favourites') ? ' active' : '';  %> saved-favourites" href="/favourites?page=<%= page || null %>&query=<%= query || null %>">Favourites</a>
+      </li>
+      <li class="nav-item<%= uri == '/about' ? ' active' : '';  %>">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</nav>

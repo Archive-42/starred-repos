@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+
+<header>
+  <%- include('../partials/header', { 
+    page,
+    query
+  }); %>
+</header>
+
+<main role="main" class="grid-container m-t-100">
+  <h3 class="color-grey uppercase">Favourites</h3>
+  <section class="jumbotron p-20">
+    <p class="lead">Favourite photos with <i class="fas fa-1x fa-star favourite on"></i> and get full info with <i class="fas fa-info-circle info"></i></p>
+    <article class="image-container">
+    </article>
+    <p class="lead m-t-15"><a href="/"><i class="fa fa-search" aria-hidden="true"></i> Search again</a> | <a href="/favourites"><i class="fas fa-redo-alt"></i> Refresh favourites</a></p>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>
+
+<script src="script.js" defer></script>
+<script src="favourites.js" defer></script>
+
+
+</body>
+</html>
