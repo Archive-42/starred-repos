@@ -1,0 +1,33 @@
+name: "continuous-reforestation"
+description: "Plant trees within your development workflow with digitalhumani.com"
+author: "protontypes"
+branding:
+  icon: 'award'  
+  color: 'green'
+
+inputs:
+  apikey:
+    description: "The API key obtained from digitalhumani.com"
+  enterpriseid:
+    description: "Id of your enterprise. Example of an enterprise id: 11111111 (Enterprise Ids are 8 digits long)"
+    required: true
+  user:
+    decription: "End user by whom the trees were planted"
+    default: ${{ github.actor }}
+  projectid:
+    description: "Id of the reforestation project for where you want the trees to be planted. Example of an id: 93333333 (Project Ids are 8 digits long)"
+    required: true
+  treeCount:
+    description: "Number of trees requested to plant. Example: 1"
+    default: 1
+  production:
+    decription: "Use sandbox or production API"
+    default: "false"
+outputs:
+  response:
+    description: "JSON response of the RaaS API"
+  plantedTrees:
+    description: "Number of trees planted by the enterprise."
+runs:
+  using: "docker"
+  image: "Dockerfile"
