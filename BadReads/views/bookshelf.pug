@@ -1,0 +1,52 @@
+extends layout.pug
+
+
+block content
+    section(class="content-window")
+        div(class="bookshelf-container")
+            div(class="sidebar")
+                ul(class="status-container")
+                    li
+                        a(href= "/bookshelf",class="status" )
+                            button(class="bookshelf-button") all
+                    li
+                        a(href= "/bookshelf/wantToRead",class="status")
+                            button(class="bookshelf-button") want to read
+                    li
+                        a(href= "/bookshelf/reading",class="status")
+                            button(class="bookshelf-button") reading
+                    li
+                        a(href= "/bookshelf/haveRead",class="status")
+                            button(class="bookshelf-button") have read
+
+
+            section(class="main-pagez")
+                div(class= "bookshelf-table")
+                    div(class= "bookshelf-titlebar")
+                        div(class= "bookshelf-title") title
+                        div(class= "bookshelf-title") rating
+                        div(class= "bookshelf-title") review
+                    div(class="bsscontainer")
+                        each book in userBookInfo.Books
+                            if book.UserBook.status === bookStatus
+                                div(class= "bookshelf-column")
+                                    h1
+                                        a(class="book-name" href=`/book/${book.id}`)= book.name
+                                            a(href=`/book/${book.id}`)
+                                                img(src=`../stylesheets/images/book-covers/${book.id}.png` class="book-cover")
+                                        div
+                                            form(action=`/bookshelf/${book.id}/delete` method="post")
+                                                input(class="bookshelf-button" type="submit" value="remove")
+                                    p(class="rating")=`${book.UserBook.rating}/5`
+                                    p(class="bookshelf-review")= book.UserBook.review
+                            else if bookStatus === undefined
+                                div(class= "bookshelf-column")
+                                    h1
+                                        a(class="book-name" href=`/book/${book.id}`)= book.name
+                                            a(href=`/book/${book.id}`)
+                                                img(src=`../stylesheets/images/book-covers/${book.id}.png` class="book-cover")
+                                        div
+                                            form(action=`/bookshelf/${book.id}/delete` method="post")
+                                                input(class="bookshelf-button" type="submit" value="remove")
+                                    p(class="rating")=`${book.UserBook.rating}/5`
+                                    p(class="bookshelf-review")= book.UserBook.review
