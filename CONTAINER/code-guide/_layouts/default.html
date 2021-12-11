@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    <title>
+      {{ site.name }}
+    </title>
+
+    <meta name="description" content="Standards for developing consistent, flexible, and sustainable HTML and CSS">
+    <link rel="canonical" href="https://codeguide.co">
+    
+    <link rel="stylesheet" href="cg.css">
+
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-146052-17', 'codeguide.co');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+  </head>
+  <body>
+
+    {% include header.html %}
+
+    <main class="container" role="main">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    {% include js.html %}
+
+  </body>
+</html>
