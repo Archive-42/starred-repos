@@ -19,7 +19,7 @@
     "gray-matter": "^4.0.3",
     "image-size": "^1.0.0",
     "katex": "^0.13.11",
-    "next": "10.2.3",
+    "next": "12.1.0",
     "next-images": "^1.7.0",
     "next-mdx-remote": "3.0.2",
     "next-yaml": "^1.0.1",
