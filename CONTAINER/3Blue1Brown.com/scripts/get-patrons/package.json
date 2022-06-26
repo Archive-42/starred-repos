@@ -9,7 +9,7 @@
   "dependencies": {
     "array-sort": "^1.0.0",
     "dotenv": "^9.0.1",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "patreon": "^0.4.1",
     "yaml": "^1.10.2"
   }
