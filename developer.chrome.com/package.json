@@ -124,7 +124,7 @@
     "sizeof": "^1.0.0",
     "stylelint": "^13.7.0",
     "stylelint-config-sass-guidelines": "^7.1.0",
-    "terser": "^5.4.0",
+    "terser": "^5.14.2",
     "tmp": "^0.2.1",
     "unified-lint-rule": "^1.0.6",
     "unist-util-visit": "^2.0.3",
